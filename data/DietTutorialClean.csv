@@ -1,0 +1,1765 @@
+LingID,LingLength_cm,LingWt_g,Season,PreyTaxa,PreyOccur,PreyWt_g,PreyNum,PreyCode
+562,33,280,Spring,Ammodytidae,1,0.2,1,4
+1139,33,250,Summer,Empty,0,0,0,1
+1273,33,240,Summer,Order Pleuronectiformes,1,0.3,1,2
+1304,33,360,Summer,Cottidae,1,0.8,1,3
+1304,33,360,Summer,Cottidae,1,1.5,1,3
+1376,33,240,Summer,Empty,0,0,0,1
+1633,33,260,Summer,Empty,0,0,0,1
+1530,34,320,Summer,Empty,0,0,0,1
+1681,34,300,Summer,Cottidae,1,3.2,1,3
+1745,34,250,Fall,Order Decapoda,1,4.5,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0,1,2
+145,35,700,Summer,Gadidae,1,0.04,1,2
+264,35,360,Summer,Ammodytidae,1,0.4,1,2
+264,35,360,Summer,Ammodytidae,1,0.7,1,2
+264,35,360,Summer,Ammodytidae,1,0.8,1,3
+264,35,360,Summer,Ammodytidae,1,1,1,3
+264,35,360,Summer,Clupeidae,1,3.6,1,3
+264,35,360,Summer,Clupeidae,1,4.7,1,3
+264,35,360,Summer,Gadidae,1,2,1,3
+538,35,300,Spring,Cottidae,1,0.2,1,2
+578,35,360,Spring,Empty,0,0,0,1
+1372,35,340,Summer,Empty,0,0,0,1
+1375,35,360,Summer,Cottidae,1,0.4,1,2
+1375,35,360,Summer,Suborder Zoarcoidei,1,0.2,1,2
+1375,35,360,Summer,Suborder Zoarcoidei,1,0.2,1,2
+1470,35,280,Summer,Empty,0,0,0,1
+1521,35,320,Summer,Order Decapoda,1,0.1,1,2
+1521,35,320,Summer,Order Pleuronectiformes,1,3.9,1,3
+1675,35,320,Summer,Gadidae,1,0.5,1,2
+1676,35,320,Summer,Order Decapoda,1,0.3,1,2
+1716,35,340,Fall,Empty,0,0,0,1
+1782,35,340,Fall,Order Decapoda,1,1.6,1,3
+1802,35,320,Fall,Gadidae,1,3,1,3
+1815,35,300,Fall,Empty,0,0,0,1
+866,36,300,Fall,Cottidae,1,0.7,1,2
+866,36,300,Fall,Order Decapoda,1,0.1,1,2
+1299,36,350,Summer,Ammodytidae,1,0.1,1,2
+1312,36,350,Summer,Empty,0,0,0,1
+1336,36,320,Summer,Order Decapoda,1,0.3,1,2
+1378,36,300,Summer,Clupeidae,1,0.3,1,2
+1488,36,340,Summer,Ammodytidae,1,0.1,1,2
+1488,36,340,Summer,Ammodytidae,1,1.1,1,3
+1489,36,340,Summer,Ammodytidae,1,2.2,1,3
+1525,36,360,Summer,Cottidae,1,3.9,1,3
+1605,36,350,Summer,Empty,0,0,0,1
+1711,36,350,Fall,Gadidae,1,11.4,1,3
+1746,36,300,Fall,Empty,0,0,0,1
+1821,36,300,Fall,Embiotocidae,1,2,1,3
+2031,36,320,Spring,Order Scorpaeniformes,1,0.22,1,2
+2031,36,320,Spring,Teleostei NEI,1,0.01,1,2
+110,37,400,Summer,Ammodytidae,1,0.8,1,3
+110,37,400,Summer,Scorpaenidae,1,0.8,1,3
+265,37,390,Summer,Hexagrammidae,1,4.4,1,2
+817,37,360,Fall,Teleostei NEI,1,4.3,1,2
+1256,37,400,Summer,Teleostei NEI,1,1.4,1,2
+1397,37,340,Summer,Suborder Zoarcoidei,1,2.7,1,3
+1480,37,350,Summer,Empty,0,0,0,1
+1507,37,380,Summer,Teleostei NEI,1,0.9,1,2
+1672,37,380,Summer,Empty,0,0,0,1
+1724,37,400,Fall,Gadidae,1,5.6,1,3
+1825,37,360,Fall,Cottidae,1,0.4,1,2
+1825,37,360,Fall,Order Decapoda,1,0.2,1,2
+1825,37,360,Fall,Cottidae,1,2.8,1,3
+172,38,400,Summer,Ammodytidae,1,0.5,1,2
+249,38,450,Summer,Clupeidae,1,2.5,1,3
+249,38,450,Summer,Clupeidae,1,2.6,1,3
+249,38,450,Summer,Clupeidae,1,3.2,1,3
+249,38,450,Summer,Clupeidae,1,3.2,1,3
+706,38,400,Fall,Teleostei NEI,1,1,1,2
+706,38,400,Fall,Teleostei NEI,1,1.2,1,2
+738,38,350,Fall,Cottidae,1,0.7,1,3
+738,38,350,Fall,Cottidae,1,1.1,1,3
+794,38,400,Fall,Empty,0,0,0,1
+829,38,380,Fall,Clupeidae,1,0.4,1,2
+868,38,360,Fall,Cottidae,1,0.1,1,2
+1138,38,350,Summer,Empty,0,0,0,1
+1374,38,420,Summer,Order Decapoda,1,0.2,1,2
+1451,38,400,Summer,Suborder Zoarcoidei,1,2.6,1,3
+1458,38,400,Summer,Teleostei NEI,1,1.8,1,2
+1618,38,360,Summer,Empty,0,0,0,1
+1688,38,400,Summer,Ammodytidae,1,0.2,1,2
+1688,38,400,Summer,Cottidae,1,2.6,1,3
+2129,38,400,Spring,Cottidae,1,1.14,1,3
+260,39,450,Summer,Ammodytidae,1,0.3,1,2
+260,39,450,Summer,Ammodytidae,1,0.3,1,2
+260,39,450,Summer,Ammodytidae,1,0.5,1,2
+736,39,400,Fall,Cottidae,1,0.3,1,2
+787,39,400,Fall,Empty,0,0,0,1
+855,39,430,Fall,Cottidae,1,0.3,1,2
+855,39,430,Fall,Cottidae,1,0.5,1,2
+855,39,430,Fall,Order Decapoda,1,1.8,1,3
+880,39,420,Fall,Cottidae,1,0.3,1,2
+882,39,440,Fall,Cottidae,1,3.3,1,3
+924,39,350,Fall,Order Decapoda,1,0.3,1,2
+924,39,350,Fall,Teleostei NEI,1,0.3,1,2
+971,39,520,Fall,Order Decapoda,1,0.9,1,2
+971,39,520,Fall,Gadidae,1,10.6,1,3
+1428,39,420,Summer,Cottidae,1,0.3,1,2
+1502,39,430,Summer,Empty,0,0,0,1
+1652,39,460,Summer,Clupeidae,1,0.1,1,2
+1652,39,460,Summer,Order Pleuronectiformes,1,7,1,3
+1654,39,500,Summer,Empty,0,0,0,1
+1722,39,450,Fall,Embiotocidae,1,8.4,1,3
+1747,39,450,Fall,Empty,0,0,0,1
+1775,39,380,Fall,Teleostei NEI,1,1.8,1,2
+1885,39,420,Winter,Empty,0,0,0,1
+1924,39,400,Winter,Cottidae,1,0.11,1,2
+1951,39,400,Winter,Empty,0,0,0,1
+1993,39,380,Spring,Empty,0,0,0,1
+2021,39,460,Spring,Gadidae,1,0.08,1,2
+2021,39,460,Spring,Gadidae,1,0.09,1,2
+2021,39,460,Spring,Gadidae,1,0.2,1,2
+2021,39,460,Spring,Scorpaenidae,1,9.6,1,3
+2081,39,420,Spring,Empty,0,0,0,1
+98,40,400,Summer,Clupeidae,1,1.7,1,3
+248,40,500,Summer,Empty,0,0,0,1
+629,40,540,Spring,Clupeidae,1,0.2,1,2
+629,40,540,Spring,Clupeidae,1,0.3,1,2
+679,40,380,Fall,Cottidae,1,0.4,1,2
+688,40,420,Fall,Cottidae,1,1.1,1,3
+792,40,560,Fall,Empty,0,0,0,1
+795,40,470,Fall,Empty,0,0,0,1
+878,40,400,Fall,Order Decapoda,1,0.2,1,2
+878,40,400,Fall,Order Decapoda,1,0.4,1,2
+878,40,400,Fall,Order Decapoda,1,0.4,1,2
+878,40,400,Fall,Order Decapoda,1,0.5,1,2
+878,40,400,Fall,Order Decapoda,1,0.9,1,2
+878,40,400,Fall,Order Decapoda,1,0.8,1,3
+897,40,620,Fall,Clupeidae,1,1,1,3
+904,40,450,Fall,Empty,0,0,0,1
+1431,40,440,Summer,Suborder Zoarcoidei,1,0.81,1,3
+1431,40,440,Summer,Suborder Zoarcoidei,1,0.9,1,3
+1499,40,500,Summer,Empty,0,0,0,1
+1604,40,500,Summer,Clupeidae,1,13.9,1,3
+1621,40,460,Summer,Suborder Zoarcoidei,1,0.3,1,2
+1741,40,440,Fall,Suborder Zoarcoidei,1,0.8,1,3
+1774,40,460,Fall,Empty,0,0,0,1
+1797,40,440,Fall,Order Decapoda,1,0.4,1,2
+1797,40,440,Fall,Order Decapoda,1,0.56,1,2
+1797,40,440,Fall,Order Decapoda,1,0.56,1,2
+1797,40,440,Fall,Order Decapoda,1,0.56,1,2
+1805,40,480,Fall,Clupeidae,1,15,1,4
+1819,40,520,Fall,Clupeidae,1,4.5,1,2
+1819,40,520,Fall,Ammodytidae,1,2.5,1,3
+1819,40,520,Fall,Gadidae,1,4.8,1,3
+1860,40,500,Fall,Empty,0,0,0,1
+1915,40,500,Winter,Empty,0,0,0,1
+1923,40,450,Winter,Empty,0,0,0,1
+2078,40,450,Spring,Cottidae,1,1.76,1,3
+2177,40,460,Spring,Empty,0,0,0,1
+11,41,600,Spring,Scorpaenidae,1,15.2,1,2
+11,41,600,Spring,Teleostei NEI,1,5.9,1,2
+350,41,500,Winter,Empty,0,0,0,1
+371,41,520,Winter,Clupeidae,1,0.3,1,2
+371,41,520,Winter,Gadidae,1,0.7,1,3
+436,41,450,Winter,Scorpaenidae,1,1,1,3
+650,41,480,Fall,Empty,0,0,0,1
+653,41,500,Fall,Teleostei NEI,1,0.2,1,2
+653,41,500,Fall,Cottidae,1,11,1,3
+655,41,520,Fall,Scorpaenidae,1,7.5,1,3
+666,41,600,Fall,Empty,0,0,0,1
+682,41,500,Fall,Order Decapoda,1,0.9,1,3
+686,41,480,Fall,Gadidae,1,0.2,1,2
+691,41,460,Fall,Scorpaenidae,1,14.7,1,5
+789,41,450,Fall,Embiotocidae,1,0.1,1,2
+867,41,540,Fall,Empty,0,0,0,1
+1070,41,500,Winter,Empty,0,0,0,1
+1337,41,560,Summer,Teleostei NEI,1,1.7,1,2
+1371,41,520,Summer,Teleostei NEI,1,0.8,1,2
+1427,41,520,Summer,Empty,0,0,0,1
+1595,41,500,Summer,Cottidae,1,0.4,1,2
+1664,41,540,Summer,Order Decapoda,1,4.9,1,3
+1694,41,480,Fall,Teleostei NEI,1,1.8,1,2
+1744,41,500,Fall,Cottidae,1,13.4,1,3
+1767,41,420,Fall,Cottidae,1,2.4,1,3
+1808,41,540,Fall,Empty,0,0,0,1
+1857,41,550,Fall,Order Decapoda,1,0.2,1,2
+1857,41,550,Fall,Teleostei NEI,1,0.6,1,2
+1857,41,550,Fall,Teleostei NEI,1,5.7,1,2
+1914,41,400,Winter,Empty,0,0,0,1
+1971,41,470,Winter,Empty,0,0,0,1
+1976,41,500,Winter,Empty,0,0,0,1
+2012,41,500,Spring,Cottidae,1,4.06,1,3
+2030,41,500,Spring,Empty,0,0,0,1
+153,42,620,Summer,Order Pleuronectiformes,1,0.8,1,3
+153,42,620,Summer,Order Pleuronectiformes,1,1.1,1,3
+153,42,620,Summer,Hexagrammidae,1,20.9,1,4
+354,42,550,Winter,Cottidae,1,0.2,1,2
+356,42,600,Winter,Empty,0,0,0,1
+652,42,600,Fall,Clupeidae,1,0.1,1,2
+652,42,600,Fall,Embiotocidae,1,2.5,1,3
+652,42,600,Fall,Embiotocidae,1,4.5,1,3
+677,42,600,Fall,Empty,0,0,0,1
+690,42,540,Fall,Empty,0,0,0,1
+712,42,540,Fall,Scorpaenidae,1,2.6,1,3
+770,42,560,Fall,Order Decapoda,1,0.1,1,2
+815,42,580,Fall,Cottidae,1,2.4,1,3
+815,42,580,Fall,Order Decapoda,1,2.3,1,3
+905,42,600,Fall,Empty,0,0,0,1
+925,42,550,Fall,Empty,0,0,0,1
+949,42,600,Fall,Empty,0,0,0,1
+964,42,550,Fall,Order Decapoda,1,0.6,1,5
+1069,42,580,Winter,Clupeidae,1,2.6,1,3
+1069,42,580,Winter,Clupeidae,1,7.2,1,3
+1069,42,580,Winter,Clupeidae,1,4.4,1,5
+1100,42,600,Spring,Empty,0,0,0,1
+1400,42,550,Summer,Empty,0,0,0,1
+1764,42,520,Fall,Order Decapoda,1,0.6,1,2
+1764,42,520,Fall,Order Decapoda,1,0.1,1,2
+1764,42,520,Fall,Order Decapoda,1,0.2,1,2
+1764,42,520,Fall,Order Decapoda,1,0.3,1,2
+1764,42,520,Fall,Teleostei NEI,1,0.5,1,2
+1777,42,560,Fall,Empty,0,0,0,1
+1823,42,580,Fall,Empty,0,0,0,1
+1824,42,520,Fall,Teleostei NEI,1,4.6,1,2
+1829,42,550,Fall,Clupeidae,1,5,1,3
+1829,42,550,Fall,Cottidae,1,2.6,1,3
+1830,42,550,Fall,Clupeidae,1,3.2,1,3
+1830,42,550,Fall,Clupeidae,1,17.1,1,4
+1933,42,500,Winter,Order Scorpaeniformes,1,0,1,2
+1953,42,500,Winter,Order Pleuronectiformes,1,0.16,1,3
+1954,42,600,Winter,Empty,0,0,0,1
+1957,42,550,Winter,Teleostei NEI,1,0,1,2
+2125,42,500,Spring,Cottidae,1,0.12,1,3
+2132,42,520,Spring,Clupeidae,1,13.89,1,2
+2132,42,520,Spring,Cottidae,1,0.32,1,2
+2,43,680,Spring,Scorpaenidae,1,13.3,1,3
+43,43,800,Spring,Myctophidae,1,0.3,1,2
+43,43,800,Spring,Myctophidae,1,0.6,1,3
+43,43,800,Spring,Myctophidae,1,0.7,1,3
+43,43,800,Spring,Myctophidae,1,1.1,1,3
+47,43,650,Spring,Scorpaenidae,1,0.4,1,2
+70,43,700,Spring,Scorpaenidae,1,0.7,1,3
+211,43,600,Summer,Gadidae,1,0.1,1,2
+211,43,600,Summer,Gadidae,1,0.1,1,2
+211,43,600,Summer,Gadidae,1,0.1,1,2
+211,43,600,Summer,Gadidae,1,0.1,1,2
+211,43,600,Summer,Gadidae,1,0.1,1,2
+211,43,600,Summer,Teleostei NEI,1,0.1,1,2
+297,43,600,Summer,Clupeidae,1,2.8,1,3
+485,43,650,Winter,Empty,0,0,0,1
+534,43,600,Spring,Teleostei NEI,1,0.2,1,2
+534,43,600,Spring,Cottidae,1,2.3,1,3
+576,43,600,Spring,Cottidae,1,8.9,1,3
+576,43,600,Spring,Teleostei NEI,1,1.5,1,2
+577,43,600,Spring,Empty,0,0,0,1
+765,43,540,Fall,Cottidae,1,1.2,1,3
+825,43,540,Fall,Embiotocidae,1,0.7,1,3
+877,43,500,Fall,Cottidae,1,0.1,1,2
+926,43,600,Fall,Order Decapoda,1,1.1,1,3
+981,43,600,Fall,Order Decapoda,1,0.5,1,2
+1071,43,650,Winter,Order Decapoda,1,1.6,1,3
+1112,43,600,Spring,Cottidae,1,0.5,1,2
+1341,43,580,Summer,Empty,0,0,0,1
+1715,43,630,Fall,Empty,0,0,0,1
+1753,43,570,Fall,Order Decapoda,1,0.4,1,2
+1763,43,600,Fall,Embiotocidae,1,7.2,1,3
+1846,43,600,Fall,Teleostei NEI,1,0.2,1,2
+1852,43,550,Fall,Teleostei NEI,1,0.4,1,2
+1852,43,550,Fall,Teleostei NEI,1,0.6,1,2
+1852,43,550,Fall,Teleostei NEI,1,1,1,2
+1856,43,600,Fall,Class Cephalopoda,1,15.1,1,2
+1863,43,650,Fall,Teleostei NEI,1,0.2,1,2
+1955,43,600,Winter,Clupeidae,1,4.45,1,2
+1981,43,570,Winter,Empty,0,0,0,1
+1982,43,600,Winter,Cottidae,1,0.51,1,2
+1982,43,600,Winter,Cottidae,1,1.14,1,3
+1982,43,600,Winter,Cottidae,1,1.6,1,3
+2005,43,550,Spring,Gadidae,1,0.208571,1,2
+2045,43,600,Spring,Order Scorpaeniformes,1,1.39,1,2
+2068,43,600,Spring,Myctophidae,1,0.45,1,2
+139,44,530,Summer,Empty,0,0,0,1
+331,44,700,Summer,Ammodytidae,1,0.5,1,2
+331,44,700,Summer,Ammodytidae,1,0.6,1,2
+331,44,700,Summer,Ammodytidae,1,0.6,1,2
+331,44,700,Summer,Ammodytidae,1,0.7,1,2
+331,44,700,Summer,Ammodytidae,1,0.9,1,3
+331,44,700,Summer,Ammodytidae,1,1.1,1,3
+331,44,700,Summer,Ammodytidae,1,1.2,1,3
+331,44,700,Summer,Ammodytidae,1,1.2,1,3
+331,44,700,Summer,Ammodytidae,1,1.3,1,3
+331,44,700,Summer,Ammodytidae,1,1.5,1,3
+331,44,700,Summer,Ammodytidae,1,1.5,1,3
+331,44,700,Summer,Clupeidae,1,2.5,1,3
+331,44,700,Summer,Clupeidae,1,4.8,1,3
+349,44,550,Winter,Empty,0,0,0,1
+418,44,650,Winter,Teleostei NEI,1,0.3,1,2
+442,44,600,Winter,Empty,0,0,0,1
+456,44,700,Winter,Clupeidae,1,0.3,1,2
+470,44,650,Winter,Empty,0,0,0,1
+522,44,580,Spring,Scorpaenidae,1,2.9,1,3
+586,44,700,Spring,Empty,0,0,0,1
+609,44,600,Spring,Cottidae,1,4.7,1,2
+609,44,600,Spring,Order Decapoda,1,0.1,1,2
+685,44,600,Fall,Cottidae,1,2.1,1,3
+685,44,600,Fall,Scorpaenidae,1,2.1,1,3
+879,44,600,Fall,Cottidae,1,0.05,1,2
+879,44,600,Fall,Order Decapoda,1,0.05,1,2
+879,44,600,Fall,Ammodytidae,1,1.5,1,3
+944,44,680,Fall,Order Decapoda,1,0.2,1,2
+970,44,660,Fall,Empty,0,0,0,1
+973,44,680,Fall,Order Decapoda,1,0.1,1,2
+1022,44,720,Winter,Suborder Zoarcoidei,1,0.1,1,2
+1022,44,720,Winter,Suborder Zoarcoidei,1,0.4,1,2
+1022,44,720,Winter,Suborder Zoarcoidei,1,0.5,1,2
+1022,44,720,Winter,Teleostei NEI,1,0.9,1,2
+1113,44,650,Spring,Teleostei NEI,1,0.1,1,2
+1392,44,900,Summer,Clupeidae,1,1,1,3
+1392,44,900,Summer,Clupeidae,1,2.6,1,3
+1392,44,900,Summer,Clupeidae,1,2.7,1,3
+1392,44,900,Summer,Clupeidae,1,2.9,1,3
+1392,44,900,Summer,Clupeidae,1,3.8,1,3
+1392,44,900,Summer,Clupeidae,1,4.5,1,3
+1436,44,660,Summer,Clupeidae,1,0.5,1,2
+1436,44,660,Summer,Clupeidae,1,0.5,1,2
+1436,44,660,Summer,Clupeidae,1,0.5,1,2
+1800,44,620,Fall,Suborder Zoarcoidei,1,1.1,1,3
+1839,44,650,Fall,Teleostei NEI,1,1.1,1,2
+1839,44,650,Fall,Teleostei NEI,1,3.1,1,2
+1842,44,600,Fall,Order Decapoda,1,1.1,1,3
+1842,44,600,Fall,Order Decapoda,1,1.4,1,3
+1842,44,600,Fall,Teleostei NEI,1,0.7,1,2
+1843,44,620,Fall,Teleostei NEI,1,1.2,1,2
+1843,44,620,Fall,Teleostei NEI,1,2.2,1,2
+1845,44,650,Fall,Teleostei NEI,1,0.7,1,2
+1845,44,650,Fall,Teleostei NEI,1,1.3,1,2
+1845,44,650,Fall,Teleostei NEI,1,4,1,2
+1879,44,650,Winter,Empty,0,0,0,1
+1917,44,640,Winter,Empty,0,0,0,1
+1989,44,600,Winter,Empty,0,0,0,1
+2057,44,580,Spring,Cottidae,1,4.6,1,5
+2084,44,650,Spring,Empty,0,0,0,1
+2105,44,550,Spring,Empty,0,0,0,1
+2146,44,570,Spring,Ammodytidae,1,0.66,1,2
+2146,44,570,Spring,Order Decapoda,1,0.66,1,2
+6,45,820,Spring,Order Scorpaeniformes,1,0.4,1,2
+12,45,800,Spring,Scorpaenidae,1,0.5,1,2
+65,45,700,Spring,Gadidae,1,0.15,1,2
+65,45,700,Spring,Order Pleuronectiformes,1,0.2,1,2
+352,45,650,Winter,Clupeidae,1,0.4,1,2
+352,45,650,Winter,Gadidae,1,0.7,1,3
+533,45,620,Spring,Cottidae,1,0.5,1,2
+539,45,680,Spring,Empty,0,0,0,1
+564,45,660,Spring,Clupeidae,1,26.7,1,2
+676,45,600,Fall,Cottidae,1,0.7,1,3
+853,45,650,Fall,Cottidae,1,4.6,1,2
+853,45,650,Fall,Order Decapoda,1,0.5,1,2
+853,45,650,Fall,Teleostei NEI,1,6.7,1,2
+985,45,650,Fall,Empty,0,0,0,1
+1057,45,700,Winter,Order Decapoda,1,0.9,1,2
+1057,45,700,Winter,Clupeidae,1,2,1,3
+1057,45,700,Winter,Clupeidae,1,3.4,1,3
+1057,45,700,Winter,Order Decapoda,1,2.5,1,3
+1076,45,740,Spring,Order Decapoda,1,2,1,3
+1076,45,740,Spring,Order Decapoda,1,2.3,1,3
+1076,45,740,Spring,Cottidae,1,0.9,1,5
+1128,45,700,Spring,Cottidae,1,0.6,1,2
+1128,45,700,Spring,Clupeidae,1,0.6,1,5
+1129,45,650,Spring,Empty,0,0,0,1
+1140,45,720,Summer,Teleostei NEI,1,2,1,2
+1736,45,660,Fall,Scorpaenidae,1,0.8,1,3
+1861,45,650,Fall,Order Decapoda,1,0.5,1,2
+1861,45,650,Fall,Embiotocidae,1,2.4,1,3
+1861,45,650,Fall,Teleostei NEI,1,1.1,1,2
+1862,45,800,Fall,Order Decapoda,1,0.6,1,2
+1862,45,800,Fall,Teleostei NEI,1,0.2,1,2
+1862,45,800,Fall,Teleostei NEI,1,0.4,1,2
+1862,45,800,Fall,Teleostei NEI,1,1.7,1,2
+1865,45,600,Fall,Teleostei NEI,1,0.1,1,2
+1882,45,680,Winter,Empty,0,0,0,1
+1912,45,750,Winter,Teleostei NEI,1,52.2,1,2
+1986,45,650,Winter,Clupeidae,1,3.38,1,3
+1986,45,650,Winter,Clupeidae,1,3.4,1,3
+1990,45,700,Spring,Scorpaenidae,1,1.15,1,3
+2011,45,700,Spring,Scorpaenidae,1,20.7,1,4
+2085,45,650,Spring,Empty,0,0,0,1
+2108,45,600,Spring,Empty,0,0,0,1
+2136,45,700,Spring,Order Pleuronectiformes,1,16.8,1,4
+2162,45,650,Spring,Cottidae,1,5.06,1,3
+2179,45,660,Spring,Teleostei NEI,1,1.9,1,2
+2180,45,680,Spring,Empty,0,0,0,1
+1,46,910,Spring,Hexagrammidae,1,17.2,1,4
+250,46,800,Summer,Clupeidae,1,2.4,1,3
+268,46,700,Summer,Clupeidae,1,2.8,1,3
+289,46,900,Summer,Clupeidae,1,0.5,1,2
+289,46,900,Summer,Clupeidae,1,0.7,1,2
+289,46,900,Summer,Clupeidae,1,1.3,1,2
+289,46,900,Summer,Order Scorpaeniformes,1,0.6,1,2
+289,46,900,Summer,Clupeidae,1,1.1,1,3
+376,46,700,Winter,Empty,0,0,0,1
+437,46,650,Winter,Empty,0,0,0,1
+440,46,700,Winter,Cottidae,1,0.5,1,2
+440,46,700,Winter,Gadidae,1,1,1,3
+465,46,850,Winter,Clupeidae,1,0.9,1,2
+465,46,850,Winter,Clupeidae,1,1.2,1,3
+465,46,850,Winter,Clupeidae,1,3.1,1,3
+511,46,1000,Winter,Gadidae,1,2.1,1,3
+511,46,1000,Winter,Gadidae,1,2.6,1,3
+511,46,1000,Winter,Myctophidae,1,0.6,1,5
+590,46,800,Spring,Empty,0,0,0,1
+656,46,780,Fall,Embiotocidae,1,3.9,1,3
+656,46,780,Fall,Order Decapoda,1,0.8,1,3
+704,46,750,Fall,Order Decapoda,1,0.3,1,2
+856,46,700,Fall,Gadidae,1,2.5,1,3
+1084,46,700,Spring,Empty,0,0,0,1
+1251,46,800,Summer,Order Decapoda,1,0.9,1,3
+1356,46,800,Summer,Suborder Zoarcoidei,1,2,1,3
+1356,46,800,Summer,Order Pleuronectiformes,1,35.8,1,4
+1462,46,800,Summer,Cottidae,1,3.2,1,3
+1462,46,800,Summer,Order Decapoda,1,1.7,1,3
+1909,46,720,Winter,Cottidae,1,1.43,1,3
+1919,46,680,Winter,Cottidae,1,0.1,1,2
+1944,46,700,Winter,Empty,0,0,0,1
+1974,46,700,Winter,Empty,0,0,0,1
+2010,46,700,Spring,Order Decapoda,1,0.62,1,2
+2089,46,700,Spring,Empty,0,0,0,1
+2147,46,800,Spring,Ammodytidae,1,0.32,1,2
+2147,46,800,Spring,Ammodytidae,1,0.32,1,2
+2147,46,800,Spring,Ammodytidae,1,0.34,1,2
+2147,46,800,Spring,Ammodytidae,1,0.4,1,2
+2147,46,800,Spring,Gadidae,1,0.15,1,2
+2147,46,800,Spring,Gadidae,1,0.17,1,2
+2147,46,800,Spring,Gadidae,1,0.2,1,2
+2147,46,800,Spring,Gadidae,1,0.22,1,2
+2147,46,800,Spring,Gadidae,1,0.4,1,2
+2147,46,800,Spring,Gadidae,1,0.4,1,2
+2147,46,800,Spring,Gadidae,1,0.4,1,2
+2147,46,800,Spring,Gadidae,1,0.4,1,2
+2147,46,800,Spring,Gadidae,1,0.408,1,2
+2147,46,800,Spring,Gadidae,1,0.44,1,2
+2147,46,800,Spring,Gadidae,1,0.12,1,3
+2147,46,800,Spring,Gadidae,1,0.28,1,3
+2147,46,800,Spring,Myctophidae,1,0.85,1,3
+2147,46,800,Spring,Ammodytidae,1,0.28,1,4
+2147,46,800,Spring,Gadidae,1,0.15,1,4
+2154,46,780,Spring,Scorpaenidae,1,3.14,1,3
+57,47,900,Spring,Myctophidae,1,1.8,1,3
+345,47,680,Winter,Gadidae,1,0.9,1,2
+345,47,680,Winter,Order Decapoda,1,0.3,1,2
+345,47,680,Winter,Gadidae,1,2.9,1,3
+353,47,700,Winter,Empty,0,0,0,1
+435,47,800,Winter,Empty,0,0,0,1
+438,47,800,Winter,Empty,0,0,0,1
+462,47,750,Winter,Gadidae,1,5.3,1,3
+478,47,800,Winter,Empty,0,0,0,1
+575,47,700,Spring,Scorpaenidae,1,4.6,1,2
+647,47,900,Fall,Empty,0,0,0,1
+839,47,1800,Fall,Empty,0,0,0,1
+1023,47,840,Winter,Order Decapoda,1,1.85,1,3
+1023,47,840,Winter,Order Decapoda,1,1.9,1,3
+1432,47,840,Summer,Teleostei NEI,1,4.7,1,2
+1472,47,800,Summer,Empty,0,0,0,1
+1749,47,800,Fall,Empty,0,0,0,1
+1803,47,750,Fall,Order Decapoda,1,0.2,1,2
+1918,47,840,Winter,Clupeidae,1,6.47,1,3
+1918,47,840,Winter,Clupeidae,1,6.63,1,3
+1972,47,750,Winter,Empty,0,0,0,1
+2066,47,800,Spring,Gadidae,1,0.27,1,2
+2066,47,800,Spring,Gadidae,1,0.02,1,2
+2066,47,800,Spring,Gadidae,1,0.05,1,2
+2066,47,800,Spring,Gadidae,1,0.09,1,2
+2066,47,800,Spring,Gadidae,1,0.11,1,2
+2066,47,800,Spring,Gadidae,1,0.2,1,2
+2066,47,800,Spring,Gadidae,1,0.3,1,2
+2066,47,800,Spring,Gadidae,1,0.31,1,2
+2066,47,800,Spring,Gadidae,1,0.33,1,2
+2066,47,800,Spring,Gadidae,1,0.35,1,2
+2066,47,800,Spring,Gadidae,1,0.35,1,2
+2066,47,800,Spring,Gadidae,1,0.4,1,2
+2066,47,800,Spring,Gadidae,1,0.52,1,2
+2066,47,800,Spring,Cottidae,1,5.03,1,3
+2066,47,800,Spring,Gadidae,1,0.18,1,3
+2066,47,800,Spring,Gadidae,1,0.29,1,5
+2133,47,660,Spring,Gadidae,1,0.25,1,2
+2133,47,660,Spring,Gadidae,1,0.3,1,2
+2135,47,700,Spring,Empty,0,0,0,1
+2150,47,850,Spring,Gadidae,1,0.33,1,2
+2150,47,850,Spring,Ammodytidae,1,2.64,1,3
+2150,47,850,Spring,Clupeidae,1,0.73,1,3
+2150,47,850,Spring,Gadidae,1,2.08,1,3
+2150,47,850,Spring,Gadidae,1,2.545,1,3
+2150,47,850,Spring,Gadidae,1,3.42,1,3
+10,48,800,Spring,Clupeidae,1,1.9,1,3
+45,48,1300,Spring,Clupeidae,1,0.1,1,2
+45,48,1300,Spring,Myctophidae,1,1.5,1,3
+46,48,950,Spring,Scorpaenidae,1,6.6,1,3
+281,48,1000,Summer,Clupeidae,1,0.1,1,2
+281,48,1000,Summer,Clupeidae,1,0.5,1,2
+281,48,1000,Summer,Scorpaenidae,1,5,1,3
+321,48,1100,Summer,Ammodytidae,1,0.2,1,2
+321,48,1100,Summer,Ammodytidae,1,0.4,1,2
+321,48,1100,Summer,Ammodytidae,1,0.4,1,2
+321,48,1100,Summer,Ammodytidae,1,0.4,1,2
+321,48,1100,Summer,Ammodytidae,1,0.4,1,2
+321,48,1100,Summer,Ammodytidae,1,0.3,1,3
+321,48,1100,Summer,Ammodytidae,1,0.8,1,3
+321,48,1100,Summer,Ammodytidae,1,0.8,1,3
+321,48,1100,Summer,Ammodytidae,1,0.8,1,3
+321,48,1100,Summer,Ammodytidae,1,0.8,1,3
+321,48,1100,Summer,Ammodytidae,1,1,1,3
+321,48,1100,Summer,Ammodytidae,1,1.2,1,3
+321,48,1100,Summer,Ammodytidae,1,0.2,1,4
+333,48,900,Winter,Empty,0,0,0,1
+417,48,800,Winter,Empty,0,0,0,1
+429,48,900,Winter,Empty,0,0,0,1
+460,48,900,Winter,Empty,0,0,0,1
+498,48,1000,Winter,Order Decapoda,1,0.3,1,2
+498,48,1000,Winter,Order Scorpaeniformes,1,2.1,1,3
+596,48,820,Spring,Ammodytidae,1,1.2,1,3
+1079,48,800,Spring,Empty,0,0,0,1
+1099,48,900,Spring,Clupeidae,1,0.3,1,2
+1429,48,840,Summer,Ammodytidae,1,0.4,1,2
+1908,48,860,Winter,Empty,0,0,0,1
+2151,48,700,Spring,Scorpaenidae,1,0.46,1,2
+3,49,1020,Spring,Clupeidae,1,1.1,1,3
+8,49,990,Spring,Scorpaenidae,1,7.9,1,3
+135,49,900,Summer,Ammodytidae,1,0.7,1,2
+135,49,900,Summer,Clupeidae,1,1.8,1,3
+272,49,1900,Summer,Clupeidae,1,0.2,1,2
+420,49,850,Winter,Scorpaenidae,1,1,1,3
+454,49,1200,Winter,Empty,0,0,0,1
+461,49,920,Winter,Gadidae,1,0.6,1,2
+461,49,920,Winter,Gadidae,1,0.6,1,3
+461,49,920,Winter,Gadidae,1,0.6,1,3
+461,49,920,Winter,Gadidae,1,0.6,1,5
+479,49,1100,Winter,Empty,0,0,0,1
+499,49,1100,Winter,Order Decapoda,1,0.1,1,2
+499,49,1100,Winter,Order Decapoda,1,0.2,1,2
+499,49,1100,Winter,Cottidae,1,3.9,1,3
+540,49,900,Spring,Order Scorpaeniformes,1,0.8,1,3
+651,49,800,Fall,Empty,0,0,0,1
+680,49,900,Fall,Teleostei NEI,1,0.5,1,2
+680,49,900,Fall,Cottidae,1,1.3,1,3
+680,49,900,Fall,Cottidae,1,3.3,1,3
+840,49,1000,Fall,Cottidae,1,9.9,1,3
+840,49,1000,Fall,Order Decapoda,1,1.5,1,3
+1024,49,860,Winter,Order Decapoda,1,1.4,1,3
+1024,49,860,Winter,Suborder Zoarcoidei,1,3.1,1,3
+1086,49,800,Spring,Empty,0,0,0,1
+1154,49,900,Summer,Empty,0,0,0,1
+1425,49,900,Summer,Empty,0,0,0,1
+2103,49,900,Spring,Scorpaenidae,1,1.71,1,3
+2109,49,850,Spring,Bathylagidae,1,11.88,1,3
+2130,49,750,Spring,Empty,0,0,0,1
+2143,49,900,Spring,Empty,0,0,0,1
+4,50,1134,Spring,Empty,0,0,0,1
+170,50,1000,Summer,Empty,0,0,0,1
+351,50,1000,Winter,Clupeidae,1,0.4,1,2
+351,50,1000,Winter,Clupeidae,1,0.8,1,3
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.3,1,2
+368,50,900,Winter,Clupeidae,1,0.8,1,3
+368,50,900,Winter,Clupeidae,1,1,1,3
+368,50,900,Winter,Clupeidae,1,1.1,1,3
+368,50,900,Winter,Clupeidae,1,1.4,1,3
+368,50,900,Winter,Clupeidae,1,1.5,1,3
+368,50,900,Winter,Clupeidae,1,1.6,1,3
+368,50,900,Winter,Clupeidae,1,2,1,3
+368,50,900,Winter,Clupeidae,1,2,1,3
+368,50,900,Winter,Clupeidae,1,2.3,1,3
+419,50,800,Winter,Order Decapoda,1,0.1,1,2
+439,50,900,Winter,Empty,0,0,0,1
+459,50,1000,Winter,Gadidae,1,0.2,1,2
+475,50,1200,Winter,Clupeidae,1,14.5,1,3
+477,50,1000,Winter,Gadidae,1,0.9,1,2
+477,50,1000,Winter,Gadidae,1,1.3,1,2
+523,50,1100,Spring,Hexagrammidae,1,44.6,1,4
+552,50,950,Spring,Ammodytidae,1,0.2,1,2
+552,50,950,Spring,Ammodytidae,1,0.4,1,2
+552,50,950,Spring,Clupeidae,1,14.8,1,3
+649,50,1500,Fall,Clupeidae,1,0.3,1,2
+649,50,1500,Fall,Ammodytidae,1,2.1,1,3
+649,50,1500,Fall,Scorpaenidae,1,14.1,1,4
+854,50,1100,Fall,Order Decapoda,1,3.1,1,3
+854,50,1100,Fall,Order Decapoda,1,11.7,1,3
+865,50,1000,Fall,Clupeidae,1,0.6,1,4
+978,50,900,Fall,Teleostei NEI,1,2.8,1,2
+1030,50,1100,Winter,Suborder Zoarcoidei,1,5,1,3
+1032,50,1000,Winter,Suborder Zoarcoidei,1,0.4,1,2
+1032,50,1000,Winter,Cottidae,1,0.7,1,3
+1077,50,1000,Spring,Gadidae,1,5.2,1,3
+1269,50,1050,Summer,Empty,0,0,0,1
+1524,50,950,Summer,Order Decapoda,1,0.3,1,2
+1674,50,950,Summer,Empty,0,0,0,1
+1751,50,900,Fall,Empty,0,0,0,1
+1893,50,1300,Winter,Empty,0,0,0,1
+1907,50,1000,Winter,Empty,0,0,0,1
+107,51,1000,Summer,Ammodytidae,1,0.1,1,2
+107,51,1000,Summer,Ammodytidae,1,0.1,1,2
+107,51,1000,Summer,Ammodytidae,1,0.1,1,2
+107,51,1000,Summer,Ammodytidae,1,0.1,1,2
+107,51,1000,Summer,Ammodytidae,1,0.1,1,2
+107,51,1000,Summer,Ammodytidae,1,0.3,1,2
+107,51,1000,Summer,Ammodytidae,1,0.6,1,2
+107,51,1000,Summer,Ammodytidae,1,0.3,1,3
+107,51,1000,Summer,Clupeidae,1,0.8,1,3
+107,51,1000,Summer,Ammodytidae,1,0.2,1,4
+134,51,1150,Summer,Ammodytidae,1,0.5,1,2
+134,51,1150,Summer,Ammodytidae,1,0.2,1,5
+142,51,1050,Summer,Cottidae,1,21.4,1,4
+166,51,1000,Summer,Gadidae,1,2,1,3
+166,51,1000,Summer,Gadidae,1,2.6,1,3
+166,51,1000,Summer,Gadidae,1,2.7,1,3
+166,51,1000,Summer,Gadidae,1,3.5,1,3
+270,51,1200,Summer,Scorpaenidae,1,16.1,1,4
+332,51,1100,Winter,Empty,0,0,0,1
+346,51,900,Winter,Gadidae,1,1.4,1,3
+348,51,800,Winter,Order Decapoda,1,0.2,1,2
+355,51,1100,Winter,Empty,0,0,0,1
+556,51,1000,Spring,Scorpaenidae,1,1.1,1,3
+786,51,1250,Fall,Order Decapoda,1,0.2,1,2
+797,51,1000,Fall,Clupeidae,1,0.2,1,2
+827,51,1100,Fall,Cottidae,1,4.9,1,3
+937,51,1000,Fall,Embiotocidae,1,0.1,1,2
+937,51,1000,Fall,Order Decapoda,1,0.2,1,2
+937,51,1000,Fall,Order Decapoda,1,2.4,1,3
+938,51,1200,Fall,Order Decapoda,1,1.1,1,3
+938,51,1200,Fall,Order Decapoda,1,2.2,1,3
+1028,51,1200,Winter,Suborder Zoarcoidei,1,1.5,1,3
+1034,51,1150,Winter,Empty,0,0,0,1
+1052,51,1200,Winter,Clupeidae,1,0.3,1,2
+1073,51,1100,Spring,Empty,0,0,0,1
+1442,51,1100,Summer,Teleostei NEI,1,0.1,1,2
+1442,51,1100,Summer,Teleostei NEI,1,5.5,1,2
+1799,51,1200,Fall,Empty,0,0,0,1
+1997,51,1200,Spring,Cottidae,1,1.5,1,3
+1998,51,900,Spring,Empty,0,0,0,1
+2046,51,950,Spring,Scorpaenidae,1,7.21,1,3
+2119,51,1000,Spring,Scorpaenidae,1,9.5,1,3
+64,52,1150,Spring,Osmeridae,1,7.4,1,3
+154,52,1150,Summer,Ammodytidae,1,0.7,1,2
+154,52,1150,Summer,Ammodytidae,1,0.8,1,3
+154,52,1150,Summer,Ammodytidae,1,0.8,1,3
+154,52,1150,Summer,Ammodytidae,1,0.8,1,3
+154,52,1150,Summer,Ammodytidae,1,0.8,1,3
+154,52,1150,Summer,Ammodytidae,1,0.9,1,3
+154,52,1150,Summer,Ammodytidae,1,1.3,1,3
+154,52,1150,Summer,Hexagrammidae,1,17.6,1,4
+294,52,1250,Summer,Clupeidae,1,0.7,1,2
+294,52,1250,Summer,Clupeidae,1,1.6,1,3
+334,52,1200,Winter,Empty,0,0,0,1
+347,52,1100,Winter,Gadidae,1,8.1,1,3
+397,52,1200,Winter,Empty,0,0,0,1
+464,52,1300,Winter,Empty,0,0,0,1
+532,52,1500,Spring,Empty,0,0,0,1
+535,52,1100,Spring,Empty,0,0,0,1
+608,52,1200,Spring,Ammodytidae,1,0.1,1,2
+608,52,1200,Spring,Order Decapoda,1,0.2,1,2
+608,52,1200,Spring,Ammodytidae,1,1.9,1,3
+608,52,1200,Spring,Scorpaenidae,1,0.9,1,3
+645,52,1000,Fall,Order Decapoda,1,0.3,1,2
+645,52,1000,Fall,Teleostei NEI,1,0.1,1,2
+645,52,1000,Fall,Order Decapoda,1,0.7,1,3
+645,52,1000,Fall,Order Decapoda,1,1.1,1,3
+645,52,1000,Fall,Teleostei NEI,1,1,1,2
+645,52,1000,Fall,Order Decapoda,1,0.9,1,4
+689,52,1000,Fall,Empty,0,0,0,1
+705,52,1100,Fall,Empty,0,0,0,1
+940,52,1100,Fall,Hexagrammidae,1,54.1,1,5
+1051,52,1150,Winter,Order Decapoda,1,5.6,1,3
+1061,52,1300,Winter,Gadidae,1,6,1,3
+1061,52,1300,Winter,Order Decapoda,1,0.7,1,3
+1061,52,1300,Winter,Order Decapoda,1,0.7,1,3
+1061,52,1300,Winter,Order Decapoda,1,0.8,1,3
+1061,52,1300,Winter,Order Decapoda,1,1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.1,1,3
+1061,52,1300,Winter,Order Decapoda,1,1.125,1,3
+1061,52,1300,Winter,Order Decapoda,1,2,1,3
+1061,52,1300,Winter,Order Decapoda,1,2.2,1,3
+1061,52,1300,Winter,Myctophidae,1,10.6,1,4
+1085,52,1100,Spring,Cottidae,1,0.2,1,2
+1274,52,1000,Summer,Empty,0,0,0,1
+1303,52,1200,Summer,Ammodytidae,1,0.5,1,2
+1303,52,1200,Summer,Gadidae,1,1.7,1,3
+1422,52,1200,Summer,Cottidae,1,2.6,1,3
+1598,52,1150,Summer,Ammodytidae,1,1,1,3
+1598,52,1150,Summer,Scorpaenidae,1,2.5,1,3
+1608,52,1350,Summer,Clupeidae,1,0.1,1,2
+1608,52,1350,Summer,Order Decapoda,1,11,1,3
+1719,52,1100,Fall,Empty,0,0,0,1
+1737,52,1050,Fall,Empty,0,0,0,1
+1920,52,1050,Winter,Clupeidae,1,14.91,1,2
+1930,52,1150,Winter,Empty,0,0,0,1
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.2,1,2
+322,53,1500,Summer,Ammodytidae,1,0.227,1,2
+322,53,1500,Summer,Ammodytidae,1,0.4,1,2
+322,53,1500,Summer,Ammodytidae,1,0.5,1,2
+322,53,1500,Summer,Ammodytidae,1,0.5,1,2
+322,53,1500,Summer,Ammodytidae,1,1.1,1,3
+322,53,1500,Summer,Ammodytidae,1,1.1,1,3
+322,53,1500,Summer,Ammodytidae,1,1.2,1,3
+322,53,1500,Summer,Ammodytidae,1,1.2,1,3
+322,53,1500,Summer,Ammodytidae,1,0.3,1,4
+322,53,1500,Summer,Ammodytidae,1,0.2,1,5
+322,53,1500,Summer,Ammodytidae,1,0.2,1,5
+370,53,1300,Winter,Scorpaenidae,1,1.3,1,4
+431,53,1300,Winter,Empty,0,0,0,1
+445,53,1400,Winter,Empty,0,0,0,1
+505,53,1200,Winter,Empty,0,0,0,1
+717,53,1300,Fall,Empty,0,0,0,1
+721,53,1100,Fall,Class Cephalopoda,1,15.6,1,2
+935,53,1100,Fall,Scorpaenidae,1,18.6,1,4
+982,53,1300,Fall,Scorpaenidae,1,0.2,1,2
+1000,53,1100,Fall,Empty,0,0,0,1
+1044,53,1200,Winter,Suborder Zoarcoidei,1,0.2,1,2
+1044,53,1200,Winter,Clupeidae,1,4.1,1,3
+1058,53,1400,Winter,Order Decapoda,1,1.5,1,3
+1080,53,1100,Spring,Empty,0,0,0,1
+1253,53,1300,Summer,Clupeidae,1,0.2,1,2
+1253,53,1300,Summer,Order Decapoda,1,8.8,1,3
+1253,53,1300,Summer,Scorpaenidae,1,12,1,3
+1253,53,1300,Summer,Order Decapoda,1,14.5,1,4
+1289,53,1300,Summer,Hexagrammidae,1,51.1,1,5
+1426,53,1400,Summer,Order Decapoda,1,1.2,1,3
+1426,53,1400,Summer,Order Decapoda,1,3,1,3
+1426,53,1400,Summer,Order Decapoda,1,3.6,1,3
+1426,53,1400,Summer,Order Decapoda,1,3.6,1,3
+1441,53,1200,Summer,Clupeidae,1,4,1,3
+1627,53,1200,Summer,Teleostei NEI,1,1.1,1,2
+1720,53,1000,Fall,Order Decapoda,1,0.6,1,2
+1720,53,1000,Fall,Scorpaenidae,1,1.5,1,3
+2152,53,1140,Spring,Scorpaenidae,1,2.16,1,3
+58,54,1500,Spring,Order Decapoda,1,0.1,1,2
+58,54,1500,Spring,Order Decapoda,1,1,1,3
+58,54,1500,Spring,Order Decapoda,1,3.6,1,3
+58,54,1500,Spring,Order Decapoda,1,5.2,1,3
+58,54,1500,Spring,Order Decapoda,1,5.4,1,3
+58,54,1500,Spring,Order Pleuronectiformes,1,2.4,1,3
+117,54,1250,Summer,Empty,0,0,0,1
+118,54,1250,Summer,Empty,0,0,0,1
+120,54,1300,Summer,Clupeidae,1,0.7,1,2
+120,54,1300,Summer,Clupeidae,1,1.3,1,2
+120,54,1300,Summer,Clupeidae,1,1.3,1,2
+120,54,1300,Summer,Clupeidae,1,1.5,1,3
+120,54,1300,Summer,Clupeidae,1,1.7,1,3
+120,54,1300,Summer,Clupeidae,1,1.8,1,3
+120,54,1300,Summer,Clupeidae,1,1.8,1,3
+120,54,1300,Summer,Clupeidae,1,2,1,3
+167,54,1350,Summer,Scorpaenidae,1,3.1,1,3
+191,54,1200,Summer,Order Decapoda,1,2,1,3
+247,54,1200,Summer,Cottidae,1,24.3,1,3
+271,54,1300,Summer,Gadidae,1,1.2,1,3
+271,54,1300,Summer,Teleostei NEI,1,2.4,1,2
+307,54,1300,Summer,Order Decapoda,1,6.3,1,3
+307,54,1300,Summer,Order Decapoda,1,8.4,1,3
+323,54,1500,Summer,Ammodytidae,1,0.3,1,2
+323,54,1500,Summer,Ammodytidae,1,0.1,1,2
+323,54,1500,Summer,Ammodytidae,1,0.1,1,2
+323,54,1500,Summer,Ammodytidae,1,0.1,1,2
+323,54,1500,Summer,Ammodytidae,1,0.1,1,2
+323,54,1500,Summer,Ammodytidae,1,0.1,1,2
+323,54,1500,Summer,Ammodytidae,1,0.2,1,2
+323,54,1500,Summer,Ammodytidae,1,0.4,1,2
+323,54,1500,Summer,Ammodytidae,1,0.7,1,2
+323,54,1500,Summer,Ammodytidae,1,0.3,1,3
+323,54,1500,Summer,Ammodytidae,1,0.9,1,3
+323,54,1500,Summer,Ammodytidae,1,1,1,3
+323,54,1500,Summer,Ammodytidae,1,1,1,3
+323,54,1500,Summer,Ammodytidae,1,1.1,1,3
+323,54,1500,Summer,Ammodytidae,1,1.2,1,3
+323,54,1500,Summer,Ammodytidae,1,1.9,1,3
+323,54,1500,Summer,Ammodytidae,1,0.9,1,5
+450,54,1200,Winter,Teleostei NEI,1,0.8,1,2
+536,54,1250,Spring,Empty,0,0,0,1
+615,54,1250,Spring,Cottidae,1,51.4,1,5
+631,54,1200,Spring,Empty,0,0,0,1
+796,54,1400,Fall,Clupeidae,1,2.2,1,3
+796,54,1400,Fall,Clupeidae,1,2.3,1,3
+796,54,1400,Fall,Clupeidae,1,2.3,1,3
+796,54,1400,Fall,Clupeidae,1,12.9,1,3
+796,54,1400,Fall,Clupeidae,1,28,1,3
+902,54,1450,Fall,Cottidae,1,1.3,1,2
+902,54,1450,Fall,Cottidae,1,2.7,1,3
+1037,54,1300,Winter,Empty,0,0,0,1
+1075,54,1200,Spring,Empty,0,0,0,1
+1093,54,1300,Spring,Order Scorpaeniformes,1,0.5,1,2
+1142,54,1250,Summer,Empty,0,0,0,1
+1242,54,1300,Summer,Empty,0,0,0,1
+1410,54,1100,Summer,Empty,0,0,0,1
+1415,54,1300,Summer,Empty,0,0,0,1
+1522,54,1300,Summer,Ammodytidae,1,0.9,1,2
+1522,54,1300,Summer,Class Cephalopoda,1,10.8,1,3
+1522,54,1300,Summer,Clupeidae,1,1.1,1,3
+1522,54,1300,Summer,Salmonidae,1,34.4,1,4
+1726,54,1500,Fall,Cottidae,1,9.9,1,3
+1841,54,1200,Fall,Empty,0,0,0,1
+1978,54,1250,Winter,Empty,0,0,0,1
+2001,54,1200,Spring,Clupeidae,1,38.11,1,4
+2165,54,1200,Spring,Gadidae,1,0.23,1,2
+2165,54,1200,Spring,Gadidae,1,0.08,1,2
+2165,54,1200,Spring,Gadidae,1,0.13,1,2
+2165,54,1200,Spring,Gadidae,1,0.13,1,2
+2165,54,1200,Spring,Gadidae,1,0.23,1,2
+2165,54,1200,Spring,Gadidae,1,0.25,1,2
+2165,54,1200,Spring,Gadidae,1,0.36,1,2
+2165,54,1200,Spring,Gadidae,1,0.37,1,2
+2165,54,1200,Spring,Gadidae,1,0.16,1,3
+2165,54,1200,Spring,Gadidae,1,0.12,1,4
+2165,54,1200,Spring,Gadidae,1,0.13,1,4
+2165,54,1200,Spring,Gadidae,1,0.27,1,4
+5,55,1590,Spring,Clupeidae,1,0.5,1,2
+5,55,1590,Spring,Clupeidae,1,0.5,1,2
+7,55,1450,Spring,Clupeidae,1,8.2,1,3
+44,55,1600,Spring,Clupeidae,1,6.05,1,3
+44,55,1600,Spring,Clupeidae,1,6.1,1,3
+48,55,1500,Spring,Clupeidae,1,0.4,1,2
+48,55,1500,Spring,Myctophidae,1,1.9,1,3
+48,55,1500,Spring,Teleostei NEI,1,7.3,1,2
+63,55,1350,Spring,Myctophidae,1,0.2,1,2
+63,55,1350,Spring,Clupeidae,1,3.6,1,3
+63,55,1350,Spring,Scorpaenidae,1,2.5,1,3
+71,55,1500,Spring,Empty,0,0,0,1
+72,55,1750,Spring,Empty,0,0,0,1
+240,55,1300,Summer,Ammodytidae,1,0.9,1,2
+240,55,1300,Summer,Ammodytidae,1,0.4,1,2
+240,55,1300,Summer,Ammodytidae,1,0.4,1,2
+240,55,1300,Summer,Ammodytidae,1,0.4,1,2
+240,55,1300,Summer,Ammodytidae,1,0.5,1,2
+240,55,1300,Summer,Ammodytidae,1,0.5,1,2
+240,55,1300,Summer,Ammodytidae,1,0.6,1,2
+240,55,1300,Summer,Ammodytidae,1,0.6,1,2
+240,55,1300,Summer,Ammodytidae,1,0.9,1,3
+240,55,1300,Summer,Cottidae,1,6.1,1,3
+240,55,1300,Summer,Ammodytidae,1,0.3,1,4
+240,55,1300,Summer,Ammodytidae,1,0.3,1,5
+251,55,1400,Summer,Gadidae,1,5.8,1,3
+467,55,1500,Winter,Empty,0,0,0,1
+521,55,1300,Winter,Cottidae,1,0.6,1,2
+678,55,1100,Fall,Order Scorpaeniformes,1,0.8,1,3
+678,55,1100,Fall,Order Scorpaeniformes,1,1.9,1,3
+678,55,1100,Fall,Teleostei NEI,1,2.3,1,2
+707,55,1300,Fall,Empty,0,0,0,1
+718,55,1300,Fall,Order Decapoda,1,3,1,3
+820,55,1400,Fall,Cottidae,1,3.9,1,3
+851,55,1300,Fall,Scorpaenidae,1,5.7,1,3
+899,55,1500,Fall,Order Pleuronectiformes,1,4.5,1,3
+899,55,1500,Fall,Teleostei NEI,1,1.2,1,2
+923,55,1400,Fall,Order Decapoda,1,0.1,1,2
+963,55,1300,Fall,Order Pleuronectiformes,1,15.6,1,3
+977,55,1300,Fall,Empty,0,0,0,1
+1040,55,1350,Winter,Suborder Zoarcoidei,1,5.3,1,3
+1059,55,1300,Winter,Cottidae,1,2.9,1,3
+1135,55,1100,Summer,Teleostei NEI,1,0.1,1,2
+1359,55,1400,Summer,Clupeidae,1,1.08,1,3
+1359,55,1400,Summer,Clupeidae,1,1.08,1,3
+1359,55,1400,Summer,Clupeidae,1,1.08,1,3
+1359,55,1400,Summer,Clupeidae,1,1.1,1,3
+1359,55,1400,Summer,Clupeidae,1,1.1,1,3
+1401,55,1400,Summer,Empty,0,0,0,1
+1440,55,1300,Summer,Ammodytidae,1,0.6,1,2
+1440,55,1300,Summer,Ammodytidae,1,1.2,1,3
+1440,55,1300,Summer,Ammodytidae,1,1.3,1,3
+1440,55,1300,Summer,Ammodytidae,1,1.3,1,3
+1440,55,1300,Summer,Ammodytidae,1,1.8,1,3
+1440,55,1300,Summer,Ammodytidae,1,1.9,1,3
+1440,55,1300,Summer,Ammodytidae,1,1.9,1,3
+1440,55,1300,Summer,Ammodytidae,1,2.1,1,3
+1440,55,1300,Summer,Ammodytidae,1,2.2,1,3
+1607,55,1500,Summer,Order Decapoda,1,0.5,1,2
+1607,55,1500,Summer,Clupeidae,1,2.75,1,3
+1607,55,1500,Summer,Clupeidae,1,2.8,1,3
+1607,55,1500,Summer,Clupeidae,1,5.9,1,3
+1772,55,1300,Fall,Empty,0,0,0,1
+1787,55,1600,Fall,Empty,0,0,0,1
+1827,55,1300,Fall,Empty,0,0,0,1
+2111,55,1100,Spring,Empty,0,0,0,1
+128,56,1400,Summer,Empty,0,0,0,1
+138,56,1300,Summer,Order Scorpaeniformes,1,0.9,1,3
+169,56,1300,Summer,Ammodytidae,1,0.13,1,2
+169,56,1300,Summer,Ammodytidae,1,0.1,1,2
+169,56,1300,Summer,Ammodytidae,1,0.1,1,2
+169,56,1300,Summer,Ammodytidae,1,0.1,1,2
+169,56,1300,Summer,Ammodytidae,1,0.1,1,2
+169,56,1300,Summer,Ammodytidae,1,0.1,1,2
+169,56,1300,Summer,Ammodytidae,1,0.2,1,2
+169,56,1300,Summer,Ammodytidae,1,0.3,1,2
+169,56,1300,Summer,Teleostei NEI,1,0.1,1,2
+279,56,1400,Summer,Gadidae,1,2.4,1,3
+279,56,1400,Summer,Hexagrammidae,1,2.4,1,3
+613,56,1400,Spring,Ammodytidae,1,0.8,1,3
+883,56,1400,Fall,Order Decapoda,1,0.4,1,2
+883,56,1400,Fall,Teleostei NEI,1,0.1,1,2
+903,56,1350,Fall,Embiotocidae,1,17.6,1,4
+903,56,1350,Fall,Teleostei NEI,1,16.1,1,2
+1006,56,1500,Winter,Empty,0,0,0,1
+1062,56,1500,Winter,Order Decapoda,1,1.2,1,3
+1062,56,1500,Winter,Scorpaenidae,1,10.2,1,3
+1276,56,1600,Summer,Teleostei NEI,1,1.1,1,2
+1535,56,1600,Summer,Cottidae,1,1,1,3
+1535,56,1600,Summer,Embiotocidae,1,5.1,1,3
+1597,56,1500,Summer,Clupeidae,1,0.2,1,2
+1597,56,1500,Summer,Order Decapoda,1,8.5,1,3
+1660,56,1500,Summer,Empty,0,0,0,1
+1887,56,1400,Winter,Clupeidae,1,0.81,1,3
+1995,56,1500,Spring,Order Scorpaeniformes,1,0,1,2
+2156,56,1300,Spring,Clupeidae,1,0.28,1,4
+2156,56,1300,Spring,Scorpaenidae,1,30.12,1,4
+212,57,1600,Summer,Clupeidae,1,0.2,1,2
+212,57,1600,Summer,Clupeidae,1,0.2,1,2
+212,57,1600,Summer,Clupeidae,1,0.6,1,5
+446,57,1500,Winter,Empty,0,0,0,1
+463,57,1600,Winter,Empty,0,0,0,1
+486,57,1500,Winter,Empty,0,0,0,1
+506,57,1500,Winter,Empty,0,0,0,1
+574,57,4250,Spring,Hexagrammidae,1,6.2,1,3
+658,57,1500,Fall,Order Decapoda,1,1.7,1,3
+658,57,1500,Fall,Teleostei NEI,1,1.6,1,2
+668,57,1500,Fall,Clupeidae,1,0.1,1,2
+668,57,1500,Fall,Order Decapoda,1,0.05,1,2
+751,57,1300,Fall,Empty,0,0,0,1
+1581,57,1500,Summer,Order Decapoda,1,0.4,1,2
+1581,57,1500,Summer,Ammodytidae,1,2.4,1,3
+1581,57,1500,Summer,Order Decapoda,1,1.4,1,3
+1581,57,1500,Summer,Order Decapoda,1,12.1,1,3
+1581,57,1500,Summer,Scorpaenidae,1,9.8,1,3
+1611,57,1550,Summer,Teleostei NEI,1,0.1,1,2
+1811,57,2600,Fall,Empty,0,0,0,1
+2080,57,1600,Spring,Scorpaenidae,1,13.14,1,3
+42,58,1700,Spring,Clupeidae,1,6.1,1,3
+42,58,1700,Spring,Clupeidae,1,8.9,1,3
+42,58,1700,Spring,Clupeidae,1,11.4,1,3
+122,58,1500,Summer,Clupeidae,1,1.3,1,2
+122,58,1500,Summer,Clupeidae,1,0.8,1,3
+165,58,1700,Summer,Scorpaenidae,1,6.7,1,3
+330,58,2000,Summer,Gadidae,1,0.8,1,3
+374,58,1900,Winter,Empty,0,0,0,1
+488,58,1900,Winter,Empty,0,0,0,1
+512,58,1100,Winter,Order Decapoda,1,18,1,4
+612,58,1500,Spring,Empty,0,0,0,1
+644,58,1600,Fall,Empty,0,0,0,1
+715,58,1600,Fall,Empty,0,0,0,1
+720,58,1500,Fall,Order Decapoda,1,4.1,1,3
+737,58,1500,Fall,Class Cephalopoda,1,3.5,1,3
+737,58,1500,Fall,Gadidae,1,5.5,1,3
+984,58,1700,Fall,Clupeidae,1,0.1,1,2
+984,58,1700,Fall,Scorpaenidae,1,45.1,1,4
+1087,58,1500,Spring,Empty,0,0,0,1
+1106,58,1600,Spring,Empty,0,0,0,1
+1310,58,1500,Summer,Ammodytidae,1,0.1,1,2
+1322,58,1500,Summer,Scorpaenidae,1,19.4,1,4
+1447,58,1500,Summer,Empty,0,0,0,1
+1492,58,1700,Summer,Empty,0,0,0,1
+115,59,1600,Summer,Cottidae,1,0.4,1,2
+115,59,1600,Summer,Clupeidae,1,0.8,1,3
+115,59,1600,Summer,Clupeidae,1,1.7,1,3
+121,59,1800,Summer,Clupeidae,1,1.6,1,3
+121,59,1800,Summer,Clupeidae,1,2.2,1,3
+121,59,1800,Summer,Clupeidae,1,3.7,1,3
+428,59,2000,Winter,Empty,0,0,0,1
+449,59,2000,Winter,Teleostei NEI,1,0.7,1,2
+692,59,1700,Fall,Empty,0,0,0,1
+719,59,1500,Fall,Clupeidae,1,0.1,1,2
+719,59,1500,Fall,Embiotocidae,1,0.1,1,2
+719,59,1500,Fall,Order Decapoda,1,0.5,1,2
+719,59,1500,Fall,Order Decapoda,1,1.9,1,3
+740,59,1600,Fall,Clupeidae,1,2.3,1,3
+740,59,1600,Fall,Cottidae,1,2.2,1,3
+768,59,1700,Fall,Order Decapoda,1,5.1,1,3
+816,59,1500,Fall,Empty,0,0,0,1
+919,59,1800,Fall,Order Decapoda,1,0.6,1,2
+921,59,1900,Fall,Cottidae,1,3.4,1,3
+921,59,1900,Fall,Order Decapoda,1,1.7,1,3
+921,59,1900,Fall,Order Decapoda,1,2.9,1,3
+921,59,1900,Fall,Order Decapoda,1,3.5,1,3
+921,59,1900,Fall,Order Decapoda,1,4.6,1,3
+921,59,1900,Fall,Order Decapoda,1,5.5,1,3
+921,59,1900,Fall,Order Decapoda,1,6.8,1,3
+921,59,1900,Fall,Order Decapoda,1,7.5,1,3
+1213,59,1700,Summer,Order Scorpaeniformes,1,0.1,1,2
+1213,59,1700,Summer,Teleostei NEI,1,0.1,1,2
+1213,59,1700,Summer,Ammodytidae,1,3,1,3
+1301,59,1700,Summer,Empty,0,0,0,1
+1559,59,1800,Summer,Empty,0,0,0,1
+1706,59,1650,Fall,Empty,0,0,0,1
+1779,59,1700,Fall,Empty,0,0,0,1
+1785,59,1700,Fall,Class Cephalopoda,1,20.2,1,4
+1804,59,1900,Fall,Clupeidae,1,11.1,1,3
+1804,59,1900,Fall,Cottidae,1,2.6,1,3
+1804,59,1900,Fall,Engraulidae,1,10.4,1,3
+1813,59,1600,Fall,Empty,0,0,0,1
+1935,59,1500,Winter,Empty,0,0,0,1
+2065,59,1500,Spring,Clupeidae,1,17.06,1,4
+2065,59,1500,Spring,Clupeidae,1,19.36,1,4
+2065,59,1500,Spring,Clupeidae,1,22,1,4
+2065,59,1500,Spring,Clupeidae,1,32.16,1,4
+255,60,2100,Summer,Clupeidae,1,1.1,1,3
+255,60,2100,Summer,Clupeidae,1,3,1,3
+255,60,2100,Summer,Clupeidae,1,3.2,1,3
+278,60,1700,Summer,Order Scorpaeniformes,1,0.6,1,2
+278,60,1700,Summer,Order Decapoda,1,1.2,1,3
+278,60,1700,Summer,Order Decapoda,1,1.8,1,3
+278,60,1700,Summer,Order Decapoda,1,8.2,1,3
+296,60,1700,Summer,Empty,0,0,0,1
+565,60,1800,Spring,Empty,0,0,0,1
+683,60,1700,Fall,Order Scorpaeniformes,1,0.3,1,2
+735,60,1800,Fall,Empty,0,0,0,1
+822,60,2000,Fall,Empty,0,0,0,1
+900,60,1800,Fall,Empty,0,0,0,1
+965,60,1900,Fall,Empty,0,0,0,1
+972,60,1700,Fall,Scorpaenidae,1,49.7,1,5
+983,60,1800,Fall,Order Decapoda,1,0.05,1,2
+983,60,1800,Fall,Teleostei NEI,1,0.05,1,2
+1004,60,1900,Fall,Clupeidae,1,0.3,1,2
+1004,60,1900,Fall,Cottidae,1,20.7,1,4
+1007,60,1900,Winter,Suborder Zoarcoidei,1,0.1,1,2
+1041,60,2100,Winter,Empty,0,0,0,1
+1121,60,1700,Spring,Empty,0,0,0,1
+1200,60,1800,Summer,Empty,0,0,0,1
+1700,60,2000,Fall,Cottidae,1,1.7,1,3
+1700,60,2000,Fall,Teleostei NEI,1,2.4,1,2
+1732,60,1900,Fall,Empty,0,0,0,1
+1921,60,1700,Winter,Clupeidae,1,9.37,1,3
+2099,60,1700,Spring,Teleostei NEI,1,1.11,1,2
+100,61,1900,Summer,Class Cephalopoda,1,0.1,1,2
+100,61,1900,Summer,Clupeidae,1,4,1,3
+100,61,1900,Summer,Clupeidae,1,5.4,1,3
+100,61,1900,Summer,Clupeidae,1,6.8,1,3
+100,61,1900,Summer,Gadidae,1,1.4,1,3
+100,61,1900,Summer,Clupeidae,1,4.7,1,5
+314,61,2500,Summer,Scorpaenidae,1,0.2,1,2
+396,61,2100,Winter,Empty,0,0,0,1
+402,61,1900,Winter,Cottidae,1,2.2,1,3
+402,61,1900,Winter,Cottidae,1,3.3,1,3
+403,61,2300,Winter,Teleostei NEI,1,4,1,2
+545,61,1800,Spring,Empty,0,0,0,1
+654,61,1300,Fall,Order Decapoda,1,8.7,1,3
+708,61,1800,Fall,Scorpaenidae,1,10.4,1,3
+788,61,2000,Fall,Embiotocidae,1,8.7,1,3
+788,61,2000,Fall,Cottidae,1,24.5,1,4
+818,61,2000,Fall,Empty,0,0,0,1
+1067,61,2000,Winter,Cottidae,1,0.2,1,2
+1067,61,2000,Winter,Order Decapoda,1,2.6,1,3
+1105,61,1800,Spring,Empty,0,0,0,1
+1115,61,1900,Spring,Empty,0,0,0,1
+1482,61,2000,Summer,Empty,0,0,0,1
+1685,61,1900,Summer,Order Scorpaeniformes,1,0.7,1,3
+1690,61,1700,Summer,Empty,0,0,0,1
+1693,61,1900,Fall,Suborder Zoarcoidei,1,0.7,1,3
+1693,61,1900,Fall,Suborder Zoarcoidei,1,0.9,1,3
+1693,61,1900,Fall,Suborder Zoarcoidei,1,0.9,1,3
+1693,61,1900,Fall,Suborder Zoarcoidei,1,1.7,1,3
+1693,61,1900,Fall,Suborder Zoarcoidei,1,3.5,1,3
+1708,61,1700,Fall,Teleostei NEI,1,0.2,1,2
+1708,61,1700,Fall,Order Decapoda,1,2,1,3
+1788,61,2000,Fall,Empty,0,0,0,1
+1832,61,1900,Fall,Empty,0,0,0,1
+1892,61,1900,Winter,Empty,0,0,0,1
+1996,61,1800,Spring,Empty,0,0,0,1
+2034,61,1900,Spring,Cottidae,1,0.09,1,2
+15,62,2000,Spring,Class Cephalopoda,1,48.3,1,5
+113,62,1800,Summer,Teleostei NEI,1,0.3,1,2
+202,62,1900,Summer,Gadidae,1,15.3,1,2
+202,62,1900,Summer,Order Decapoda,1,0.5,1,2
+258,62,2200,Summer,Ammodytidae,1,0.5,1,2
+443,62,2000,Winter,Cottidae,1,3.9,1,3
+537,62,1800,Spring,Class Cephalopoda,1,0.2,1,2
+537,62,1800,Spring,Gadidae,1,35.6,1,4
+541,62,2000,Spring,Order Scorpaeniformes,1,0.2,1,2
+550,62,1600,Spring,Cottidae,1,4.7,1,3
+716,62,2100,Fall,Order Scorpaeniformes,1,0.1,1,2
+771,62,2000,Fall,Ammodytidae,1,2,1,3
+771,62,2000,Fall,Cottidae,1,3.8,1,3
+771,62,2000,Fall,Embiotocidae,1,3.8,1,3
+771,62,2000,Fall,Cottidae,1,38.6,1,4
+828,62,2000,Fall,Teleostei NEI,1,1,1,2
+841,62,2100,Fall,Teleostei NEI,1,38,1,2
+881,62,2100,Fall,Scorpaenidae,1,3,1,3
+896,62,1900,Fall,Clupeidae,1,0.4,1,2
+896,62,1900,Fall,Hexagrammidae,1,110.6,1,5
+1329,62,2000,Summer,Clupeidae,1,3.8,1,3
+1329,62,2000,Summer,Clupeidae,1,5.6,1,3
+1596,62,1900,Summer,Clupeidae,1,0.4,1,2
+1596,62,1900,Summer,Scorpaenidae,1,4.7,1,3
+1790,62,2100,Fall,Scorpaenidae,1,15.1,1,5
+1837,62,1800,Fall,Empty,0,0,0,1
+1864,62,2200,Fall,Order Decapoda,1,2.2,1,3
+1864,62,2200,Fall,Cottidae,1,18.8,1,4
+2006,62,1800,Spring,Order Decapoda,1,1.75,1,3
+2006,62,1800,Spring,Order Decapoda,1,1.8,1,3
+2006,62,1800,Spring,Order Scorpaeniformes,1,1.75,1,3
+2161,62,1900,Spring,Order Scorpaeniformes,1,0.32,1,2
+179,63,1700,Summer,Ammodytidae,1,0.6,1,2
+179,63,1700,Summer,Scorpaenidae,1,3,1,3
+179,63,1700,Summer,Cottidae,1,27.2,1,5
+209,63,2000,Summer,Ammodytidae,1,0.3,1,2
+209,63,2000,Summer,Ammodytidae,1,0.5,1,2
+209,63,2000,Summer,Ammodytidae,1,0.6,1,2
+209,63,2000,Summer,Ammodytidae,1,0.7,1,2
+209,63,2000,Summer,Ammodytidae,1,0.9,1,2
+209,63,2000,Summer,Ammodytidae,1,1.4,1,2
+209,63,2000,Summer,Ammodytidae,1,1.9,1,3
+287,63,2200,Summer,Clupeidae,1,1.2,1,3
+287,63,2200,Summer,Scorpaenidae,1,29.8,1,4
+287,63,2200,Summer,Scorpaenidae,1,41.2,1,4
+395,63,2500,Winter,Empty,0,0,0,1
+447,63,2500,Winter,Empty,0,0,0,1
+453,63,2400,Winter,Empty,0,0,0,1
+480,63,2300,Winter,Empty,0,0,0,1
+549,63,1800,Spring,Empty,0,0,0,1
+630,63,2300,Spring,Clupeidae,1,0.1,1,2
+630,63,2300,Spring,Clupeidae,1,0.8,1,3
+630,63,2300,Spring,Cottidae,1,4.3,1,3
+630,63,2300,Spring,Cottidae,1,8.6,1,3
+630,63,2300,Spring,Cottidae,1,10.1,1,3
+793,63,2200,Fall,Scorpaenidae,1,90.1,1,5
+852,63,2100,Fall,Empty,0,0,0,1
+863,63,2000,Fall,Clupeidae,1,0.3,1,2
+863,63,2000,Fall,Order Decapoda,1,4.2,1,3
+894,63,2000,Fall,Order Decapoda,1,1.7,1,3
+1001,63,2000,Fall,Empty,0,0,0,1
+1091,63,2100,Spring,Clupeidae,1,15.6,1,2
+1091,63,2100,Spring,Clupeidae,1,33.4,1,4
+1091,63,2100,Spring,Clupeidae,1,54.4,1,5
+1317,63,2100,Summer,Suborder Zoarcoidei,1,7,1,3
+1317,63,2100,Summer,Teleostei NEI,1,62.7,1,2
+1798,63,2100,Fall,Empty,0,0,0,1
+1844,63,2200,Fall,Teleostei NEI,1,0.6,1,2
+1844,63,2200,Fall,Teleostei NEI,1,2.6,1,2
+2095,63,1900,Spring,Order Scorpaeniformes,1,3.89,1,3
+2098,63,2300,Spring,Clupeidae,1,4.05,1,3
+2098,63,2300,Spring,Clupeidae,1,6.17,1,3
+2098,63,2300,Spring,Clupeidae,1,7.61,1,3
+2098,63,2300,Spring,Clupeidae,1,13.77,1,4
+2098,63,2300,Spring,Clupeidae,1,18.18,1,4
+114,64,2000,Summer,Empty,0,0,0,1
+455,64,2500,Winter,Empty,0,0,0,1
+469,64,2400,Winter,Empty,0,0,0,1
+560,64,2200,Spring,Order Decapoda,1,2.6,1,3
+597,64,2300,Spring,Clupeidae,1,43.2,1,4
+741,64,2300,Fall,Embiotocidae,1,6.9,1,3
+741,64,2300,Fall,Clupeidae,1,21.5,1,4
+826,64,2300,Fall,Empty,0,0,0,1
+901,64,2200,Fall,Empty,0,0,0,1
+1321,64,2000,Summer,Clupeidae,1,0.4,1,2
+1321,64,2000,Summer,Clupeidae,1,0.4,1,2
+1321,64,2000,Summer,Order Decapoda,1,0.4,1,2
+1771,64,2400,Fall,Teleostei NEI,1,0.6,1,2
+1771,64,2400,Fall,Teleostei NEI,1,3.9,1,2
+1771,64,2400,Fall,Order Decapoda,1,1.1,1,3
+1771,64,2400,Fall,Teleostei NEI,1,1.7,1,2
+1771,64,2400,Fall,Cottidae,1,147.4,1,5
+1784,64,2000,Fall,Empty,0,0,0,1
+1903,64,2100,Winter,Empty,0,0,0,1
+132,65,2200,Summer,Scorpaenidae,1,21.9,1,4
+230,65,2500,Summer,Order Decapoda,1,0.1,1,2
+230,65,2500,Summer,Scorpaenidae,1,1.9,1,3
+277,65,2200,Summer,Order Decapoda,1,1.7,1,3
+316,65,3000,Summer,Class Cephalopoda,1,0.02,1,2
+316,65,3000,Summer,Order Decapoda,1,0.8,1,3
+316,65,3000,Summer,Order Pleuronectiformes,1,11.08,1,3
+375,65,3000,Winter,Empty,0,0,0,1
+398,65,2750,Winter,Empty,0,0,0,1
+497,65,3000,Winter,Empty,0,0,0,1
+526,65,2250,Spring,Order Decapoda,1,0.1,1,2
+526,65,2250,Spring,Cottidae,1,1.4,1,3
+731,65,2200,Fall,Empty,0,0,0,1
+844,65,2500,Fall,Order Decapoda,1,0.075,1,2
+844,65,2500,Fall,Order Decapoda,1,0.075,1,2
+844,65,2500,Fall,Order Decapoda,1,0.075,1,2
+844,65,2500,Fall,Order Scorpaeniformes,1,0.025,1,2
+864,65,2300,Fall,Class Cephalopoda,1,1.1,1,3
+976,65,2400,Fall,Scorpaenidae,1,6.3,1,3
+976,65,2400,Fall,Cottidae,1,37.6,1,4
+1313,65,2300,Summer,Cottidae,1,13.2,1,3
+1345,65,2300,Summer,Class Cephalopoda,1,0.1,1,2
+1345,65,2300,Summer,Order Decapoda,1,7.7,1,3
+1405,65,2400,Summer,Clupeidae,1,0.1,1,2
+1405,65,2400,Summer,Clupeidae,1,5.6,1,3
+1405,65,2400,Summer,Order Decapoda,1,16,1,3
+1560,65,2300,Summer,Hexagrammidae,1,33.2,1,4
+1703,65,2500,Fall,Empty,0,0,0,1
+1896,65,2200,Winter,Empty,0,0,0,1
+50,66,2600,Spring,Empty,0,0,0,1
+108,66,2400,Summer,Ammodytidae,1,0.2,1,2
+174,66,2400,Summer,Cottidae,1,2.1,1,3
+324,66,3200,Summer,Ammodytidae,1,0.6,1,2
+324,66,3200,Summer,Ammodytidae,1,1.3,1,2
+324,66,3200,Summer,Ammodytidae,1,0.1,1,2
+324,66,3200,Summer,Ammodytidae,1,0.2,1,2
+324,66,3200,Summer,Ammodytidae,1,0.2,1,2
+324,66,3200,Summer,Ammodytidae,1,0.3,1,2
+324,66,3200,Summer,Ammodytidae,1,0.4,1,2
+324,66,3200,Summer,Ammodytidae,1,0.4,1,2
+324,66,3200,Summer,Ammodytidae,1,0.4,1,2
+324,66,3200,Summer,Ammodytidae,1,0.4,1,2
+324,66,3200,Summer,Ammodytidae,1,0.4,1,2
+324,66,3200,Summer,Ammodytidae,1,0.5,1,2
+324,66,3200,Summer,Ammodytidae,1,0.5,1,2
+324,66,3200,Summer,Ammodytidae,1,0.6,1,2
+324,66,3200,Summer,Ammodytidae,1,0.6,1,2
+324,66,3200,Summer,Ammodytidae,1,0.7,1,2
+324,66,3200,Summer,Ammodytidae,1,0.6,1,3
+324,66,3200,Summer,Ammodytidae,1,0.8,1,3
+324,66,3200,Summer,Ammodytidae,1,0.8,1,3
+324,66,3200,Summer,Ammodytidae,1,0.8,1,3
+324,66,3200,Summer,Ammodytidae,1,0.8,1,3
+324,66,3200,Summer,Ammodytidae,1,0.8,1,3
+324,66,3200,Summer,Ammodytidae,1,1,1,3
+324,66,3200,Summer,Ammodytidae,1,1,1,3
+324,66,3200,Summer,Ammodytidae,1,1,1,3
+324,66,3200,Summer,Ammodytidae,1,1.1,1,3
+324,66,3200,Summer,Ammodytidae,1,1.1,1,3
+324,66,3200,Summer,Ammodytidae,1,1.1,1,3
+324,66,3200,Summer,Ammodytidae,1,1.2,1,3
+324,66,3200,Summer,Ammodytidae,1,1.3,1,3
+324,66,3200,Summer,Ammodytidae,1,1.3,1,3
+324,66,3200,Summer,Ammodytidae,1,1.3,1,3
+324,66,3200,Summer,Ammodytidae,1,1.4,1,3
+324,66,3200,Summer,Ammodytidae,1,1.6,1,3
+324,66,3200,Summer,Ammodytidae,1,1.7,1,3
+324,66,3200,Summer,Ammodytidae,1,1.9,1,3
+324,66,3200,Summer,Ammodytidae,1,1.9,1,3
+324,66,3200,Summer,Ammodytidae,1,1.9,1,3
+324,66,3200,Summer,Ammodytidae,1,2.2,1,3
+324,66,3200,Summer,Ammodytidae,1,12.6,1,3
+324,66,3200,Summer,Bathylagidae,1,1.2,1,3
+324,66,3200,Summer,Bathylagidae,1,2.1,1,3
+324,66,3200,Summer,Ammodytidae,1,0.9,1,4
+324,66,3200,Summer,Ammodytidae,1,1.3,1,4
+324,66,3200,Summer,Ammodytidae,1,1.3,1,5
+425,66,3100,Winter,Empty,0,0,0,1
+483,66,3100,Winter,Empty,0,0,0,1
+487,66,2900,Winter,Empty,0,0,0,1
+531,66,2500,Spring,Empty,0,0,0,1
+657,66,2600,Fall,Scorpaenidae,1,22.7,1,2
+659,66,2500,Fall,Clupeidae,1,0.1,1,2
+659,66,2500,Fall,Embiotocidae,1,1.9,1,3
+661,66,2400,Fall,Clupeidae,1,4.6,1,2
+661,66,2400,Fall,Clupeidae,1,0.875,1,3
+661,66,2400,Fall,Clupeidae,1,0.875,1,3
+661,66,2400,Fall,Clupeidae,1,0.875,1,3
+661,66,2400,Fall,Clupeidae,1,0.875,1,3
+661,66,2400,Fall,Clupeidae,1,3.3,1,3
+661,66,2400,Fall,Embiotocidae,1,3,1,3
+670,66,2500,Fall,Empty,0,0,0,1
+671,66,2300,Fall,Order Decapoda,1,1.7,1,3
+672,66,2600,Fall,Clupeidae,1,0.9,1,2
+672,66,2600,Fall,Order Decapoda,1,0.6,1,2
+672,66,2600,Fall,Order Decapoda,1,0.8,1,3
+870,66,2100,Fall,Scorpaenidae,1,29.8,1,4
+939,66,2600,Fall,Empty,0,0,0,1
+1027,66,2500,Winter,Order Decapoda,1,1.1,1,3
+1027,66,2500,Winter,Order Decapoda,1,1.5,1,3
+1027,66,2500,Winter,Order Decapoda,1,1.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,1.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,1.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,1.9,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.1,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.2,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.4,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.6,1,3
+1027,66,2500,Winter,Order Decapoda,1,2.7,1,3
+1027,66,2500,Winter,Order Decapoda,1,3.1,1,3
+1027,66,2500,Winter,Order Decapoda,1,3.1,1,3
+1027,66,2500,Winter,Order Decapoda,1,4.3,1,3
+1027,66,2500,Winter,Scorpaenidae,1,27.8,1,5
+1165,66,2500,Summer,Empty,0,0,0,1
+1247,66,2500,Summer,Teleostei NEI,1,0.2,1,2
+1387,66,2600,Summer,Cottidae,1,60.3,1,5
+1409,66,2500,Summer,Empty,0,0,0,1
+1491,66,2200,Summer,Teleostei NEI,1,10.6,1,2
+1614,66,2400,Summer,Suborder Zoarcoidei,1,11,1,3
+1728,66,2600,Fall,Cottidae,1,2.3,1,3
+1728,66,2600,Fall,Order Decapoda,1,0.7,1,3
+2009,66,2400,Spring,Class Cephalopoda,1,37.69,1,4
+2044,66,2100,Spring,Clupeidae,1,3.4,1,3
+2044,66,2100,Spring,Clupeidae,1,3.4,1,3
+2044,66,2100,Spring,Order Decapoda,1,2.77,1,3
+22,67,2700,Spring,Gadidae,1,0.2,1,2
+51,67,,Spring,Clupeidae,1,7.25,1,3
+51,67,,Spring,Clupeidae,1,7.3,1,3
+59,67,,Spring,Scorpaenidae,1,4.2,1,3
+61,67,3000,Spring,Cottidae,1,0.4,1,2
+61,67,3000,Spring,Gadidae,1,3.5,1,3
+62,67,3000,Spring,Empty,0,0,0,1
+74,67,,Spring,Clupeidae,1,0.1,1,2
+74,67,,Spring,Gadidae,1,3.6,1,3
+404,67,3400,Winter,Empty,0,0,0,1
+637,67,2300,Spring,Order Decapoda,1,7.7,1,3
+637,67,2300,Spring,Cottidae,1,39.5,1,4
+934,67,2800,Fall,Cottidae,1,0.8,1,3
+1114,67,2500,Spring,Empty,0,0,0,1
+1526,67,2400,Summer,Empty,0,0,0,1
+1564,67,2500,Summer,Scorpaenidae,1,7.5,1,3
+1897,67,2400,Winter,Empty,0,0,0,1
+37,68,2800,Spring,Engraulidae,1,1.9,1,3
+37,68,2800,Spring,Engraulidae,1,9.4,1,3
+182,68,2700,Summer,Empty,0,0,0,1
+451,68,3500,Winter,Empty,0,0,0,1
+525,68,2500,Spring,Empty,0,0,0,1
+571,68,2900,Spring,Empty,0,0,0,1
+732,68,2800,Fall,Teleostei NEI,1,0.2,1,2
+732,68,2800,Fall,Cottidae,1,11.7,1,4
+783,68,2100,Fall,Scorpaenidae,1,16.3,1,4
+871,68,3000,Fall,Scorpaenidae,1,2.8,1,3
+962,68,2800,Fall,Empty,0,0,0,1
+998,68,2500,Fall,Order Pleuronectiformes,1,28.3,1,3
+1063,68,3000,Winter,Scorpaenidae,1,94.4,1,5
+1218,68,2700,Summer,Suborder Zoarcoidei,1,11,1,3
+1218,68,2700,Summer,Teleostei NEI,1,33.7,1,2
+1757,68,2600,Fall,Empty,0,0,0,1
+20,69,3000,Spring,Clupeidae,1,0.7,1,2
+20,69,3000,Spring,Teleostei NEI,1,2.7,1,2
+156,69,2800,Summer,Clupeidae,1,0.2,1,2
+156,69,2800,Summer,Clupeidae,1,1.3,1,5
+256,69,3300,Summer,Ammodytidae,1,0.1,1,2
+256,69,3300,Summer,Ammodytidae,1,0.1,1,2
+256,69,3300,Summer,Ammodytidae,1,0.1,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.2,1,2
+256,69,3300,Summer,Ammodytidae,1,0.3,1,2
+256,69,3300,Summer,Ammodytidae,1,0.3,1,2
+256,69,3300,Summer,Ammodytidae,1,0.3,1,2
+256,69,3300,Summer,Ammodytidae,1,0.3,1,2
+256,69,3300,Summer,Ammodytidae,1,0.3,1,2
+256,69,3300,Summer,Ammodytidae,1,0.4,1,2
+256,69,3300,Summer,Ammodytidae,1,0.5,1,2
+256,69,3300,Summer,Ammodytidae,1,0.5,1,2
+256,69,3300,Summer,Ammodytidae,1,0.7,1,2
+256,69,3300,Summer,Order Scorpaeniformes,1,1.7,1,3
+256,69,3300,Summer,Ammodytidae,1,0.6,1,4
+484,69,3700,Winter,Empty,0,0,0,1
+490,69,3250,Winter,Empty,0,0,0,1
+504,69,3000,Winter,Empty,0,0,0,1
+572,69,2500,Spring,Scorpaenidae,1,7.4,1,3
+572,69,2500,Spring,Scorpaenidae,1,17.6,1,4
+588,69,2400,Spring,Empty,0,0,0,1
+589,69,3200,Spring,Cottidae,1,173.2,1,5
+642,69,2400,Spring,Order Decapoda,1,0.3,1,2
+642,69,2400,Spring,Clupeidae,1,0.8,1,3
+722,69,2900,Fall,Order Decapoda,1,2.1,1,3
+722,69,2900,Fall,Order Decapoda,1,2.4,1,3
+722,69,2900,Fall,Order Decapoda,1,3.2,1,3
+722,69,2900,Fall,Order Decapoda,1,3.5,1,3
+722,69,2900,Fall,Order Decapoda,1,5.5,1,3
+743,69,3000,Fall,Teleostei NEI,1,0.4,1,2
+743,69,3000,Fall,Order Decapoda,1,4.3,1,3
+922,69,2500,Fall,Gadidae,1,7.1,1,3
+922,69,2500,Fall,Order Decapoda,1,1.6,1,3
+922,69,2500,Fall,Order Decapoda,1,1.9,1,3
+922,69,2500,Fall,Order Decapoda,1,1.9,1,3
+922,69,2500,Fall,Order Decapoda,1,2.3,1,3
+922,69,2500,Fall,Order Decapoda,1,2.8,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3,1,3
+922,69,2500,Fall,Order Decapoda,1,3.1,1,3
+922,69,2500,Fall,Order Decapoda,1,3.2,1,3
+922,69,2500,Fall,Order Decapoda,1,3.2,1,3
+922,69,2500,Fall,Order Decapoda,1,3.5,1,3
+922,69,2500,Fall,Order Decapoda,1,3.8,1,3
+922,69,2500,Fall,Order Decapoda,1,5.5,1,3
+922,69,2500,Fall,Order Decapoda,1,4.3,1,4
+922,69,2500,Fall,Order Decapoda,1,4.3,1,4
+1264,69,2800,Summer,Class Cephalopoda,1,0.2,1,2
+1959,69,2800,Winter,Clupeidae,1,5.4,1,3
+1959,69,2800,Winter,Clupeidae,1,5.4,1,3
+1959,69,2800,Winter,Clupeidae,1,5.43,1,3
+1959,69,2800,Winter,Clupeidae,1,6.02,1,3
+1959,69,2800,Winter,Cottidae,1,4.89,1,3
+2173,69,2500,Spring,Class Cephalopoda,1,57.44,1,5
+298,70,3300,Summer,Gadidae,1,16.1,1,4
+373,70,3750,Winter,Empty,0,0,0,1
+452,70,3600,Winter,Empty,0,0,0,1
+563,70,3000,Spring,Order Scorpaeniformes,1,1.3,1,5
+733,70,2900,Fall,Order Decapoda,1,0.2,1,2
+733,70,2900,Fall,Order Decapoda,1,1,1,3
+733,70,2900,Fall,Order Decapoda,1,1.1,1,3
+733,70,2900,Fall,Order Decapoda,1,1.1,1,3
+733,70,2900,Fall,Order Decapoda,1,1.1,1,3
+733,70,2900,Fall,Order Decapoda,1,1.2,1,3
+733,70,2900,Fall,Order Decapoda,1,4,1,3
+766,70,3200,Fall,Clupeidae,1,0.7,1,2
+766,70,3200,Fall,Teleostei NEI,1,0.3,1,2
+766,70,3200,Fall,Teleostei NEI,1,3.9,1,2
+766,70,3200,Fall,Clupeidae,1,2.8,1,3
+766,70,3200,Fall,Teleostei NEI,1,2.7,1,2
+766,70,3200,Fall,Teleostei NEI,1,4,1,2
+766,70,3200,Fall,Teleostei NEI,1,5.2,1,2
+766,70,3200,Fall,Teleostei NEI,1,5.2,1,2
+766,70,3200,Fall,Teleostei NEI,1,6.2,1,2
+766,70,3200,Fall,Teleostei NEI,1,6.5,1,2
+824,70,3200,Fall,Cottidae,1,3.8,1,3
+936,70,2900,Fall,Order Pleuronectiformes,1,1.4,1,3
+936,70,2900,Fall,Scorpaenidae,1,19.7,1,4
+1235,70,3100,Summer,Cottidae,1,98.4,1,5
+1279,70,2900,Summer,Gadidae,1,8.1,1,3
+1279,70,2900,Summer,Order Decapoda,1,9.3,1,3
+1295,70,3000,Summer,Suborder Zoarcoidei,1,2.2,1,3
+1551,70,2900,Summer,Ammodytidae,1,1.4,1,3
+1586,70,2900,Summer,Order Decapoda,1,7.9,1,3
+1586,70,2900,Summer,Order Decapoda,1,19,1,4
+1628,70,3250,Summer,Ammodytidae,1,1,1,3
+1628,70,3250,Summer,Ammodytidae,1,1.5,1,3
+1628,70,3250,Summer,Ammodytidae,1,1.7,1,3
+1628,70,3250,Summer,Ammodytidae,1,1.7,1,3
+1628,70,3250,Summer,Ammodytidae,1,1.8,1,3
+1628,70,3250,Summer,Ammodytidae,1,1.8,1,3
+1628,70,3250,Summer,Ammodytidae,1,2,1,3
+1628,70,3250,Summer,Ammodytidae,1,2,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.2,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.2,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.3,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.3,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.3,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.5,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.5,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.8,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.8,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.9,1,3
+1628,70,3250,Summer,Ammodytidae,1,2.9,1,3
+1628,70,3250,Summer,Ammodytidae,1,3,1,3
+1628,70,3250,Summer,Scorpaenidae,1,17.8,1,4
+1640,70,2800,Summer,Empty,0,0,0,1
+1702,70,3100,Fall,Order Decapoda,1,0.2,1,2
+1755,70,3000,Fall,Empty,0,0,0,1
+1926,70,2700,Winter,Myctophidae,1,6.93,1,3
+16,71,4000,Spring,Gadidae,1,80.1,1,5
+31,71,3500,Spring,Teleostei NEI,1,0.1,1,2
+73,71,,Spring,Scorpaenidae,1,22.3,1,4
+229,71,5500,Summer,Clupeidae,1,2.3,1,3
+229,71,5500,Summer,Order Decapoda,1,4.1,1,3
+229,71,5500,Summer,Scorpaenidae,1,19,1,4
+300,71,3100,Summer,Empty,0,0,0,1
+424,71,3300,Winter,Empty,0,0,0,1
+427,71,3900,Winter,Empty,0,0,0,1
+687,71,3300,Fall,Order Decapoda,1,0.6,1,2
+687,71,3300,Fall,Cottidae,1,9.6,1,3
+687,71,3300,Fall,Order Decapoda,1,3.8,1,3
+918,71,3300,Fall,Empty,0,0,0,1
+951,71,4250,Fall,Empty,0,0,0,1
+979,71,3100,Fall,Order Decapoda,1,1.3,1,5
+992,71,3100,Fall,Order Decapoda,1,4.5,1,2
+992,71,3100,Fall,Cottidae,1,6.65,1,3
+992,71,3100,Fall,Order Decapoda,1,1,1,3
+992,71,3100,Fall,Order Decapoda,1,2.4,1,3
+992,71,3100,Fall,Order Decapoda,1,2.5,1,3
+992,71,3100,Fall,Order Decapoda,1,3,1,3
+992,71,3100,Fall,Order Decapoda,1,3.4,1,3
+992,71,3100,Fall,Scorpaenidae,1,6.65,1,3
+992,71,3100,Fall,Order Pleuronectiformes,1,67,1,5
+1005,71,3500,Winter,Empty,0,0,0,1
+1175,71,3100,Summer,Cottidae,1,102.8,1,5
+1217,71,2900,Summer,Empty,0,0,0,1
+1222,71,2800,Summer,Order Pleuronectiformes,1,28,1,5
+1406,71,3000,Summer,Order Decapoda,1,0.9,1,3
+1406,71,3000,Summer,Order Decapoda,1,11.5,1,3
+1412,71,3300,Summer,Order Scorpaeniformes,1,28.2,1,2
+2014,71,3300,Spring,Clupeidae,1,6.89,1,3
+2014,71,3300,Spring,Clupeidae,1,8.43,1,3
+2014,71,3300,Spring,Clupeidae,1,12.4,1,3
+2014,71,3300,Spring,Clupeidae,1,12.47,1,3
+2014,71,3300,Spring,Clupeidae,1,16.02,1,4
+2014,71,3300,Spring,Clupeidae,1,21.2,1,4
+21,72,3100,Spring,Teleostei NEI,1,2.3,1,2
+25,72,4000,Spring,Teleostei NEI,1,1.9,1,2
+36,72,3500,Spring,Clupeidae,1,0.1,1,2
+36,72,3500,Spring,Clupeidae,1,0.4,1,2
+36,72,3500,Spring,Gadidae,1,88.5,1,5
+40,72,,Spring,Gadidae,1,0.4,1,2
+40,72,,Spring,Teleostei NEI,1,0.1,1,2
+40,72,,Spring,Clupeidae,1,8.6,1,3
+67,72,,Spring,Gadidae,1,1.5,1,3
+208,72,4300,Summer,Hexagrammidae,1,5.15,1,3
+208,72,4300,Summer,Teleostei NEI,1,5.2,1,2
+226,72,3500,Summer,Class Cephalopoda,1,0.1,1,2
+226,72,3500,Summer,Cottidae,1,60.3,1,5
+305,72,3700,Summer,Order Scorpaeniformes,1,1.4,1,3
+448,72,4400,Winter,Empty,0,0,0,1
+570,72,3400,Spring,Order Pleuronectiformes,1,39.6,1,4
+614,72,3100,Spring,Order Scorpaeniformes,1,0.4,1,2
+662,72,3400,Fall,Clupeidae,1,3.2,1,3
+662,72,3400,Fall,Embiotocidae,1,7.4,1,3
+791,72,3300,Fall,Embiotocidae,1,0.6,1,4
+791,72,3300,Fall,Order Decapoda,1,4.3,1,5
+952,72,3800,Fall,Empty,0,0,0,1
+980,72,3500,Fall,Scorpaenidae,1,24,1,2
+980,72,3500,Fall,Cottidae,1,1.2,1,3
+999,72,3100,Fall,Order Scorpaeniformes,1,1.9,1,3
+1602,72,3800,Summer,Order Decapoda,1,6.7,1,3
+1602,72,3800,Summer,Order Pleuronectiformes,1,64.4,1,5
+1735,72,3600,Fall,Empty,0,0,0,1
+1769,72,3600,Fall,Empty,0,0,0,1
+53,73,,Spring,Scorpaenidae,1,20.2,1,4
+56,73,,Spring,Teleostei NEI,1,2.2,1,2
+102,73,3200,Summer,Ammodytidae,1,0.6,1,2
+102,73,3200,Summer,Ammodytidae,1,0.6,1,2
+102,73,3200,Summer,Ammodytidae,1,0.9,1,2
+102,73,3200,Summer,Ammodytidae,1,0.7,1,2
+102,73,3200,Summer,Ammodytidae,1,1.3,1,2
+102,73,3200,Summer,Clupeidae,1,0.7,1,2
+102,73,3200,Summer,Ammodytidae,1,0.8,1,3
+102,73,3200,Summer,Clupeidae,1,11.2,1,3
+102,73,3200,Summer,Clupeidae,1,0.9,1,4
+131,73,3000,Summer,Ammodytidae,1,1.1,1,3
+199,73,3700,Summer,Gadidae,1,3.8,1,3
+231,73,4000,Summer,Teleostei NEI,1,0.2,1,2
+233,73,4000,Summer,Clupeidae,1,1.3,1,2
+233,73,4000,Summer,Hexagrammidae,1,13.4,1,4
+233,73,4000,Summer,Cottidae,1,93.4,1,5
+233,73,4000,Summer,Hexagrammidae,1,14.9,1,5
+444,73,3500,Winter,Empty,0,0,0,1
+542,73,3500,Spring,Empty,0,0,0,1
+573,73,3400,Spring,Gadidae,1,1.6,1,3
+660,73,3500,Fall,Empty,0,0,0,1
+669,73,3400,Fall,Teleostei NEI,1,0.2,1,2
+752,73,3300,Fall,Scorpaenidae,1,3.8,1,3
+752,73,3300,Fall,Cottidae,1,88.9,1,5
+961,73,3800,Fall,Empty,0,0,0,1
+1791,73,3300,Fall,Empty,0,0,0,1
+1894,73,3000,Winter,Empty,0,0,0,1
+1901,73,3700,Winter,Empty,0,0,0,1
+35,74,4300,Spring,Gadidae,1,31.6,1,4
+105,74,3500,Summer,Clupeidae,1,0.6,1,2
+274,74,3500,Summer,Gadidae,1,0.5,1,2
+274,74,3500,Summer,Gadidae,1,2.7,1,3
+274,74,3500,Summer,Gadidae,1,2.75,1,3
+274,74,3500,Summer,Order Decapoda,1,3.5,1,3
+274,74,3500,Summer,Order Decapoda,1,4.2,1,3
+430,74,3600,Winter,Class Cephalopoda,1,10.7,1,3
+643,74,3400,Fall,Empty,0,0,0,1
+742,74,3600,Fall,Order Decapoda,1,10.8,1,3
+945,74,3900,Fall,Empty,0,0,0,1
+1191,74,3500,Summer,Class Cephalopoda,1,0.7,1,2
+1384,74,3600,Summer,Empty,0,0,0,1
+1647,74,3700,Summer,Clupeidae,1,5.95,1,3
+1647,74,3700,Summer,Clupeidae,1,6,1,3
+1647,74,3700,Summer,Order Decapoda,1,4.2,1,3
+2142,74,3400,Spring,Cottidae,1,32.2,1,4
+2142,74,3400,Spring,Order Pleuronectiformes,1,23.84,1,4
+198,75,3800,Summer,Teleostei NEI,1,0.1,1,2
+276,75,3600,Summer,Empty,0,0,0,1
+327,75,3600,Summer,Ammodytidae,1,1.6,1,3
+399,75,3500,Winter,Empty,0,0,0,1
+605,75,3700,Spring,Gadidae,1,16.4,1,4
+605,75,3700,Spring,Order Pleuronectiformes,1,108.2,1,5
+667,75,4250,Fall,Empty,0,0,0,1
+767,75,3500,Fall,Order Decapoda,1,0.5,1,2
+767,75,3500,Fall,Clupeidae,1,2.9,1,3
+767,75,3500,Fall,Clupeidae,1,3.7,1,3
+767,75,3500,Fall,Order Decapoda,1,7.4,1,3
+767,75,3500,Fall,Order Pleuronectiformes,1,16.3,1,4
+842,75,4250,Fall,Order Decapoda,1,0.1,1,2
+1216,75,3200,Summer,Class Cephalopoda,1,13.6,1,3
+60,76,,Spring,Myctophidae,1,0.8,1,3
+93,76,4100,Summer,Teleostei NEI,1,0.8,1,2
+638,76,4100,Spring,Cottidae,1,10.1,1,3
+684,76,3750,Fall,Clupeidae,1,5.2,1,3
+1177,76,3500,Summer,Teleostei NEI,1,13.7,1,2
+1265,76,3600,Summer,Cottidae,1,16.2,1,4
+1265,76,3600,Summer,Scorpaenidae,1,17,1,4
+38,77,4250,Spring,Clupeidae,1,26.9,1,2
+38,77,4250,Spring,Clupeidae,1,20.7,1,4
+38,77,4250,Spring,Clupeidae,1,32.9,1,4
+468,77,4500,Winter,Cottidae,1,21.5,1,4
+491,77,4250,Winter,Empty,0,0,0,1
+503,77,4250,Winter,Empty,0,0,0,1
+646,77,4200,Fall,Empty,0,0,0,1
+1353,77,3900,Summer,Empty,0,0,0,1
+1758,77,4200,Fall,Clupeidae,1,15.2,1,2
+1758,77,4200,Fall,Clupeidae,1,4.7,1,3
+1758,77,4200,Fall,Clupeidae,1,9,1,3
+1758,77,4200,Fall,Clupeidae,1,10.9,1,3
+1758,77,4200,Fall,Clupeidae,1,11.3,1,3
+1770,77,4800,Fall,Salmonidae,1,46,1,4
+1792,77,4100,Fall,Order Scorpaeniformes,1,0.1,1,2
+39,78,4900,Spring,Clupeidae,1,4.4,1,2
+39,78,4900,Spring,Gadidae,1,12.2,1,3
+784,78,4250,Fall,Embiotocidae,1,0.1,1,2
+784,78,4250,Fall,Teleostei NEI,1,2.6,1,2
+843,78,4500,Fall,Clupeidae,1,1.95,1,3
+843,78,4500,Fall,Cottidae,1,1.95,1,3
+843,78,4500,Fall,Cottidae,1,10.6,1,3
+27,79,4750,Spring,Gadidae,1,0.1,1,2
+1707,79,4500,Fall,Order Decapoda,1,2.9,1,3
+1707,79,4500,Fall,Order Decapoda,1,3,1,3
+1707,79,4500,Fall,Order Decapoda,1,3.9,1,3
+1707,79,4500,Fall,Order Decapoda,1,8.4,1,3
+1707,79,4500,Fall,Order Decapoda,1,9.1,1,3
+1707,79,4500,Fall,Teleostei NEI,1,1.7,1,2
+1902,79,4400,Winter,Empty,0,0,0,1
+19,80,4250,Spring,Order Scorpaeniformes,1,4.3,1,5
+54,80,,Spring,Scorpaenidae,1,2.1,1,3
+54,80,,Spring,Scorpaenidae,1,2.1,1,3
+54,80,,Spring,Scorpaenidae,1,2.1,1,3
+299,80,4900,Summer,Cottidae,1,6.3,1,3
+299,80,4900,Summer,Cottidae,1,11.6,1,3
+400,80,4750,Winter,Empty,0,0,0,1
+530,80,5000,Spring,Empty,0,0,0,1
+790,80,4600,Fall,Teleostei NEI,1,0.9,1,2
+1214,80,4400,Summer,Cottidae,1,123.4,1,5
+1270,80,4200,Summer,Empty,0,0,0,1
+1368,80,4600,Summer,Order Decapoda,1,0.5,1,2
+1368,80,4600,Summer,Cottidae,1,2.3,1,3
+1629,80,4600,Summer,Clupeidae,1,0.1,1,2
+1629,80,4600,Summer,Clupeidae,1,0.3,1,2
+1629,80,4600,Summer,Clupeidae,1,0.3,1,2
+1629,80,4600,Summer,Order Decapoda,1,4.9,1,3
+1704,80,4750,Fall,Order Pleuronectiformes,1,7.6,1,3
+30,81,5250,Spring,Hexagrammidae,1,147.2,1,5
+69,81,5500,Spring,Scorpaenidae,1,7.2,1,3
+69,81,5500,Spring,Scorpaenidae,1,23.2,1,5
+77,81,,Spring,Gadidae,1,0.4,1,2
+77,81,,Spring,Teleostei NEI,1,1,1,2
+77,81,,Spring,Scorpaenidae,1,20,1,4
+137,81,5000,Summer,Order Scorpaeniformes,1,6.6,1,3
+173,81,4500,Summer,Cottidae,1,41.8,1,4
+401,81,5500,Winter,Empty,0,0,0,1
+489,81,4500,Winter,Empty,0,0,0,1
+673,81,5500,Fall,Empty,0,0,0,1
+1761,81,5500,Fall,Hexagrammidae,1,106,1,5
+1949,81,5000,Winter,Empty,0,0,0,1
+2168,81,4750,Spring,Cottidae,1,31.33,1,4
+2168,81,4750,Spring,Cottidae,1,215.2,1,5
+1136,82,5200,Summer,Clupeidae,1,3.6,1,3
+1172,82,4600,Summer,Order Pleuronectiformes,1,184.8,1,5
+1172,82,4600,Summer,Teleostei NEI,1,52,1,2
+1899,82,5250,Winter,Empty,0,0,0,1
+1931,82,5400,Winter,Empty,0,0,0,1
+23,83,5250,Spring,Class Cephalopoda,1,80,1,5
+23,83,5250,Spring,Clupeidae,1,53.4,1,5
+23,83,5250,Spring,Gadidae,1,152.7,1,5
+569,83,5000,Spring,Teleostei NEI,1,0.4,1,2
+950,83,5250,Fall,Scorpaenidae,1,21.3,1,4
+1271,83,4700,Summer,Cottidae,1,12.8,1,3
+1271,83,4700,Summer,Hexagrammidae,1,122.2,1,5
+1330,83,5500,Summer,Empty,0,0,0,1
+18,84,5250,Spring,Teleostei NEI,1,0.5,1,2
+24,84,5250,Spring,Empty,0,0,0,1
+52,84,4990,Spring,Hexagrammidae,1,105,1,5
+78,84,,Spring,Gadidae,1,1.1,1,3
+369,84,5000,Winter,Teleostei NEI,1,0.9,1,2
+595,84,5500,Spring,Order Pleuronectiformes,1,98.1,1,5
+1866,84,5250,Winter,Cottidae,1,2.71,1,3
+1895,84,5500,Winter,Empty,0,0,0,1
+1236,85,5500,Summer,Cottidae,1,26.7,1,2
+1584,85,6000,Summer,Order Decapoda,1,12.1,1,3
+1584,85,6000,Summer,Order Pleuronectiformes,1,27.2,1,4
+1624,85,5000,Summer,Empty,0,0,0,1
+1773,85,6250,Fall,Order Pleuronectiformes,1,16.1,1,4
+1532,86,5500,Summer,Clupeidae,1,1.5,1,3
+1532,86,5500,Summer,Cottidae,1,13.4,1,3
+1532,86,5500,Summer,Order Decapoda,1,0.7,1,3
+1661,86,6300,Summer,Cottidae,1,13.1,1,3
+1699,86,5300,Fall,Empty,0,0,0,1
+1756,86,5300,Fall,Clupeidae,1,1.9,1,3
+1756,86,5300,Fall,Clupeidae,1,3.5,1,3
+1756,86,5300,Fall,Order Scorpaeniformes,1,4.5,1,3
+423,87,7250,Winter,Empty,0,0,0,1
+769,87,6500,Fall,Order Scorpaeniformes,1,0.1,1,2
+1609,87,6300,Summer,Order Scorpaeniformes,1,0.1,1,2
+1835,87,6000,Fall,Empty,0,0,0,1
+68,88,,Spring,Empty,0,0,0,1
+75,88,,Spring,Gadidae,1,0.2,1,2
+75,88,,Spring,Gadidae,1,0.2,1,2
+75,88,,Spring,Gadidae,1,0.2,1,2
+1548,88,7000,Summer,Scorpaenidae,1,584.1,1,5
+426,89,7500,Winter,Empty,0,0,0,1
+1648,89,6500,Summer,Order Decapoda,1,5.7,1,3
+2160,89,6000,Spring,Cottidae,1,31.08,1,4
+2160,89,6000,Spring,Cottidae,1,50.52,1,5
+33,90,7000,Spring,Teleostei NEI,1,3,1,2
+76,90,,Spring,Teleostei NEI,1,3.4,1,2
+1413,90,6500,Summer,Class Cephalopoda,1,62.5,1,5
+2091,90,5750,Spring,Empty,0,0,0,1
+579,91,,Spring,Class Cephalopoda,1,99,1,5
+823,91,6500,Fall,Empty,0,0,0,1
+1515,91,6500,Summer,Empty,0,0,0,1
+2041,91,6000,Spring,Empty,0,0,0,1
+2185,91,6500,Spring,Empty,0,0,0,1
+1512,92,7500,Summer,Hexagrammidae,1,174.1,1,5
+1592,92,6500,Summer,Order Decapoda,1,2,1,3
+32,93,9000,Spring,Clupeidae,1,1.5,1,3
+32,93,9000,Spring,Osmeridae,1,36.4,1,4
+32,93,9000,Spring,Osmeridae,1,44,1,4
+585,94,8500,Spring,Order Pleuronectiformes,1,13.7,1,3
+585,94,8500,Spring,Salmonidae,1,315.5,1,5
+1162,94,8000,Summer,Cottidae,1,0.3,1,2
+1162,94,8000,Summer,Order Pleuronectiformes,1,13.1,1,3
+2145,94,7750,Spring,Cottidae,1,15.6,1,2
+2145,94,7750,Spring,Cottidae,1,15.59,1,4
+753,95,9000,Fall,Empty,0,0,0,1
+1643,96,9000,Summer,Salmonidae,1,232,1,5
+2036,96,8000,Spring,Hexagrammidae,1,174.02,1,5
+2172,96,7750,Spring,Cottidae,1,0.26,1,3
+26,98,10000,Spring,Order Pleuronectiformes,1,30.5,1,4
+55,98,,Spring,Scorpaenidae,1,43.6,1,4
+66,98,,Spring,Teleostei NEI,1,1,1,2
+228,98,9000,Summer,Cottidae,1,62.5,1,5
+228,98,9000,Summer,Cottidae,1,62.5,1,5
+228,98,9000,Summer,Hexagrammidae,1,700,1,5
+895,99,9500,Fall,Ammodytidae,1,1.3,1,2
+895,99,9500,Fall,Order Decapoda,1,0.4,1,2
+895,99,9500,Fall,Order Decapoda,1,0.4,1,2
+895,99,9500,Fall,Order Decapoda,1,0.6,1,2
+895,99,9500,Fall,Cottidae,1,5.5,1,3
+785,100,9250,Fall,Empty,0,0,0,1
+1132,100,9500,Summer,Order Pleuronectiformes,1,6.7,1,3
+1132,100,9500,Summer,Order Pleuronectiformes,1,346.6,1,5
+898,101,10000,Fall,Hexagrammidae,1,70.8,1,5
+1731,101,10500,Fall,Empty,0,0,0,1
+2106,101,10500,Spring,Empty,0,0,0,1
+1267,103,11250,Summer,Empty,0,0,0,1
+1630,104,11500,Summer,Salmonidae,1,438.5,1,5
+2064,104,10500,Spring,Empty,0,0,0,1
+606,106,11000,Spring,Cottidae,1,408.6,1,5
+713,108,13000,Fall,Squalidae,1,715.9,1,5
+1795,108,12000,Fall,Salmonidae,1,357.5,1,5
+1545,114,15500,Summer,Empty,0,0,0,1
