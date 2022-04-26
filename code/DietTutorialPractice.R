@@ -283,7 +283,8 @@ ggplot(cumu, aes(x=Stomachs, y=Richness, colour=Season)) +
   geom_line(data=cumu) +
   geom_ribbon(data=cumu,aes(ymin=Richness-SD,ymax=Richness+SD, fill=Season),alpha=0.1) +
   theme_bw(base_size = 14)
-#This figure shows 
+#This figure shows that species richness increases with the number of stomach sampled and during different seasons.
+#I think this refers back to what Anne was talking about that you need to sample enough stomachs that you capture the species richness.
 
 # Stacked bar plots (proportion by weight)
 proportion <- data %>%
