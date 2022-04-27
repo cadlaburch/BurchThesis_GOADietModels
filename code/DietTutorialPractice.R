@@ -135,6 +135,16 @@ data %>%
   mutate(PreyCode = recode(PreyCode, '2' = 1)) ->
   data1
 
+data %>% 
+  mutate(PreyCode = ifelse(LingID == 578, 1, PreyCode))->
+  DataNew
+
+
+
+df %>% 
+  mutate(Weight=ifelse(Fruits=="Pineapple",NA,Weight)
+
+
 # I need help subbing back in the correct values. For now I have saved the corrected values as seperate dataframes.
 
 #-------------- PART 2: Integration ------------------
