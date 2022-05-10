@@ -126,6 +126,7 @@ F <- raw_stomach_contents %>%
   group_by(Pred_name) %>% 
   summarise(F = n())
 
+#I think I'm supposed to only do the mean for fish that had food in their stomachs
 #Calculate mean and sd of length by species
 T <- raw_stomach_contents %>% 
   filter(Year == 2003) %>% 
@@ -156,3 +157,13 @@ uids
 taxize::use_entrez()
 
 #come back to this
+
+#---------------------Yang Summary tables ---------------------
+
+#2003 Pollock Theragra chalcogramma
+
+Poll <- raw_stomach_contents %>%
+  filter(Year == 2003, Pred_name == "Gadus chalcogrammus")
+
+
+  

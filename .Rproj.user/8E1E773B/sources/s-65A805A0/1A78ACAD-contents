@@ -140,11 +140,6 @@ data %>%
   DataNew
 
 
-
-df %>% 
-  mutate(Weight=ifelse(Fruits=="Pineapple",NA,Weight)
-
-
 # I need help subbing back in the correct values. For now I have saved the corrected values as seperate dataframes.
 
 #-------------- PART 2: Integration ------------------
