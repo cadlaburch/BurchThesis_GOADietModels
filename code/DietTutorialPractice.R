@@ -195,8 +195,7 @@ final.data.2 %>%
 Weight <- 
   as.data.frame(summarise(
     group_by(final.data, PreyTaxa),
-    TotalWt = sum(PreyWt_g)
-  ))
+    TotalWt = sum(PreyWt_g)))
 
 #next find the total weight of all prey
 sum(Weight$TotalWt) #Answer: 10396.51

@@ -3,6 +3,8 @@
 #load some libraries
 library(readr)
 library(tidyverse)
+library(sf)
+library(here)
 
 #load in the raw data
 raw_prey_length <- read_csv("data/GOA_Raw_PreyLength.csv")
@@ -28,15 +30,68 @@ range(raw_prey_length$Rlat)
 range(raw_prey_length$Rlong)
   #Answer: -169.98, -132.68
 
-#I want to play around with the data a bit, so how about I subset it to only include year 2019
-#filter to 2019
-raw_prey_length %>% 
-  filter(Year == 2019) ->
-  length.sub
+#From what I learned in the data biography it seems like I will mainly be using the stomach contents data
 
-raw_stomach_contents %>% 
-  filter(Year == 2019) ->
-  stomach.sub
+#I want to convert it into a spatial dataframe
+stomach <- st_as_sf(raw_stomach_contents, coords = c("Rlong", "Rlat"), crs = 3467)
+class(stomach)
+head(stomach)
 
-left_join(stomach.sub, length.sub) ->
-  data
+#Warning: This takes a minute to load
+ggplot(data = stomach) +
+  geom_sf()
+
+surfacetemp <- ggplot(data = stomach, aes(x = Year, y = Surface_temp)) +
+  geom_point() +
+  theme_classic()
+
+ggsave("surfacetemp.jpg", plot = surfacetemp, device = "jpg", path = "output")
+
+#------------------- Halibut! ----------------
+#Let's play around with looking at a specific predator, I'm using the nodc code for P Halibut
+PacificHalibut <- stomach %>% 
+  filter(Pred_nodc == 8857041901)
+
+phabstom <- ggplot(data = PacificHalibut, aes(y = Pred_stomwt, x = Pred_len)) +
+  geom_point() +
+  theme_classic() +
+  labs(title = "P. Halibut")
+
+ggsave("phab_stom_len.jpg", plot = phabstom, device = "jpg", path = "output")
+
+phabhist <- ggplot(data = PacificHalibut, aes(x = Pred_len)) +
+  geom_histogram() +
+  theme_classic() +
+  labs(title = "P. Halibut")
+
+ggsave("phab_len_hist.jpg", plot = phabhist, device = "jpg", path = "output")
+
+#Checking that the Prey_Name column is the 92 groupings given on the data page
+
+length(unique(stomach$Prey_Name)) #I got 90, sooo there are two missing groups?
+length(unique(PacificHalibut$Prey_Name)) #82 for halibut not very picky eaters
+
+
+#-------------------QC Checks ------------------
+#check that Pred_Full matches the Pred_stomwt
+stomach %>% 
+  filter(Pred_full == 1) %>% 
+  ggplot(aes(x = Pred_stomwt, y = Pred_len)) +
+  geom_point()
+#looks clean lets try the other way
+
+stomach %>% 
+  filter(Pred_stomwt == 0) %>% 
+  ggplot(aes(x = Pred_full, y = Pred_len)) +
+  geom_point()
+#CHECK THIS, seems like an error? if the stomach weight is 0 the pred full values should all be 1
+stomach %>% 
+  filter(Pred_stomwt == 0) %>% 
+  ggplot(aes(x = Prey_twt, y = Pred_len)) +
+  geom_point()
+#HMMM this also seems wrong for the same reasons?
+stomach %>% 
+  filter(Pred_stomwt == 0) %>% 
+  ggplot(aes(x = Pred_dig, y = Pred_len)) +
+  geom_point()
+#this also seems wrong?
