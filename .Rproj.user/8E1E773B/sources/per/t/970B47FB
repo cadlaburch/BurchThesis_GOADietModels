@@ -1,27 +1,27 @@
 {
-    "id": "DE510FA0",
+    "id": "970B47FB",
     "path": "~/Documents/SMEA/Thesis/ThesisRepo/Alaska_Foodwebs/code/First_Look.R",
     "project_path": "code/First_Look.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "534002108",
     "contents": "",
-    "dirty": true,
-    "created": 1652141714249.0,
+    "dirty": false,
+    "created": 1652384608361.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "194,0",
-        "scrollLine": "171"
+        "cursorPosition": "8,0",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1652157572,
+    "lastKnownWriteTime": 1652159870,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1652159427469,
+    "last_content_update": 1652159870,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -165,5 +165,31 @@ taxize::use_entrez()
 Poll <- raw_stomach_contents %>%
   filter(Year == 2003, Pred_name == "Gadus chalcogrammus")
 
+#Percent Weight
+#calculate weight of each prey group
+Weight <- Poll %>% 
+  group_by(Prey_Name) %>% 
+  summarise(TotalWt = sum(Prey_twt))
 
+#calculate total prey weight
+sum(Weight$TotalWt) #A: 4756.197
+
+#calculate percent weight in new column
+Weight <- Weight %>%
+  mutate(PW = (TotalWt/4756.197)*100)
+  
+
+#percent frequency
+Number <- Poll %>% 
+  filter(Pred_stomwt != 0) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(N = n())
+
+sum(Number$N) #1254
+
+Number <- Number %>% 
+  mutate(PF = (N/1254)*100)
+
+PollSum <- full_join(Number, Weight, by = "Prey_Name") %>% 
+  select(Prey_Name, PF, PW)
   
