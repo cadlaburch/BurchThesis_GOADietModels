@@ -111,6 +111,16 @@ ggsave(plot = QC3, path = "output", "QC3.jpg", device = "jpg")
 stomach %>% 
   ggplot(aes(x = Pred_dig, y = Prey_twt)) +
   geom_point()
+
+#----------------- Yang replication attempt
+Exp<-raw_stomach_contents %>% 
+  filter(Year == 1999) %>% 
+  group_by(Pred_name) %>% 
+  summarise(if(Pred_stomwt == 0){mutate(E = n())} else {mutate(F = n())})
+
+
+  mutate(filter())
+
 #------------------ Yang table summary stats -----------------
 
 #2003
