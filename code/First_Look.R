@@ -7,15 +7,15 @@ library(sf)
 library(here)
 
 #load in the raw data
-raw_prey_length <- read_csv("data/GOA_Raw_PreyLength.csv")
-raw_stomach_contents <- read_csv("data/GOA_Raw_StomachContents.csv")
+raw_prey_length <- read_csv(here("data/GOA_Raw_PreyLength.csv"))
+raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 
 #what type of dataframe is this?
 class(raw_prey_length) # "spec_tbl_df"
 class(raw_stomach_contents) # "spec_tbl_df"
 
 #don't know if I need the race data but I found it...
-RaceData2015_2019 <- read_csv("data/RaceDatagoa2015_2019.csv")
+RaceData2015_2019 <- read_csv(here("data/RaceDatagoa2015_2019.csv"))
 
 #which years are included in the data?
 unique(raw_prey_length$Year)
