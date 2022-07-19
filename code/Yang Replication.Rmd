@@ -1,0 +1,68 @@
+---
+title: "Yang Replication"
+output: html_document
+author: Catalina Burch
+---
+
+#This Code replicates the work of Yang et al 2006 to check that our methods are correct
+
+```{r, include=FALSE}
+#load libraries
+library(readr) 
+library(tidyverse)
+library(here)
+library(taxize)
+
+#load data
+raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
+
+```
+
+
+```{r, include=F}
+
+#Filter for year 1999 and 2001
+sc_1999 <- raw_stomach_contents %>% 
+  filter(Year == 1999)
+
+sc_2001 <- raw_stomach_contents %>% 
+  filter(Year == 1999)
+
+```
+
+Recreating Table 1
+
+```{r Table 1, echo=FALSE}
+#Calculating Summary Stats
+E_1999 <- sc_1999 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+F_1999 <- sc_1999 %>% 
+  filter(Pred_stomwt != 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(F = n())
+
+T_1999 <- sc_1999 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(), 
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "+- SD" = sd(Pred_len))
+
+#Combining into one table
+FE_1999 <- full_join(F_1999, E_1999, by = "Pred_name")
+
+FET_1999 <- full_join(FE_1999, T_1999, by = "Pred_name")
+
+#Finding Scientific Names
+list<-(sci2comm(FET_1999$Pred_name, simplify = T))
+names <- rownames_to_column(as.data.frame(do.call(rbind, list)))
+colnames(names) <- c("Pred_name", "Com_nam")
+
+#Adding common names to final table
+Table1_1999 <- full_join(names, FET_1999, by = "Pred_name")
+
+
+
+```
