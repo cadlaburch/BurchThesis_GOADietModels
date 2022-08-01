@@ -1,5 +1,5 @@
 ---
-title: "Yang Replication"
+title: "PredSampledSummary"
 output: html_document
 author: Catalina Burch
 ---
@@ -402,6 +402,8 @@ FET_2019 <- full_join(FE_2019, T_2019, by = "Pred_name")
 ```{r joining}
 joined_summary <- rbind(FET_1999, FET_2001, FET_2003, FET_2005, FET_2007, FET_2009, FET_2011, FET_2013, FET_2015, FET_2017, FET_2019)
 
+#export csv
+write.csv(joined_summary, file = here("output/PredSampledSummaryInfo"))
 
 ```
 
