@@ -41,8 +41,7 @@ Recreating Table 1
 sc_1999 <- stomach_contents %>% 
   filter(Year == 1999)
 
-#Calculating Summary Stats
-
+#Calculating Summary Sample Sizes
 #Full stomachs
 F_1999 <- sc_1999 %>% 
   filter(Pred_stomwt>0) %>% 
@@ -76,49 +75,40 @@ write.csv(FET_1999, file = here("output/table1_1999.csv"))
 #Recreating Table 2
 ```{r Table2}
 
-#filtering for year
+#Filter for year 
 sc_2001 <- stomach_contents %>% 
   filter(Year == 2001)
 
-#Calculating Summary Stats
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2001 <- sc_2001 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
 #Empty stomachs
 E_2001 <- sc_2001 %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Full stomachs
-F_2001 <- sc_2001 %>% 
-  filter(Pred_stomwt>0) %>% 
-  group_by(Pred_name) %>% 
-  summarise(F = n())
-
 #Total stomachs, mean length and stdv 
 T_2001 <- sc_2001 %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(), "max" = max(Pred_len), "min" = min(Pred_len),
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
             "Fork length (cm)* Mean" = mean(Pred_len),
             "SD" = sd(Pred_len)) %>% 
   mutate(year = 2001)
 
 #Combining into one table
 FE_2001 <- full_join(F_2001, E_2001, by = "Pred_name")
-
 FET_2001 <- full_join(FE_2001, T_2001, by = "Pred_name")
 
-#Finding Scientific Names
-#WARNING: this is slow to run
-list<-(sci2comm(FET_2001$Pred_name, simplify = T))
-names <- rownames_to_column(as.data.frame(do.call(rbind, list)))
-colnames(names) <- c("Pred_name", "Com_nam")
+#saving as cvs
+write.csv(FET_2001, file = here("output/table2_2001.csv"))
 
-#Adding common names to final table
-Table2_2001 <- full_join(names, FET_2001, by = "Pred_name")
-
-Table2_2001
-
-write.csv(Table2_2001, file = here("output/table2_2001.csv"))
-
+#NOTE: Might want to add % Empty as an additional column
 
 ```
 
@@ -129,41 +119,288 @@ Creating tables for the other years and then joining into one big spreadsheet
 #These are the years not included in Yang et al: 2003 2005 2007 2009 2011 2013 2015 2017 2019 
 
 ############YEAR 2003
+#Filter for year 
+sc_2003 <- stomach_contents %>% 
+  filter(Year == 2003)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2003 <- sc_2003 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
 E_2003 <- sc_2003 %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Full stomachs
-F_2003 <- sc_2001 %>% 
-  filter(Pred_stomwt>0) %>% 
-  group_by(Pred_name) %>% 
-  summarise(F = n())
-
 #Total stomachs, mean length and stdv 
-T_2001 <- sc_2001 %>% 
+T_2003 <- sc_2003 %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(), "max" = max(Pred_len), "min" = min(Pred_len),
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
             "Fork length (cm)* Mean" = mean(Pred_len),
             "SD" = sd(Pred_len)) %>% 
-  mutate(year = 2001)
+  mutate(year = 2003)
 
 #Combining into one table
-FE_2001 <- full_join(F_2001, E_2001, by = "Pred_name")
+FE_2003 <- full_join(F_2003, E_2003, by = "Pred_name")
+FET_2003 <- full_join(FE_2003, T_2003, by = "Pred_name")
 
-FET_2001 <- full_join(FE_2001, T_2001, by = "Pred_name")
+############YEAR 2005
+#Filter for year 
+sc_2005 <- stomach_contents %>% 
+  filter(Year == 2005)
 
-#Finding Scientific Names
-#WARNING: this is slow to run
-list<-(sci2comm(FET_2001$Pred_name, simplify = T))
-names <- rownames_to_column(as.data.frame(do.call(rbind, list)))
-colnames(names) <- c("Pred_name", "Com_nam")
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2005 <- sc_2005 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
 
-#Adding common names to final table
-Table2_2001 <- full_join(names, FET_2001, by = "Pred_name")
+#Empty stomachs
+E_2005 <- sc_2005 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
 
+#Total stomachs, mean length and stdv 
+T_2005 <- sc_2005 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2005)
 
+#Combining into one table
+FE_2005 <- full_join(F_2005, E_2005, by = "Pred_name")
+FET_2005 <- full_join(FE_2005, T_2005, by = "Pred_name")
 
+############YEAR 2007
+#Filter for year 
+sc_2007 <- stomach_contents %>% 
+  filter(Year == 2007)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2007 <- sc_2007 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2007 <- sc_2007 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2007 <- sc_2007 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2007)
+
+#Combining into one table
+FE_2007 <- full_join(F_2007, E_2007, by = "Pred_name")
+FET_2007 <- full_join(FE_2007, T_2007, by = "Pred_name")
+
+############YEAR 2009
+#Filter for year 
+sc_2009 <- stomach_contents %>% 
+  filter(Year == 2009)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2009 <- sc_2009 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2009 <- sc_2009 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2009 <- sc_2009 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2009)
+
+#Combining into one table
+FE_2009 <- full_join(F_2009, E_2009, by = "Pred_name")
+FET_2009 <- full_join(FE_2009, T_2009, by = "Pred_name")
+
+############YEAR 2011
+#Filter for year 
+sc_2011 <- stomach_contents %>% 
+  filter(Year == 2011)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2011 <- sc_2011 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2011 <- sc_2011 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2011 <- sc_2011 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2011)
+
+#Combining into one table
+FE_2011 <- full_join(F_2011, E_2011, by = "Pred_name")
+FET_2011 <- full_join(FE_2011, T_2011, by = "Pred_name")
+
+############YEAR 2013
+#Filter for year 
+sc_2013 <- stomach_contents %>% 
+  filter(Year == 2013)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2013 <- sc_2013 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2013 <- sc_2013 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2013 <- sc_2013 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2013)
+
+#Combining into one table
+FE_2013 <- full_join(F_2013, E_2013, by = "Pred_name")
+FET_2013 <- full_join(FE_2013, T_2013, by = "Pred_name")
+
+############YEAR 2015
+#Filter for year 
+sc_2015 <- stomach_contents %>% 
+  filter(Year == 2015)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2015 <- sc_2015 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2015 <- sc_2015 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2015 <- sc_2015 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2015)
+
+#Combining into one table
+FE_2015 <- full_join(F_2015, E_2015, by = "Pred_name")
+FET_2015 <- full_join(FE_2015, T_2015, by = "Pred_name")
+
+############YEAR 2017
+#Filter for year 
+sc_2017 <- stomach_contents %>% 
+  filter(Year == 2017)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2017 <- sc_2017 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2017 <- sc_2017 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2017 <- sc_2017 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2017)
+
+#Combining into one table
+FE_2017 <- full_join(F_2017, E_2017, by = "Pred_name")
+FET_2017 <- full_join(FE_2017, T_2017, by = "Pred_name")
+
+############YEAR 2019
+#Filter for year 
+sc_2019 <- stomach_contents %>% 
+  filter(Year == 2019)
+
+#Calculating Summary Sample Sizes
+#Full stomachs
+F_2019 <- sc_2019 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
+#Empty stomachs
+E_2019 <- sc_2019 %>% 
+  filter(Pred_stomwt == 0) %>% 
+  group_by(Pred_name) %>% 
+  summarise(E = n())
+
+#Total stomachs, mean length and stdv 
+T_2019 <- sc_2019 %>% 
+  group_by(Pred_name) %>% 
+  summarise(T = n(),
+            "max" = max(Pred_len), "min" = min(Pred_len),
+            "Fork length (cm)* Mean" = mean(Pred_len),
+            "SD" = sd(Pred_len)) %>% 
+  mutate(year = 2019)
+
+#Combining into one table
+FE_2019 <- full_join(F_2019, E_2019, by = "Pred_name")
+FET_2019 <- full_join(FE_2019, T_2019, by = "Pred_name")
+```
+
+#Joining the tables together into one spreadsheet
+```{r joining}
+joined_summary <- rbind(FET_1999, FET_2001, FET_2003, FET_2005, FET_2007, FET_2009, FET_2011, FET_2013, FET_2015, FET_2017, FET_2019)
 
 
 ```
