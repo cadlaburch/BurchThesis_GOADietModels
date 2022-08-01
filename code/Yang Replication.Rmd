@@ -21,13 +21,6 @@ raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 
 ```{r, include=F}
 
-#Filter for year 1999 and 2001
-sc_1999 <- raw_stomach_contents %>% 
-  filter(Year == 1999)
-
-sc_2001 <- raw_stomach_contents %>% 
-  filter(Year == 2001)
-
 #creating object with scientific names for Predators
 pred_names <- raw_stomach_contents %>% 
   distinct(Pred_name)
@@ -44,18 +37,23 @@ stomach_contents <- full_join(raw_stomach_contents, pred_names_df, by = "Pred_na
 Recreating Table 1
 
 ```{r Table 1, echo=FALSE}
+#Filter for year 
+sc_1999 <- stomach_contents %>% 
+  filter(Year == 1999)
+
 #Calculating Summary Stats
+
+#Full stomachs
+F_1999 <- sc_1999 %>% 
+  filter(Pred_stomwt>0) %>% 
+  group_by(Pred_name, Com_name) %>% 
+  summarise(F = n())
+
 #Empty stomachs
 E_1999 <- sc_1999 %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
-
-#Full stomachs
-F_1999 <- sc_1999 %>% 
-  filter(Pred_stomwt>0) %>% 
-  group_by(Pred_name) %>% 
-  summarise(F = n())
 
 #Total stomachs, mean length and stdv 
 T_1999 <- sc_1999 %>% 
@@ -67,29 +65,21 @@ T_1999 <- sc_1999 %>%
 
 #Combining into one table
 FE_1999 <- full_join(F_1999, E_1999, by = "Pred_name")
-
 FET_1999 <- full_join(FE_1999, T_1999, by = "Pred_name")
 
-#Warning: this section is slow to run
-#Finding Scientific Names
-list<-(sci2comm(FET_1999$Pred_name, simplify = T))
-names <- rownames_to_column(as.data.frame(do.call(rbind, list)))
-colnames(names) <- c("Pred_name", "Com_nam")
-
-#Adding common names to final table
-Table1_1999 <- full_join(names, FET_1999, by = "Pred_name")
-
-Table1_1999 
-
-write.csv(Table1_1999, file = here("output/table11_1999.csv"))
-
-#Unfortunately this table does not match
+#saving as cvs
+write.csv(FET_1999, file = here("output/table1_1999.csv"))
 
 ```
 
 
 #Recreating Table 2
 ```{r Table2}
+
+#filtering for year
+sc_2001 <- stomach_contents %>% 
+  filter(Year == 2001)
+
 #Calculating Summary Stats
 #Empty stomachs
 E_2001 <- sc_2001 %>% 
