@@ -63,7 +63,7 @@ FE_1999 <- full_join(F_1999, E_1999, by = "Pred_name")
 #Adding total number of stomachs
 FE_1999 <- FE_1999 %>% 
   mutate_all(~replace(., is.na(.), 0)) %>% 
-  mutate(T = (E + F))
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
 
 #Adding (max, min, and mean) fork lengths, standard deviation and year
 T_1999 <- sc_1999 %>% 
@@ -130,8 +130,6 @@ FET_2001 <- full_join(FE_2001, T_2001, by = "Pred_name")
 #saving as cvs
 write.csv(FET_2001, file = here("output/table2_2001.csv"))
 
-#NOTE: Might want to add % Empty as an additional column
-
 ```
 
 
@@ -148,27 +146,37 @@ sc_2003 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2003 <- sc_2003 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2003 <- sc_2003 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>%
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2003 <- full_join(F_2003, E_2003, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2003 <- FE_2003 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>%
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2003 <- sc_2003 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2003)
 
 #Combining into one table
-FE_2003 <- full_join(F_2003, E_2003, by = "Pred_name")
 FET_2003 <- full_join(FE_2003, T_2003, by = "Pred_name")
 
 ############YEAR 2005
@@ -179,27 +187,37 @@ sc_2005 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2005 <- sc_2005 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>% 
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
-E_2005 <- sc_2005 %>% 
+E_2005 <- sc_2005 %>%
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>%
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2005 <- full_join(F_2005, E_2005, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2005 <- FE_2005 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2005 <- sc_2005 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2005)
 
 #Combining into one table
-FE_2005 <- full_join(F_2005, E_2005, by = "Pred_name")
 FET_2005 <- full_join(FE_2005, T_2005, by = "Pred_name")
 
 ############YEAR 2007
@@ -210,27 +228,38 @@ sc_2007 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2007 <- sc_2007 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2007 <- sc_2007 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2007 <- full_join(F_2007, E_2007, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2007 <- FE_2007 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2007 <- sc_2007 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2007)
 
+
 #Combining into one table
-FE_2007 <- full_join(F_2007, E_2007, by = "Pred_name")
 FET_2007 <- full_join(FE_2007, T_2007, by = "Pred_name")
 
 ############YEAR 2009
@@ -241,27 +270,37 @@ sc_2009 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2009 <- sc_2009 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2009 <- sc_2009 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2009 <- full_join(F_2009, E_2009, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2009 <- FE_2009 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2009 <- sc_2009 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2009)
 
 #Combining into one table
-FE_2009 <- full_join(F_2009, E_2009, by = "Pred_name")
 FET_2009 <- full_join(FE_2009, T_2009, by = "Pred_name")
 
 ############YEAR 2011
@@ -272,27 +311,37 @@ sc_2011 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2011 <- sc_2011 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2011 <- sc_2011 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2011 <- full_join(F_2011, E_2011, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2011 <- FE_2011 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2011 <- sc_2011 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2011)
 
 #Combining into one table
-FE_2011 <- full_join(F_2011, E_2011, by = "Pred_name")
 FET_2011 <- full_join(FE_2011, T_2011, by = "Pred_name")
 
 ############YEAR 2013
@@ -303,27 +352,37 @@ sc_2013 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2013 <- sc_2013 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2013 <- sc_2013 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2013 <- full_join(F_2013, E_2013, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2013 <- FE_2013 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2013 <- sc_2013 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2013)
 
 #Combining into one table
-FE_2013 <- full_join(F_2013, E_2013, by = "Pred_name")
 FET_2013 <- full_join(FE_2013, T_2013, by = "Pred_name")
 
 ############YEAR 2015
@@ -334,27 +393,37 @@ sc_2015 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2015 <- sc_2015 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2015 <- sc_2015 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2015 <- full_join(F_2015, E_2015, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2015 <- FE_2015 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2015 <- sc_2015 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2015)
 
 #Combining into one table
-FE_2015 <- full_join(F_2015, E_2015, by = "Pred_name")
 FET_2015 <- full_join(FE_2015, T_2015, by = "Pred_name")
 
 ############YEAR 2017
@@ -365,27 +434,37 @@ sc_2017 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2017 <- sc_2017 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2017 <- sc_2017 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2017 <- full_join(F_2017, E_2017, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2017 <- FE_2017 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2017 <- sc_2017 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2017)
 
 #Combining into one table
-FE_2017 <- full_join(F_2017, E_2017, by = "Pred_name")
 FET_2017 <- full_join(FE_2017, T_2017, by = "Pred_name")
 
 ############YEAR 2019
@@ -396,27 +475,37 @@ sc_2019 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_2019 <- sc_2019 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>%
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_2019 <- sc_2019 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_2019 <- full_join(F_2019, E_2019, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_2019 <- FE_2019 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F), "% Empty" = (E)/(E+F)*100)
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_2019 <- sc_2019 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(),
-            "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 2019)
 
 #Combining into one table
-FE_2019 <- full_join(F_2019, E_2019, by = "Pred_name")
 FET_2019 <- full_join(FE_2019, T_2019, by = "Pred_name")
 ```
 
