@@ -2,7 +2,7 @@
 title: "Predator Summary Tables"
 output: html_document
 author: Catalina Burch
-date (last edited): Aug 1, 2022
+date (last edited): Aug 4, 2022
 ---
 
 #This Code replicates the work of Yang et al 2006 to check that our methods are correct
@@ -21,7 +21,7 @@ raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 
 
 ```{r, include=F}
-
+#warning this chunk will take time to run. 
 #creating object with scientific names for Predators
 pred_names <- raw_stomach_contents %>% 
   distinct(Pred_name)
@@ -45,26 +45,45 @@ sc_1999 <- stomach_contents %>%
 #Calculating Summary Sample Sizes
 #Full stomachs
 F_1999 <- sc_1999 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Com_name) %>% 
   filter(Pred_stomwt>0) %>% 
   group_by(Pred_name, Com_name) %>% 
   summarise(F = n())
 
 #Empty stomachs
 E_1999 <- sc_1999 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name) %>% 
   filter(Pred_stomwt == 0) %>% 
   group_by(Pred_name) %>% 
   summarise(E = n())
 
-#Total stomachs, mean length and stdv 
+#Combining F + E into one table
+FE_1999 <- full_join(F_1999, E_1999, by = "Pred_name")
+
+#Adding total number of stomachs
+FE_1999 <- FE_1999 %>% 
+  mutate_all(~replace(., is.na(.), 0)) %>% 
+  mutate(T = (E + F))
+
+#Adding (max, min, and mean) length and standard deviation and year
 T_1999 <- sc_1999 %>% 
+  distinct(Hauljoin, Pred_nodc, Pred_specn, Pred_stomwt, Pred_name, Pred_len) %>% 
+  filter(Pred_stomwt > 0) %>% 
   group_by(Pred_name) %>% 
-  summarise(T = n(), "max" = max(Pred_len), "min" = min(Pred_len),
-            "Fork length (cm)* Mean" = mean(Pred_len),
-            "SD" = sd(Pred_len)) %>% 
+  summarise("max" = max(Pred_len), "min" = min(Pred_len),
+            "Mean" = mean(Pred_len),
+            "+/-SD" = (sd(Pred_len))/2) %>%
   mutate(year = 1999)
 
+#copy
+#T_1999 <- sc_1999 %>% 
+#  group_by(Pred_name) %>% 
+#  summarise(T = n(), "max" = max(Pred_len), "min" = min(Pred_len),
+#            "Fork length (cm)* Mean" = mean(Pred_len),
+#            "+/-SD" = (sd(Pred_len))/2) %>% 
+#  mutate(year = 1999)
+
 #Combining into one table
-FE_1999 <- full_join(F_1999, E_1999, by = "Pred_name")
 FET_1999 <- full_join(FE_1999, T_1999, by = "Pred_name")
 
 #saving as cvs
