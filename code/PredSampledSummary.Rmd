@@ -1,7 +1,8 @@
 ---
-title: "PredSampledSummary"
+title: "Predator Summary Tables"
 output: html_document
 author: Catalina Burch
+date (last edited): Aug 1, 2022
 ---
 
 #This Code replicates the work of Yang et al 2006 to check that our methods are correct
@@ -403,7 +404,7 @@ FET_2019 <- full_join(FE_2019, T_2019, by = "Pred_name")
 joined_summary <- rbind(FET_1999, FET_2001, FET_2003, FET_2005, FET_2007, FET_2009, FET_2011, FET_2013, FET_2015, FET_2017, FET_2019)
 
 #export csv
-write.csv(joined_summary, file = here("output/PredSampledSummaryInfo"))
+write.csv(joined_summary, file = here("output/PredSampledSummaryInfo.csv"))
 
 ```
 
