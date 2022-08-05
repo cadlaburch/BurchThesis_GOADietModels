@@ -6,13 +6,37 @@ date (last edited): Aug 1, 2022
 ---
 
 ```{r setup, include=FALSE}
+#load libraries
+library(readr) 
+library(tidyverse)
+library(here)
+library(taxize)
 
+#load data
+raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 
 ```
 
+##Calculating Percent Frequency of Occurance and Percent Weight
 
+The %W for a given prey type i is calculated by summing the weight of prey type i and dividing by the total weight of all prey, then multiplying by 100. 
 
-```{r }
+The %N for a given prey type i is calculated by summing the number of individuals of prey type i and dividing by the total numerical abundance of all prey, then multiplying by 100. 
+
+The %O for a given prey type i is calculated as the number of lingcod that had at least one observation of prey i in their stomachs divided by the total number of lingcod sampled, multiplied by 100.
+
+```{r}
+#Filter for year and predator
+
+poll_1999 <- raw_stomach_contents %>% 
+  filter(Year == 1999, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt)) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100))
+
+sum(weight_poll_1999$TotalWt)
+sum(weight_poll_1992$PW)
+
 ```
 
 
