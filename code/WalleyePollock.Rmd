@@ -78,16 +78,27 @@ pollock_1999 <- raw_stomach_contents %>%
 pollock <- raw_stomach_contents %>% 
   filter(Pred_nodc == 8791030701)
 
-pollock_processed <- tibble()
+pollock_processed <- data_frame()
 
 for(i in c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019))
-  {pollock %>% 
+{
+  pollock %>% 
+    filter(Year == i) %>% 
+    PW_PN_PF() %>% 
+    mutate(Year = i) %>% 
+    print()
+}
+
+
+for(i in unique(pollock$Year))
+{
+  pollock %>% 
     filter(Year == i) %>% 
     PW_PN_PF() %>% 
     mutate(Year = i)
 }
 
-
+unique(pollock$Year)
 ```
 
 
