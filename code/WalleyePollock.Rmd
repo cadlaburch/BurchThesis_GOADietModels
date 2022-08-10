@@ -25,23 +25,177 @@ The %N for a given prey type i is calculated by summing the number of individual
 
 The %O for a given prey type i is calculated as the number of lingcod that had at least one observation of prey i in their stomachs divided by the total number of lingcod sampled, multiplied by 100.
 
-```{r}
-#Filter for year and predator
-
-poll_1999 <- raw_stomach_contents %>% 
+```{r Pollock}
+#YEAR: 1999
+#calculating percent weight and percent number
+WN_poll_1999 <- raw_stomach_contents %>% 
   filter(Year == 1999, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
   group_by(Prey_Name) %>%  #group by prey 
-  summarise(TotalWt = sum(Prey_twt)) %>% 
-  mutate("%W" = (TotalWt/(sum(TotalWt))*100))
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
 
-sum(weight_poll_1999$TotalWt)
-sum(weight_poll_1992$PW)
+F_poll_1999 <- raw_stomach_contents %>% 
+  filter(Year == 1999, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 1999)
+
+#I know that the total number of pollock stomachs sampled is 540 because of the summary table
+
+#merge dataframes
+poll_1999 <- full_join(WN_poll_1999, F_poll_1999, by = "Prey_Name")
+
+#checking that the % sum to 100
+sum(poll_1999$`%W`)
+sum(poll_1999$`%N`)
+sum(poll_1999$`%F`)
+sum(poll_1999$F)
+
+#%F does not sum to 100, but I think that is because for F I looked at the number of Pollock stomachs that contained at least one observation of each prey type, but there are likely stomachs that have multiple prey types within each stomach which would result in overcounting the sum(F)[764] compared to the total number of pollock stomachs sampled (540)
+
+#I've also noticed that the numbers here do not match Table 3 from Yang et al. I'm wondering if it has to do with prey groupings, maybe the groupings have changed since that paper was published? Maybe it has something to do with empty stomachs, should I not include empty stomachs?
+
+```
+
+#This chunk is me trying to figure out how to write a loop.
+```{r loop}
+#I started off trying to write a function for %W  %N and %F
+
+PW_PN_PF <- function(.data) {
+  .data %>% 
+  group_by(Prey_Name) %>% 
+    summarise(TotalWt = sum(Prey_twt), N = n(), F = sum(unique(Pred_specn)*0+1)) %>% 
+    mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100, "%F" = (F/540)*100)
+}
+
+#One option is to now use this function filtering for each year, but that involves a lot of copying and pasting
+pollock_1999 <- raw_stomach_contents %>% 
+  filter(Year == 1999, Pred_nodc == 8791030701) %>% 
+  PW_PN_PF()
+
+#The other option would be to create a loop that runs this function for c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019)
+
+pollock <- raw_stomach_contents %>% 
+  filter(Pred_nodc == 8791030701)
+
+pollock_processed <- tibble()
+
+for(i in c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019))
+  {pollock %>% 
+    filter(Year == i) %>% 
+    PW_PN_PF() %>% 
+    mutate(Year = i)
+}
+
 
 ```
 
 
-```{r }
 
+#Next I will calculate this summary information for the other years of data
+#This chunk of code may become obsolete after I figure out how to make an efficient loop. 
+```{r }
+#Year: 2001
+WN_poll_2001 <- raw_stomach_contents %>% 
+  filter(Year == 2001, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2001 <- raw_stomach_contents %>% 
+  filter(Year == 2001, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2001)
+
+#merge dataframes
+poll_2001 <- full_join(WN_poll_2001, F_poll_2001, by = "Prey_Name")
+
+################
+#Year: 2003
+WN_poll_2003 <- raw_stomach_contents %>% 
+  filter(Year == 2001, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2003 <- raw_stomach_contents %>% 
+  filter(Year == 2003, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2003)
+
+#merge dataframes
+poll_2003 <- full_join(WN_poll_2003, F_poll_2003, by = "Prey_Name")
+
+################
+#Year: 2005
+WN_poll_2005 <- raw_stomach_contents %>% 
+  filter(Year == 2005, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2005 <- raw_stomach_contents %>% 
+  filter(Year == 2005, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2005)
+
+#merge dataframes
+poll_2005 <- full_join(WN_poll_2005, F_poll_2005, by = "Prey_Name")
+
+
+###############
+#Year: 2001
+WN_poll_2007 <- raw_stomach_contents %>% 
+  filter(Year == 2007, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2007 <- raw_stomach_contents %>% 
+  filter(Year == 2007, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2007)
+
+#merge dataframes
+poll_2007 <- full_join(WN_poll_2007, F_poll_2007, by = "Prey_Name")
+
+###############
+#Year: 2009
+WN_poll_2009 <- raw_stomach_contents %>% 
+  filter(Year == 2009, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2009 <- raw_stomach_contents %>% 
+  filter(Year == 2009, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2009)
+
+#merge dataframes
+poll_2009 <- full_join(WN_poll_2009, F_poll_2009, by = "Prey_Name")
+
+###############
+#Year: 2001
+WN_poll_2001 <- raw_stomach_contents %>% 
+  filter(Year == 2001, Pred_nodc == 8791030701) %>% #filter for year and Walleye Pollock
+  group_by(Prey_Name) %>%  #group by prey 
+  summarise(TotalWt = sum(Prey_twt), N = n()) %>% 
+  mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100)
+
+F_poll_2001 <- raw_stomach_contents %>% 
+  filter(Year == 2001, Pred_nodc == 8791030701) %>% 
+  group_by(Prey_Name) %>% 
+  summarise(F = sum(unique(Pred_specn)*0+1)) %>% 
+  mutate("%F" = (F/540)*100, year = 2001)
+
+#merge dataframes
+poll_2001 <- full_join(WN_poll_2001, F_poll_2001, by = "Prey_Name")
 
 ```
 
