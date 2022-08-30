@@ -59,8 +59,7 @@ sum(poll_1999$F)
 
 #This chunk is me trying to figure out how to write a loop.
 ```{r loop}
-#I started off trying to write a function for %W  %N and %F
-
+#I wrote a function to calculate %W  %N and %F
 PW_PN_PF <- function(.data) {
   .data %>% 
   group_by(Prey_Name) %>% 
@@ -68,37 +67,23 @@ PW_PN_PF <- function(.data) {
     mutate("%W" = (TotalWt/(sum(TotalWt))*100), "%N" = (N/sum(N))*100, "%F" = (F/540)*100)
 }
 
-#One option is to now use this function filtering for each year, but that involves a lot of copying and pasting
-pollock_1999 <- raw_stomach_contents %>% 
-  filter(Year == 1999, Pred_nodc == 8791030701) %>% 
-  PW_PN_PF()
 
-#The other option would be to create a loop that runs this function for c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019)
+#vector of variable to run through the loop
+years <- c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019)
 
-pollock <- raw_stomach_contents %>% 
-  filter(Pred_nodc == 8791030701)
+#object to contain results
+pollock_summary <- tibble()
 
-pollock_processed <- data_frame()
-
-for(i in c(1999, 2001, 2003, 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019))
-{
-  pollock %>% 
-    filter(Year == i) %>% 
-    PW_PN_PF() %>% 
-    mutate(Year = i) %>% 
-    print()
-}
-
-
-for(i in unique(pollock$Year))
-{
-  pollock %>% 
-    filter(Year == i) %>% 
-    PW_PN_PF() %>% 
+#the for loop
+for(i in years){
+  pollock <- raw_stomach_contents %>% 
+  filter(Pred_nodc == 8791030701, Year == i) %>% 
+  PW_PN_PF() %>% 
     mutate(Year = i)
+  
+  pollock_summary <- bind_rows(pollock_summary, pollock)
 }
 
-unique(pollock$Year)
 ```
 
 
