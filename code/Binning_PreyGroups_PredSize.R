@@ -8,7 +8,7 @@
 
 #Yang et al. 2006 grouped prey differently for each commercial species
 ##Pollock: Misc. prey, Calanoid, Amphipod, Euphausiid, Shrimp, Misc. fish, Osmeridae, Pollock
-##Cod: Misc. prey, Polychaete, Euphasiid, Shrimp, Tanner crab, other crab, Misc. fish, Flatfish, pollock
+##Cod: Misc. prey, Polychaete, Euphausiid, Shrimp, Tanner crab, other crab, Misc. fish, Flatfish, pollock
 #A Flounder: Misc. Prey, Euphausiid, Shrimp, Misc. fish, Ammodytidae, Osmeridae, Pollock
 #Halibut: Misc. Prey, Other crab, Shrimp, Hermit crab, Tanner crab, Misc. fish, Pollock
 #Sablefish: Misc. prey, Jellyfish, Cephalopod, Shrimp, Crab, misc. fish, pollock, fishery offal
@@ -24,7 +24,7 @@
 print(unique(raw_stomach_contents$Prey_Name))
 test <- raw_stomach_contents
 
-test = test %>% 
+test %>% 
   mutate(Buckley_Prey = case_when(Prey_Name == c("Misc Shrimp", "Crangonidae (shrimp)") ~ "Shrimp"))
 
 #############
