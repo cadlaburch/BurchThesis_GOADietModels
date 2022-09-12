@@ -19,11 +19,11 @@ raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 
 ##Calculating Percent Frequency of Occurance and Percent Weight
 
-The %W for a given prey type i is calculated by summing the weight of prey type i and dividing by the total weight of all prey, then multiplying by 100. 
+The %W (Percent Weight) for a given prey type i is calculated by summing the weight of prey type i and dividing by the total weight of all prey, then multiplying by 100. 
 
-The %N for a given prey type i is calculated by summing the number of individuals of prey type i and dividing by the total numerical abundance of all prey, then multiplying by 100. 
+The %N (Percent Number) for a given prey type i is calculated by summing the number of individuals of prey type i and dividing by the total numerical abundance of all prey, then multiplying by 100. 
 
-The %O for a given prey type i is calculated as the number of lingcod that had at least one observation of prey i in their stomachs divided by the total number of lingcod sampled, multiplied by 100.
+The %F (Percent Frequency of Occurrence) for a given prey type i is calculated as the number of lingcod that had at least one observation of prey i in their stomachs divided by the total number of lingcod sampled, multiplied by 100.
 
 ```{r Pollock}
 #YEAR: 1999
@@ -87,7 +87,14 @@ for(i in years){
 ```
 
 
+```{r, figure}
+ggplot(pollock_summary, aes(y = '%W', x = years)) +
+  geom_bar(position = "fill", stat = "identity")
 
+```
+
+
+#THIS FOLLOWING CHUNK IS LIKELY OBSOLETE
 #Next I will calculate this summary information for the other years of data
 #This chunk of code may become obsolete after I figure out how to make an efficient loop. 
 ```{r }
