@@ -112,6 +112,16 @@ WalleyePollockByYear <- ggplot(Poll_PW_BY, aes(x = Len_bin, y = PW, fill = Buckl
 ggsave("WalleyePollockByYear.jpg", plot = WalleyePollockByYear, 
        path = here("output"), device = "jpg")
 
+#Walleye Pollock %W by year for each size class
+WalleyeYearClass <- ggplot(Poll_PW_BY, aes(x = Year, y = PW, fill = BuckleyGroup)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~Len_bin) +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Walleye Pollock By Year", y = "percent weight", 
+       x = "predator length") 
+
+ggsave("WalleyeYearClass.jpg", plot = WalleyeYearClass, 
+       path = here("output"), device = "jpg")
 
 #######
 #Pacific Cod %W for all years
@@ -180,4 +190,164 @@ SableByYear <- ggplot(Sable_PW_BY, aes(x = Len_bin, y = PW, fill = BuckleyGroup)
        x = "predator length") 
 
 ggsave("SableByYear.jpg", plot = SableByYear, 
+       path = here("output"), device = "jpg")
+
+#######
+#Arrowtooth Flounder %W for all years
+Arrow_PW_AY <- sc_data %>% 
+  filter(Pred_nodc == 8857040102) %>%
+  group_by(Len_bin, BuckleyGroup) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+ArrowAllYears <- ggplot(Arrow_PW_AY, aes(x = Len_bin, y = PW, fill = BuckleyGroup)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "A. Flounder All Years", y = "percent weight", 
+       x = "predator length")
+
+ggsave("ArrowAllYears.jpg", plot = ArrowAllYears, 
+       path = here("output"), device = "jpg")
+
+#Arrow %W by year
+Arrow_PW_BY <- sc_data %>% 
+  filter(Pred_nodc == 8857040102) %>%
+  group_by(Year, Len_bin, BuckleyGroup) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+ArrowByYear <- ggplot(Arrow_PW_BY, aes(x = Len_bin, y = PW, fill = BuckleyGroup)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~Year) +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "A. Flounder By Year", y = "percent weight", 
+       x = "predator length") 
+
+ggsave("ArrowByYear.jpg", plot = ArrowByYear, 
+       path = here("output"), device = "jpg")
+
+#######
+#Halibut %W for all years
+Hal_PW_AY <- sc_data %>% 
+  filter(Pred_nodc == 8857041901) %>%
+  group_by(Len_bin, BuckleyGroup) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+HalAllYears <- ggplot(Hal_PW_AY, aes(x = Len_bin, y = PW, fill = BuckleyGroup)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Halibut All Years", y = "percent weight", 
+       x = "predator length")
+
+ggsave("HalAllYears.jpg", plot = HalAllYears, 
+       path = here("output"), device = "jpg")
+
+#Halibut %W by year
+Hal_PW_BY <- sc_data %>% 
+  filter(Pred_nodc == 8857041901) %>%
+  group_by(Year, Len_bin, BuckleyGroup) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+HalByYear <- ggplot(Hal_PW_BY, aes(x = Len_bin, y = PW, fill = BuckleyGroup)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~Year) +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Halibut By Year", y = "percent weight", 
+       x = "predator length") 
+
+ggsave("HalByYear.jpg", plot = HalByYear, 
+       path = here("output"), device = "jpg")
+
+########################
+#Next I want to create some different prey groupings that are more specific to each species
+
+Yang_Cod <- c("Other Prey", "Shrimp", "Shrimp", "Euphausiid",
+               "Other Prey", "Other Crab", "Other Crab", "Other Prey",
+               "Other Fish", "Other Prey", "Other Prey", "Tanner Crab",
+               "Other Prey", "Shrimp", "Shrimp", "Other Fish",
+               "Other Prey", "Other Fish", "Polychaeta", "Other Fish",
+               "Walleye pollock", "Other Prey", "Shrimp", "Other Prey",
+               "Flatfish", "Other Fish", "Other Fish", "Other Fish",
+               "Other Fish", "Flatfish", "Other Crab", "Other Prey",
+               "Other Prey", "Other Prey", "Other Crabs", "Other Fish",
+               "Other Fish", "Other Prey", "Other Prey", "Other Prey",
+               "Other Prey", "Other Crab", "Other Fish", "Other Crab",
+               "Other Prey", "Other Prey", "Other Prey", "Other Fish",
+               "Other Prey", "Other Prey", "Other Crab", "Other Prey",
+               "Other Prey", "Other Crab", "Shrimp", "Other Fish", 
+               "Other Fish", "Other Crab", "Other Prey", "Other Fish",
+               "Other Prey", "Other Fish", "Other Fish", "Other Prey",
+               "Other Prey", "Other Prey", "Other Fish", "Other Crab",
+               "Other Fish", "Other Prey", "Other Prey", "Flatfish",
+               "Other Fish", "Flatfish", "Other Fish", "Other Fish",
+               "Other Fish", "Flatfish", "Misc", "Other Crab",
+               "Flatfish", "Other Fish", "Other Fish", "Other Fish",
+               "Other Crab", "Flatfish", "Flatfish", "Other Fish",
+               "Flatfish", "Flatfish")
+#issue I'm labeling decapods as crabs but the group is larger than that?
+#did I get all the flatfish right?
+
+PreyCategories <- data.frame(Prey_Name, BuckleyGroup, Yang_Cod)
+
+# Next, we join the full data table with the new PreyCategories data frame
+# to create a new column with PreyGroup for each observation
+
+sc_data <- left_join(raw_stomach_contents,PreyCategories,by="Prey_Name")
+cod <-raw_stomach_contents %>% 
+  filter(Pred_nodc == 8791030401)
+
+quantile(cod$Pred_len)
+#0%  25%  50%  75% 100% 
+#7   45   55   62  105 
+
+sc_data <- sc_data %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 10, 20, 30, 40, 50, 60, 105)))
+
+colorlist<-c('#e6194b', '#f58231', '#ffe119', '#a9a9a9', '#3cb44b',
+             '#46f0f0', '#4363d8', '#911eb4', '#f032e6', '#800000', '#e6beff')
+
+#Pacific Cod %W for all years
+Cod_PW_AY <- sc_data %>% 
+  filter(Pred_nodc == 8791030401) %>%
+  group_by(Len_bin, Yang_Cod) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+CodAllYears <- ggplot(Cod_PW_AY, aes(x = Len_bin, y = PW, fill = Yang_Cod)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "P. Cod All Years (Yang)", y = "percent weight", 
+       x = "predator length")
+
+ggsave("CodAllYearsYang.jpg", plot = CodAllYears, 
+       path = here("output"), device = "jpg")
+
+#Cod %W by year
+Cod_PW_BY <- sc_data %>% 
+  filter(Pred_nodc == 8791030401) %>%
+  group_by(Year, Len_bin, Yang_Cod) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+CodByYear <- ggplot(Cod_PW_BY, aes(x = Len_bin, y = PW, fill = Yang_Cod)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~Year) +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "P. Cod By Year (Yang)", y = "percent weight", 
+       x = "predator length") 
+
+ggsave("CodByYearYang.jpg", plot = CodByYear, 
+       path = here("output"), device = "jpg")
+
+#Cod %W by year for each size class
+CodYearClass <- ggplot(Poll_PW_BY, aes(x = Year, y = PW, fill = Yang_Cod)) +
+  geom_bar(stat = "identity") + 
+  facet_wrap(~Len_bin) +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Cod By Year (Yang)", y = "percent weight", 
+       x = "predator length") 
+
+ggsave("CodYearClassYang.jpg", plot = CodYearClass, 
        path = here("output"), device = "jpg")
