@@ -1,91 +1,91 @@
-raw_preynames,descriptive,buckley_grouping
-Empty,Empty,Empty
-Pandalidae (shrimp),Alaska pink shrimp,Shrimps
-Crangonidae (shrimp),Alaska Bay Shrimp,Shrimps
-Euphausiacea,Krill,Euphausiids
-Gammaridea,Amphipod,Gammarids
-Paguridae,Hermit crab,Other Prey
-Misc Majidae,Spider crab,Other Prey
-Misc Org,Other,Other Prey
-Misc Teleost,ray finned fishes,Fishes
-Hyperiidea,amphipod,Hyperiids
-Brittle Star,brittle star,Other Prey
-Tanner Crab,tanner crab,Other Prey
-Copepoda,copepod,Copepods
-Misc Shrimp,shrimp,Shrimps
-Mysidacea,shrimp-like crustacean (opossum shrimp),Mysids
-Osmerid,smelt,Fishes
-Teuthida,squid,Other Prey
-Misc Gadidae,cod family,Fishes
-Polychaeta,polychaete worm,Other Prey
-Cottid,sculpin family,Fishes
-Walleye pollock,walley pollock,Fishes
-Cnidaria,jellyfish phylum,Other Prey
-Hippolytidae (shrimp),cleaner shrimp,Shrimps
-Bivalvia,clam class,Other Prey
-Misc Flatfish,flatfish,Fishes
-Clupeoidei,suborder of clupeiformes pelagic fish and rays,Fishes
-Stichaeidae,,Fishes
-Zoarcoidae,,Fishes
-Sebastes,,Fishes
-Arrowtooth flounder,,Fishes
-Misc Anomura,,Other Prey
-Chaetognatha,,Chaetognaths
-Isopoda,,Other Prey
-Ctenophora,,Other Prey
-Misc Crustacea,,Other Prey
-Myctophidae,,Fishes
-Ammodytidae,,Fishes
-Gastropod,,Other Prey
-Pteropoda,,Other Prey
-Octopoda,,Other Prey
-Offal,,Other Prey
-Cancridea,,Other Prey
-Rajadae,,Fishes
-Misc Crab,,Other Prey
-Larvacea,,Larvaceans
-Misc Amphipoda,,Other Prey
-Misc Cephalopoda,,Other Prey
-Salmonidae,,Fishes
-Misc Worm,,Other Prey
-Misc Invert,,Other Prey
-Chionoecetes spp.,,Other Prey
-Cumacea,,Shrimps
-Sea Urchin,,Other Prey
-Misc Decapoda,,Other Prey
-Capreillidea,,Shrimps
-Cyclopteridae,,Fishes
-Agonidae,,Fishes
-Misc Lithodidae,,Other Prey
-Sea Cucumber,,Other Prey
-Misc Non-teleost fish,,Fishes
-Sand Dollar,,Other Prey
-Sebastelobus,,Fishes
-Bathylagid,,Fishes
-Misc Echinoderm,,Other Prey
-Unid Eggs,,Other Prey
-Misc Mollusca,,Other Prey
-Northern rock sole,,Fishes
-Misc Brachyura,,Other Prey
-Unid Rockfish,,Fishes
-Tunicate,,Other Prey
-Misc Bird,,Other Prey
-Flathead sole,,Fishes
-Macrouridae,,Fishes
-Yellowfin sole,,Fishes
-Atka Mackeral,,Fishes
-Pacific Cod,,Fishes
-Fish Eggs,,Fishes
-Southern rock sole,,Fishes
-Misc,,Other Prey
-Red King Crab,,Other Prey
-Lepidopsetta sp,,Fishes
-Misc Hexagrammidae,,Fishes
-Pholidae,,Fishes
-Sablefish,,Fishes
-Opilio Crab,,Other Prey
-Pacific halibut,,Fishes
-Greenland turbot,,Fishes
-Pacific sandfish,,Fishes
-Kamchatka flounder,,Fishes
-Alaska plaice,,Fishes
+raw_preynames,descriptive,commercial_species,buckley_grouping
+Empty,Empty,,Empty
+Pandalidae (shrimp),Alaska pink shrimp,,Shrimps
+Crangonidae (shrimp),Alaska Bay Shrimp,,Shrimps
+Euphausiacea,Krill,,Euphausiids
+Gammaridea,Amphipod,,Gammarids
+Paguridae,Hermit crab,,Other Prey
+Misc Majidae,Spider crab,,Other Prey
+Misc Org,Other,,Other Prey
+Misc Teleost,ray finned fishes,,Fishes
+Hyperiidea,amphipod,,Hyperiids
+Brittle Star,brittle star,,Other Prey
+Tanner Crab,tanner crab,,Other Prey
+Copepoda,copepod,,Copepods
+Misc Shrimp,shrimp,,Shrimps
+Mysidacea,shrimp-like crustacean (opossum shrimp),,Mysids
+Osmerid,smelt,,Fishes
+Teuthida,squid,,Other Prey
+Misc Gadidae,cod family,,Fishes
+Polychaeta,polychaete worm,,Other Prey
+Cottid,sculpin family,,Fishes
+Walleye pollock,walley pollock,,Fishes
+Cnidaria,jellyfish phylum,,Other Prey
+Hippolytidae (shrimp),cleaner shrimp,,Shrimps
+Bivalvia,clam class,,Other Prey
+Misc Flatfish,flatfish,,Fishes
+Clupeoidei,suborder of clupeiformes pelagic fish and rays,,Fishes
+Stichaeidae,prickleback fish,,Fishes
+Zoarcoidae,ray finned fishes eelpouts,,Fishes
+Sebastes,rockfishes,,Fishes
+Arrowtooth flounder,A flounder,,Fishes
+Misc Anomura,infraorder of decapods (hermits) outdated?,,Other Prey
+Chaetognatha,predatory marine worm,,Chaetognaths
+Isopoda,isopods,,Other Prey
+Ctenophora,comb jellies,,Other Prey
+Misc Crustacea,crustaceans,,Other Prey
+Myctophidae,lanternfish,,Fishes
+Ammodytidae,sand lance,,Fishes
+Gastropod,snails,,Other Prey
+Pteropoda,free swimming sea slugs (gastropod),,Other Prey
+Octopoda,octopus,,Other Prey
+Offal,organs/waste,,Other Prey
+Cancridea,crabs ,,Other Prey
+Rajadae,skates,,Fishes
+Misc Crab,crab,,Other Prey
+Larvacea,larvae,,Larvaceans
+Misc Amphipoda,amphipod,,Other Prey
+Misc Cephalopoda,cephalopods,,Other Prey
+Salmonidae,salmon,,Fishes
+Misc Worm,worms,,Other Prey
+Misc Invert,inverts,,Other Prey
+Chionoecetes spp.,snow crabs,,Other Prey
+Cumacea,small hooded shrimp but not really shrimp?,,Shrimps
+Sea Urchin,urchin,,Other Prey
+Misc Decapoda,order of crustaceans,,Other Prey
+Capreillidea,skeleton shrimp,,Shrimps
+Cyclopteridae,lumpsucker fish,,Fishes
+Agonidae,"aligator fiss, starsnout, hooknoses, rockhead",,Fishes
+Misc Lithodidae,king crab,,Other Prey
+Sea Cucumber,sea cucumber,,Other Prey
+Misc Non-teleost fish,not ray finned,,Fishes
+Sand Dollar,sand dollar,,Other Prey
+Sebastelobus,thornyhead fish,,Fishes
+Bathylagid,deep sea smelt,,Fishes
+Misc Echinoderm,echinoderm,,Other Prey
+Unid Eggs,unidentified eggs,,Other Prey
+Misc Mollusca,mollusk,,Other Prey
+Northern rock sole,rock sole fish (flatfish),,Fishes
+Misc Brachyura,true crabs includes snow and dungeness,,Other Prey
+Unid Rockfish,unidentified rockfish,,Fishes
+Tunicate,tunicate,,Other Prey
+Misc Bird,bird,,Other Prey
+Flathead sole,flathead sole (flatfish),,Fishes
+Macrouridae,deep sea cod,,Fishes
+Yellowfin sole,yellowfin sole (flatfish),,Fishes
+Atka Mackeral,mackeral,,Fishes
+Pacific Cod,cod,,Fishes
+Fish Eggs,eggs,,Fishes
+Southern rock sole,flatfish,,Fishes
+Misc,misc,,Other Prey
+Red King Crab,king crab,,Other Prey
+Lepidopsetta sp,sole genus (flatfish),,Fishes
+Misc Hexagrammidae,greenling fish,,Fishes
+Pholidae,gunnels,,Fishes
+Sablefish,sablefish,,Fishes
+Opilio Crab,snow crabs,,Other Prey
+Pacific halibut,halibut,,Fishes
+Greenland turbot,flatfish,,Fishes
+Pacific sandfish,sandfish,,Fishes
+Kamchatka flounder,flatfish,,Fishes
+Alaska plaice,flatfish,,Fishes
