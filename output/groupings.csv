@@ -1,91 +1,91 @@
-raw_preynames,buckley_grouping
-Empty,Empty
-Pandalidae (shrimp),Shrimps
-Crangonidae (shrimp),Shrimps
-Euphausiacea,Euphausiids
-Gammaridea,Gammarids
-Paguridae,Other Prey
-Misc Majidae,Other Prey
-Misc Org,Other Prey
-Misc Teleost,Fishes
-Hyperiidea,Hyperiids
-Brittle Star,Other Prey
-Tanner Crab,Other Prey
-Copepoda,Copepods
-Misc Shrimp,Shrimps
-Mysidacea,Mysids
-Osmerid,Fishes
-Teuthida,Other Prey
-Misc Gadidae,Fishes
-Polychaeta,Other Prey
-Cottid,Fishes
-Walleye pollock,Fishes
-Cnidaria,Other Prey
-Hippolytidae (shrimp),Shrimps
-Bivalvia,Other Prey
-Misc Flatfish,Fishes
-Clupeoidei,Fishes
-Stichaeidae,Fishes
-Zoarcoidae,Fishes
-Sebastes,Fishes
-Arrowtooth flounder,Fishes
-Misc Anomura,Other Prey
-Chaetognatha,Chaetognaths
-Isopoda,Iso
-Ctenophora,
-Misc Crustacea,
-Myctophidae,
-Ammodytidae,
-Gastropod,
-Pteropoda,
-Octopoda,
-Offal,
-Cancridea,
-Rajadae,
-Misc Crab,
-Larvacea,
-Misc Amphipoda,
-Misc Cephalopoda,
-Salmonidae,
-Misc Worm,
-Misc Invert,
-Chionoecetes spp.,
-Cumacea,
-Sea Urchin,
-Misc Decapoda,
-Capreillidea,
-Cyclopteridae,
-Agonidae,
-Misc Lithodidae,
-Sea Cucumber,
-Misc Non-teleost fish,
-Sand Dollar,
-Sebastelobus,
-Bathylagid,
-Misc Echinoderm,
-Unid Eggs,
-Misc Mollusca,
-Northern rock sole,
-Misc Brachyura,
-Unid Rockfish,
-Tunicate,
-Misc Bird,
-Flathead sole,
-Macrouridae,
-Yellowfin sole,
-Atka Mackeral,
-Pacific Cod,
-Fish Eggs,
-Southern rock sole,
-Misc,
-Red King Crab,
-Lepidopsetta sp,
-Misc Hexagrammidae,
-Pholidae,
-Sablefish,
-Opilio Crab,
-Pacific halibut,
-Greenland turbot,
-Pacific sandfish,
-Kamchatka flounder,
-Alaska plaice,
+raw_preynames,descriptive,buckley_grouping
+Empty,Empty,Empty
+Pandalidae (shrimp),,Shrimps
+Crangonidae (shrimp),,Shrimps
+Euphausiacea,,Euphausiids
+Gammaridea,,Gammarids
+Paguridae,,Other Prey
+Misc Majidae,,Other Prey
+Misc Org,,Other Prey
+Misc Teleost,,Fishes
+Hyperiidea,,Hyperiids
+Brittle Star,,Other Prey
+Tanner Crab,,Other Prey
+Copepoda,,Copepods
+Misc Shrimp,,Shrimps
+Mysidacea,,Mysids
+Osmerid,,Fishes
+Teuthida,,Other Prey
+Misc Gadidae,,Fishes
+Polychaeta,,Other Prey
+Cottid,,Fishes
+Walleye pollock,,Fishes
+Cnidaria,,Other Prey
+Hippolytidae (shrimp),,Shrimps
+Bivalvia,,Other Prey
+Misc Flatfish,,Fishes
+Clupeoidei,,Fishes
+Stichaeidae,,Fishes
+Zoarcoidae,,Fishes
+Sebastes,,Fishes
+Arrowtooth flounder,,Fishes
+Misc Anomura,,Other Prey
+Chaetognatha,,Chaetognaths
+Isopoda,,Other Prey
+Ctenophora,,Other Prey
+Misc Crustacea,,Other Prey
+Myctophidae,,Fishes
+Ammodytidae,,Fishes
+Gastropod,,Other Prey
+Pteropoda,,Other Prey
+Octopoda,,Other Prey
+Offal,,Other Prey
+Cancridea,,Other Prey
+Rajadae,,Fishes
+Misc Crab,,Other Prey
+Larvacea,,Larvaceans
+Misc Amphipoda,,Other Prey
+Misc Cephalopoda,,Other Prey
+Salmonidae,,Fishes
+Misc Worm,,Other Prey
+Misc Invert,,Other Prey
+Chionoecetes spp.,,Other Prey
+Cumacea,,Shrimps
+Sea Urchin,,Other Prey
+Misc Decapoda,,Other Prey
+Capreillidea,,Shrimps
+Cyclopteridae,,Fishes
+Agonidae,,Fishes
+Misc Lithodidae,,Other Prey
+Sea Cucumber,,Other Prey
+Misc Non-teleost fish,,Fishes
+Sand Dollar,,Other Prey
+Sebastelobus,,Fishes
+Bathylagid,,Fishes
+Misc Echinoderm,,Other Prey
+Unid Eggs,,Other Prey
+Misc Mollusca,,Other Prey
+Northern rock sole,,Fishes
+Misc Brachyura,,Other Prey
+Unid Rockfish,,Fishes
+Tunicate,,Other Prey
+Misc Bird,,Other Prey
+Flathead sole,,Fishes
+Macrouridae,,Fishes
+Yellowfin sole,,Fishes
+Atka Mackeral,,Fishes
+Pacific Cod,,Fishes
+Fish Eggs,,Fishes
+Southern rock sole,,Fishes
+Misc,,Other Prey
+Red King Crab,,Other Prey
+Lepidopsetta sp,,Fishes
+Misc Hexagrammidae,,Fishes
+Pholidae,,Fishes
+Sablefish,,Fishes
+Opilio Crab,,Other Prey
+Pacific halibut,,Fishes
+Greenland turbot,,Fishes
+Pacific sandfish,,Fishes
+Kamchatka flounder,,Fishes
+Alaska plaice,,Fishes
