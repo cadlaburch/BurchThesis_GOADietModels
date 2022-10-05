@@ -1,30 +1,30 @@
 raw_preynames,descriptive,buckley_grouping
 Empty,Empty,Empty
-Pandalidae (shrimp),,Shrimps
-Crangonidae (shrimp),,Shrimps
-Euphausiacea,,Euphausiids
-Gammaridea,,Gammarids
-Paguridae,,Other Prey
-Misc Majidae,,Other Prey
-Misc Org,,Other Prey
-Misc Teleost,,Fishes
-Hyperiidea,,Hyperiids
-Brittle Star,,Other Prey
-Tanner Crab,,Other Prey
-Copepoda,,Copepods
-Misc Shrimp,,Shrimps
-Mysidacea,,Mysids
-Osmerid,,Fishes
-Teuthida,,Other Prey
-Misc Gadidae,,Fishes
-Polychaeta,,Other Prey
-Cottid,,Fishes
-Walleye pollock,,Fishes
-Cnidaria,,Other Prey
-Hippolytidae (shrimp),,Shrimps
-Bivalvia,,Other Prey
-Misc Flatfish,,Fishes
-Clupeoidei,,Fishes
+Pandalidae (shrimp),Alaska pink shrimp,Shrimps
+Crangonidae (shrimp),Alaska Bay Shrimp,Shrimps
+Euphausiacea,Krill,Euphausiids
+Gammaridea,Amphipod,Gammarids
+Paguridae,Hermit crab,Other Prey
+Misc Majidae,Spider crab,Other Prey
+Misc Org,Other,Other Prey
+Misc Teleost,ray finned fishes,Fishes
+Hyperiidea,amphipod,Hyperiids
+Brittle Star,brittle star,Other Prey
+Tanner Crab,tanner crab,Other Prey
+Copepoda,copepod,Copepods
+Misc Shrimp,shrimp,Shrimps
+Mysidacea,shrimp-like crustacean (opossum shrimp),Mysids
+Osmerid,smelt,Fishes
+Teuthida,squid,Other Prey
+Misc Gadidae,cod family,Fishes
+Polychaeta,polychaete worm,Other Prey
+Cottid,sculpin family,Fishes
+Walleye pollock,walley pollock,Fishes
+Cnidaria,jellyfish phylum,Other Prey
+Hippolytidae (shrimp),cleaner shrimp,Shrimps
+Bivalvia,clam class,Other Prey
+Misc Flatfish,flatfish,Fishes
+Clupeoidei,suborder of clupeiformes pelagic fish and rays,Fishes
 Stichaeidae,,Fishes
 Zoarcoidae,,Fishes
 Sebastes,,Fishes
