@@ -1,3 +1,11 @@
+#Load libraries
+library(readr) 
+library(tidyverse)
+library(here)
+
+#load data
+raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
+
 ###########
 #Prey Grouping
 #In order to create figures I must bin the Prey into groups
@@ -18,6 +26,15 @@
 ##copepods, euphausiids, pollock, and other
 
 #The raw data has 90 groupings
+
+#The GOAL of this document is to create a csv file called "groupings" to hold different aggregation scheme
+#Part of the work will be done outside of the code because it will be easier to check.
+
+#First I will create a csv that has all of the unique Prey_Names as one column of data
+basic_groupings <- raw_stomach_contents %>% 
+  summarize(raw_preynames = unique(raw_stomach_contents$Prey_Name))
+
+
 
 #I would like to create a grouping based on Buckley's 10 common prey groups
 
