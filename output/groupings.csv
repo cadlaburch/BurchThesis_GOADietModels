@@ -2,7 +2,7 @@ raw_preynames,descriptive,commercial_species,buckley_grouping
 Empty,Empty,,Empty
 Pandalidae (shrimp),Alaska pink shrimp,,Shrimps
 Crangonidae (shrimp),Alaska Bay Shrimp,,Shrimps
-Euphausiacea,Krill,,Euphausiids
+Euphausiacea,Krill,Forage,Euphausiids
 Gammaridea,Amphipod,,Gammarids
 Paguridae,Hermit crab,,Other Prey
 Misc Majidae,Spider crab,,Other Prey
@@ -14,39 +14,39 @@ Tanner Crab,tanner crab,,Other Prey
 Copepoda,copepod,,Copepods
 Misc Shrimp,shrimp,,Shrimps
 Mysidacea,shrimp-like crustacean (opossum shrimp),,Mysids
-Osmerid,smelt,,Fishes
-Teuthida,squid,,Other Prey
+Osmerid,smelt,Forage,Fishes
+Teuthida,squid,Ecosystem Component,Other Prey
 Misc Gadidae,cod family,,Fishes
 Polychaeta,polychaete worm,,Other Prey
-Cottid,sculpin family,,Fishes
-Walleye pollock,walley pollock,,Fishes
+Cottid,sculpin family,Ecosystem Component,Fishes
+Walleye pollock,walley pollock,Target,Fishes
 Cnidaria,jellyfish phylum,,Other Prey
 Hippolytidae (shrimp),cleaner shrimp,,Shrimps
 Bivalvia,clam class,,Other Prey
-Misc Flatfish,flatfish,,Fishes
+Misc Flatfish,flatfish,Target,Fishes
 Clupeoidei,suborder of clupeiformes pelagic fish and rays,,Fishes
-Stichaeidae,prickleback fish,,Fishes
+Stichaeidae,prickleback fish,Forage,Fishes
 Zoarcoidae,ray finned fishes eelpouts,,Fishes
-Sebastes,rockfishes,,Fishes
-Arrowtooth flounder,A flounder,,Fishes
+Sebastes,rockfishes,Target,Fishes
+Arrowtooth flounder,A flounder (flatfish),Target,Fishes
 Misc Anomura,infraorder of decapods (hermits) outdated?,,Other Prey
 Chaetognatha,predatory marine worm,,Chaetognaths
 Isopoda,isopods,,Other Prey
 Ctenophora,comb jellies,,Other Prey
 Misc Crustacea,crustaceans,,Other Prey
-Myctophidae,lanternfish,,Fishes
-Ammodytidae,sand lance,,Fishes
+Myctophidae,lanternfish,Forage,Fishes
+Ammodytidae,sand lance,Forage,Fishes
 Gastropod,snails,,Other Prey
 Pteropoda,free swimming sea slugs (gastropod),,Other Prey
-Octopoda,octopus,,Other Prey
+Octopoda,octopus,Target,Other Prey
 Offal,organs/waste,,Other Prey
 Cancridea,crabs ,,Other Prey
-Rajadae,skates,,Fishes
+Rajadae,skates,Target,Fishes
 Misc Crab,crab,,Other Prey
 Larvacea,larvae,,Larvaceans
 Misc Amphipoda,amphipod,,Other Prey
 Misc Cephalopoda,cephalopods,,Other Prey
-Salmonidae,salmon,,Fishes
+Salmonidae,salmon,Target,Fishes
 Misc Worm,worms,,Other Prey
 Misc Invert,inverts,,Other Prey
 Chionoecetes spp.,snow crabs,,Other Prey
@@ -61,31 +61,31 @@ Sea Cucumber,sea cucumber,,Other Prey
 Misc Non-teleost fish,not ray finned,,Fishes
 Sand Dollar,sand dollar,,Other Prey
 Sebastelobus,thornyhead fish,,Fishes
-Bathylagid,deep sea smelt,,Fishes
+Bathylagid,deep sea smelt,Forage,Fishes
 Misc Echinoderm,echinoderm,,Other Prey
 Unid Eggs,unidentified eggs,,Other Prey
 Misc Mollusca,mollusk,,Other Prey
-Northern rock sole,rock sole fish (flatfish),,Fishes
+Northern rock sole,rock sole fish (flatfish),Target,Fishes
 Misc Brachyura,true crabs includes snow and dungeness,,Other Prey
-Unid Rockfish,unidentified rockfish,,Fishes
+Unid Rockfish,unidentified rockfish,Target,Fishes
 Tunicate,tunicate,,Other Prey
 Misc Bird,bird,,Other Prey
-Flathead sole,flathead sole (flatfish),,Fishes
+Flathead sole,flathead sole (flatfish),Target,Fishes
 Macrouridae,deep sea cod,,Fishes
-Yellowfin sole,yellowfin sole (flatfish),,Fishes
-Atka Mackeral,mackeral,,Fishes
-Pacific Cod,cod,,Fishes
+Yellowfin sole,yellowfin sole (flatfish),Target,Fishes
+Atka Mackeral,mackeral,Target,Fishes
+Pacific Cod,cod,Target,Fishes
 Fish Eggs,eggs,,Fishes
-Southern rock sole,flatfish,,Fishes
+Southern rock sole,flatfish,Target,Fishes
 Misc,misc,,Other Prey
 Red King Crab,king crab,,Other Prey
-Lepidopsetta sp,sole genus (flatfish),,Fishes
+Lepidopsetta sp,sole genus (flatfish),Target,Fishes
 Misc Hexagrammidae,greenling fish,,Fishes
-Pholidae,gunnels,,Fishes
-Sablefish,sablefish,,Fishes
+Pholidae,gunnels,Forage,Fishes
+Sablefish,sablefish,Target,Fishes
 Opilio Crab,snow crabs,,Other Prey
-Pacific halibut,halibut,,Fishes
-Greenland turbot,flatfish,,Fishes
-Pacific sandfish,sandfish,,Fishes
-Kamchatka flounder,flatfish,,Fishes
-Alaska plaice,flatfish,,Fishes
+Pacific halibut,halibut,Target,Fishes
+Greenland turbot,flatfish,Target,Fishes
+Pacific sandfish,sandfish,Forage,Fishes
+Kamchatka flounder,flatfish,Target?,Fishes
+Alaska plaice,flatfish,Target,Fishes
