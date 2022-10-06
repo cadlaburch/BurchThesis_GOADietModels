@@ -31,18 +31,12 @@ raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
 #Part of the work will be done outside of the code because it will be easier to check.
 
 #First I will create a csv that has all of the unique Prey_Names as one column of data
-basic_groupings <- raw_stomach_contents %>% 
+groupings <- raw_stomach_contents %>% 
   summarize(raw_preynames = unique(raw_stomach_contents$Prey_Name))
 
+write.csv(groupings, here("output/groupings.csv"), row.names = F)
 
-
-#I would like to create a grouping based on Buckley's 10 common prey groups
-
-print(unique(raw_stomach_contents$Prey_Name))
-test <- raw_stomach_contents
-
-test %>% 
-  mutate(Buckley_Prey = case_when(Prey_Name == c("Misc Shrimp", "Crangonidae (shrimp)") ~ "Shrimp"))
+#I will manually input the prey grouping aggregation schemes
 
 #############
 #Spatial Grouping
@@ -55,3 +49,13 @@ test %>%
 
 #############
 #Species size classes
+#The following code shows how to bin size classes. The issue is that the bins need to be different because
+#predators can be wildly different sizes from species to species
+sc_data <- left_join(raw_stomach_contents,PreyCategories,by="Prey_Name")
+
+#Binning predator lengths
+range(sc_data$Pred_len)
+
+sc_data <- sc_data %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 20, 30, 40, 50, 60, 275)))
+
