@@ -6,6 +6,7 @@ library(taxize)
 
 #load data
 raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
+raw_stomach_contents_2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
 
 #################
 #Adding Common Names for Predators
@@ -19,6 +20,7 @@ colnames(pred_names_df) <- c("Pred_name", "Com_name")
 
 #merging common names with overall dataframe
 stomach_contents <- full_join(raw_stomach_contents, pred_names_df, by = "Pred_name")
+stomach_contents_2021 <- full_join(raw_stomach_contents_2021, pred_names_df, by = "Pred_name")
 
 #There's a couple of missing common names this is QC to correct that
 

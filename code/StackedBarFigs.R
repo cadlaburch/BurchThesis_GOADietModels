@@ -43,49 +43,81 @@ sc_groupings <- left_join(raw_stomach_contents,groupings,by="Prey_Name")
 Pollock <- sc_groupings %>% 
   filter(Pred_nodc == 8791030701)
 Cod <- sc_groupings %>% 
-  filter(Pred_nodc == 8791030701)
+  filter(Pred_nodc == 8791030401)
 Sablefish <- sc_groupings %>% 
   filter(Pred_nodc == 8827020101)
 Halibut <- sc_groupings %>% 
   filter(Pred_nodc == 8857041901)
 
 #Binning predator lengths
-range(Pollock$Pred_len)
-range(Cod$Pred_len)
-range(Sablefish$Pred_len)
-range(Halibut$Pred_len)
+quantile(Pollock$Pred_len)
+quantile(Cod$Pred_len)
+quantile(Sablefish$Pred_len)
+quantile(Halibut$Pred_len)
 
+Pollock <- Pollock %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 37, 47, 54, 75)))
 Pollock <- Pollock %>%
   mutate(Len_bin = cut(Pred_len, breaks = c(0, 20, 30, 40, 50, 60, 75)))
 Cod <- Cod %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 45, 55, 62, 105)))
+Cod <- Cod %>%
   mutate(Len_bin = cut(Pred_len, breaks = c(0, 20, 30, 40, 50, 60, 75)))
 Sablefish <- Sablefish %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 52, 59, 65, 101)))
+Sablefish <- Sablefish %>%
   mutate(Len_bin = cut(Pred_len, breaks = c(20, 40, 60, 80, 101)))
+Halibut <- Halibut %>%
+  mutate(Len_bin = cut(Pred_len, breaks = c(0, 46, 59, 72, 167)))
 Halibut <- Halibut %>%
   mutate(Len_bin = cut(Pred_len, breaks = c(0, 30, 60, 90, 120, 150, 167)))
 
 #Recalculate PW for each year and length class
-Pollock <- Pollock %>% 
+Pollock_year <- Pollock %>% 
   filter(pollock_grouping != "Empty") %>%
   group_by(Year, Len_bin, pollock_grouping) %>% 
   summarise(TotalWt = sum(Prey_twt))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
-Cod <- Cod %>% 
+Pollock_sum <- Pollock %>% 
+  filter(pollock_grouping != "Empty") %>%
+  group_by(Len_bin, pollock_grouping) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+Cod_year <- Cod %>% 
   filter(cod_grouping != "Empty") %>%
   group_by(Year, Len_bin, cod_grouping) %>% 
   summarise(TotalWt = sum(Prey_twt))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
-Sablefish <- Sablefish %>% 
+Cod_sum <- Cod %>% 
+  filter(cod_grouping != "Empty") %>%
+  group_by(Len_bin, cod_grouping) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+Sablefish_year <- Sablefish %>% 
   filter(sablefish_grouping != "Empty") %>%
   group_by(Year, Len_bin, sablefish_grouping) %>% 
   summarise(TotalWt = sum(Prey_twt))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
-Halibut <- Halibut %>% 
+Sablefish_sum <- Sablefish %>% 
+  filter(sablefish_grouping != "Empty") %>%
+  group_by(Len_bin, sablefish_grouping) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+Halibut_year <- Halibut %>% 
   filter(halibut_grouping != "Empty") %>%
   group_by(Year, Len_bin, halibut_grouping) %>% 
+  summarise(TotalWt = sum(Prey_twt))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+Halibut_sum <- Halibut %>% 
+  filter(halibut_grouping != "Empty") %>%
+  group_by(Len_bin, halibut_grouping) %>% 
   summarise(TotalWt = sum(Prey_twt))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
@@ -96,7 +128,7 @@ colorlist<-c('#e6194b', '#f58231', '#ffe119', '#bcf60c', '#3cb44b', '#46f0f0',
              '#ffd8b1', '#808000', '#fffac8', '#000075', '#008080',   
              '#aaffc3', '#e6beff', '#a9a9a9', '#fabebe')
 
-PollockStackedByYear <- ggplot(Pollock, aes(x = Len_bin, y = PW, fill = pollock_grouping)) +
+PollockStackedByYear <- ggplot(Pollock_sum, aes(x = Len_bin, y = PW, fill = pollock_grouping)) +
   geom_bar(stat = "identity") + 
   facet_wrap(~Year) +
   scale_fill_manual(values = colorlist) +
@@ -104,9 +136,19 @@ PollockStackedByYear <- ggplot(Pollock, aes(x = Len_bin, y = PW, fill = pollock_
        x = "predator length") +
   theme_minimal()
 
+PollockStacked <- ggplot(Pollock_sum, aes(x = Len_bin, y = PW, fill = pollock_grouping)) +
+  geom_bar(stat = "identity") + 
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Walleye Pollock Diet", y = "percent weight", 
+       x = "predator length") +
+  theme_minimal()
+
 length(unique(Pollock$pollock_grouping))
 
-ggsave("PollockStackedByYear.jpg", plot = PollockStackedByYear, 
+ggsave("PollockStackedByYearQ.jpg", plot = PollockStackedByYear, 
+       path = here("output"), device = "jpg")
+
+ggsave("PollockStacked.jpg", plot = PollockStacked, 
        path = here("output"), device = "jpg")
 
 CodStackedByYear <- ggplot(Cod, aes(x = Len_bin, y = PW, fill = cod_grouping)) +
@@ -117,10 +159,20 @@ CodStackedByYear <- ggplot(Cod, aes(x = Len_bin, y = PW, fill = cod_grouping)) +
        x = "predator length") +
   theme_minimal()
 
-ggsave("CodStackedByYear.jpg", plot = CodStackedByYear, 
+CodStacked <- ggplot(Cod_sum, aes(x = Len_bin, y = PW, fill = cod_grouping)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "P Cod Diet", y = "percent weight", 
+       x = "predator length") +
+  theme_minimal()
+
+ggsave("CodStackedByYearQ.jpg", plot = CodStackedByYear, 
        path = here("output"), device = "jpg")
 
-SablefishStackedByYear <- ggplot(Sablefish, aes(x = Len_bin, y = PW, fill = sablefish_grouping)) +
+ggsave("CodStacked.jpg", plot = CodStacked, 
+       path = here("output"), device = "jpg")
+
+SablefishStackedByYear <- ggplot(Sablefish_year, aes(x = Len_bin, y = PW, fill = sablefish_grouping)) +
   geom_bar(stat = "identity") + 
   facet_wrap(~Year) +
   scale_fill_manual(values = colorlist) +
@@ -128,10 +180,20 @@ SablefishStackedByYear <- ggplot(Sablefish, aes(x = Len_bin, y = PW, fill = sabl
        x = "predator length") +
   theme_minimal()
 
-ggsave("SablefishStackedByYear.jpg", plot = SablefishStackedByYear, 
+SablefishStacked <- ggplot(Sablefish_sum, aes(x = Len_bin, y = PW, fill = sablefish_grouping)) +
+  geom_bar(stat = "identity") + 
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Sablefish By Year", y = "percent weight", 
+       x = "predator length") +
+  theme_minimal()
+
+ggsave("SablefishStackedByYearQ.jpg", plot = SablefishStackedByYear, 
        path = here("output"), device = "jpg")
 
-HalibutStackedByYear <- ggplot(Halibut, aes(x = Len_bin, y = PW, fill = halibut_grouping)) +
+ggsave("SablefishStacked.jpg", plot = SablefishStacked, 
+       path = here("output"), device = "jpg")
+
+HalibutStackedByYear <- ggplot(Halibut_year, aes(x = Len_bin, y = PW, fill = halibut_grouping)) +
   geom_bar(stat = "identity") + 
   facet_wrap(~Year) +
   scale_fill_manual(values = colorlist) +
@@ -139,6 +201,15 @@ HalibutStackedByYear <- ggplot(Halibut, aes(x = Len_bin, y = PW, fill = halibut_
        x = "predator length") +
   theme_minimal()
 
-ggsave("HalibutStackedByYear.jpg", plot = HalibutStackedByYear, 
+HalibutStacked <- ggplot(Halibut_sum, aes(x = Len_bin, y = PW, fill = halibut_grouping)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = colorlist) +
+  labs(title = "Halibut By Year", y = "percent weight", 
+       x = "predator length") +
+  theme_minimal()
+
+ggsave("HalibutStackedByYearQ.jpg", plot = HalibutStackedByYear, 
        path = here("output"), device = "jpg")
 
+ggsave("HalibutStacked.jpg", plot = HalibutStacked, 
+       path = here("output"), device = "jpg")
