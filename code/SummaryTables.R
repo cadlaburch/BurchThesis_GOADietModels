@@ -6,7 +6,8 @@ library(taxize)
 
 #load data
 raw_stomach_contents <- read_csv(here("data/GOA_Raw_StomachContents.csv"))
-raw_stomach_contents_2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
+raw_stomach_contents2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
+  #Note: the 2021 data has common names already!
 
 #################
 #Adding Common Names for Predators
@@ -20,17 +21,38 @@ colnames(pred_names_df) <- c("Pred_name", "Com_name")
 
 #merging common names with overall dataframe
 stomach_contents <- full_join(raw_stomach_contents, pred_names_df, by = "Pred_name")
-stomach_contents_2021 <- full_join(raw_stomach_contents_2021, pred_names_df, by = "Pred_name")
+
+write.csv(stomach_contents, here("data/stomach_contents_2019.csv"))
 
 #There's a couple of missing common names this is QC to correct that
-
+#COME BACK TO THIS IF NESSESARY BUT MAY NOT BE NEEDED BECAUSE 2021 DATA HAS COMMON NAMES
 
 ###############
 #Creating a table that shows sample sizes for each predator by year
+#creating a unique ID for each stomach
+stomach_contents_2021 <- raw_stomach_contents2021 %>% 
+  mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN, sep = "_"))
+
 sample_size <- stomach_contents %>%
-  select(Pred_name, Com_name, Year) %>% 
+  select(uniqueID, Pred_name, Com_name, Year) %>% 
   group_by(Pred_name, Com_name, Year) %>% 
-  summarize(n = n())
+  summarize(n = length(unique(uniqueID)))
+  
+  
+sample_size2021 <- stomach_contents_2021 %>%
+  select(uniqueID, Pred_common, Year) %>% 
+  group_by(Pred_common, Year) %>% 
+  summarize(n = length(unique(uniqueID)))
+
+samplesize2021 <- ggplot(sample_size2021, aes(x = Year, y = n)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~Pred_common, scales = "free_y") +
+  theme_minimal() +
+  scale_x_continuous(breaks = c(1981, 1987, 1990, 1993, 1996, 1999,
+                                2001, 2003, 2005, 2007, 2009, 2011, 
+                                2013, 2015, 2017, 2019, 2021)) +
+  theme(axis.text.x = element_text(angle = 90),
+        panel.grid.minor = element_blank())
 
 #Plot so that it is easy to visualize
 samplesize <- ggplot(sample_size, aes(x = Year, y = n)) +
@@ -43,5 +65,5 @@ samplesize <- ggplot(sample_size, aes(x = Year, y = n)) +
   theme(axis.text.x = element_text(angle = 90),
         panel.grid.minor = element_blank())
 
-ggsave("samplesize.jpg", plot = samplesize, height = 20, width = 30, limitsize = F,
+ggsave("samplesizetest.jpg", plot = samplesize2021, height = 20, width = 30, limitsize = F,
        path = here("output"), device = "jpg")
