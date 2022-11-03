@@ -33,11 +33,16 @@ write.csv(stomach_contents, here("data/stomach_contents_2019.csv"))
 stomach_contents_2021 <- raw_stomach_contents2021 %>% 
   mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN, sep = "_"))
 
-sample_size <- stomach_contents %>%
-  select(uniqueID, Pred_name, Com_name, Year) %>% 
-  group_by(Pred_name, Com_name, Year) %>% 
+stomach_contents_2019 <- raw_stomach_contents %>% 
+  mutate(uniqueID = paste(Hauljoin, Pred_nodc, Pred_specn, sep = "_"))
+
+sample_size <- stomach_contents_2019 %>%
+  select(uniqueID, Pred_name, Year) %>% 
+  group_by(Pred_name, Year) %>% 
   summarize(n = length(unique(uniqueID)))
-  
+
+sample_size %>% 
+  filter(Pred_name == "Atheresthes stomias")  
   
 sample_size2021 <- stomach_contents_2021 %>%
   select(uniqueID, Pred_common, Year) %>% 
