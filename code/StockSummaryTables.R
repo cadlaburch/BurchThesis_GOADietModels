@@ -88,11 +88,6 @@ Arrowtooth_len <- stomach_contents_2021 %>%
   summarise(TotalWt = sum(PREY_TWT), n = unique(n))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
-#adding sample size to bar graph
-Arrowtooth_len <- Arrowtooth_len %>% 
-  group_by(Len_bin_10) %>% 
-  mutate(nsum = sum(n))
-
 #Halibut
 Halibut_len <- stomach_contents_2021 %>% 
   filter(Pred_common == "Pacific halibut", stock_groupings != "empty") %>%
@@ -178,5 +173,115 @@ ggsave("Cod_stock_20.jpg", plot = Cod_Stock,
 
 #Create a percent weight over time by
 
-#
+#------------
+#Figures showing prey abundance over time in different major predator stomachs
+#Note this is %by weight for all sizes of each predator. This may be an issue because large or small predators
+#may not be consuming much of the prey item.
 
+PW_by_year <- stomach_contents_2021 %>% 
+  filter(Pred_common %in% c("Pacific cod", "Walleye pollock", "Pacific halibut", "Arrowtooth flounder",
+                            "Sablefish")) %>% 
+  group_by(Pred_common, Prey_Name_Clean, Year) %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID)))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+    
+herring_line <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Clupeoidei") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n))+
+  theme_minimal()+
+  labs(title = "Herring Percent Weight")
+
+herring_line_non <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Clupeoidei") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  theme_minimal()+
+  labs(title = "Herring Percent Weight")
+
+herring_bar <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Clupeoidei") %>% 
+  ggplot(aes(x = Year, y = PW, fill = Pred_common))+
+  geom_bar(stat = "identity")+
+  theme_minimal()+
+  labs(title = "Herring Percent Weight")
+
+#Why is there a year that herring is super high in pollock diets, but 2 fish skew the results?
+show <- stomach_contents_2021 %>% 
+  filter(Prey_Name_Clean == "Clupeoidei" | Pred_common == "Walleye pollock")
+
+ggsave("herring_line.jpg", plot = herring_line, 
+       path = here("output"), device = "jpg")
+
+ggsave("herring_line_non.jpg", plot = herring_line_non, 
+       path = here("output"), device = "jpg")
+
+ggsave("herring_bar.jpg", plot = herring_bar, 
+       path = here("output"), device = "jpg")
+
+euphasiid_line <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Euphausiacea") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n), color = "grey", alpha = 0.5)+
+  theme_minimal()+
+  labs(title = "Euphausiids")
+
+ggsave("euphausiid_line.jpg", plot = euphasiid_line, 
+       path = here("output"), device = "jpg")
+
+osmerid_line <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Osmeridae") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n), color = "grey", alpha = 0.5)+
+  theme_minimal()+
+  labs(title = "Osmerid")
+
+ggsave("osmerid_line.jpg", plot = osmerid_line, 
+       path = here("output"), device = "jpg")
+
+pollock_line <- PW_by_year %>% 
+  filter(Prey_Name_Clean == "Gadus chalcogrammus") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n), color = "grey", alpha = 0.5)+
+  theme_minimal()+
+  labs(title = "W Pollock")
+
+ggsave("pollock_line.jpg", plot = pollock_line, 
+       path = here("output"), device = "jpg")
+
+#Now I'm going to create similar figures but for prey functional groups. 
+PW_by_year <- stomach_contents_2021 %>% 
+  filter(Pred_common %in% c("Pacific cod", "Walleye pollock", "Pacific halibut", "Arrowtooth flounder",
+                            "Sablefish")) %>% 
+  group_by(Pred_common, stock_groupings, Year) %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID)))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+forage_line <- PW_by_year %>% 
+  filter(stock_groupings == "forage fish") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n), color = "grey", alpha = 0.5)+
+  theme_minimal()+
+  labs(title = "forage fish")
+
+ggsave("forage_line.jpg", plot = forage_line, 
+       path = here("output"), device = "jpg")
+
+arthropod_line <- PW_by_year %>% 
+  filter(stock_groupings == "arthropoda") %>% 
+  ggplot(aes(x = Year, y = PW, color = Pred_common))+
+  geom_line()+
+  geom_text(aes(x = Year, y = PW+2, label = n), color = "grey", alpha = 0.5)+
+  theme_minimal()+
+  labs(title = "arthropod")
+
+ggsave("arthropod_line.jpg", plot = arthropod_line, 
+       path = here("output"), device = "jpg")
+
+
+  
