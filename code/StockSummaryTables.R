@@ -70,29 +70,45 @@ raw_diet_table <- rbind(A_Flounder, P_Halibut, P_Cod, W_Pollock, Sablefish)
 
 write.csv(raw_diet_table, here("output/raw_diet_table.csv"), row.names = F)
 
-#Creating summary figures which includes predator length
+#Creating summary figures (using general stock prey grouping) which includes predator length
 #recalculating PW including length bins
+#Arrowtooth
 Arrowtooth_len <- stomach_contents_2021 %>% 
-  filter(Pred_common == "Arrowtooth flounder", stock_arrowtooth != "empty") %>%
-  group_by(Len_bin_10, stock_arrowtooth) %>% 
-  summarise(TotalWt = sum(PREY_TWT))  %>% 
+  filter(Pred_common == "Arrowtooth flounder", stock_groupings != "empty") %>%
+  group_by(Len_bin_10, stock_groupings) %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID)))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
-Halibut_len <- stomach_contents_2021 %>% 
-  filter(Pred_common == "Pacific halibut", stock_arrowtooth != "empty") %>%
+Arrowtooth_len <- stomach_contents_2021 %>% 
+  filter(Pred_common == "Arrowtooth flounder", stock_arrowtooth != "empty") %>%
+  group_by(Len_bin_10) %>% 
+  mutate(n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
   group_by(Len_bin_10, stock_arrowtooth) %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = unique(n))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+#adding sample size to bar graph
+Arrowtooth_len <- Arrowtooth_len %>% 
+  group_by(Len_bin_10) %>% 
+  mutate(nsum = sum(n))
+
+#Halibut
+Halibut_len <- stomach_contents_2021 %>% 
+  filter(Pred_common == "Pacific halibut", stock_groupings != "empty") %>%
+  group_by(Len_bin_10, stock_groupings) %>% 
   summarise(TotalWt = sum(PREY_TWT))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
 Pollock_len <- stomach_contents_2021 %>% 
-  filter(Pred_common == "Walleye pollock", stock_arrowtooth != "empty") %>%
-  group_by(Len_bin_20, stock_arrowtooth) %>% 
+  filter(Pred_common == "Walleye pollock", stock_groupings != "empty") %>%
+  group_by(Len_bin_20, stock_groupings) %>% 
   summarise(TotalWt = sum(PREY_TWT))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
 Cod_len <- stomach_contents_2021 %>% 
-  filter(Pred_common == "Pacific cod", stock_arrowtooth != "empty") %>%
-  group_by(Len_bin_20, stock_arrowtooth) %>% 
+  filter(Pred_common == "Pacific cod", stock_groupings != "empty") %>%
+  group_by(Len_bin_20, stock_groupings) %>% 
   summarise(TotalWt = sum(PREY_TWT))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
@@ -102,34 +118,52 @@ colorlist<-c('#e6194b', '#ffe119', '#bcf60c', '#3cb44b', '#46f0f0', #'#f58231',
              '#ffd8b1', '#808000', '#fffac8', '#000075', '#008080',   
              '#aaffc3', '#e6beff', '#a9a9a9', '#fabebe')
 
-Arrow_Stock <- ggplot(Arrowtooth_len, aes(x = Len_bin_10, y = PW, fill = stock_arrowtooth)) +
+arrowcolor <- c('#e6194b', '#ffe119','#bcf60c', '#d0d1e6','#a6bddb','#74a9cf','#3690c0',
+                '#0570b0','#034e7b')
+
+#Arrowtooth
+Arrowtooth_len$stock_arrowtooth <- factor(Arrowtooth_len$stock_arrowtooth, 
+                                          levels = c("arthropoda", "euphausiids", "other","cod", "flatfish",
+                                                     "walleye pollock", "target fish", "forage fish", "fish"))
+
+Arrow_Stock <- ggplot(Arrowtooth_len, aes(x = Len_bin_10, y = PW, fill = stock_groupings)) +
   geom_bar(stat = "identity") + 
   scale_fill_manual(values = colorlist) +
   labs(title = "Arrowtooth Diet", y = "percent weight", 
        x = "predator length") +
   theme_minimal()
 
-Halibut_Stock <- ggplot(Halibut_len, aes(x = Len_bin_10, y = PW, fill = stock_arrowtooth)) +
+Arrow_Stock <- ggplot(Arrowtooth_len, aes(x = Len_bin_10, y = PW, fill = stock_arrowtooth)) +
+  geom_bar(stat = "identity") + 
+  geom_text(aes(x = Len_bin_10, y = 101, label = n)) +
+  scale_fill_manual(values = arrowcolor) +
+  labs(title = "Arrowtooth Diet", y = "percent weight", 
+       x = "predator length") +
+  theme_minimal()
+
+#Halibut
+Halibut_Stock <- ggplot(Halibut_len, aes(x = Len_bin_10, y = PW, fill = stock_groupings)) +
   geom_bar(stat = "identity") + 
   scale_fill_manual(values = colorlist) +
   labs(title = "Halibut Diet", y = "percent weight", 
        x = "predator length") +
   theme_minimal()
 
-Pollock_Stock <- ggplot(Pollock_len, aes(x = Len_bin_20, y = PW, fill = stock_arrowtooth)) +
+Pollock_Stock <- ggplot(Pollock_len, aes(x = Len_bin_20, y = PW, fill = stock_groupings)) +
   geom_bar(stat = "identity") + 
   scale_fill_manual(values = colorlist) +
   labs(title = "Pollock Diet", y = "percent weight", 
        x = "predator length") +
   theme_minimal()
 
-Cod_Stock <- ggplot(Cod_len, aes(x = Len_bin_20, y = PW, fill = stock_arrowtooth)) +
+Cod_Stock <- ggplot(Cod_len, aes(x = Len_bin_20, y = PW, fill = stock_groupings)) +
   geom_bar(stat = "identity") + 
   scale_fill_manual(values = colorlist) +
   labs(title = "Cod Diet", y = "percent weight", 
        x = "predator length") +
   theme_minimal()
 
+#save
 ggsave("Arrow_stock_10.jpg", plot = Arrow_Stock, 
        path = here("output"), device = "jpg")
 
@@ -143,4 +177,6 @@ ggsave("Cod_stock_20.jpg", plot = Cod_Stock,
        path = here("output"), device = "jpg")
 
 #Create a percent weight over time by
+
+#
 
