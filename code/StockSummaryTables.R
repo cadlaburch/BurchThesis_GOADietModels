@@ -3,6 +3,7 @@ library(readr)
 library(tidyverse)
 library(here)
 library(patchwork)
+library(extrafont)
 
 #load data
 raw_stomach_contents2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
@@ -29,7 +30,11 @@ stomach_contents_2021 <- sc_groupings %>%
          Len_bin_AF = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 50, 60, 70, 280)),
          Len_bin_HB = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 
                                                120, 280)),
-         Len_bin_CD = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 50, 60, 70, 80, 280)))
+         Len_bin_CD = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 50, 60, 70, 80, 280)),
+         Len_bin_PC_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)),
+         Len_bin_WP_broad = cut(PRED_LEN, breaks = c(0, 30, 40, 50, 280)),
+         Len_bin_AF_broad = cut(PRED_LEN, breaks = c(0, 20, 40, 280)),
+         Len_bin_PH_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)))
 
 #____________
 sample_size2021 <- stomach_contents_2021 %>%
@@ -155,20 +160,43 @@ Cod_len <- stomach_contents_2021 %>%
              #'#ffd8b1', '#808000', '#fffac8', '#000075', '#008080',   
              #'#aaffc3', '#e6beff', '#a9a9a9', '#fabebe')
 
-colorlist<-c('#b30000', '#e34a33', '#fc8d59', '#fdcc8a', '#fef0d9', 'black', 
+colorlist<-c('#b30000', '#e34a33', '#fc8d59', '#fdcc8a', '#fef0d9', 'white', 
              '#f1eef6', '#d0d1e6', '#a6bddb', '#74a9cf', '#3690c0', '#0570b0', '#034e7b')
 
-arrowcolor <- c('#b30000', '#fdcc8a', "black",
+arrowcolor <- c('#b30000', '#fdcc8a', "white",
                 '#f1eef6', '#d0d1e6', '#a6bddb', '#0570b0', '#034e7b')
 
-halibutcolor <- c('#b30000', '#fef0d9', 'black',
+halibutcolor <- c('#b30000', '#fef0d9', 'white',
                   '#f1eef6', '#d0d1e6', '#a6bddb','#74a9cf', '#3690c0', '#0570b0', '#034e7b')
 
-pollockcolor <- c('#b30000', '#e34a33', '#fdcc8a', '#fef0d9', 'black',
+pollockcolor <- c('#b30000', '#e34a33', '#fdcc8a', '#fef0d9', 'white',
                   '#a6bddb', '#0570b0', '#034e7b')
 
-codcolor <- c('#b30000', '#fc8d59', '#fdcc8a', '#fef0d9', 'black',
+codcolor <- c('#b30000', '#fc8d59', '#fdcc8a', '#fef0d9', 'white',
               '#a6bddb', '#0570b0', '#034e7b')
+
+#legend figure
+legend <- stomach_contents_2021 %>% 
+  filter(Pred_common == "Pacific cod", stock_arrowtooth != "empty") %>%
+  group_by(Len_bin_CD) %>% 
+  mutate(n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin_CD, stock_groupings) %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = unique(n))  %>% 
+  mutate(PW = (TotalWt/(sum(TotalWt))*100))
+
+legend$stock_groupings <- factor(legend$stock_groupings, 
+                                          levels = c("Arthropoda","copepod", "benthic invertebrate", "euphausiids",
+                                                     "zooplankton", "other","cod", "flatfish",
+                                                     "walleye pollock","salmon","rockfish", "forage fish", "other fish"))
+
+legend_plot <- ggplot(legend, aes(x = Len_bin_CD, y = PW, fill = stock_groupings)) +
+  geom_bar(stat = "identity", show.legend = T) +
+  scale_fill_manual(values = colorlist)
+
+ggsave("legend.pdf", plot = legend_plot, 
+       path = here("output/Figure 1"), device = "pdf",
+       height = 15, width = 10)
 
 
 #Arrowtooth
@@ -185,18 +213,28 @@ Arrowtooth_len$stock_arrowtooth <- factor(Arrowtooth_len$stock_arrowtooth,
 
 #Current Version
 Arrow_Stock <- ggplot(Arrowtooth_len, aes(x = Len_bin_AF, y = PW, fill = stock_arrowtooth)) +
-  geom_bar(stat = "identity", show.legend = T) + 
-  geom_text(aes(x = Len_bin_AF, y = 102, label = n), color = '#b30000') +
+  geom_bar(stat = "identity", show.legend = F) + 
+  geom_text(aes(x = Len_bin_AF, y = 103, label = n), color = '#b30000') +
   scale_fill_manual(values = arrowcolor) +
   labs(title = "Arrowtooth Flounder", y = "", 
        x = "") +
   scale_x_discrete(labels = c("<20", "20-30", "30-40", "40-50", "50-60", "60-70", ">70"),
-                   expand = c(0, 0)) +
+                   expand = c(0, 0),
+                   guide = guide_axis(angle = 30)) +
   scale_y_continuous(expand = c(0,2)) +
-  theme_classic()
+  theme_classic()+
+  theme(text = element_text(family = "Times New Roman"),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0),
+        axis.text=element_text(size=15),
+        plot.title = element_text(size = 20))
 
 ggsave("Arrow_stock_legend.jpg", plot = Arrow_Stock, 
        path = here("output/Figure 1"), device = "jpg")
+
+#this website shows you which fonts are available http://www.cookbook-r.com/Graphs/Fonts/
 
 #Halibut OUTDATED
 # Halibut_Stock <- ggplot(Halibut_len, aes(x = Len_bin_HB, y = PW, fill = stock_groupings)) +
@@ -212,16 +250,24 @@ Halibut_len$stock_halibut <- factor(Halibut_len$stock_halibut,
                                                      "walleye pollock", "salmon", "rockfish", "forage fish", "other fish"))
 
 Halibut_Stock <- ggplot(Halibut_len, aes(x = Len_bin_HB, y = PW, fill = stock_halibut)) +
-  geom_bar(stat = "identity", show.legend = T) + 
-  geom_text(aes(x = Len_bin_HB, y = 102, label = n), color = '#b30000') +
+  geom_bar(stat = "identity", show.legend = F) +
+  geom_text(aes(x = Len_bin_HB, y = 103, label = n), color = '#b30000') +
   scale_fill_manual(values = halibutcolor) +
   labs(title = "Pacific Halibut", y = "", 
        x = "") +
   scale_x_discrete(labels = c("<20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80", "80-90",
                               "90-100", "100-110", "110-120", ">120"),
-                   expand = c(0, 0)) +
+                   expand = c(0, 0),
+                   guide = guide_axis(angle = 30)) +
   scale_y_continuous(expand = c(0,2)) +
-  theme_classic()
+  theme_classic()+
+  theme(text = element_text(family = "Times New Roman"),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0),
+        axis.text=element_text(size=15),
+        plot.title = element_text(size = 20))
 
 ggsave("Halibut_stock_legend.jpg", plot = Halibut_Stock, 
        path = here("output/Figure 1"), device = "jpg")
@@ -242,15 +288,24 @@ Pollock_len$stock_pollock <- factor(Pollock_len$stock_pollock,
                                                      "walleye pollock", "forage fish", "other fish"))
 
 Pollock_Stock <- ggplot(Pollock_len, aes(x = Len_bin_AF, y = PW, fill = stock_pollock)) +
-  geom_bar(stat = "identity", show.legend = T) + 
+  geom_bar(stat = "identity", show.legend = F) +
   geom_text(aes(x = Len_bin_AF, y = 103, label = n), color = '#b30000') +
   scale_fill_manual(values = pollockcolor) +
-  labs(title = "Walleye Pollock", y = "percent weight (cm)", 
-       x = "predator length (cm)") +
+  labs(title = "Walleye Pollock", y = "Percent weight", 
+       x = "Predator length (cm)") +
   scale_x_discrete(labels = c("<20", "20-30", "30-40", "40-50", "50-60", "60-70", ">70"),
-                   expand = c(0, 0)) +
+                   expand = c(0, 0),
+                   guide = guide_axis(angle = 30)) +
   scale_y_continuous(expand = c(0,2)) +
-  theme_classic()
+  theme_classic()+
+  theme(text = element_text(family = "Times New Roman"),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0),
+        axis.text=element_text(size=15),
+        axis.title = element_text(size = 18),
+        plot.title = element_text(size = 20))
 
 ggsave("Pollock_stock_legend.jpg", plot = Pollock_Stock, 
        path = here("output/Figure 1"), device = "jpg")
@@ -268,14 +323,22 @@ Cod_len$stock_cod <- factor(Cod_len$stock_cod,
                                                "walleye pollock", "forage fish", "other fish"))
 
 Cod_Stock <- ggplot(Cod_len, aes(x = Len_bin_CD, y = PW, fill = stock_cod)) +
-  geom_bar(stat = "identity", show.legend = T) + 
+  geom_bar(stat = "identity", show.legend = F) + 
   geom_text(aes(x = Len_bin_CD, y = 103, label = n), color = '#b30000') +
   scale_fill_manual(values = codcolor) +
-  labs(title = "Pacific Cod", y = "", 
-       x = "") +scale_x_discrete(labels = c("<20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80", ">80"),
-                                                expand = c(0, 0)) +
+  labs(title = "Pacific Cod", y = "", x = "") +
+  scale_x_discrete(labels = c("<20", "20-30", "30-40", "40-50", "50-60", "60-70", "70-80", ">80"),
+                   expand = c(0, 0),
+                   guide = guide_axis(angle = 30)) +
   scale_y_continuous(expand = c(0,2)) +
-  theme_classic()
+  theme_classic() +
+  theme(text = element_text(family = "Times New Roman"),text = element_text(family = "Times New Roman"),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0),
+        axis.text=element_text(size=15),
+        plot.title = element_text(size = 20))
 
 ggsave("Cod_stock_legend.jpg", plot = Cod_Stock, 
        path = here("output/Figure 1"), device = "jpg")
@@ -283,8 +346,9 @@ ggsave("Cod_stock_legend.jpg", plot = Cod_Stock,
 #Combine
 Fig1 <- (Arrow_Stock + Halibut_Stock) / (Pollock_Stock + Cod_Stock)
 
-ggsave("Fig1L.pdf", plot = Fig1, 
-       path = here("output/Figure 1"), device = "pdf", height = 10, width = 15)
+ggsave("Fig1.pdf", plot = Fig1, 
+       path = here("output/Figure 1"), device = "pdf", height = 8, width = 12.5)
+
 
 #save
 ggsave("Arrow_stock_10.jpg", plot = Arrow_Stock, 
@@ -416,9 +480,172 @@ raw_stomach_contents2021 %>%
   ggplot(aes(x = START_DATE)) +
   geom_histogram(stat = "count")
 
+
+
+
+
+
+
+
+
+
+
+
+
 #---------------------------------------
 #Attempt at Sparklines
 #First I will look at the relative occurrence of prey by species over time
+
+colorlist2<-c('#a6bddb', '#3690c0', '#034e7b')
+
+#--------------------
+#Consumption of Euphausiacea (krill)
+
+#Halibut eating krill
+Halibut_krill <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Euphausiacea", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100)))
+
+range(Halibut_krill$walleyestomachs)
+
+#PLOT
+Halibut_krill_plot <- ggplot(Halibut_krill, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,75),
+                     breaks = c(0, 25, 50, 75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  theme_classic()+
+  xlim(1990, 2022) +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#Arrowtooth consuming krill
+Arrow_krill <- stomach_contents_2021 %>%
+  filter(Pred_common == "Arrowtooth flounder", ) %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Euphausiacea", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 530)))
+
+range(Arrow_krill$walleyestomachs)
+
+#PLOT
+Arrow_krill_plot <- ggplot(Arrow_krill, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,75),
+                     breaks = c(0, 25, 50, 75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic()+
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+
+#Pollock eating krill
+Poll_krill <- stomach_contents_2021 %>%
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Euphausiacea", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 650)))
+
+range(Poll_krill$walleyestomachs)
+
+#PLOT
+Poll_krill_plot <- ggplot(Poll_krill, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,75),
+                     breaks = c(0, 25, 50, 75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#Cod eating krill
+Cod_krill <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Euphausiacea", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 190)))
+
+range(Cod_krill$walleyestomachs)
+
+#PLOT
+Cod_krill_plot <- ggplot(Cod_krill, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), show.legend = F, alpha = 0.5) +
+  scale_y_continuous(limits = c(0,75),
+                     breaks = c(0, 25, 50, 75)) +
+  theme_classic() +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#piece together
+krillconsumption <- Arrow_krill_plot / Halibut_krill_plot / Poll_krill_plot / Cod_krill_plot
+
+ggsave("krillconsumption.pdf", plot = krillconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 9, width = 5)
+
+#---------
 
 #Halibut consuming pollock
 Halibut_poll <- stomach_contents_2021 %>%
@@ -428,17 +655,31 @@ Halibut_poll <- stomach_contents_2021 %>%
   mutate(totalstomachs = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   filter(walleye_p == 1) %>% 
-  group_by(Year) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
   mutate(walleyestomachs = length(unique(uniqueID))) %>% 
-  select(Year, walleyestomachs, totalstomachs) %>% 
-  mutate(walleye_RO = walleyestomachs/totalstomachs)
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 120)))
 
-Halibut_pol_plot <- ggplot(Halibut_poll, aes(x = Year, y = walleye_RO)) +
-  geom_line() + 
-  geom_point() +
-  scale_y_continuous(limits = c(0,1)) +
-  geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
-  theme_void()
+range(Halibut_poll$walleyestomachs)
+
+#PLOT
+Halibut_pol_plot <- ggplot(Halibut_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = c('#3690c0', '#034e7b')) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
 
 #Arrowtooth consuming pollock
 Arrow_poll <- stomach_contents_2021 %>%
@@ -448,17 +689,31 @@ Arrow_poll <- stomach_contents_2021 %>%
   mutate(totalstomachs = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   filter(walleye_p == 1) %>% 
-  group_by(Year) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
   mutate(walleyestomachs = length(unique(uniqueID))) %>% 
-  select(Year, walleyestomachs, totalstomachs) %>% 
-  mutate(walleye_RO = walleyestomachs/totalstomachs)
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 530)))
 
-Arrow_pol_plot <- ggplot(Arrow_poll, aes(x = Year, y = walleye_RO)) +
-  geom_line() + 
-  geom_point() +
-  scale_y_continuous(limits = c(0,1)) +
-  geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
-  theme_void()
+range(Arrow_poll$walleyestomachs)
+
+#PLOT
+Arrow_pol_plot <- ggplot(Arrow_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
 
 
 #Pollock eating pollock
@@ -469,17 +724,31 @@ Poll_poll <- stomach_contents_2021 %>%
   mutate(totalstomachs = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   filter(walleye_p == 1) %>% 
-  group_by(Year) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
   mutate(walleyestomachs = length(unique(uniqueID))) %>% 
-  select(Year, walleyestomachs, totalstomachs) %>% 
-  mutate(walleye_RO = walleyestomachs/totalstomachs)
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 110)))
 
-Poll_pol_plot <- ggplot(Poll_poll, aes(x = Year, y = walleye_RO)) +
-  geom_line() + 
-  geom_point() +
-  scale_y_continuous(limits = c(0,1)) +
-  geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs))+
-  theme_void()
+range(Poll_poll$walleyestomachs)
+
+#PLOT
+Poll_pol_plot <- ggplot(Poll_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
 
 #Cod eating pollock
 Cod_poll <- stomach_contents_2021 %>%
@@ -489,26 +758,522 @@ Cod_poll <- stomach_contents_2021 %>%
   mutate(totalstomachs = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   filter(walleye_p == 1) %>% 
-  group_by(Year) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
   mutate(walleyestomachs = length(unique(uniqueID))) %>% 
-  select(Year, walleyestomachs, totalstomachs) %>% 
-  mutate(walleye_RO = walleyestomachs/totalstomachs)
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 110)))
 
-Cod_pol_plot <- ggplot(Cod_poll, aes(x = Year, y = walleye_RO)) +
-  geom_line() + 
-  geom_point() +
-  scale_y_continuous(limits = c(0,1)) +
-  geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
+range(Cod_poll$walleyestomachs)
+
+#PLOT
+Cod_pol_plot <- ggplot(Cod_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), alpha = 0.5, show.legend = F) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
   theme_classic() +
-  labs(y = "relative occurance") +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
+
+#piece together
+pollockconsumption <- Arrow_pol_plot / Halibut_pol_plot / Poll_pol_plot / Cod_pol_plot
+
+ggsave("pollockconsumption.pdf", plot = pollockconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 9, width = 5)
+
+#--------------------
+#Consumption of Ammodytidae (sand lance)
+
+#Halibut
+Halibut_sl <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Ammodytidae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 120)))
+
+#PLOT
+Halibut_sl_plot <- ggplot(Halibut_sl, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = colorlist2) +
+  labs() +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#Arrowtooth consuming pollock
+Arrow_sl <- stomach_contents_2021 %>%
+  filter(Pred_common == "Arrowtooth flounder", ) %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Ammodytidae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 530)))
+
+#PLOT
+Arrow_sl_plot <- ggplot(Arrow_sl, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = colorlist2) +
+  labs() +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+
+#Pollock eating pollock
+Poll_sl <- stomach_contents_2021 %>%
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Ammodytidae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 110)))
+
+#PLOT
+Poll_sl_plot <- ggplot(Poll_sl, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  scale_color_manual(values = colorlist2) +
+  labs() +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+#Cod eating pollock
+Cod_sl <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Ammodytidae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 30, 100, 110)))
+
+#PLOT
+Cod_sl_plot <- ggplot(Cod_sl, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), show.legend = F, alpha = 0.5) +
+  scale_y_continuous(limits = c(0,25),
+                     breaks = c(0, 5, 10, 15, 20, 25)) +
+  theme_classic() +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "", x = "") +
+  xlim(1990, 2022) +
+  theme_classic() +
+  theme(axis.line = element_line(color = "grey"),
+        axis.ticks=element_line(color = "grey"),
+        axis.text = element_text(color = "grey", size=15),
+        plot.margin = margin(t = 0,  # Top margin
+                             r = 0,  # Right margin
+                             b = 0,  # Bottom margin
+                             l = 0))
+
+
+#piece together
+slconsumption <- Arrow_sl_plot / Halibut_sl_plot / Poll_sl_plot / Cod_sl_plot
+
+ggsave("sandlanceconsumption.pdf", plot = slconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 9, width = 5)
+
+
+
+
+
+
+#below code is the as above, for other species of prey not included in poster
+
+
+
+
+
+
+
+
+
+
+
+
+#--------------------
+#Consumption of Osmerids (smelts)
+
+#Halibut
+Halibut_osm <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Osmeridae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 120)))
+
+Halibut_osm_plot <- ggplot(Halibut_osm, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Pacific Halibut") +
+  theme_void()
+
+#Arrowtooth consuming pollock
+Arrow_osm <- stomach_contents_2021 %>%
+  filter(Pred_common == "Arrowtooth flounder", ) %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Osmeridae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 530)))
+
+Arrow_osm_plot <- ggplot(Arrow_osm, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Arrowtooth Flounder") +
+  theme_void()
+
+
+#Pollock eating pollock
+Poll_osm <- stomach_contents_2021 %>%
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Osmeridae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 40)))
+
+Poll_osm_plot <- ggplot(Poll_osm, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Walleye Pollock") +
+  theme_void()
+
+#Cod eating pollock
+Cod_osm <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Osmeridae", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 80)))
+
+Cod_osm_plot <- ggplot(Cod_osm, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), show.legend = F) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  theme_classic() +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "relative occurance", title = "Pacific Cod") +
   theme(axis.text.y=element_blank(),
         axis.line = element_blank(),
         axis.ticks=element_blank())
 
+#geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
+
 #piece together
-Arrow_pol_plot / Halibut_pol_plot / Poll_pol_plot / Cod_pol_plot
+osmeridconsumption <- Arrow_osm_plot / Halibut_osm_plot / Poll_osm_plot / Cod_osm_plot
+
+ggsave("osmeridconsumption.pdf", plot = osmeridconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 11, width = 6)
+
+#--------------------
+#Consumption of Clupeoidei (herring)
+
+#Halibut
+Halibut_herr <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Clupeoidei", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 120)))
+
+Halibut_herr_plot <- ggplot(Halibut_herr, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Pacific Halibut") +
+  theme_void()
+
+#Arrowtooth consuming pollock
+Arrow_herr <- stomach_contents_2021 %>%
+  filter(Pred_common == "Arrowtooth flounder", ) %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Clupeoidei", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 530)))
+
+Arrow_herr_plot <- ggplot(Arrow_herr, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Arrowtooth Flounder") +
+  theme_void()
 
 
+#Pollock eating pollock
+Poll_herr <- stomach_contents_2021 %>%
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Clupeoidei", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 40)))
+
+Poll_herr_plot <- ggplot(Poll_herr, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Walleye Pollock") +
+  theme_void()
+
+#Cod eating pollock
+Cod_herr <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(walleye_p = ifelse(Prey_Name_Clean == "Clupeoidei", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 80)))
+
+Cod_herr_plot <- ggplot(Cod_herr, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), show.legend = F) +
+  scale_y_continuous(limits = c(0,0.25)) +
+  theme_classic() +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "relative occurence (0-0.25)", title = "Pacific Cod") +
+  theme(axis.text.y=element_blank(),
+        axis.line = element_blank(),
+        axis.ticks=element_blank())
+
+#geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
+
+#piece together
+herringconsumption <- Arrow_herr_plot / Halibut_herr_plot / Poll_herr_plot / Cod_herr_plot
+
+ggsave("herringconsumption.pdf", plot = herringconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 11, width = 6)
 
 
+#--------------------
+#Consumption of Arthropoda
+
+#Halibut
+Halibut_art <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(walleye_p = ifelse(stock_groupings == "arthropoda", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 350)))
+
+range(Halibut_art$walleyestomachs)
+
+Halibut_art_plot <- ggplot(Halibut_art, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Pacific Halibut") +
+  theme_void()
+
+#Arrowtooth consuming pollock
+Arrow_art <- stomach_contents_2021 %>%
+  filter(Pred_common == "Arrowtooth flounder", ) %>% 
+  mutate(walleye_p = ifelse(stock_groupings == "arthropoda", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 530)))
+
+range(Arrow_art$walleyestomachs)
+
+Arrow_art_plot <- ggplot(Arrow_art, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Arrowtooth Flounder") +
+  theme_void()
+
+
+#Pollock eating pollock
+Poll_art <- stomach_contents_2021 %>%
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(walleye_p = ifelse(stock_groupings == "arthropoda", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 650)))
+
+range(Poll_art$walleyestomachs)
+
+Poll_art_plot <- ggplot(Poll_art, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize)) +
+  scale_y_continuous(limits = c(0,0.75)) +
+  scale_color_manual(values = colorlist2) +
+  labs(title = "Walleye Pollock") +
+  theme_void()
+
+#Cod eating pollock
+Cod_art <- stomach_contents_2021 %>%
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(walleye_p = ifelse(stock_groupings == "arthropoda", 1, 2)) %>% 
+  group_by(Year) %>% 
+  mutate(totalstomachs = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  filter(walleye_p == 1) %>% 
+  group_by(Year, Len_bin_PC_broad) %>% 
+  mutate(walleyestomachs = length(unique(uniqueID))) %>% 
+  select(Year, walleyestomachs, totalstomachs, PRED_LEN, uniqueID, Len_bin_PC_broad) %>% 
+  mutate(walleye_RO = walleyestomachs/totalstomachs,
+         samplesize = cut(walleyestomachs, breaks = c(0, 10, 30, 560)))
+
+range(Cod_art$walleyestomachs)
+
+Cod_art_plot <- ggplot(Cod_art, aes(x = Year, y = walleye_RO, color = Len_bin_PC_broad)) +
+  geom_line(show.legend = F) + 
+  geom_point(aes(size = samplesize), show.legend = F) +
+  scale_y_continuous(limits = c(0,0.75)) +
+  theme_classic() +
+  scale_color_manual(values = colorlist2) +
+  labs(y = "relative occurence (0-0.75)", title = "Pacific Cod") +
+  theme(axis.text.y=element_blank(),
+        axis.line = element_blank(),
+        axis.ticks=element_blank())
+
+#geom_text(aes( x = Year, y = walleye_RO+0.05, label = walleyestomachs)) +
+
+#piece together
+artconsumption <- Arrow_art_plot / Halibut_art_plot / Poll_art_plot / Cod_art_plot
+
+ggsave("arthropodconsumption.pdf", plot = artconsumption, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 11, width = 6)
   
