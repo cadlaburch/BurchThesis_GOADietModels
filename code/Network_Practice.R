@@ -64,6 +64,7 @@ stom2021 <- raw_stomach_contents2021 %>%
   select(Pred_common, Prey_Name, edge)
 
 
+
 # Load scripts and remove non-speaking lines
 speaking_lines <- lines %>% 
   filter(!is.na(raw_character_text))
@@ -166,3 +167,165 @@ plot(g,
      vertex.label.color = "black") #adding labels 
 #hmm it didn't work maybe I need to have the data set up with attributes?
 
+
+##############################
+###############################
+#DATA CAMP: Network Analysis in R
+#Note: I decided to start over because it had been a while and I forgot what I had learned :(
+
+
+##Chapter 1: Introduction to Networks
+
+#-------
+#1.1
+#Packages
+library(igraph)
+
+  #social network refers to the visualization or the underlying data
+  #vertex/nodes
+
+  #Data Structure:
+    #edges
+    #Adjacency matrix. All nodes are on both y and x axis and 1 indicates edge between vertices.
+    #edgelist: two column matrix or dataframe. each row represents edge between two verticies. Most common
+
+#create example dataframe
+df <- data.frame(first_column = c("A", "B", "C"),
+                  second_column = c("B", "C", "A"))
+
+#if you wanted to go from datrame to matrix use this function, as.matrix()
+
+#transform dataframe into igraph object
+g <- graph.edgelist(as.matrix(df), directed = F)
+    
+g
+#IGRAPH 9217593 UN-- 3 3 -- (3 vertices, and 3 edges)
+
+#Print verticies
+V(g)
+
+#Print edges
+E(g)
+
+#number of verticies
+gorder(g)
+
+#number of edges
+gsize(g)
+
+#plot network
+plot(g)
+
+#------
+#1.2: Network Attributes
+#vertex attributes: categorical or numerical, ex. age, gender, name
+
+#edge attributes: relationship between vertices. ex. weight (thickness of line) 
+
+#adding attributes to igraph objects manually
+
+g <- set_vertex_attr(g,
+                     "age",
+                     value = c(12, 13, 14))
+
+#view attributes
+vertex_attr(g)
+
+vertex.attributes(g)
+
+#set edge attributes
+g <- set_edge_attr(g, 
+                   "frequency",
+                  value = c(2, 3, 4))
+
+edge_attr(g)
+
+#adding attributes when they are in a dataframe format
+#creating example dataframe
+
+vertices.df <- data.frame(name = c("A", "B", "C"),
+                 age = c(12, 13, 14))
+
+edges.df <- data.frame(from = c("A", "B", "C"),
+                       to = c("B", "C", "A"),
+                       frequency = c(2, 3, 4))
+
+g2 <- graph_from_data_frame(d = edges.df, vertices = vertices.df, 
+                      directed = F)
+
+#inspect igraph object to find certain verticies or edges with specific attributes
+#subset edges of igraph object
+  #all edges that include the vertex "B"
+  E(g)[[inc('B')]]
+  
+  #all edges that have a frequency >=3
+  E(g)[[frequency>=3]]
+  
+  #view attributes of first three vertices in dataframe
+  V(g)[[1:3]]
+
+  #useful in large networks to identify interesting relationships!
+  
+
+#Network Visualization
+
+#adjust plot by adding parameters
+  #create vertex attribute called color, make vertices > 13 years red and the others white
+  V(g2)$color <- ifelse(V(g)$age > 13, "red", "white")
+  
+#plot
+  plot(g2,
+       vertex.label.color = "black") #???? I'm not sure why the names aren't coming up.
+  
+  
+#--------------------
+#1.3: Network Visualization
+  
+  #adjust size, color, text, layout
+  #should immediately provide information to viewer
+  
+  #Commonly adjusted visuals
+    #size, labels, color, shape, edges (thickness, color, linetype)
+  #color is automatically included if you have a node attribute named color
+  
+#Pitfalls
+  #too much text can make it hard to read
+  #Color and shape are good for categorical information
+  #make sure that you highlight the key pieces of information
+  
+#Layouts
+  #use layout argument
+  #algorythms follow general rules
+    #edges don't cross, verticies dont overlap
+    #edges should be equal length if possible
+    #position key nodes towards the center
+  #layout_in_circle()
+  #layout_with_fr()
+  #layout_as_tree()
+  #layout_nicely() #chooses best layout
+  
+#plot
+  plot(g2, layout = layout.fruchterman.reingold(g2))
+  
+#You can also stipulate the layout seperately by creating a matrix object
+  m <- layout_as_tree(g2)
+  
+  plot(g2, layout = m)
+  
+  
+#Visualizing edges
+
+w1 <- E(g2)$frequency
+
+m1 <- layout_nicely(g2)
+
+plot(g2,
+     vertex.label.color = "black",
+     edge.color = "black",
+     edge.width = w1,
+     layout = m1)  
+
+#you can also delete edges
+g2 <- delete.edges(g2, E(g2)[frequency < 3])
+  
+  

@@ -14,6 +14,11 @@ months <- raw_stomach_contents2021 %>%
   group_by(Year) %>% 
   summarize(min = min(Month), max = max(Month))
 
+#What years were data collected
+year <-unique(raw_stomach_contents2021$Year)
+range(raw_stomach_contents2021$Year)
+view(year)
+
 #Joining stomach contents with prey groupings
 #methods: groupings was done manually. clean names are all taxonomic classifications
 sc_groupings <- left_join(raw_stomach_contents2021,groupings,by="Prey_Name")
@@ -699,8 +704,8 @@ range(Arrow_poll$walleyestomachs)
 
 #PLOT
 Arrow_pol_plot <- ggplot(Arrow_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
-  geom_line(show.legend = F) + 
-  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
+  geom_line(show.legend = T) + 
+  geom_point(show.legend = T, aes(size = samplesize), alpha = 0.5) +
   scale_y_continuous(limits = c(0,25),
                      breaks = c(0, 5, 10, 15, 20, 25)) +
   scale_color_manual(values = colorlist2) +
@@ -715,6 +720,9 @@ Arrow_pol_plot <- ggplot(Arrow_poll, aes(x = Year, y = walleye_RO*100, color = L
                              b = 0,  # Bottom margin
                              l = 0))
 
+ggsave("legends.pdf", plot = Arrow_pol_plot, 
+       path = here("output/Figure 2"), device = "pdf",
+       height = 8, width = 8)
 
 #Pollock eating pollock
 Poll_poll <- stomach_contents_2021 %>%
