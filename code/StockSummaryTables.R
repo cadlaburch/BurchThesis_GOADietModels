@@ -58,39 +58,40 @@ Barnes <- filter(sample_size2021, Pred_common == "Arrowtooth flounder" | Pred_co
 #General Diet tables
 #Arrowtooth Flounder
 #Methods: I'm removing the empty stomachs
-A_Flounder <- stomach_contents_2021 %>%
-  filter(Pred_common == "Arrowtooth flounder", Prey_Name != "Empty") %>% 
-  group_by(Prey_Name_Clean) %>% 
-  summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
-  mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Arrowtooth flounder")
-
-P_Halibut <- stomach_contents_2021 %>%
-  filter(Pred_common == "Pacific halibut", Prey_Name != "Empty") %>% 
-  group_by(Prey_Name_Clean) %>% 
-  summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
-  mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Pacific halibut")
-
-P_Cod <- stomach_contents_2021 %>%
-  filter(Pred_common == "Pacific cod", Prey_Name != "Empty") %>% 
-  group_by(Prey_Name_Clean) %>% 
-  summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
-  mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Pacific cod")
-
-W_Pollock <- stomach_contents_2021 %>%
-  filter(Pred_common == "Walleye pollock", Prey_Name != "Empty") %>% 
-  group_by(Prey_Name_Clean) %>% 
-  summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
-  mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Walleye pollock")
-
-Sablefish <- stomach_contents_2021 %>%
-  filter(Pred_common == "Sablefish", Prey_Name != "Empty") %>% 
-  group_by(Prey_Name_Clean) %>% 
-  summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
-  mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Sablefish")
-
-raw_diet_table <- rbind(A_Flounder, P_Halibut, P_Cod, W_Pollock, Sablefish)
-
-write.csv(raw_diet_table, here("output/raw_diet_table.csv"), row.names = F)
+#I THINK THIS SECTION IS ALL OUTDATED BECAUSE IT DOESNT ACCOUNT FOR THE UNIQUE ID IN THE NUMBER CALCULATION
+# A_Flounder <- stomach_contents_2021 %>%
+#   filter(Pred_common == "Arrowtooth flounder", Prey_Name != "Empty") %>% 
+#   group_by(Prey_Name_Clean) %>% 
+#   summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
+#   mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Arrowtooth flounder")
+# 
+# P_Halibut <- stomach_contents_2021 %>%
+#   filter(Pred_common == "Pacific halibut", Prey_Name != "Empty") %>% 
+#   group_by(Prey_Name_Clean) %>% 
+#   summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
+#   mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Pacific halibut")
+# 
+# P_Cod <- stomach_contents_2021 %>%
+#   filter(Pred_common == "Pacific cod", Prey_Name != "Empty") %>% 
+#   group_by(Prey_Name_Clean) %>% 
+#   summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
+#   mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Pacific cod")
+# 
+# W_Pollock <- stomach_contents_2021 %>%
+#   filter(Pred_common == "Walleye pollock", Prey_Name != "Empty") %>% 
+#   group_by(Prey_Name_Clean) %>% 
+#   summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
+#   mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Walleye pollock")
+# 
+# Sablefish <- stomach_contents_2021 %>%
+#   filter(Pred_common == "Sablefish", Prey_Name != "Empty") %>% 
+#   group_by(Prey_Name_Clean) %>% 
+#   summarise(TotalWt = sum(PREY_TWT), N = n()) %>% 
+#   mutate(PW = (TotalWt/sum(TotalWt))*100, PN = (N/sum(N))*100, Pred_common = "Sablefish")
+# 
+# raw_diet_table <- rbind(A_Flounder, P_Halibut, P_Cod, W_Pollock, Sablefish)
+# 
+# write.csv(raw_diet_table, here("output/raw_diet_table.csv"), row.names = F)
 
 #--------------------------------
 #Creating summary figures (using general stock prey grouping) which includes predator length
