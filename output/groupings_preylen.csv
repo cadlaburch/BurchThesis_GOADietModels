@@ -1,217 +1,1 @@
-"","Prey_Name"
-"1","Tanner crab Chionoecetes bairdi"
-"2","Stichaeidae (prickleback)"
-"3","Flathead sole Hippoglossoides elassodon"
-"4","Ammodytidae (sandlance) Ammodytes sp."
-"5","Whitebarred prickleback Poroclinus rothrocki"
-"6","Wattled eelpout Lycodes palearis"
-"7","Walleye pollock Gadus chalcogrammus"
-"8","Zoarcidae (eelpout)"
-"9","Arrowtooth flounder Atheresthes stomias"
-"10","Cottidae (sculpin)"
-"11","Capelin Mallotus villosus"
-"12","Pacific herring Clupea pallasii"
-"13","Salmonidae (cisco or whitefish) Coregonus sp."
-"14","Atka mackerel Pleurogrammus monopterygius"
-"15","Eulachon Thaleichthys pacificus"
-"16","Dwarf wrymouth Cryptacanthodes aleutensis"
-"17","Agonidae (poacher)"
-"18","Pleuronectidae (flatfish)"
-"19","Cyclopteridae (lumpsucker)"
-"20","Daubed shanny Leptoclinus maculatus"
-"21","Scorpaenidae (rockfish) Sebastes sp."
-"22","Myctophidae (lanternfish)"
-"23","Pleuronectoidei (flatfish)"
-"24","Northern lampfish Stenobrachius leucopsarus"
-"25","Teleostei (fish)"
-"26","Pacific viperfish Chauliodus macouni"
-"27","Korean horsehair crab Erimacrus isenbeckii"
-"28","Osmeridae (smelt)"
-"29","Sawback poacher Leptagonus frenatus"
-"30","Icelidae (sculpin)"
-"31","Cottoidei (sculpin) Artedius sp."
-"32","Cottoidei (sculpin) Artediellus sp."
-"33","Rajidae (skate)"
-"34","Sablefish Anoplopoma fimbria"
-"35","Searcher Bathymaster signatus"
-"36","Pacific halibut Hippoglossus stenolepis"
-"37","Shortfin eelpout Lycodes brevipes"
-"38","Pacific spiny lumpsucker Eumicrotremus orbis"
-"39","Bigeye poacher Bathyagonus pentacanthus"
-"40","Pleuronectidae (rock sole) Lepidopsetta sp."
-"41","Spinyhead sculpin Dasycottus setiger"
-"42","Slender eelblenny Lumpenus fabricii"
-"43","Snake prickleback Lumpenus sagitta"
-"44","Non-gadoid fish remains"
-"45","Pacific sandfish Trichodon trichodon"
-"46","Brown box crab Lopholithodes foraminatus"
-"47","Scorpaenidae (rockfish)"
-"48","Pacific cod Gadus macrocephalus"
-"49","Coho salmon Oncorhynchus kisutch"
-"50","Paguridae (hermit crab)"
-"51","Northern sculpin Icelinus borealis"
-"52","Cottoidei (sculpin) Hemilepidotus sp."
-"53","Liparidae (snailfish) Liparis sp."
-"54","Ribbed sculpin Triglops pingelii"
-"55","Bigmouth sculpin Hemitripterus bolini"
-"56","Helmet crab Telmessus cheiragonus"
-"57","Cottoidei (sculpin)"
-"58","Salmonidae (salmon) Oncorhynchus sp."
-"59","Gray starsnout Bathyagonus alascanus"
-"60","Rex sole Glyptocephalus zachirus"
-"61","Dover sole Microstomus pacificus"
-"62","Bathylagidae (deepsea smelt)"
-"63","Pleuronectidae (flatfish) Atheresthes sp."
-"64","Longfin gunnel Pholis clemensi"
-"65","Gadidae (gadid fish)"
-"66","Lyre crab Hyas sp."
-"67","Smooth alligatorfish Anoplagonus inermis"
-"68","Darkfin sculpin Malacocottus zonurus"
-"69","Yellow Irish lord Hemilepidotus jordani"
-"70","Pygmy cancer crab Cancer oregonensis"
-"71","Yellowfin sole Limanda aspera"
-"72","Greenland turbot Reinhardtius hippoglossoides"
-"73","Fourhorn poacher Hypsagonus quadricornis"
-"74","Alligatorfish Aspidophoroides bartoni"
-"75","Scaled crab Placetron wosnessenskii"
-"76","Sidestripe shrimp Pandalopsis dispar"
-"77","Pink shrimp Pandalus eous"
-"78","Dungeness crab Cancer magister"
-"79","Hexagrammidae (greenling)"
-"80","Caridea (shrimp)"
-"81","Grunt sculpin Rhamphocottus richardsoni"
-"82","Kamchatka flounder Atheresthes evermanni"
-"83","Bathymasteridae (ronquils)"
-"84","Northern ronquil Ronquilus jordani"
-"85","Zoarcidae (eelpout) Lycodes sp."
-"86","Cottoidei (sculpin) Icelinus sp."
-"87","Rhinoceros crab Rhinolithodes wosnessenskii"
-"88","Pleuronectidae (flatfish) Limanda sp."
-"89","Flexed pandalid (shrimp) Pandalus goniurus"
-"90","Pholidae (gunnel)"
-"91","Atelecyclidae (crab)"
-"92","Prowfish Zaprora silenus"
-"93","Cottoidei (sculpin) Triglops sp."
-"94","Pacific ocean perch Sebastes alutus"
-"95","Fuzzy crab Acantholithodes hispidus"
-"96","Snow crab Chionoecetes opilio"
-"97","Sturgeon poacher Podothecus acipenserinus"
-"98","Shortspine thornyhead Sebastolobus alascanus"
-"99","Pholidae (gunnel) Pholis sp."
-"100","Scorpaeniformes (rockfish and cottid)"
-"101","Spot prawn (shrimp) Pandalus platyceros"
-"102","Pandalidae (shrimp) Pandalus sp."
-"103","Chum salmon Oncorhynchus keta"
-"104","Pandalidae (shrimp)"
-"105","Smooth pink shrimp Pandalus jordani"
-"106","Garnet lampfish Stenobrachius nannochir"
-"107","Bathymasteridae (ronquils) Bathymaster sp."
-"108","Bigeye lanternfish Protomyctophum thompsoni"
-"109","Spectacled sculpin Triglops scepticus"
-"110","Salmonidae (salmon, whitefish)"
-"111","Clupeidae"
-"112","Southern rock sole Lepidopsetta bilineata"
-"113","Cancridae (crab) Cancer sp."
-"114","Cancridae (crab)"
-"115","Snow or Tanner crab Chionoecetes sp."
-"116","Cottoidei (sculpin) Gymnocanthus sp."
-"117","Macrouridae (grenadiers)"
-"118","Threespine stickleback Gasterosteus aculeatus"
-"119","Smooth lumpsucker Aptocyclus ventricosus"
-"120","Butter sole Isopsetta isolepis"
-"121","Golden king crab Lithodes aequispinus"
-"122","Teuthida (squid)"
-"123","Gonatidae (squid) Gonatopsis sp."
-"124","Northern rock sole Lepidopsetta polyxystra"
-"125","Cryptacanthodidae (wrymouth)"
-"126","Slender sole Lyopsetta exilis"
-"127","Pacific hake Merluccius productus"
-"128","Pacific sardine Sardinops sagax"
-"129","Longsnout prickleback Lumpenella longirostris"
-"130","Deepwater bigeye (shrimp) Pandalopsis ampla"
-"131","Pacific sanddab Citharichthys sordidus"
-"132","Spotted ratfish Hydrolagus colliei"
-"133","Yellow-leg pandalid (shrimp) Pandalus tridens"
-"134","Alaska plaice Pleuronectes quadrituberculatus"
-"135","Thorny sculpin Icelus spiniger"
-"136","Sharpchin rockfish Sebastes zacentrus"
-"137","Grooved Tanner crab Chionoecetes tanneri"
-"138","Roughspine sculpin Triglops macellus"
-"139","North Pacific bobtail squid Rossia pacifica"
-"140","Octopoda (octopus)"
-"141","Rough patch shrimp Pandalus stenolepis"
-"142","Big skate Raja binoculata"
-"143","Northern rockfish Sebastes polyspinis"
-"144","Stichaeidae (prickleback) Lumpenus sp."
-"145","Zoarcidae (eelpout) Lycodapus sp."
-"146","Rajidae (skate) Bathyraja sp."
-"147","Humpback shrimp Pandalus hypsinotus"
-"148","Stout eelblenny Lumpenus medius"
-"149","Scissortail sculpin Triglops forficatus"
-"150","Northern smoothtongue Leuroglossus schmidti"
-"151","Aurora rockfish Sebastes aurora"
-"152","Pandalidae (shrimp) Pandalopsis sp."
-"153","Euphausiidae (euphausiid)"
-"154","Blackmouth eelpout Lycodapus fierasfer"
-"155","Armorhead sculpin Gymnocanthus galeatus"
-"156","Pacific tomcod Microgadus proximus"
-"157","Lithodidae (king crab)"
-"158","Crested gunnel Pholis laeta"
-"159","Scorpaenidae (thornyhead) Sebastolobus sp."
-"160","Thornback sculpin Paricelinus hopliticus"
-"161","Slender fangjaw Sigmops gracilis"
-"162","Cottoidei (sculpin) Icelus sp."
-"163","Spatulate sculpin Icelus spatula"
-"164","Agonidae (poacher) Bathyagonus sp."
-"165","Darkblotched rockfish Sebastes crameri"
-"166","Tadpole sculpin Psychrolutes paradoxus"
-"167","Kelp greenling Hexagrammos decagrammus"
-"168","Common two-spined crangon (shrimp) Crangon communi"
-"169","Pinpoint lanternfish Nannobrachium regale"
-"170","Gastropoda (snail)"
-"171","Gammaridea (amphipod)"
-"172","Hippolytidae (shrimp)"
-"173","blob sculpin Psychrolutes phrictus"
-"174","Banded Gunnel Pholis fasciata"
-"175","Toad Lumpsucker Eumicrotremus phrynoides"
-"176","Cyclopteridae (lumpsucker) Eumicrotremus sp."
-"177","Furrowed rockcrab Cancer branneri"
-"178","Yelloweye rockfish Sebastes ruberrimus"
-"179","Zoarcoidei"
-"180","Zoarcidae (eelpout) Gymnelus sp."
-"181","Gonatidae (squid)"
-"182","Giant grenadier Albatrossia pectoralis"
-"183","Spinycheek Starsnout Bathyagonus infraspinatus"
-"184","Slender cockscomb Anoplarchus insignis"
-"185","Red Irish lord Hemilepidotus hemilepidotus"
-"186","Archaulus sp. Cottidae (sculpin)"
-"187","Longfin dragonfish Tactostoma macropus"
-"188","Coonstripe shrimp Pandalus danae"
-"189","Smoothcheek Sculpin Eurymen gyrinus"
-"190","Canary rockfish Sebastes pinniger"
-"191","Anarhichadidae (wolffishes)"
-"192","Pacific staghorn sculpin Leptocottus armatus"
-"193","kelp snailfish Liparis tunicatus"
-"194","Whitespotted greenling Hexagrammos stelleri"
-"195","Myctophidae (lanternfish) Stenobrachius sp."
-"196","Popeye grenadier Coryphaenoides cinereus"
-"197","Pacific sandlance Ammodytes hexapterus"
-"198","Longfin smelt Spirinchus thaleichthys"
-"199","Roughskin sculpin Rastrinus scutiger"
-"200","Liparidae (snailfish)"
-"201","Dusky/ dark rockfish Sebastes variabilis/ ciliatus"
-"202","Rougheye rockfish Sebastes aleutianus"
-"203","pygmy rockfish Sebastes wilsoni"
-"204","Agonidae (poacher) Podothecus sp."
-"205","Psychrolutidae (sculpin)"
-"206","Cottoidei (sculpin) Myoxocephalus sp."
-"207","Nutcracker prickleback Bryozoichthys lysimus"
-"208","Blackfin poacher Bathyagonus nigripinnis"
-"209","Lingcod Ophiodon elongatus"
-"210","English sole Parophrys vetulus"
-"211","Red king crab Paralithodes camtschaticus"
-"212","Alaska skate Bathyraja parmifera"
-"213","Cottidae Radulinus sp."
-"214","Pygmy Poacher Odontopyxis trispinosa"
-"215","Quillfish Ptilichthys goodei"
-"216","Slim Sculpin Radulinus asprellus"
+Prey_Name,Prey_Name_Clean,Pred_Occur_Name,Pred_Prey_OccurSablefish Anoplopoma fimbria,Anoplopoma fimbria,Anoplopoma fimbria,Anoplopoma fimbriaKamchatka flounder Atheresthes evermanni,Atheresthes evermanni,Atheresthes evermanni,Atheresthes evermanniArrowtooth flounder Atheresthes stomias,Atheresthes stomias,Atheresthes stomias,Atheresthes stomiasWalleye pollock Gadus chalcogrammus,Gadus chalcogrammus,Gadus chalcogrammus,Gadus chalcogrammusPacific cod Gadus macrocephalus,Gadus macrocephalus,Gadus macrocephalus,Gadus macrocephalusFlathead sole Hippoglossoides elassodon,Hippoglossoides elassodon,Hippoglossoides elassodon,Hippoglossoides elassodonPacific halibut Hippoglossus stenolepis,Hippoglossus stenolepis,Hippoglossus stenolepis,Hippoglossus stenolepisSouthern rock sole Lepidopsetta bilineata,Lepidopsetta bilineata,Lepidopsetta bilineata,Lepidopsetta bilineataNorthern rock sole Lepidopsetta polyxystra,Lepidopsetta polyxystra,Lepidopsetta polyxystra,Lepidopsetta polyxystraYellowfin sole Limanda aspera,Limanda aspera,Limanda aspera,Limanda asperaAtka mackerel Pleurogrammus monopterygius,Pleurogrammus monopterygius,Pleurogrammus monopterygius,Pleurogrammus monopterygiusAlaska plaice Pleuronectes quadrituberculatus,Pleuronectes quadrituberculatus,Pleuronectes quadrituberculatus,Pleuronectes quadrituberculatusPacific sandfish Trichodon trichodon,Trichodon trichodon,Trichodon trichodon,Trichodon trichodonGiant grenadier Albatrossia pectoralis,Albatrossia pectoralis,Albatrossia pectoralis,Searcher Bathymaster signatus,Bathymaster signatus,Bathymaster signatus,Alaska skate Bathyraja parmifera,Bathyraja parmifera,Bathyraja parmifera,Pacific herring Clupea pallasii,Clupea pallasii,Clupea pallasii,Popeye grenadier Coryphaenoides cinereus,Coryphaenoides cinereus,Coryphaenoides cinereus,Spinyhead sculpin Dasycottus setiger,Dasycottus setiger,Dasycottus setiger,Rex sole Glyptocephalus zachirus,Glyptocephalus zachirus,Glyptocephalus zachirus,Yellow Irish lord Hemilepidotus jordani,Hemilepidotus jordani,Hemilepidotus jordani,Bigmouth sculpin Hemitripterus bolini,Hemitripterus bolini,Hemitripterus bolini,Kelp greenling Hexagrammos decagrammus,Hexagrammos decagrammus,Hexagrammos decagrammus,Butter sole Isopsetta isolepis,Isopsetta isolepis,Isopsetta isolepis,Pacific staghorn sculpin Leptocottus armatus,Leptocottus armatus,Leptocottus armatus,Longsnout prickleback Lumpenella longirostris,Lumpenella longirostris,Lumpenella longirostris,Shortfin eelpout Lycodes brevipes,Lycodes brevipes,Lycodes brevipes,Wattled eelpout Lycodes palearis,Lycodes palearis,Lycodes palearis,Slender sole Lyopsetta exilis,Lyopsetta exilis,Lyopsetta exilis,Darkfin sculpin Malacocottus zonurus,Malacocottus zonurus,Malacocottus zonurus,Capelin Mallotus villosus,Mallotus villosus,Mallotus villosus,Pacific hake Merluccius productus,Merluccius productus,Merluccius productus,Dover sole Microstomus pacificus,Microstomus pacificus,Microstomus pacificus,Chum salmon Oncorhynchus keta,Oncorhynchus keta,Oncorhynchus keta,Coho salmon Oncorhynchus kisutch,Oncorhynchus kisutch,Oncorhynchus kisutch,Lingcod Ophiodon elongatus,Ophiodon elongatus,Ophiodon elongatus,English sole Parophrys vetulus,Parophrys vetulus,Parophrys vetulus,Sturgeon poacher Podothecus acipenserinus,Podothecus acipenserinus,Podothecus acipenserinus,Bigeye lanternfish Protomyctophum thompsoni,Protomyctophum thompsoni,Protomyctophum thompsoni,Big skate Raja binoculata,Raja binoculata,Raja binoculata,Northern ronquil Ronquilus jordani,Ronquilus jordani,Ronquilus jordani,Rougheye rockfish Sebastes aleutianus,Sebastes aleutianus,Sebastes aleutianus,Pacific ocean perch Sebastes alutus,Sebastes alutus,Sebastes alutus,Darkblotched rockfish Sebastes crameri,Sebastes crameri,Sebastes crameri,Northern rockfish Sebastes polyspinis,Sebastes polyspinis,Sebastes polyspinis,Yelloweye rockfish Sebastes ruberrimus,Sebastes ruberrimus,Sebastes ruberrimus,Sharpchin rockfish Sebastes zacentrus,Sebastes zacentrus,Sebastes zacentrus,Shortspine thornyhead Sebastolobus alascanus,Sebastolobus alascanus,Sebastolobus alascanus,Eulachon Thaleichthys pacificus,Thaleichthys pacificus,Thaleichthys pacificus,Prowfish Zaprora silenus,Zaprora silenus,Zaprora silenus,Fuzzy crab Acantholithodes hispidus,Acantholithodes hispidus,,Agonidae (poacher),Agonidae,,Pacific sandlance Ammodytes hexapterus,Ammodytes hexapterus,,Ammodytidae (sandlance) Ammodytes sp.,Ammodytes sp.,,Anarhichadidae (wolffishes),Anarhichadidae,,Smooth alligatorfish Anoplagonus inermis,Anoplagonus inermis,,Slender cockscomb Anoplarchus insignis,Anoplarchus insignis,,Smooth lumpsucker Aptocyclus ventricosus,Aptocyclus ventricosus,,Archaulus sp. Cottidae (sculpin),Archaulus sp.,,Cottoidei (sculpin) Artediellus sp.,Artediellus sp.,,Cottoidei (sculpin) Artedius sp.,Artedius sp.,,Alligatorfish Aspidophoroides bartoni,Aspidophoroides bartoni,,Atelecyclidae (crab),Atelecyclidae,,Pleuronectidae (flatfish) Atheresthes sp.,Atheresthes sp.,,Gray starsnout Bathyagonus alascanus,Bathyagonus alascanus,,Spinycheek Starsnout Bathyagonus infraspinatus,Bathyagonus infraspinatus,,Blackfin poacher Bathyagonus nigripinnis,Bathyagonus nigripinnis,,Bigeye poacher Bathyagonus pentacanthus,Bathyagonus pentacanthus,,Agonidae (poacher) Bathyagonus sp.,Bathyagonus sp.,,Bathylagidae (deepsea smelt),Bathylagidae,,Bathymasteridae (ronquils) Bathymaster sp.,Bathymaster sp.,,Bathymasteridae (ronquils),Bathymasteridae,,Rajidae (skate) Bathyraja sp.,Bathyraja sp.,,Nutcracker prickleback Bryozoichthys lysimus,Bryozoichthys lysimus,,Furrowed rockcrab Cancer branneri,Cancer branneri,,Dungeness crab Cancer magister,Cancer magister,,Pygmy cancer crab Cancer oregonensis,Cancer oregonensis,,Cancridae (crab) Cancer sp.,Cancer sp.,,Cancridae (crab),Cancridae,,Caridea (shrimp),Caridea,,Pacific viperfish Chauliodus macouni,Chauliodus macouni,,Tanner crab Chionoecetes bairdi,Chionoecetes bairdi,,Snow crab Chionoecetes opilio,Chionoecetes opilio,,Snow or Tanner crab Chionoecetes sp.,Chionoecetes sp.,,Grooved Tanner crab Chionoecetes tanneri,Chionoecetes tanneri,,Pacific sanddab Citharichthys sordidus,Citharichthys sordidus,,Clupeidae,Clupeidae,,Salmonidae (cisco or whitefish) Coregonus sp.,Coregonus sp.,,Cottidae (sculpin),Cottidae,,Cottoidei (sculpin),Cottoidei,,Common two-spined crangon (shrimp) Crangon communi,Crangon communi,,Dwarf wrymouth Cryptacanthodes aleutensis,Cryptacanthodes aleutensis,,Cryptacanthodidae (wrymouth),Cryptacanthodidae,,Cyclopteridae (lumpsucker),Cyclopteridae,,Korean horsehair crab Erimacrus isenbeckii,Erimacrus isenbeckii,,Pacific spiny lumpsucker Eumicrotremus orbis,Eumicrotremus orbis,,Toad Lumpsucker Eumicrotremus phrynoides,Eumicrotremus phrynoides,,Cyclopteridae (lumpsucker) Eumicrotremus sp.,Eumicrotremus sp.,,Euphausiidae (euphausiid),Euphausiidae,,Smoothcheek Sculpin Eurymen gyrinus,Eurymen gyrinus,,Gadidae (gadid fish),Gadidae,,Gammaridea (amphipod),Gammaridea,,Threespine stickleback Gasterosteus aculeatus,Gasterosteus aculeatus,,Gastropoda (snail),Gastropoda,,Gonatidae (squid),Gonatidae,,Gonatidae (squid) Gonatopsis sp.,Gonatopsis sp.,,Zoarcidae (eelpout) Gymnelus sp.,Gymnelus sp.,,Armorhead sculpin Gymnocanthus galeatus,Gymnocanthus galeatus,,Cottoidei (sculpin) Gymnocanthus sp.,Gymnocanthus sp.,,Red Irish lord Hemilepidotus hemilepidotus,Hemilepidotus hemilepidotus,,Cottoidei (sculpin) Hemilepidotus sp.,Hemilepidotus sp.,,Hexagrammidae (greenling),Hexagrammidae,,Whitespotted greenling Hexagrammos stelleri,Hexagrammos stelleri,,Hippolytidae (shrimp),Hippolytidae,,Lyre crab Hyas sp.,Hyas sp.,,Spotted ratfish Hydrolagus colliei,Hydrolagus colliei,,Fourhorn poacher Hypsagonus quadricornis,Hypsagonus quadricornis,,Icelidae (sculpin),Icelidae,,Northern sculpin Icelinus borealis,Icelinus borealis,,Cottoidei (sculpin) Icelinus sp.,Icelinus sp.,,Cottoidei (sculpin) Icelus sp.,Icelus sp.,,Spatulate sculpin Icelus spatula,Icelus spatula,,Thorny sculpin Icelus spiniger,Icelus spiniger,,Pleuronectidae (rock sole) Lepidopsetta sp.,Lepidopsetta sp.,,Sawback poacher Leptagonus frenatus,Leptagonus frenatus,,Daubed shanny Leptoclinus maculatus,Leptoclinus maculatus,,Northern smoothtongue Leuroglossus schmidti,Leuroglossus schmidti,,Pleuronectidae (flatfish) Limanda sp.,Limanda sp.,,Liparidae (snailfish),Liparidae,,Liparidae (snailfish) Liparis sp.,Liparis sp.,,kelp snailfish Liparis tunicatus,Liparis tunicatus,,Golden king crab Lithodes aequispinus,Lithodes aequispinus,,Lithodidae (king crab),Lithodidae,,Brown box crab Lopholithodes foraminatus,Lopholithodes foraminatus,,Slender eelblenny Lumpenus fabricii,Lumpenus fabricii,,Stout eelblenny Lumpenus medius,Lumpenus medius,,Snake prickleback Lumpenus sagitta,Lumpenus sagitta,,Stichaeidae (prickleback) Lumpenus sp.,Lumpenus sp.,,Blackmouth eelpout Lycodapus fierasfer,Lycodapus fierasfer,,Zoarcidae (eelpout) Lycodapus sp.,Lycodapus sp.,,Zoarcidae (eelpout) Lycodes sp.,Lycodes sp.,,Macrouridae (grenadiers),Macrouridae,,Pacific tomcod Microgadus proximus,Microgadus proximus,,Myctophidae (lanternfish),Myctophidae,,Cottoidei (sculpin) Myoxocephalus sp.,Myoxocephalus sp.,,Pinpoint lanternfish Nannobrachium regale,Nannobrachium regale,,Octopoda (octopus),Octopoda,,Pygmy Poacher Odontopyxis trispinosa,Odontopyxis trispinosa,,Salmonidae (salmon) Oncorhynchus sp.,Oncorhynchus sp.,,Osmeridae (smelt),Osmeridae,,Paguridae (hermit crab),Paguridae,,Pandalidae (shrimp),Pandalidae,,Deepwater bigeye (shrimp) Pandalopsis ampla,Pandalopsis ampla,,Sidestripe shrimp Pandalopsis dispar,Pandalopsis dispar,,Pandalidae (shrimp) Pandalopsis sp.,Pandalopsis sp.,,Coonstripe shrimp Pandalus danae,Pandalus danae,,Pink shrimp Pandalus eous,Pandalus eous,,Flexed pandalid (shrimp) Pandalus goniurus,Pandalus goniurus,,Humpback shrimp Pandalus hypsinotus,Pandalus hypsinotus,,Smooth pink shrimp Pandalus jordani,Pandalus jordani,,Spot prawn (shrimp) Pandalus platyceros,Pandalus platyceros,,Pandalidae (shrimp) Pandalus sp.,Pandalus sp.,,Rough patch shrimp Pandalus stenolepis,Pandalus stenolepis,,Yellow-leg pandalid (shrimp) Pandalus tridens,Pandalus tridens,,Red king crab Paralithodes camtschaticus,Paralithodes camtschaticus,,Thornback sculpin Paricelinus hopliticus,Paricelinus hopliticus,,Pholidae (gunnel),Pholidae,,Longfin gunnel Pholis clemensi,Pholis clemensi,,Banded Gunnel Pholis fasciata,Pholis fasciata,,Crested gunnel Pholis laeta,Pholis laeta,,Pholidae (gunnel) Pholis sp.,Pholis sp.,,Scaled crab Placetron wosnessenskii,Placetron wosnessenskii,,Pleuronectidae (flatfish),Pleuronectidae,,Pleuronectoidei (flatfish),Pleuronectoidei,,Agonidae (poacher) Podothecus sp.,Podothecus sp.,,Whitebarred prickleback Poroclinus rothrocki,Poroclinus rothrocki,,Tadpole sculpin Psychrolutes paradoxus,Psychrolutes paradoxus,,blob sculpin Psychrolutes phrictus,Psychrolutes phrictus,,Psychrolutidae (sculpin),Psychrolutidae,,Quillfish Ptilichthys goodei,Ptilichthys goodei,,Slim Sculpin Radulinus asprellus,Radulinus asprellus,,Cottidae Radulinus sp.,Radulinus sp.,,Rajidae (skate),Rajidae,,Roughskin sculpin Rastrinus scutiger,Rastrinus scutiger,,Greenland turbot Reinhardtius hippoglossoides,Reinhardtius hippoglossoides,,Grunt sculpin Rhamphocottus richardsoni,Rhamphocottus richardsoni,,Rhinoceros crab Rhinolithodes wosnessenskii,Rhinolithodes wosnessenskii,,North Pacific bobtail squid Rossia pacifica,Rossia pacifica,,"Salmonidae (salmon, whitefish)",Salmonidae,,Pacific sardine Sardinops sagax,Sardinops sagax,,Scorpaenidae (rockfish),Scorpaenidae,,Scorpaeniformes (rockfish and cottid),Scorpaeniformes,,Aurora rockfish Sebastes aurora,Sebastes aurora,,Canary rockfish Sebastes pinniger,Sebastes pinniger,,Scorpaenidae (rockfish) Sebastes sp.,Sebastes sp.,,Dusky/ dark rockfish Sebastes variabilis/ ciliatus,Sebastes variabilis/ ciliatus,,pygmy rockfish Sebastes wilsoni,Sebastes wilsoni,,Scorpaenidae (thornyhead) Sebastolobus sp.,Sebastolobus sp.,,Slender fangjaw Sigmops gracilis,Sigmops gracilis,,Longfin smelt Spirinchus thaleichthys,Spirinchus thaleichthys,,Northern lampfish Stenobrachius leucopsarus,Stenobrachius leucopsarus,,Garnet lampfish Stenobrachius nannochir,Stenobrachius nannochir,,Myctophidae (lanternfish) Stenobrachius sp.,Stenobrachius sp.,,Stichaeidae (prickleback),Stichaeidae,,Longfin dragonfish Tactostoma macropus,Tactostoma macropus,,Teleostei (fish),Teleostei,,Helmet crab Telmessus cheiragonus,Telmessus cheiragonus,,Teuthida (squid),Teuthida,,Scissortail sculpin Triglops forficatus,Triglops forficatus,,Roughspine sculpin Triglops macellus,Triglops macellus,,Ribbed sculpin Triglops pingelii,Triglops pingelii,,Spectacled sculpin Triglops scepticus,Triglops scepticus,,Cottoidei (sculpin) Triglops sp.,Triglops sp.,,Zoarcidae (eelpout),Zoarcidae,,Zoarcoidei,Zoarcoidei,,Non-gadoid fish remains,,,

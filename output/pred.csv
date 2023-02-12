@@ -1,0 +1,299 @@
+"","Year","Pred_Species","Pred_common","n_stomachs"
+"1",1990,"Gadus macrocephalus","Pacific cod",916
+"2",1987,"Pleurogrammus monopterygius","Atka mackerel",8
+"3",1987,"Sebastes alutus","Pacific ocean perch",8
+"4",2009,"Anoplopoma fimbria","Sablefish",489
+"5",2009,"Glyptocephalus zachirus","Rex sole",397
+"6",2009,"Gadus macrocephalus","Pacific cod",888
+"7",2009,"Gadus chalcogrammus","Walleye pollock",1097
+"8",1987,"Sebastes aleutianus","Rougheye rockfish",16
+"9",1987,"Glyptocephalus zachirus","Rex sole",8
+"10",1987,"Microstomus pacificus","Dover sole",8
+"11",1981,"Gadus macrocephalus","Pacific cod",153
+"12",1987,"Sebastes borealis","Shortraker rockfish",12
+"13",1987,"Anoplopoma fimbria","Sablefish",47
+"14",1987,"Sebastes ciliatus","Dark rockfish",16
+"15",1987,"Gadus macrocephalus","Pacific cod",24
+"16",1987,"Sebastes polyspinis","Northern rockfish",16
+"17",1987,"Sebastolobus alascanus","Shortspine thornyhead",4
+"18",1987,"Albatrossia pectoralis","Giant grenadier",8
+"19",1993,"Gadus macrocephalus","Pacific cod",1082
+"20",1990,"Gadus chalcogrammus","Walleye pollock",1059
+"21",1993,"Gadus chalcogrammus","Walleye pollock",1126
+"22",1993,"Sebastes aleutianus","Rougheye rockfish",279
+"23",1990,"Sebastes aleutianus","Rougheye rockfish",141
+"24",1990,"Sebastes alutus","Pacific ocean perch",143
+"25",1981,"Sebastes alutus","Pacific ocean perch",201
+"26",1993,"Sebastes borealis","Shortraker rockfish",20
+"27",1990,"Sebastes ciliatus","Dark rockfish",41
+"28",1990,"Sebastes polyspinis","Northern rockfish",57
+"29",1990,"Sebastolobus alascanus","Shortspine thornyhead",120
+"30",1990,"Sebastes borealis","Shortraker rockfish",10
+"31",1993,"Sebastes zacentrus","Sharpchin rockfish",52
+"32",1990,"Atheresthes stomias","Arrowtooth flounder",1143
+"33",1990,"Anoplopoma fimbria","Sablefish",331
+"34",1993,"Anoplopoma fimbria","Sablefish",355
+"35",1993,"Sebastolobus alascanus","Shortspine thornyhead",213
+"36",1993,"Atheresthes stomias","Arrowtooth flounder",1375
+"37",1993,"Hippoglossus stenolepis","Pacific halibut",559
+"38",1993,"Hippoglossoides elassodon","Flathead sole",692
+"39",1990,"Hippoglossus stenolepis","Pacific halibut",467
+"40",1996,"Hippoglossus stenolepis","Pacific halibut",367
+"41",1996,"Zaprora silenus","Prowfish",18
+"42",1996,"Atheresthes stomias","Arrowtooth flounder",2218
+"43",1996,"Somniosus pacificus","Pacific sleeper shark",1
+"44",1996,"Gadus macrocephalus","Pacific cod",605
+"45",1996,"Gadus chalcogrammus","Walleye pollock",512
+"46",1996,"Pleurogrammus monopterygius","Atka mackerel",42
+"47",1996,"Anoplopoma fimbria","Sablefish",72
+"48",1996,"Lepidopsetta polyxystra","Northern rock sole",136
+"49",1996,"Lepidopsetta bilineata","Southern rock sole",120
+"50",1999,"Gadus chalcogrammus","Walleye pollock",540
+"51",1999,"Atheresthes stomias","Arrowtooth flounder",1035
+"52",1999,"Limanda aspera","Yellowfin sole",60
+"53",1999,"Gadus macrocephalus","Pacific cod",454
+"54",2001,"Gadus chalcogrammus","Walleye pollock",815
+"55",2001,"Gadus macrocephalus","Pacific cod",838
+"56",1999,"Anoplopoma fimbria","Sablefish",139
+"57",1999,"Sebastes borealis","Shortraker rockfish",41
+"58",1999,"Pleurogrammus monopterygius","Atka mackerel",31
+"59",1999,"Hippoglossus stenolepis","Pacific halibut",169
+"60",2001,"Anoplopoma fimbria","Sablefish",348
+"61",2001,"Atheresthes stomias","Arrowtooth flounder",1783
+"62",2001,"Hippoglossus stenolepis","Pacific halibut",889
+"63",2001,"Sebastes zacentrus","Sharpchin rockfish",18
+"64",1999,"Sebastes zacentrus","Sharpchin rockfish",6
+"65",1999,"Hemitripterus bolini","Bigmouth sculpin",1
+"66",2001,"Sebastes borealis","Shortraker rockfish",46
+"67",2001,"Pleurogrammus monopterygius","Atka mackerel",30
+"68",2001,"Lepidopsetta bilineata","Southern rock sole",33
+"69",2001,"Lepidopsetta polyxystra","Northern rock sole",31
+"70",2001,"Raja binoculata","Big skate",2
+"71",1999,"Hippoglossoides elassodon","Flathead sole",16
+"72",2001,"Glyptocephalus zachirus","Rex sole",42
+"73",2001,"Hippoglossoides elassodon","Flathead sole",31
+"74",1999,"Lepidopsetta polyxystra","Northern rock sole",57
+"75",2001,"Sebastolobus alascanus","Shortspine thornyhead",41
+"76",2001,"Sebastes aleutianus","Rougheye rockfish",36
+"77",2001,"Sebastes alutus","Pacific ocean perch",50
+"78",1999,"Lepidopsetta bilineata","Southern rock sole",106
+"79",2001,"Bathyraja interrupta","Sandpaper skate",3
+"80",2001,"Microstomus pacificus","Dover sole",38
+"81",2001,"Malacocottus zonurus","Darkfin sculpin",17
+"82",2001,"Leptocottus armatus","Pacific staghorn sculpin",1
+"83",2001,"Myoxocephalus polyacanthocephalus","Great sculpin",6
+"84",2001,"Liparis gibbus","Variegated snailfish",1
+"85",2001,"Trichodon trichodon","Pacific sandfish",2
+"86",2001,"Limanda aspera","Yellowfin sole",2
+"87",2001,"Pleuronectes quadrituberculatus","Alaska plaice",3
+"88",2001,"Squalus acanthias","Spiny dogfish",1
+"89",2001,"Raja rhina","Longnose Skate",3
+"90",2001,"Thaleichthys pacificus","Eulachon",39
+"91",2001,"Oncorhynchus keta","Chum salmon",2
+"92",2001,"Lycodes brevipes","Shortfin eelpout",18
+"93",2001,"Sebastes babcocki","Redbanded rockfish",4
+"94",2001,"Sebastes polyspinis","Northern rockfish",1
+"95",2001,"Sebastes variabilis","Dusky rockfish",1
+"96",2001,"Protomyctophum thompsoni","Bigeye lanternfish",3
+"97",2001,"Albatrossia pectoralis","Giant grenadier",25
+"98",2001,"Bathymaster signatus","Searcher",11
+"99",2001,"Dasycottus setiger","Spinyhead sculpin",14
+"100",2001,"Hemitripterus bolini","Bigmouth sculpin",3
+"101",2001,"Isopsetta isolepis","Butter sole",10
+"102",2001,"Podothecus acipenserinus","Sturgeon poacher",1
+"103",2001,"Lycodes palearis","Wattled eelpout",3
+"104",2001,"Hemilepidotus jordani","Yellow Irish lord",2
+"105",2001,"Ronquilus jordani","Northern ronquil",1
+"106",2001,"Embassichthys bathybius","Deepsea sole",3
+"107",2001,"Lycodes beringi","Black eelpout",1
+"108",2001,"Bathyraja parmifera","Alaska skate",2
+"109",2001,"Coryphaenoides acrolepis","Pacific grenadier",1
+"110",2001,"Lumpenella longirostris","Longsnout prickleback",6
+"111",2001,"Mallotus villosus","Capelin",1
+"112",2005,"Anoplopoma fimbria","Sablefish",132
+"113",2005,"Hippoglossus stenolepis","Pacific halibut",158
+"114",2005,"Atheresthes stomias","Arrowtooth flounder",328
+"115",2005,"Albatrossia pectoralis","Giant grenadier",125
+"116",2005,"Gadus macrocephalus","Pacific cod",261
+"117",2005,"Sebastes alutus","Pacific ocean perch",137
+"118",2005,"Raja binoculata","Big skate",9
+"119",2005,"Bathyraja interrupta","Sandpaper skate",14
+"120",2005,"Raja rhina","Longnose Skate",33
+"121",2005,"Atheresthes evermanni","Kamchatka flounder",1
+"122",2005,"Gadus chalcogrammus","Walleye pollock",314
+"123",2005,"Pleurogrammus monopterygius","Atka mackerel",11
+"124",2005,"Bathyraja aleutica","Aleutian skate",17
+"125",2005,"Sebastolobus alascanus","Shortspine thornyhead",103
+"126",2005,"Sebastes aleutianus","Rougheye rockfish",82
+"127",2005,"Sebastes borealis","Shortraker rockfish",14
+"128",2005,"Merluccius productus","Pacific hake",2
+"129",2003,"Atheresthes stomias","Arrowtooth flounder",619
+"130",2003,"Gadus chalcogrammus","Walleye pollock",642
+"131",2003,"Raja binoculata","Big skate",30
+"132",2003,"Bathyraja aleutica","Aleutian skate",18
+"133",2003,"Bathyraja parmifera","Alaska skate",3
+"134",2003,"Raja rhina","Longnose Skate",9
+"135",2003,"Bathyraja interrupta","Sandpaper skate",6
+"136",2003,"Hippoglossus stenolepis","Pacific halibut",255
+"137",2003,"Albatrossia pectoralis","Giant grenadier",30
+"138",2003,"Anoplopoma fimbria","Sablefish",153
+"139",2003,"Pleurogrammus monopterygius","Atka mackerel",57
+"140",2003,"Gadus macrocephalus","Pacific cod",311
+"141",2003,"Sebastolobus alascanus","Shortspine thornyhead",10
+"142",2007,"Atheresthes stomias","Arrowtooth flounder",817
+"143",2007,"Gadus macrocephalus","Pacific cod",648
+"144",2007,"Gadus chalcogrammus","Walleye pollock",832
+"145",2007,"Sebastes variegatus","Harlequin rockfish",15
+"146",2007,"Hippoglossus stenolepis","Pacific halibut",676
+"147",2007,"Sebastes babcocki","Redbanded rockfish",22
+"148",2007,"Sebastes ruberrimus","Yelloweye rockfish",3
+"149",2007,"Sebastes variabilis","Dusky rockfish",42
+"150",2007,"Anoplopoma fimbria","Sablefish",319
+"151",2007,"Bathyraja trachura","Roughtail skate",1
+"152",2007,"Bathyraja interrupta","Sandpaper skate",13
+"153",2007,"Raja rhina","Longnose Skate",11
+"154",2007,"Pleurogrammus monopterygius","Atka mackerel",42
+"155",2007,"Trichodon trichodon","Pacific sandfish",7
+"156",2007,"Bathyraja parmifera","Alaska skate",8
+"157",2007,"Ophiodon elongatus","Lingcod",22
+"158",2007,"Bathyraja aleutica","Aleutian skate",13
+"159",2007,"Raja binoculata","Big skate",22
+"160",2007,"Sebastes brevispinis","Silvergray rockfish",13
+"161",2007,"Microstomus pacificus","Dover sole",124
+"162",2007,"Hippoglossoides elassodon","Flathead sole",100
+"163",2007,"Sebastes zacentrus","Sharpchin rockfish",35
+"164",2007,"Sebastes proriger","Redstripe rockfish",16
+"165",2007,"Oncorhynchus tshawytscha","Chinook salmon",1
+"166",2007,"Sebastes ciliatus","Dark rockfish",2
+"167",2007,"Squalus acanthias","Spiny dogfish",9
+"168",2009,"Ophiodon elongatus","Lingcod",31
+"169",2009,"Hippoglossus stenolepis","Pacific halibut",654
+"170",2009,"Sebastes alutus","Pacific ocean perch",86
+"171",2009,"Squalus acanthias","Spiny dogfish",24
+"172",2009,"Sebastes babcocki","Redbanded rockfish",23
+"173",2009,"Sebastolobus alascanus","Shortspine thornyhead",37
+"174",2009,"Atheresthes stomias","Arrowtooth flounder",1322
+"175",2009,"Bathyraja aleutica","Aleutian skate",11
+"176",2009,"Raja rhina","Longnose Skate",29
+"177",2009,"Sebastes ciliatus","Dark rockfish",2
+"178",2009,"Pleurogrammus monopterygius","Atka mackerel",51
+"179",2009,"Albatrossia pectoralis","Giant grenadier",5
+"180",2009,"Sebastes variabilis","Dusky rockfish",29
+"181",2009,"Raja binoculata","Big skate",34
+"182",2009,"Sebastes aleutianus","Rougheye rockfish",40
+"183",2009,"species","common",20
+"184",2009,"Sebastes borealis","Shortraker rockfish",7
+"185",2009,"Sebastes polyspinis","Northern rockfish",11
+"186",2009,"Bathyraja abyssicola","Deepsea skate",1
+"187",2009,"Bathyraja interrupta","Sandpaper skate",10
+"188",2007,"Sebastes alutus","Pacific ocean perch",8
+"189",2009,"Sebastes zacentrus","Sharpchin rockfish",11
+"190",2009,"Sebastes variegatus","Harlequin rockfish",5
+"191",2009,"Sebastes ruberrimus","Yelloweye rockfish",4
+"192",2009,"Trichodon trichodon","Pacific sandfish",2
+"193",2009,"Bathyraja parmifera","Alaska skate",4
+"194",2009,"Sebastes brevispinis","Silvergray rockfish",1
+"195",2009,"Sebastes helvomaculatus","Rosethorn rockfish",3
+"196",2007,"Merluccius productus","Pacific hake",2
+"197",2007,"Coryphaenoides acrolepis","Pacific grenadier",15
+"198",2007,"Glyptocephalus zachirus","Rex sole",162
+"199",2007,"Lepidopsetta bilineata","Southern rock sole",77
+"200",2009,"Microstomus pacificus","Dover sole",228
+"201",2009,"Hippoglossoides elassodon","Flathead sole",308
+"202",2009,"Lepidopsetta polyxystra","Northern rock sole",126
+"203",2009,"Merluccius productus","Pacific hake",46
+"204",2009,"Lepidopsetta bilineata","Southern rock sole",217
+"205",2009,"Parophrys vetulus","English sole",70
+"206",2009,"Limanda aspera","Yellowfin sole",40
+"207",2009,"Platichthys stellatus","Starry flounder",27
+"208",2007,"Parophrys vetulus","English sole",9
+"209",2009,"Hexagrammos decagrammus","Kelp greenling",21
+"210",2009,"Hemilepidotus jordani","Yellow Irish lord",65
+"211",2009,"Coryphaenoides cinereus","Popeye grenadier",5
+"212",2009,"Oncorhynchus keta","Chum salmon",4
+"213",2009,"Coryphaenoides acrolepis","Pacific grenadier",37
+"214",2007,"Lepidopsetta polyxystra","Northern rock sole",33
+"215",2009,"Lyopsetta exilis","Slender sole",14
+"216",2009,"Isopsetta isolepis","Butter sole",41
+"217",2009,"Pleuronectes quadrituberculatus","Alaska plaice",27
+"218",2007,"Isopsetta isolepis","Butter sole",28
+"219",2009,"Psettichthys melanostictus","Sand sole",9
+"220",2007,"Hemilepidotus jordani","Yellow Irish lord",20
+"221",2007,"Limanda aspera","Yellowfin sole",30
+"222",2007,"Pleuronectes quadrituberculatus","Alaska plaice",25
+"223",2007,"Platichthys stellatus","Starry flounder",10
+"224",2009,"Embassichthys bathybius","Deepsea sole",7
+"225",2007,"Hexagrammos decagrammus","Kelp greenling",5
+"226",2013,"Gadus macrocephalus","Pacific cod",980
+"227",2013,"Atheresthes stomias","Arrowtooth flounder",1791
+"228",2013,"Sebastes alutus","Pacific ocean perch",812
+"229",2013,"Gadus chalcogrammus","Walleye pollock",1124
+"230",2013,"Sebastes variabilis","Dusky rockfish",7
+"231",2013,"Sebastes babcocki","Redbanded rockfish",1
+"232",2013,"Albatrossia pectoralis","Giant grenadier",58
+"233",2011,"Gadus chalcogrammus","Walleye pollock",1100
+"234",2011,"Sebastes alutus","Pacific ocean perch",618
+"235",2011,"Hippoglossus stenolepis","Pacific halibut",669
+"236",2011,"Atheresthes stomias","Arrowtooth flounder",1287
+"237",2011,"Oncorhynchus tshawytscha","Chinook salmon",24
+"238",2011,"Gadus macrocephalus","Pacific cod",1018
+"239",2011,"Sebastes borealis","Shortraker rockfish",60
+"240",2011,"Anoplopoma fimbria","Sablefish",318
+"241",2011,"Myoxocephalus polyacanthocephalus","Great sculpin",60
+"242",2011,"Hemitripterus bolini","Bigmouth sculpin",24
+"243",2011,"Sebastes aleutianus","Rougheye rockfish",131
+"244",2011,"Squalus acanthias","Spiny dogfish",86
+"245",2011,"Ophiodon elongatus","Lingcod",89
+"246",2011,"species","common",92
+"247",2011,"Oncorhynchus keta","Chum salmon",26
+"248",2011,"Hemilepidotus jordani","Yellow Irish lord",116
+"249",2011,"Sebastes polyspinis","Northern rockfish",156
+"250",2011,"Albatrossia pectoralis","Giant grenadier",84
+"251",2011,"Sebastolobus alascanus","Shortspine thornyhead",141
+"252",2011,"Sebastes brevispinis","Silvergray rockfish",92
+"253",2011,"Sebastes ruberrimus","Yelloweye rockfish",12
+"254",2011,"Oncorhynchus gorbuscha","Pink salmon",8
+"255",2011,"Oncorhynchus nerka","Sockeye salmon",1
+"256",2011,"Myoxocephalus jaok","Plain sculpin",27
+"257",2013,"Hemilepidotus jordani","Yellow Irish lord",4
+"258",2013,"Sebastes polyspinis","Northern rockfish",22
+"259",2013,"Hippoglossus stenolepis","Pacific halibut",1368
+"260",2015,"Atheresthes stomias","Arrowtooth flounder",1572
+"261",2015,"Sebastes alutus","Pacific ocean perch",602
+"262",2015,"Hippoglossus stenolepis","Pacific halibut",942
+"263",2015,"Gadus macrocephalus","Pacific cod",955
+"264",2015,"Gadus chalcogrammus","Walleye pollock",1109
+"265",2015,"Squalus acanthias","Spiny dogfish",95
+"266",2015,"Atheresthes evermanni","Kamchatka flounder",3
+"267",2015,"Salvelinus malma","Dolly Varden",4
+"268",2011,"Lepidopsetta bilineata","Southern rock sole",199
+"269",2011,"Oncorhynchus kisutch","Coho salmon",5
+"270",2011,"Eopsetta jordani","Petrale Sole",8
+"271",2011,"Elassodiscus caudatus","Humpback snailfish",1
+"272",2011,"Sebastes flavidus","Yellowtail rockfish",11
+"273",2011,"Clupea pallasii","Pacific herring",1
+"274",2011,"Merluccius productus","Pacific hake",32
+"275",2011,"Coryphaenoides acrolepis","Pacific grenadier",2
+"276",2011,"Sebastes babcocki","Redbanded rockfish",5
+"277",2011,"Sebastes crameri","Darkblotched rockfish",1
+"278",2017,"Gadus macrocephalus","Pacific cod",582
+"279",2017,"Gadus chalcogrammus","Walleye pollock",946
+"280",2017,"Atheresthes stomias","Arrowtooth flounder",1517
+"281",2017,"Sebastes alutus","Pacific ocean perch",723
+"282",2017,"Hippoglossus stenolepis","Pacific halibut",789
+"283",2017,"Albatrossia pectoralis","Giant grenadier",10
+"284",2015,"Sebastes babcocki","Redbanded rockfish",1
+"285",2015,"Sebastes borealis","Shortraker rockfish",2
+"286",2015,"Sebastes variabilis","Dusky rockfish",7
+"287",2017,"Trichodon trichodon","Pacific sandfish",9
+"288",2017,"Ophiodon elongatus","Lingcod",1
+"289",2019,"Gadus macrocephalus","Pacific cod",774
+"290",2021,"Gadus chalcogrammus","Walleye pollock",790
+"291",2019,"Atheresthes stomias","Arrowtooth flounder",1191
+"292",2019,"Gadus chalcogrammus","Walleye pollock",935
+"293",2019,"Hippoglossus stenolepis","Pacific halibut",701
+"294",2019,"Sebastes alutus","Pacific ocean perch",454
+"295",2021,"Hippoglossus stenolepis","Pacific halibut",556
+"296",2021,"Atheresthes stomias","Arrowtooth flounder",1054
+"297",2021,"Gadus macrocephalus","Pacific cod",577
+"298",2021,"Sebastes alutus","Pacific ocean perch",501

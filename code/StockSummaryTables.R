@@ -533,9 +533,9 @@ Halibut_krill_plot <- ggplot(Halibut_krill, aes(x = Year, y = walleye_RO*100, co
   labs(y = "", x = "") +
   theme_classic()+
   xlim(1990, 2022) +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -567,9 +567,9 @@ Arrow_krill_plot <- ggplot(Arrow_krill, aes(x = Year, y = walleye_RO*100, color 
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic()+
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -602,9 +602,9 @@ Poll_krill_plot <- ggplot(Poll_krill, aes(x = Year, y = walleye_RO*100, color = 
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -636,9 +636,9 @@ Cod_krill_plot <- ggplot(Cod_krill, aes(x = Year, y = walleye_RO*100, color = Le
   scale_color_manual(values = colorlist2) +
   labs(y = "", x = "") +
   xlim(1990, 2022) +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -649,7 +649,7 @@ krillconsumption <- Arrow_krill_plot / Halibut_krill_plot / Poll_krill_plot / Co
 
 ggsave("krillconsumption.pdf", plot = krillconsumption, 
        path = here("output/Figure 2"), device = "pdf",
-       height = 9, width = 5)
+       height = 9, width = 5, dpi = 300)
 
 #---------
 
@@ -679,9 +679,9 @@ Halibut_pol_plot <- ggplot(Halibut_poll, aes(x = Year, y = walleye_RO*100, color
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -705,25 +705,25 @@ range(Arrow_poll$walleyestomachs)
 
 #PLOT
 Arrow_pol_plot <- ggplot(Arrow_poll, aes(x = Year, y = walleye_RO*100, color = Len_bin_PC_broad)) +
-  geom_line(show.legend = T) + 
-  geom_point(show.legend = T, aes(size = samplesize), alpha = 0.5) +
+  geom_line(show.legend = F) + 
+  geom_point(show.legend = F, aes(size = samplesize), alpha = 0.5) +
   scale_y_continuous(limits = c(0,25),
                      breaks = c(0, 5, 10, 15, 20, 25)) +
   scale_color_manual(values = colorlist2) +
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
                              l = 0))
 
 ggsave("legends.pdf", plot = Arrow_pol_plot, 
-       path = here("output/Figure 2"), device = "pdf",
-       height = 8, width = 8)
+       path = here("output/Figure 2"), device = "pdf", dpi = 300,
+       height = 5, width = 5)
 
 #Pollock eating pollock
 Poll_poll <- stomach_contents_2021 %>%
@@ -751,9 +751,9 @@ Poll_pol_plot <- ggplot(Poll_poll, aes(x = Year, y = walleye_RO*100, color = Len
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -786,9 +786,9 @@ Cod_pol_plot <- ggplot(Cod_poll, aes(x = Year, y = walleye_RO*100, color = Len_b
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -801,7 +801,7 @@ pollockconsumption <- Arrow_pol_plot / Halibut_pol_plot / Poll_pol_plot / Cod_po
 
 ggsave("pollockconsumption.pdf", plot = pollockconsumption, 
        path = here("output/Figure 2"), device = "pdf",
-       height = 9, width = 5)
+       height = 9, width = 5, dpi = 300)
 
 #--------------------
 #Consumption of Ammodytidae (sand lance)
@@ -831,9 +831,9 @@ Halibut_sl_plot <- ggplot(Halibut_sl, aes(x = Year, y = walleye_RO*100, color = 
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -864,9 +864,9 @@ Arrow_sl_plot <- ggplot(Arrow_sl, aes(x = Year, y = walleye_RO*100, color = Len_
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -898,9 +898,9 @@ Poll_sl_plot <- ggplot(Poll_sl, aes(x = Year, y = walleye_RO*100, color = Len_bi
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin
@@ -931,9 +931,9 @@ Cod_sl_plot <- ggplot(Cod_sl, aes(x = Year, y = walleye_RO*100, color = Len_bin_
   labs(y = "", x = "") +
   xlim(1990, 2022) +
   theme_classic() +
-  theme(axis.line = element_line(color = "grey"),
-        axis.ticks=element_line(color = "grey"),
-        axis.text = element_text(color = "grey", size=15),
+  theme(axis.line = element_line(color = "black"),
+        axis.ticks=element_line(color = "black"),
+        axis.text = element_text(color = "black", size=15),
         plot.margin = margin(t = 0,  # Top margin
                              r = 0,  # Right margin
                              b = 0,  # Bottom margin

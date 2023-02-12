@@ -17,6 +17,7 @@ library(ggraph)
 #Some basic data manipulation to start
 raw_stomach_contents2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
 groupings <- read_csv(here("output/groupings.csv"))
+pred_names <- read_csv(here("output/pred_names.csv"))
 
 sc_groupings <- left_join(raw_stomach_contents2021,groupings,by="Prey_Name")
 
@@ -35,6 +36,8 @@ stomach_contents_2021 <- sc_groupings %>%
          Len_bin_WP_broad = cut(PRED_LEN, breaks = c(0, 30, 40, 50, 280)),
          Len_bin_AF_broad = cut(PRED_LEN, breaks = c(0, 20, 40, 280)),
          Len_bin_PH_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)))
+
+stomach_contents_2021 <- left_join(stomach_contents_2021, pred_names, by = 'Pred_Species')
 
 #general ggraph notes
 geom_edge_fan() #I think this allows for multiple edges between two nodes and fans them out so that you can see them,
@@ -306,9 +309,146 @@ pred_names <- raw_stomach_contents2021 %>%
   select(Pred_Species) %>% 
   distinct(Pred_Species)
 
-write.csv(pred_names, file = here("output/pred_names.csv"), row.names = F)  
+#write.csv(pred_names, file = here("output/pred_names.csv"), row.names = F)  
 
 groupings_preylen <- read_csv(here("output/groupings_preylen.csv"))
 
 
+pl_groupings <- left_join(raw_prey_length, groupings_preylen, by="Prey_Name")
 
+pl_groupings <- pl_groupings %>% 
+  filter(Pred_Prey_Occur != "NA") %>%
+  mutate(uniqueIDPrey = paste(Hauljoin, Pred_nodc, Pred_specn, Prey_nodc,  sep = "_")) %>% 
+  select(uniqueIDPrey, Pred_Prey_Occur, Prey_sz1)
+
+sc_groupings <- sc_groupings %>% 
+  mutate(uniqueIDPrey = paste(HAULJOIN, PRED_NODC, PRED_SPECN, PREY_NODC,  sep = "_"))
+
+
+pl_combine <- left_join(sc_groupings, pl_groupings, by = "uniqueIDPrey")
+
+test <- pl_combine %>%
+  filter(Pred_Prey_Occur != "NA") %>% 
+  select(Pred_common, Pred_Species, PRED_LEN, Prey_Name_Clean, Pred_Prey_Occur, Prey_sz1)
+
+#I talked to Anne and she said to abandon the work using prey lengths for now.
+#I'm going to move forward working with species as single nodes not broken up by length distinctions
+
+
+
+
+
+#---------------------------------------------------
+#I still want to match predator to prey nodes. So that means that I need to find which predators occur as prey
+  #and make sure the names match. I created a new column in the groupings doc for prey network_grouping
+
+#Creating a network for before the marine heat wave 1990-2013
+before.MHW <- stomach_contents_2021 %>% 
+  filter(Year >= 1990, Year <= 2013) 
+
+preds <- before.MHW %>% 
+  select(Pred_group) %>% 
+  distinct(Pred_group)
+
+prey <- before.MHW %>% 
+  select(network_grouping) %>% 
+  distinct(network_grouping)
+
+#I had to do this because the column names were diferent and not binding
+predprey <- preds
+colnames(prey) <- colnames(preds)
+
+#creating nodes dataframe
+nodes.BMHW <- rbind(preds, prey) %>% 
+  distinct(Pred_group)
+
+#creating basic edges dataframe
+  #This shows all the edges, but with no edge attributes
+basic.edges.BMHW <- before.MHW %>% 
+  distinct(Pred_group, network_grouping) %>% 
+  select(Pred_group, network_grouping)
+
+#converting to igraph object
+BMHW.ig <- graph_from_data_frame(d = basic.edges.BMHW, vertices = nodes.BMHW, directed = T)
+
+#graph
+#ggraph
+#Dendrogram
+BMHW.plot <- ggraph(BMHW.ig, layout = 'dendrogram', circular = T) +
+  geom_edge_diagonal() +
+  geom_node_point(aes(filter = leaf)) +
+  geom_node_text(aes(label = name))+
+  theme_void()
+
+gorder(BMHW.ig)
+
+#star
+BMHW.plot <- ggraph(BMHW.ig, layout = 'star') +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_void()
+
+#default
+BMHW.plot <- ggraph(BMHW.ig) +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_void()
+
+#The network still looks crazy so I'm going to try using the stock groupings
+
+preds.sim <- before.MHW %>% 
+  select(Pred_group) %>% 
+  distinct(Pred_group)
+
+prey.sim <- before.MHW %>% 
+  select(stock_groupings) %>% 
+  distinct(stock_groupings)
+
+#I had to do this because the column names were diferent and not binding
+predprey.sim <- preds.sim
+colnames(prey.sim) <- colnames(preds.sim)
+
+#creating nodes dataframe
+nodes.BMHW.sim <- rbind(preds.sim, prey.sim) %>% 
+  distinct(Pred_group)
+
+#creating basic edges dataframe
+#This shows all the edges, but with no edge attributes
+basic.edges.BMHW.sim <- before.MHW %>% 
+  distinct(Pred_group, stock_groupings) %>% 
+  select(Pred_group, stock_groupings)
+
+#converting to igraph object
+BMHW.ig.sim <- graph_from_data_frame(d = basic.edges.BMHW.sim, vertices = nodes.BMHW.sim, directed = T)
+
+
+#default
+ggraph(BMHW.ig.sim) +
+  geom_edge_link() +
+  geom_node_point() +
+  theme_void()
+
+
+
+
+#Just curious. What if I look at a network of predators around one prey item...
+
+
+krill <- stomach_contents_2021 %>%
+  filter(Prey_Name_Clean == "Euphausiacea")
+  
+krill.edge <- krill %>% 
+  select(Pred_Species, Prey_Name_Clean) %>% 
+  distinct(Pred_Species, Prey_Name_Clean)
+
+krill.node <- krill.edge %>% 
+  select(Pred_Species) %>% 
+  add_row(Pred_Species = "Euphausiacea")
+
+krill.ig <- graph_from_data_frame(d = krill.edge, vertices = krill.node, directed = T)
+
+ggraph(krill.ig, layout = "kk") +
+  geom_edge_link() +
+  geom_node_point() 
+
+plot(krill.ig)
