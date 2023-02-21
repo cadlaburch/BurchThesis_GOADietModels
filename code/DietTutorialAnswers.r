@@ -23,6 +23,10 @@ colnames(data)
 
 loc <- read.csv("Location.csv")
 
+data.raw <- read_csv(here("data", "DietTutorialRaw.csv"))
+data <- read_csv(here("data", "DietTutorialClean.csv"))
+loc <- read_csv(here("data", "LocationTutorial.csv"))
+
 # Join location data to diet dataset
 data <- left_join(data,loc)
 

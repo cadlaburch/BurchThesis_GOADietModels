@@ -328,4 +328,49 @@ plot(g2,
 #you can also delete edges
 g2 <- delete.edges(g2, E(g2)[frequency < 3])
   
+
+
+#------------------------------ FEB 12
+# Make a basic plot
+plot(g, 
+     vertex.label.color = "black", 
+     edge.color = 'gray77',
+     vertex.size = 0,
+     edge.arrow.size = 0.1,
+     layout = layout_nicely(g))
+
+plot(g, 
+     vertex.label = NA,
+     edge.color = 'black',
+     vertex.size = sqrt(g.b)+1, #vertex size determined by betweenness score
+     edge.arrow.size = 0.05,
+     layout = layout_nicely(g))
+
+
+#Caluclating different network statistics
+diameter <- farthest_vertices(g)
+test <- unlist(diameter)
+get_diameter(g)
+degree(g, mode = c("total"))
+betweenness(g, directed = T)
+o.deg <- degree(g, mode = c("in"))
+table(o.deg)
+hist(o.deg)
+which.max(o.deg)
+eigen_centrality(g)$vector
+edge_density(g)
+mean_distance(g)
+plot(erdos.renyi.game(n=gorder(g), p.or.m = edge_density(g), type = "gnp"))
+
+
+
+#Creating random networks that mimic the shape of your network
+gl <- vector('list', 45)
+
+for(i in 1:45) {
+  gl[[i]] <- erdos.renyi.game(n = 10, p.or.m = .9, type = "gnp")
+}
+
+
+
   

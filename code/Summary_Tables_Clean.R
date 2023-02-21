@@ -1,0 +1,67 @@
+library(readr) 
+library(tidyverse)
+library(here)
+
+#Load Data
+raw_stomach_contents2021 <- read_csv(here("data/GOA_Raw_StomachContents2021.csv"))
+groupings <- read_csv(here("output/groupings.csv"))
+
+sc_groupings <- left_join(raw_stomach_contents2021,groupings,by="Prey_Name") %>% 
+  mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN,  sep = "_"),
+         Len_bin = cut(PRED_LEN, breaks = c(0, 20, 40, 60, 280)))
+
+#--------------------------------
+#SAMPLE SIZES
+#This table shows the number of predator stomachs samples by year, and INPFC area. 
+  #It also shows the avg, min, max, and sd lengths by year and region.
+Pred_n_by_Year.INPFC <- sc_groupings %>% 
+  select(Year, uniqueID, Pred_Species, Pred_common, INPFC_AREA, PRED_LEN, PRED_FULL) %>% 
+  distinct(Year, uniqueID, Pred_Species, Pred_common, INPFC_AREA, PRED_LEN, PRED_FULL) %>% 
+  group_by(Year, Pred_common, INPFC_AREA) %>% 
+  mutate(empty_stomachs = sum(PRED_FULL == 1),
+         full_stomachs = sum(PRED_FULL != 1),
+         total_stomachs = length(unique(uniqueID)),
+         length_avg = mean(PRED_LEN),
+         length_min = min(PRED_LEN),
+         length_max = max(PRED_LEN),
+         length_sd = sd(PRED_LEN)) %>% 
+  distinct(Year, Pred_Species, Pred_common, INPFC_AREA, total_stomachs, empty_stomachs, full_stomachs, length_avg, length_min, length_max, length_sd)
+
+#This table shows the same data as above, but not broken down by INPFC area just by year
+Pred_n_Year <- sc_groupings %>% 
+  select(Year, uniqueID, Pred_Species, Pred_common, PRED_LEN, PRED_FULL) %>% 
+  distinct(Year, uniqueID, Pred_Species, Pred_common, PRED_LEN, PRED_FULL) %>% 
+  group_by(Year, Pred_common) %>% 
+  mutate(empty_stomachs = sum(PRED_FULL == 1),
+         full_stomachs = sum(PRED_FULL != 1),
+         total_stomachs = length(unique(uniqueID)),
+         length_avg = mean(PRED_LEN),
+         length_min = min(PRED_LEN),
+         length_max = max(PRED_LEN),
+         length_sd = sd(PRED_LEN)) %>% 
+  distinct(Year, Pred_Species, Pred_common, empty_stomachs, full_stomachs, total_stomachs, length_avg, length_min, length_max, length_sd)
+
+#--------------------------------
+#DIET PROPORTIONS
+#This table shows the percent weight and percent occurrence of prey items in the stomachs of all predators sampled
+  #by year Pred length and INPFC area
+  #I used 30cm length bins with 60+ grouping the largest predators together
+
+diet_proportions_table <- sc_groupings %>% 
+  filter(PRED_FULL != 1) %>% #removing empty stomachs
+  group_by(Pred_common, Year, INPFC_AREA, Len_bin) %>% 
+  mutate(TotalWeight = sum(PREY_TWT), #calculating the total stomach weight for each predator
+         TotalPredN = length(unique(uniqueID))) %>%  #calculating the number of predator stomachs 
+  group_by(Pred_common, Prey_Name_Clean, Year, INPFC_AREA, Len_bin) %>% 
+  mutate(NStomachs = length(unique(uniqueID)), 
+         Percent_Occur = NStomachs/TotalPredN*100,
+         PreyWeight = sum(PREY_TWT),
+         Percent_Weight = (PreyWeight/TotalWeight)*100) %>% 
+  select(Year, INPFC_AREA, Pred_Species, Pred_common, Len_bin, Prey_Name_Clean,
+         TotalPredN, NStomachs, Percent_Occur,
+         TotalWeight, PreyWeight, Percent_Weight)
+
+
+
+
+

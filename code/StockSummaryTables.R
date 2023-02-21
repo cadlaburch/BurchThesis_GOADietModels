@@ -39,7 +39,8 @@ stomach_contents_2021 <- sc_groupings %>%
          Len_bin_PC_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)),
          Len_bin_WP_broad = cut(PRED_LEN, breaks = c(0, 30, 40, 50, 280)),
          Len_bin_AF_broad = cut(PRED_LEN, breaks = c(0, 20, 40, 280)),
-         Len_bin_PH_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)))
+         Len_bin_PH_broad = cut(PRED_LEN, breaks = c(0, 30, 60, 280)),
+         Len_bin_gen = cut(PRED_LEN, breaks = c(0, 20, 40, 60, 280)))
 
 #____________
 sample_size2021 <- stomach_contents_2021 %>%

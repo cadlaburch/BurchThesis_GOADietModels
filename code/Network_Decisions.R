@@ -191,6 +191,11 @@ Length_sample_sizes <- network_sc_filtered %>%
 #----------------------------
 #Question 7:
 #Should I be modeling predators and prey of the same species as one node?
+unique(network_sc_filtered$Pred_Species)
+#The Pred_Species matches the Prey_name_clean in the groupings doc
+#The Pred_Common matches the Prey_Name in the original document
+
+#Decision: Yes I should be modeling predators and prey as the same node for the big 4 species.
 
 #-----------------------------
 #Question 8:
@@ -198,4 +203,18 @@ Length_sample_sizes <- network_sc_filtered %>%
 #Percent frequency of occurrence, Percent Weight of prey
 
 
+#-----------------------------
+#Question 9:
+#Should I include empty stomachs?
 
+
+
+#-----------------------------
+#Output Files
+#These files are the outputs from my decisions about what to model. I will use these files to generate the networks
+#in a different R script.
+
+network_sc_filtered <- network_sc_filtered %>% 
+  mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN), sep = "")
+
+write.csv(network_sc_filtered, here("output/source_data/network_sc_filtered.csv"), row.names = F)
