@@ -3,8 +3,7 @@ library(readr) #for loading CSV
 library(tidyverse)
 library(mgcv) #for running gams
 library(MuMIn) #for the dredge summary table
-library(remotes)
-install_version("MuMIn", "1.47.1")
+options(na.action = "na.fail") 
 
 
 #DATA ASSEMBLY
@@ -23,7 +22,6 @@ data <- data %>%
 #Select only predators of interest
 data <- data %>% 
   filter(Pred_common %in% c("Walleye pollock", "Pacific cod", "Pacific halibut", "Arrowtooth flounder"))
-
 
 #remove empty stomachs
 data <- data %>% 
@@ -44,11 +42,25 @@ wide_data <- data %>%
 #check that the each stomach is it's own unique line
 length(unique(wide_data$uniqueID))
 
-#-------------------------------
+#change year to factor
+wide_data$Year <- factor(wide_data$Year)
 
+#create day of year (Julien)
+wide_data <- wide_data %>% 
+  mutate(date = paste(Month, Day, sep = "-"))
+
+wide_data$date <- as.Date(wide_data$date, "%m-%d")
+wide_data$julien <- format(wide_data$date, "%j")
+
+#Set length bins
+wide_data <- wide_data %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 29, 39, 49, 59, 69, 1000)))
+levels(data$Len_bin) = c("<30", "30-39", "40-49", "50-59", "60-69", ">70")
+
+
+#-------------------------------
+#######################################
 #-------------------------------------
-#PREY:  EUPHAUSIACEA
-  #PRED: Walleye Pollock
 
 WP <- wide_data %>% 
   filter(Pred_common == "Walleye pollock") %>% 
@@ -66,7 +78,9 @@ AF <- wide_data %>%
   filter(Pred_common == "Arrowtooth flounder") %>% 
   na.omit()
 
-#Euphausiid Function
+
+#PREY:  EUPHAUSIACEA
+#Euphausiid Function (Not currently working)
 Model_Euph <- function (Euphausiacea, data) {
   Model1 <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
                 data = data,
@@ -76,22 +90,125 @@ Model_Euph <- function (Euphausiacea, data) {
 }
 
 #PRED: Walleye Pollock
-Euph_WP_M <- Model_Euph(Euphausiacea, WP)
+class(WP$Year)
+Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+    data = WP,
+    family = binomial(link = logit),
+    method = "GCV.Cp")
+
 summary(Euph_WP_M)
 
+Euph_WP_fit <- dredge(Euph_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(Euph_WP_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+visreg(Euph_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+visreg(Euph_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+visreg(Euph_WP_M, "Len_bin",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+visreg(Euph_WP_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+visreg(Euph_WP_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+
+
 #PRED: Pacific Halibut
-Euph_PH_M <- Model_Euph(Euphausiacea, PH)
+Euph_PH_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+                 data = PH,
+                 family = binomial(link = logit),
+                 method = "GCV.Cp")
 summary(Euph_PH_M)
 
+Euph_PH_fit <- dredge(Euph_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(Euph_PH_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Euphausiacea Prescence in Halibut Stom")
+visreg(Euph_PH_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Euphausiacea Prescence in Halibut Stom")
+visreg(Euph_PH_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Euphausiacea Prescence in Halibut Stom")
+visreg(Euph_PH_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Euphausiacea Prescence in Halibut Stom")
+visreg(Euph_PH_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Euphausiacea Prescence in Halibut Stom")
+visreg(Euph_PH_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Euphausiacea Prescence in Pollock Stom")
+
   #PRED: Pacific cod
-Euph_PC_M <- Model_Euph(Euphausiacea, PC)
+Euph_PC_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+                 data = PC,
+                 family = binomial(link = logit),
+                 method = "GCV.Cp")
 summary(Euph_PC_M)
 
+Euph_PC_fit <- dredge(Euph_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(Euph_PC_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+visreg(Euph_PC_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+visreg(Euph_PC_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+visreg(Euph_PC_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+visreg(Euph_PC_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+visreg(Euph_PC_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Euphausiacea Prescence in Cod Stom")
+
   #PRED: Arrowtooth flounder
-Euph_AF_M <- Model_Euph(Euphausiacea, AF)
+Euph_AF_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+                 data = AF,
+                 family = binomial(link = logit),
+                 method = "GCV.Cp")
 summary(Euph_AF_M)
 
+Euph_AF_fit <- dredge(Euph_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
 
+visreg(Euph_AF_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+visreg(Euph_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+visreg(Euph_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+visreg(Euph_AF_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+visreg(Euph_AF_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+visreg(Euph_AF_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Euphausiacea Prescence in AFlounder Stom")
+
+
+
+
+#------------------------------
+################################################
 #-------------------------------
 #PREY: Sand Lance
 Model_SL <- function (Ammodytidae, data) {
@@ -103,21 +220,125 @@ Model_SL <- function (Ammodytidae, data) {
 }
 
 #PRED: Walleye Pollock
-SL_WP_M <- Model_SL(Ammodytidae, WP)
+SL_WP_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = WP,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(SL_WP_M)
 
+SL_WP_fit <- dredge(SL_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(SL_WP_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+visreg(SL_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+visreg(SL_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+visreg(SL_WP_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+visreg(SL_WP_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+visreg(SL_WP_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Sand Lance Prescence in Pollock Stom")
+
+
 #PRED: Pacific Halibut
-SL_PH_M <- Model_SL(Ammodytidae, PH)
+SL_PH_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = PH,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(SL_PH_M)
 
+SL_PH_fit <- dredge(SL_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(SL_PH_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+visreg(SL_PH_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+visreg(SL_PH_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+visreg(SL_PH_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+visreg(SL_PH_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+visreg(SL_PH_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Sand Lance Prescence in Halibut Stom")
+
 #PRED: Pacific cod
-SL_PC_M <- Model_SL(Ammodytidae, PC)
+SL_PC_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = PC,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(SL_PC_M)
 
+SL_PC_fit <- dredge(SL_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(SL_PC_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+visreg(SL_PC_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+visreg(SL_PC_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+visreg(SL_PC_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+visreg(SL_PC_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+visreg(SL_PC_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Sand Lance Prescence in Cod Stom")
+
 #PRED: Arrowtooth flounder
-SL_AF_M <- Model_SL(Ammodytidae, AF)
+SL_AF_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = AF,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(SL_AF_M)
 
+SL_AF_fit <- dredge(SL_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(SL_AF_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+visreg(SL_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+visreg(SL_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+visreg(SL_AF_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+visreg(SL_AF_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+visreg(SL_AF_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Sand Lance Prescence in AFlounder Stom")
+
+
+
+
+
+
+#-------------------------------
+#################################
 #-------------------------------
 #PREY: Walleye Pollock
 Model_WP <- function (Walleyepollock, data) {
@@ -129,19 +350,118 @@ Model_WP <- function (Walleyepollock, data) {
 }
 
 #PRED: Walleye Pollock
-WP_WP_M <- Model_WP(Walleyepollock, WP)
+WP_WP_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = WP,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(WP_WP_M)
 
+WP_WP_fit <- dredge(WP_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(WP_WP_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Pollock Prescence in Pollock Stom")
+visreg(WP_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Pollock Prescence in Pollock Stom")
+visreg(WP_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Pollock Prescence in Pollock Stom")
+visreg(WP_WP_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Pollock Prescence in Pollock Stom")
+visreg(WP_WP_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Pollock Prescence in Pollock Stom")
+visreg(WP_WP_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Pollock Prescence in Pollock Stom")
+
+
 #PRED: Pacific Halibut
-WP_PH_M <- Model_WP(Walleyepollock, PH)
+WP_PH_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = PH,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(WP_PH_M)
 
+WP_PH_fit <- dredge(WP_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(WP_PH_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Pollock Prescence in Halibut Stom")
+visreg(WP_PH_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Pollock Prescence in Halibut Stom")
+visreg(WP_PH_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Pollock Prescence in Halibut Stom")
+visreg(WP_PH_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Pollock Prescence in Halibut Stom")
+visreg(WP_PH_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Pollock Prescence in Halibut Stom")
+visreg(WP_PH_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Pollock Prescence in Halibut Stom")
+
+
 #PRED: Pacific cod
-WP_PC_M <- Model_WP(Walleyepollock, PC)
+WP_PC_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = PC,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(WP_PC_M)
 
+WP_PC_fit <- dredge(WP_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(WP_PC_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Pollock Prescence in Cod Stom")
+visreg(WP_PC_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Pollock Prescence in Cod Stom")
+visreg(WP_PC_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Pollock Prescence in Cod Stom")
+visreg(WP_PC_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Pollock Prescence in Cod Stom")
+visreg(WP_PC_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Pollock Prescence in Cod Stom")
+visreg(WP_PC_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Pollock Prescence in Cod Stom")
+
+
 #PRED: Arrowtooth flounder
-WP_AF_M <- Model_WP(Walleyepollock, AF)
+WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+               data = AF,
+               family = binomial(link = logit),
+               method = "GCV.Cp")
 summary(WP_AF_M)
+
+WP_AF_fit <- dredge(WP_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+visreg(WP_AF_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", 
+       ylab = "Pollock Prescence in AFlounder Stom")
+visreg(WP_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
+       ylab = "Pollock Prescence in AFlounder Stom")
+visreg(WP_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
+       ylab = "Pollock Prescence in AFlounder Stom")
+visreg(WP_AF_M, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
+       ylab = "Pollock Prescence in AFlounder Stom")
+visreg(WP_AF_M, "RLONG", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
+       ylab = "Pollock Prescence in AFlounder Stom")
+visreg(WP_AF_M, "RLAT", type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
+       ylab = "Pollock Prescence in AFlounder Stom")
 
 
