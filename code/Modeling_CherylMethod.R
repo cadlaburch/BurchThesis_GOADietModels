@@ -3,6 +3,8 @@ library(readr) #for loading CSV
 library(tidyverse)
 library(mgcv) #for running gams
 library(MuMIn) #for the dredge summary table
+library(patchwork) #for combining plots
+library(gridExtra) #for laying out plots
 options(na.action = "na.fail") 
 
 
@@ -23,27 +25,59 @@ data <- data %>%
 data <- data %>% 
   filter(Pred_common %in% c("Walleye pollock", "Pacific cod", "Pacific halibut", "Arrowtooth flounder"))
 
-#remove empty stomachs
+#remove empty stomachs and create unique stomach ID
 data <- data %>% 
-  filter(Prey_Name != "Empty")
+  filter(Prey_Name != "Empty") %>% 
+  mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN), sep = "")
+
+#Set length bins: for now I've commented this out because I need there to be predator specific length bins
+#data <- data %>% 
+#  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 29, 39, 49, 59, 69, 1000)))
+#levels(data$Len_bin) = c("<30", "30-39", "40-49", "50-59", "60-69", ">70")
+
+#change year to factor
+data$Year <- factor(data$Year)
+
+#Remove outlier deep hauls
+plot(raw_stomach_contents2021$GEAR_DEPTH, raw_stomach_contents2021$HAULJOIN)
+depth <- data %>% 
+  distinct(Haul_Join, GEAR_DEPTH)
+hist(depth$GEAR_DEPTH, col = "blue")
+
+# Remove the extreme outlying station in considerably deep water:
+#Commented out because: I checked and the depth at this station was 641 which doesn't seem like an outlier
+#data <- data %>% 
+  #filter(Haul_Join == "148201101201")
 
 #I think I need to do a bit of data manipulation to get my data to look more like cheryls which is in a wide format
 #I believe that her data is formatted so each line is a predator and the prey items are listed as columns within the pred stomach
 #I need to create a unique identifier for each predator
 wide_data <- data %>% 
-  mutate(uniqueID = paste(HAULJOIN, PRED_NODC, PRED_SPECN), sep = "", #create unique pred id
-         pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
   distinct(uniqueID, Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
-           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, PRED_LEN, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, PRED_LEN, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
   pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
-  rename(Walleyepollock = 'Walleye pollock')
-
+  rename(Walleyepollock = 'Walleye pollock') 
 
 #check that the each stomach is it's own unique line
 length(unique(wide_data$uniqueID))
 
-#change year to factor
-wide_data$Year <- factor(wide_data$Year)
+#I'm creating a secondary wide dataframe that treats each haul as an individual stomach for each length class of predator
+haul_wide <- data %>% 
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  distinct(Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, Len_bin, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
+  group_by(Pred_common, Len_bin, Haul_Join) %>% 
+  pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
+  rename(Walleyepollock = 'Walleye pollock') 
+
+#Double checking that the number of hauls is correct 
+test <- haul_wide %>% 
+  group_by(Pred_common, Len_bin) %>% 
+  mutate(hauls = length(unique(Haul_Join))) %>% 
+  distinct(Pred_common, Len_bin, hauls)
+
+sum(test$hauls) #this matches the number of rows in the haul_wide dataframe
 
 #create day of year (Julien)
 wide_data <- wide_data %>% 
@@ -52,72 +86,131 @@ wide_data <- wide_data %>%
 wide_data$date <- as.Date(wide_data$date, "%m-%d")
 wide_data$julien <- format(wide_data$date, "%j")
 
-#Set length bins
-wide_data <- wide_data %>% 
-  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 29, 39, 49, 59, 69, 1000)))
-levels(data$Len_bin) = c("<30", "30-39", "40-49", "50-59", "60-69", ">70")
+#_________________
+#THIS CHUNK IS TO TEST OUT HAUL GROUPING 
+#the reason I had to run each one seperately was so that you could tailor the predator length bins
 
+WP <- data %>% 
+  filter(Pred_common == "Walleye pollock") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>% 
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  group_by(Pred_common, Len_bin, Haul_Join) %>% 
+  mutate(Group_Pred_Len = mean(PRED_LEN)) %>% 
+  distinct(Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, Len_bin, Group_Pred_Len, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
+  pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
+  rename(Walleyepollock = 'Walleye pollock') %>% 
+  na.omit()
+levels(WP$Len_bin) = c("<25", "25-39", "40-54", ">54")
+
+PH <- data %>% 
+  filter(Pred_common == "Pacific halibut") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  group_by(Pred_common, Len_bin, Haul_Join) %>% 
+  mutate(Group_Pred_Len = mean(PRED_LEN)) %>% 
+  distinct(Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, Len_bin, Group_Pred_Len, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
+  pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
+  rename(Walleyepollock = 'Walleye pollock') %>% 
+  na.omit()
+levels(PH$Len_bin) = c("<31", "31-50", "51-70", ">70")
+
+#Note: I couldn't find the sampling bins for PC so I made it the same as WP
+PC <- data %>% 
+  filter(Pred_common == "Pacific cod") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>% 
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  group_by(Pred_common, Len_bin, Haul_Join) %>% 
+  mutate(Group_Pred_Len = mean(PRED_LEN)) %>% 
+  distinct(Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, Len_bin, Group_Pred_Len, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
+  pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
+  rename(Walleyepollock = 'Walleye pollock') %>% 
+  na.omit()
+levels(PC$Len_bin) = c("<25", "25-39", "40-54", ">54")
+
+AF <- data %>% 
+  filter(Pred_common == "Arrowtooth flounder") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
+  mutate(pres_absent = ifelse(PREY_TWT > 0, 1, 0)) %>%
+  group_by(Pred_common, Len_bin, Haul_Join) %>% 
+  mutate(Group_Pred_Len = mean(PRED_LEN)) %>% 
+  distinct(Year, Month, Day, Haul_Join, RLAT, RLONG, GEAR_DEPTH, BOTTOM_DEPTH, START_HOUR, 
+           SURFACE_TEMP, GEAR_TEMP, INPFC_AREA, START_DATE, Len_bin, Group_Pred_Len, Pred_common, Prey_Name, pres_absent) %>% #This big chunk is to get rid of redundancies because sometimes there are two seperate rows for the same prey item in the same stomach (the prey species may have been a different life stage)
+  pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% 
+  rename(Walleyepollock = 'Walleye pollock') %>% 
+  na.omit()
+levels(AF$Len_bin) = c("<31", "31-50", "51-70", ">70")
 
 #-------------------------------
 #######################################
 #-------------------------------------
+#I use na.omit() to remove any rows that are missing environmental data (gear temp/depth)
 
-WP <- wide_data %>% 
+WP <- haul_wide %>% 
   filter(Pred_common == "Walleye pollock") %>% 
   na.omit()
 
-PH <- wide_data %>% 
+PH <- haul_wide %>% 
   filter(Pred_common == "Pacific halibut") %>% 
   na.omit()
 
-PC <- wide_data %>% 
+PC <- haul_wide %>% 
   filter(Pred_common == "Pacific cod") %>% 
   na.omit()
 
-AF <- wide_data %>% 
+AF <- haul_wide %>% 
   filter(Pred_common == "Arrowtooth flounder") %>% 
   na.omit()
 
 
 #PREY:  EUPHAUSIACEA
-#Euphausiid Function (Not currently working)
-Model_Euph <- function (Euphausiacea, data) {
-  Model1 <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
-                data = data,
-                family = binomial(link = logit),
-                method = "GCV.Cp")
-  return(Model1)
-}
-
 #PRED: Walleye Pollock
-class(WP$Year)
-Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
+
+#Full Model
+Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Group_Pred_Len,
     data = WP,
     family = binomial(link = logit),
     method = "GCV.Cp")
 
 summary(Euph_WP_M)
 
+#Comparing Delta AIC of alternative Models
 Euph_WP_fit <- dredge(Euph_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
 
-visreg(Euph_WP_M, "Year",type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "Year", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
-visreg(Euph_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
-visreg(Euph_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
-visreg(Euph_WP_M, "Len_bin",type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "Pred_length", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
-visreg(Euph_WP_M, "RLONG", type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "RLONG", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
-visreg(Euph_WP_M, "RLAT", type = "conditional", scale = "response",
-       gg = TRUE, line=list(col="black"), xlab = "RLAT", 
-       ylab = "Euphausiacea Prescence in Pollock Stom")
+
+#Plotting partial effects
+Euph_WP_Plot1 <- visreg(Euph_WP_M, "Year",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Euphausiacea P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Euph_WP_Plot2 <- visreg(Euph_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+Euph_WP_Plot3 <- visreg(Euph_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Euph_WP_Plot4 <- visreg(Euph_WP_M, "Group_Pred_Len",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Group_Pred_Len", ylab = "") +
+  theme_classic() 
+
+
+Euph_WP_MainP <- (Euph_WP_Plot1 + Euph_WP_Plot2) / (Euph_WP_Plot3 + Euph_WP_Plot4) + 
+  plot_annotation(title = "Predator: Walleye Pollock") + 
+  ylab("label")
+
+grid.arrange(patchworkGrob(Euph_WP_MainP), left = "Partial Effect on Euphausiacea Prescence (1) Absence (0)")
+arrangeGrob(patchworkGrob(Euph_WP_MainP), left = "Partial Effect on Euphausiacea Prescence (1) Absence (0)")
+
+ggsave("pollock_eat_euph.jpg", plot = last_plot(), device = "jpg", path = here("output/Models"))
+
+data(worldHiresMapEnv) # source world data for plot
+vis.gam(Euph_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", main="Euphausiacea Prescence in Pollock Stom", too.far=0.025, n.grid=250, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
 
 #PRED: Pacific Halibut

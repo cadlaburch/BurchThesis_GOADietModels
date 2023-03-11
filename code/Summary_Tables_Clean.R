@@ -21,11 +21,19 @@ Pred_n_by_Year.INPFC <- sc_groupings %>%
   mutate(empty_stomachs = sum(PRED_FULL == 1),
          full_stomachs = sum(PRED_FULL != 1),
          total_stomachs = length(unique(uniqueID)),
-         length_avg = mean(PRED_LEN),
          length_min = min(PRED_LEN),
          length_max = max(PRED_LEN),
+         length_avg = mean(PRED_LEN),
          length_sd = sd(PRED_LEN)) %>% 
   distinct(Year, Pred_Species, Pred_common, INPFC_AREA, total_stomachs, empty_stomachs, full_stomachs, length_avg, length_min, length_max, length_sd)
+
+Focal_Pred_n_by_Year.INPFC <- Pred_n_by_Year.INPFC %>% 
+  filter(Pred_common %in% c("Walleye pollock", "Pacific cod", "Pacific halibut", "Arrowtooth flounder")) %>% 
+  select(Year, Pred_common, INPFC_AREA,
+         empty_stomachs, full_stomachs, total_stomachs,
+         length_min, length_max, length_avg, length_sd)
+
+write.csv(Focal_Pred_n_by_Year.INPFC, file = here("output/summary_tables/focalsamplesizeINPFCYear.csv"), row.names = F)
 
 #This table shows the same data as above, but not broken down by INPFC area just by year
 Pred_n_Year <- sc_groupings %>% 
@@ -40,6 +48,15 @@ Pred_n_Year <- sc_groupings %>%
          length_max = max(PRED_LEN),
          length_sd = sd(PRED_LEN)) %>% 
   distinct(Year, Pred_Species, Pred_common, empty_stomachs, full_stomachs, total_stomachs, length_avg, length_min, length_max, length_sd)
+
+Focal_Pred_n_Year <- Pred_n_Year %>% 
+  filter(Pred_common %in% c("Walleye pollock", "Pacific cod", "Pacific halibut", "Arrowtooth flounder")) %>% 
+  select(Year, Pred_common,
+         empty_stomachs, full_stomachs, total_stomachs,
+         length_min, length_max, length_avg, length_sd)
+
+write.csv(Focal_Pred_n_Year, file = here("output/summary_tables/focalsamplesizeyear.csv"), row.names = F)
+
 
 #--------------------------------
 #DIET PROPORTIONS
@@ -61,7 +78,26 @@ diet_proportions_table <- sc_groupings %>%
          TotalPredN, NStomachs, Percent_Occur,
          TotalWeight, PreyWeight, Percent_Weight)
 
+general_diets_focal <- sc_groupings %>% 
+  filter(PRED_FULL != 1) %>% #removing empty stomachs
+  filter(Pred_common %in% c("Walleye pollock", "Pacific cod", "Pacific halibut", "Arrowtooth flounder")) %>%
+  group_by(Pred_common) %>% 
+  mutate(TotalWeight = sum(PREY_TWT), #calculating the total stomach weight for each predator
+         TotalPredN = length(unique(uniqueID))) %>%  #calculating the number of predator stomachs 
+  group_by(Pred_common, Prey_Name_Clean) %>% 
+  mutate(NStomachs = length(unique(uniqueID)), 
+         Percent_Occur = NStomachs/TotalPredN*100,
+         PreyWeight = sum(PREY_TWT),
+         Percent_Weight = (PreyWeight/TotalWeight)*100) %>% 
+  distinct(Pred_common, Prey_Name_Clean, NStomachs, Percent_Occur, Percent_Weight)
 
+#Select top 50 prey items for each predator
+general_diets_focal <- general_diets_focal %>% 
+  group_by(Pred_common) %>% 
+  mutate(checkPW = sum(Percent_Weight))
+  arrange(desc(Percent_Weight)) %>% 
+  slice(1:25)
 
+write.csv(general_diets_focal, file = here("output/summary_tables/general_diets_focal.csv"), row.names = F)
 
 

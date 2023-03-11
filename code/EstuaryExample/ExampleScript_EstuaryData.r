@@ -65,7 +65,7 @@ fit #this gives the full output table with model diagnostics (incl. AICc)
 
 summary(richness.full)
 
-# Residudal diagnostics
+# Residudal diagnostics (DO THIS ON MY MODELS)
 par(mfrow=c(2,2))
 gam.check(richness.full)
 
