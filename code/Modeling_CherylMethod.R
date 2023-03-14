@@ -115,30 +115,53 @@ haul_wide_fun <- function(data) {
 WP <- data %>% 
   filter(Pred_common == "Walleye pollock") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>%
-  haul_wide_fun()
+  haul_wide_fun() %>% 
+  mutate(len_num = as.numeric(Len_bin))
 levels(WP$Len_bin) = c("<25", "25-39", "40-54", ">54")
 
 PH <- data %>% 
   filter(Pred_common == "Pacific halibut") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
-  haul_wide_fun()
+  haul_wide_fun() %>% 
+  mutate(len_num = as.numeric(Len_bin))
 levels(PH$Len_bin) = c("<31", "31-50", "51-70", ">70")
 
 #Note: I couldn't find the sampling bins for PC so I made it the same as WP
 PC <- data %>% 
   filter(Pred_common == "Pacific cod") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>% 
-  haul_wide_fun()
+  haul_wide_fun() %>% 
+  mutate(len_num = as.numeric(Len_bin))
 levels(PC$Len_bin) = c("<25", "25-39", "40-54", ">54")
 
 AF <- data %>% 
   filter(Pred_common == "Arrowtooth flounder") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
-  haul_wide_fun()
+  haul_wide_fun() %>% 
+  mutate(len_num = as.numeric(Len_bin))
 levels(AF$Len_bin) = c("<31", "31-50", "51-70", ">70")
 
-#Sample sizes
+#Sample sizes (COME BACK TO THIS)
+pred_list <- list(WP, PH, PC, AF)
+prey_list <- c("Euphausiacea", "Walleyepollock", "Ammodytidae", "Clupeoidei", "Osmerid")
 
+output <- matrix(NA, nrow = 16 , ncol = 7)
+output[1:16, 1] <- "Euphausiacea"
+
+output[1, 7] <- sum(WP$Euphausiacea)
+
+
+for(i in 1:length(pred_list)) {
+  for(j in 1:length(prey_list)) {
+    output[] 
+  }
+}
+
+PC$Osmerid
+
+sum(WP$Euphausiacea)
+x <- WP %>% filter(Len_bin == ">54")
+sum(x$Euphausiacea)
 #------------------
 #Normality and Correlation Analysis????
 
@@ -389,15 +412,75 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 
 
 
-
-
-
-
-
-
 #------------------------------
 ################################################
 #-------------------------------
+#----------------
+#PREY: Osmeridae
+#PRED: Arrowtooth flounder
+
+#Full Model
+Euph_AF_M <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Group_Pred_Len,
+                 data = AF,
+                 family = binomial(link = logit),
+                 method = "GCV.Cp")
+
+summary(Euph_AF_M)
+
+#Comparing Delta AIC of alternative Models
+Euph_AF_fit <- dredge(Euph_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+
+Euph_AF_fit <- as.data.frame(Euph_AF_fit)
+
+write.csv(Euph_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(Euph_AF_M)
+
+#Plotting partial effects
+Euph_AF_Plot1 <- visreg(Euph_AF_M, "Year",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Euphausiacea P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Euph_AF_Plot2 <- visreg(Euph_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+Euph_AF_Plot3 <- visreg(Euph_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Euph_AF_Plot4 <- visreg(Euph_AF_M, "Group_Pred_Len",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Group_Pred_Len", ylab = "") +
+  theme_classic() 
+
+
+Euph_AF_MainP <- (Euph_AF_Plot1 + Euph_AF_Plot2) / (Euph_AF_Plot3 + Euph_AF_Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+ggsave("AFlounder_eat_euph.jpg", plot = Euph_AF_MainP, device = "jpg", path = here("output/Models"))
+
+data(worldHiresMapEnv) # source world data for plot
+vis.gam(Euph_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Euphausiacea Prescence in AFlounder Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
+
+
+
+
+
+
+
+
+
+
+
+
+
 #PREY: Sand Lance
 Model_SL <- function (Ammodytidae, data) {
   Model1 <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + PRED_LEN,
