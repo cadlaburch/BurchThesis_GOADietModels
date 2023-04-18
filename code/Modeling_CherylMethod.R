@@ -7,6 +7,7 @@ library(MuMIn) #for the dredge summary table
 library(patchwork) #for combining plots
 library(gridExtra) #for laying out plots
 library(visreg) #for visualizing partial effects
+library(mapdata) #for partial effects map
 options(na.action = "na.fail") 
 
 
@@ -201,11 +202,15 @@ Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(Euph_WP_M)
 
-#Comparing Delta AIC of alternative Models
-Euph_WP_fit <- dredge(Euph_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
-class(Euph_WP_fit)
+anova(Euph_WP_M)
 
-Euph_WP_fit <- as.data.frame(Euph_WP_fit)
+#Comparing Delta AIC of alternative Models
+Euph_WP_fit <- dredge(Euph_WP_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                      extra = c("adjR^2", "deviance"))
+
+Euph_WP_AIC <- as.data.frame(Euph_WP_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Euphausiid %O", Predator = "Walleye pollock")
 
 write.csv(Euph_WP_fit, here("output/Models/Pollock_eat_Euph_AIC.csv"), row.names = F)
 
@@ -241,11 +246,18 @@ Euph_WP_MainP <- (Euph_WP_Plot1 + Euph_WP_Plot2) / (Euph_WP_Plot3 + Euph_WP_Plot
 
 ggsave("pollock_eat_euph.jpg", plot = Euph_WP_MainP, device = "jpg", path = here("output/Models"))
 
+### Plot P/A results, Pacific Halibut ###
+# Set coordinate boundaries for plotting:
+lonmin = -172
+lonmax = -130
+latmin = 52
+latmax = 62
+
 data(worldHiresMapEnv) # source world data for plot
 vis.gam(Euph_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
         contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
-        main="Euphausiacea Prescence in Pollock Stom", too.far=0.025, n.grid=250, 
-        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+        main="Walleye pollock", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax)) 
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
 
@@ -260,10 +272,15 @@ Euph_PC_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(Euph_PC_M)
 
-#Comparing Delta AIC of alternative Models
-Euph_PC_fit <- dredge(Euph_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(Euph_PC_M)
 
-Euph_PC_fit <- as.data.frame(Euph_PC_fit)
+#Comparing Delta AIC of alternative Models
+Euph_PC_fit <- dredge(Euph_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                      extra = c("adjR^2", "deviance"))
+
+Euph_PC_AIC <- as.data.frame(Euph_PC_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Euphausiid %O", Predator = "Pacific cod")
 
 write.csv(Euph_PC_fit, here("output/Models/Cod_eat_Euph_AIC.csv"), row.names = F)
 
@@ -313,10 +330,16 @@ Euph_AF_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(Euph_AF_M)
 
-#Comparing Delta AIC of alternative Models
-Euph_AF_fit <- dredge(Euph_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(Euph_WP_M)
 
-Euph_AF_fit <- as.data.frame(Euph_AF_fit)
+#Comparing Delta AIC of alternative Models
+Euph_AF_fit <- dredge(Euph_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                      extra = c("adjR^2", "deviance"))
+
+Euph_AF_AIC <- as.data.frame(Euph_AF_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Euphausiid %O", Predator = "Arrowtooth flounder")
+
 
 write.csv(Euph_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
 
@@ -354,6 +377,11 @@ vis.gam(Euph_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
+#Combining AIC Tables
+Euph_AIC <- rbind(Euph_AF_AIC, Euph_PC_AIC, Euph_WP_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+Euph_AIC <- Euph_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 
 #------------------------------
@@ -371,10 +399,15 @@ WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(WP_AF_M)
 
-#Comparing Delta AIC of alternative Models
-WP_AF_fit <- dredge(WP_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(WP_AF_M)
 
-WP_AF_fit <- as.data.frame(WP_AF_fit)
+#Comparing Delta AIC of alternative Models
+WP_AF_fit <- dredge(WP_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+WP_AF_AIC <- as.data.frame(WP_AF_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Walleye pollock %O", Predator = "Arrowtooth flounder")
 
 write.csv(WP_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
 
@@ -424,10 +457,15 @@ WP_PC_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(WP_PC_M)
 
-#Comparing Delta AIC of alternative Models
-WP_PC_fit <- dredge(WP_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(WP_PC_M)
 
-WP_PC_fit <- as.data.frame(WP_PC_fit)
+#Comparing Delta AIC of alternative Models
+WP_PC_fit <- dredge(WP_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+WP_PC_AIC <- as.data.frame(WP_PC_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Walleye pollock %O", Predator = "Pacific cod")
 
 write.csv(WP_PC_fit, here("output/Models/Cod_eat_WP_AIC.csv"), row.names = F)
 
@@ -476,10 +514,15 @@ WP_PH_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
 
 summary(WP_PH_M)
 
-#Comparing Delta AIC of alternative Models
-WP_PH_fit <- dredge(WP_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(WP_PH_M)
 
-WP_PH_fit <- as.data.frame(WP_PH_fit)
+#Comparing Delta AIC of alternative Models
+WP_PH_fit <- dredge(WP_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+WP_PH_AIC <- as.data.frame(WP_PH_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Walleye pollock %O", Predator = "Pacific halibut")
 
 write.csv(WP_PH_fit, here("output/Models/Halibut_eat_WP_AIC.csv"), row.names = F)
 
@@ -517,6 +560,11 @@ vis.gam(WP_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
+#Combining AIC Tables
+WP_AIC <- rbind(WP_AF_AIC, WP_PH_AIC, WP_PC_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+WP_AIC <- WP_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 ###################################
 #-----------------------------------
@@ -533,10 +581,15 @@ SL_AF_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
 
 summary(SL_AF_M)
 
-#Comparing Delta AIC of alternative Models
-SL_AF_fit <- dredge(SL_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(SL_AF_M)
 
-SL_AF_fit <- as.data.frame(SL_AF_fit)
+#Comparing Delta AIC of alternative Models
+SL_AF_fit <- dredge(SL_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+SL_AF_AIC <- as.data.frame(SL_AF_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Ammodytidae %O", Predator = "Arrowtooth flounder")
 
 write.csv(SL_AF_fit, here("output/Models/AFlounder_eat_SandL_AIC.csv"), row.names = F)
 
@@ -586,10 +639,15 @@ SL_PC_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
 
 summary(SL_PC_M)
 
-#Comparing Delta AIC of alternative Models
-SL_PC_fit <- dredge(SL_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(SL_PC_M)
 
-SL_PC_fit <- as.data.frame(SL_PC_fit)
+#Comparing Delta AIC of alternative Models
+SL_PC_fit <- dredge(SL_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+SL_PC_AIC <- as.data.frame(SL_PC_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Ammodytidae %O", Predator = "Pacific cod")
 
 write.csv(SL_PC_fit, here("output/Models/Cod_eat_SL_AIC.csv"), row.names = F)
 
@@ -638,10 +696,15 @@ SL_PH_M <- gam(Ammodytidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
 
 summary(SL_PH_M)
 
-#Comparing Delta AIC of alternative Models
-SL_PH_fit <- dredge(SL_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(SL_PH_M)
 
-SL_PH_fit <- as.data.frame(SL_PH_fit)
+#Comparing Delta AIC of alternative Models
+SL_PH_fit <- dredge(SL_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+SL_PH_AIC <- as.data.frame(SL_PH_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Ammodytidae %O", Predator = "Pacific halibut")
 
 write.csv(SL_PH_fit, here("output/Models/Halibut_eat_SL_AIC.csv"), row.names = F)
 
@@ -680,9 +743,11 @@ vis.gam(SL_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
 
+#Combining AIC Tables
+SL_AIC <- rbind(SL_AF_AIC, SL_PH_AIC, SL_PC_AIC) %>% 
+  mutate(deviance = deviance/100)
 
-
-
+SL_AIC <- SL_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 
 ################################
@@ -700,11 +765,16 @@ Her_AF_M <- gam(Clupeoidei ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
 
 summary(Her_AF_M)
 
+anova(Her_AF_M)
+
 
 #Comparing Delta AIC of alternative Models
-Her_AF_fit <- dredge(Her_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+Her_AF_fit <- dredge(Her_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
 
-Her_AF_fit <- as.data.frame(Her_AF_fit)
+Her_AF_AIC <- as.data.frame(Her_AF_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Clupeidae %O", Predator = "Arrowtooth flounder")
 
 write.csv(Her_AF_fit, here("output/Models/AFlounder_eat_Her_AIC.csv"), row.names = F)
 
@@ -743,8 +813,6 @@ vis.gam(Her_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
-
-
 #-----------------
 #PRED: Pacific halibut
 #Full Model
@@ -755,10 +823,20 @@ Her_PH_M <- gam(Clupeoidei ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
 
 summary(Her_PH_M)
 
-#Comparing Delta AIC of alternative Models
-Her_PH_fit <- dredge(Her_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(Her_PH_M)
 
-Her_PH_fit <- as.data.frame(Her_PH_fit)
+sum(PH$Clupeoidei)
+
+test <- PH %>% 
+  filter(Clupeoidei == 1)
+
+#Comparing Delta AIC of alternative Models
+Her_PH_fit <- dredge(Her_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+Her_PH_AIC <- as.data.frame(Her_PH_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Clupeidae %O", Predator = "Pacific halibut")
 
 write.csv(Her_PH_fit, here("output/Models/Halibut_eat_Her_AIC.csv"), row.names = F)
 
@@ -796,6 +874,11 @@ vis.gam(Her_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
+#Combining AIC Tables
+Her_AIC <- rbind(Her_AF_AIC, Her_PH_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+Her_AIC <- Her_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 ##################################
 #--------------------------------
@@ -812,11 +895,16 @@ Cap_AF_M <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k 
 
 summary(Cap_AF_M)
 
+anova(Cap_AF_M)
+
 
 #Comparing Delta AIC of alternative Models
-Cap_AF_fit <- dredge(Cap_AF_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+Cap_AF_fit <- dredge(Cap_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
 
-Cap_AF_fit <- as.data.frame(Cap_AF_fit)
+Cap_AF_AIC <- as.data.frame(Cap_AF_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Osmeridae %O", Predator = "Arrowtooth flounder")
 
 write.csv(Cap_AF_fit, here("output/Models/AFlounder_eat_Cap_AIC.csv"), row.names = F)
 
@@ -866,10 +954,15 @@ Cap_PH_M <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k 
 
 summary(Cap_PH_M)
 
-#Comparing Delta AIC of alternative Models
-Cap_PH_fit <- dredge(Cap_PH_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(Cap_PH_M)
 
-Cap_PH_fit <- as.data.frame(Cap_PH_fit)
+#Comparing Delta AIC of alternative Models
+Cap_PH_fit <- dredge(Cap_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+Cap_PH_AIC <- as.data.frame(Cap_PH_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Osmeridae %O", Predator = "Pacific halibut")
 
 write.csv(Cap_PH_fit, here("output/Models/Halibut_eat_Cap_AIC.csv"), row.names = F)
 
@@ -918,10 +1011,15 @@ Cap_PC_M <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k 
 
 summary(Cap_PC_M)
 
-#Comparing Delta AIC of alternative Models
-Cap_PC_fit <- dredge(Cap_PC_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+anova(Cap_PC_M)
 
-Cap_PC_fit <- as.data.frame(Cap_PC_fit)
+#Comparing Delta AIC of alternative Models
+Cap_PC_fit <- dredge(Cap_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+Cap_PC_AIC <- as.data.frame(Cap_PC_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Osmeridae %O", Predator = "Pacific cod")
 
 write.csv(Cap_PC_fit, here("output/Models/Cod_eat_Cap_AIC.csv"), row.names = F)
 
@@ -968,12 +1066,18 @@ Cap_WP_M <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k 
                 family = binomial(link = logit),
                 method = "GCV.Cp")
 
+anova(Cap_WP_M)
+contrasts(WP$Year)
+
 summary(Cap_WP_M)
 
 #Comparing Delta AIC of alternative Models
-Cap_WP_fit <- dredge(Cap_WP_M, beta = F, evaluate = T, rank = "AIC", trace = F)
+Cap_WP_fit <- dredge(Cap_WP_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
 
-Cap_WP_fit <- as.data.frame(Cap_WP_fit)
+Cap_WP_AIC <- as.data.frame(Cap_WP_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Osmeridae %O", Predator = "Walleye pollock")
 
 write.csv(Cap_WP_fit, here("output/Models/Cod_eat_WP_AIC.csv"), row.names = F)
 
@@ -1011,19 +1115,130 @@ vis.gam(Cap_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
+#Combining AIC Tables
+Cap_AIC <- rbind(Cap_AF_AIC, Cap_PH_AIC, Cap_PC_AIC, Cap_WP_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+Cap_AIC <- Cap_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 ############################
 #---------------------------
 #############################
 
+#Combining all of the AIC tables into one
 
-#PREY: Crabs
+global_AIC <- rbind(Euph_AIC, WP_AIC, SL_AIC, Her_AIC, Cap_AIC) 
 
-
-
-
-
+write.csv(global_AIC, here("output/Models/Global_AIC.csv"), row.names = F)
 
 
+#Calculating parameter weights
+AIC_list <- list(Euph_AF_AIC, Euph_AF_AIC)
 
+
+
+######
+#FORAGE FISH AS A GROUP?
+AF <- AF %>% 
+  mutate(forage = sum(Osmerid, Ammodytidae, Clupeoidei),
+         forage = ifelse(forage > 0, 1, 0))
+
+PC_forage <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
+                data = AF,
+                family = binomial(link = logit),
+                method = "GCV.Cp")
+
+summary(forage_test)
+
+sum(test$forage)
+
+anova(Cap_WP_M)
+
+forage_fit <- dredge(forage_test, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(Cap_WP_M)
+
+#Plotting partial effects
+Cap_WP_Plot1 <- visreg(forage_test, "Year",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Capelin P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Cap_WP_Plot2 <- visreg(forage_test, "GEAR_DEPTH",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+For_PC_Plot3 <- visreg(PC_forage, "GEAR_TEMP",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Cap_WP_Plot4 <- visreg(forage_test, "Len_bin",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+vis.gam(forage_test, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Capelin Prescence in WP Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
+
+###############################
+#CRABS?
+Pan_WP_M <- gam(Copepoda ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
+                data = WP,
+                family = binomial(link = logit),
+                method = "GCV.Cp")
+colnames(AF)[colnames(AF) == "Pandalidae (shrimp)"] = "Pandalidae"
+anova(Cap_WP_M)
+contrasts(WP$Copepoda)
+
+summary(Pan_WP_M)
+
+#Comparing Delta AIC of alternative Models
+Cap_WP_fit <- dredge(Cap_WP_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+Cap_WP_AIC <- as.data.frame(Cap_WP_fit) %>% 
+  filter(delta <=2) %>% 
+  mutate(Response = "Osmeridae %O", Predator = "Walleye pollock")
+
+write.csv(Cap_WP_fit, here("output/Models/Cod_eat_WP_AIC.csv"), row.names = F)
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(Cap_WP_M)
+
+#Plotting partial effects
+Pan_WP_Plot1 <- visreg(Pan_WP_M, "Year",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Capelin P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Pan_WP_Plot2 <- visreg(Pan_WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+Pan_WP_Plot3 <- visreg(Pan_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Pan_WP_Plot4 <- visreg(Pan_WP_M, "Len_bin",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+
+Cap_WP_MainP <- (Cap_WP_Plot1 + Cap_WP_Plot2) / (Cap_WP_Plot3 + Cap_WP_Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+ggsave("WP_eat_Cap.jpg", plot = SL_PC_MainP, device = "jpg", path = here("output/Models"))
+
+vis.gam(Pan_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Capelin Prescence in WP Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
