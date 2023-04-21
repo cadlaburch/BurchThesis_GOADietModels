@@ -36,25 +36,25 @@ data <- data %>%
 data$Year <- factor(data$Year)
 
 #Check for outlier deep hauls
-depth <- data %>% 
-  distinct(Haul_Join, GEAR_DEPTH)
-plot(depth$GEAR_DEPTH, depth$Haul_Join)
-length(unique(depth$GEAR_DEPTH))
-hist(depth$GEAR_DEPTH, breaks = 495)
-boxplot(depth$GEAR_DEPTH)
-summary(depth$GEAR_DEPTH)
+# depth <- data %>% 
+#   distinct(Haul_Join, GEAR_DEPTH)
+# plot(depth$GEAR_DEPTH, depth$Haul_Join)
+# length(unique(depth$GEAR_DEPTH))
+# hist(depth$GEAR_DEPTH, breaks = 495)
+# boxplot(depth$GEAR_DEPTH)
+# summary(depth$GEAR_DEPTH)
 
-#Remove deep hauls
+#Remove deep hauls and data entry error
 data <- data %>% 
-  filter(GEAR_DEPTH <=300 & GEAR_DEPTH > 0)
+  filter(GEAR_DEPTH <= 300 & GEAR_DEPTH > 0)
 
-ggplot(data = data, aes(y = GEAR_TEMP, x = Year, color = GEAR_DEPTH))+
-  geom_point()
-
-ggplot(data = data, aes(x = GEAR_TEMP)) +
-  geom_histogram()
-
-write.csv(data, here("output/Models/ModelFilgData.csv"), row.names = F)
+# ggplot(data = data, aes(x = GEAR_TEMP, y = GEAR_DEPTH, color = Year))+
+#   geom_point()
+# 
+# ggplot(data = data, aes(x = GEAR_TEMP)) +
+#   geom_histogram()
+# 
+# write.csv(data, here("output/Models/ModelFilgData.csv"), row.names = F)
 
 #Creating a function that transforms the data into wide format based on haul and predator size class.
 haul_wide_fun <- function(data) {
@@ -117,20 +117,20 @@ samplesize[1,1] <- "Arrowtooth flounder"
 samplesize[2,1] <- "Pacific halibut"
 samplesize[3,1] <- "Pacific cod"
 samplesize[4,1] <- "Walleye pollock"
-colnames(samplesize) <- c("Predator name", "Total stomachs sampled", "Euphausiacea", "Walleyepollock", "Ammodytidae", "Clupeoidei", "Osmeridae")
+colnames(samplesize) <- c("Predator name", "Total stomachs sampled", "Euphausiacea", "Walleye pollock", "Forage Fish", "Pandalidae", "Tanner Crab")
 
 
 pred_list <- list(AF, PH, PC, WP)
-prey_list <- c("Euphausiacea", "Walleyepollock", "Ammodytidae", "Clupeoidei", "Osmeridae")
+prey_list <- c("Euphausiacea", "Walleyepollock", "Forage", "Pandalidae", "TannerCrab")
 
 for(i in 1:length(pred_list)) {
   for(j in 1:length(prey_list)) {
     samplesize[i, 2] <- nrow(pred_list[[i]]) #total stomachs
     samplesize[i, 3] <- sum(pred_list[[i]]$Euphausiacea)
     samplesize[i, 4]<- sum(pred_list[[i]]$Walleyepollock)
-    samplesize[i, 5]<- sum(pred_list[[i]]$Ammodytidae)
-    samplesize[i, 6]<- sum(pred_list[[i]]$Clupeoidei)
-    samplesize[i, 7]<- sum(pred_list[[i]]$Osmerid)
+    samplesize[i, 5]<- sum(pred_list[[i]]$Forage)
+    samplesize[i, 6]<- sum(pred_list[[i]]$Pandalidae)
+    samplesize[i, 7]<- sum(pred_list[[i]]$TannerCrab)
   }
 }
 
@@ -157,6 +157,16 @@ Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
     family = binomial(link = logit), #logistic scale
     method = "GCV.Cp")
 
+test<- data %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
+  haul_wide_fun() 
+levels(test$Len_bin) = c("<31", "31-50", "51-70", ">70")
+
+Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                 data = test,
+                 family = binomial(link = logit), #logistic scale
+                 method = "GCV.Cp")
+data$PRED_LEN
 summary(Euph_WP_M)
 
 anova(Euph_WP_M)
@@ -166,8 +176,7 @@ Euph_WP_fit <- dredge(Euph_WP_M, beta = "none", evaluate = T, rank = "AIC", trac
                       extra = c("adjR^2", "deviance"))
 
 Euph_WP_AIC <- as.data.frame(Euph_WP_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Euphausiid %O", Predator = "Walleye pollock")
+  mutate(Response = "Euphausiid ", Predator = "Walleye pollock")
 
 write.csv(Euph_WP_fit, here("output/Models/Pollock_eat_Euph_AIC.csv"), row.names = F)
 
@@ -269,10 +278,8 @@ Euph_PC_fit <- dredge(Euph_PC_M, beta = "none", evaluate = T, rank = "AIC", trac
                       extra = c("adjR^2", "deviance"))
 
 Euph_PC_AIC <- as.data.frame(Euph_PC_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Euphausiid %O", Predator = "Pacific cod")
+  mutate(Response = "Euphausiid  ", Predator = "Pacific cod")
 
-write.csv(Euph_PC_fit, here("output/Models/Cod_eat_Euph_AIC.csv"), row.names = F)
 
 # Residudal diagnostics
 par(mfrow=c(2,2))
@@ -327,8 +334,7 @@ Euph_AF_fit <- dredge(Euph_AF_M, beta = "none", evaluate = T, rank = "AIC", trac
                       extra = c("adjR^2", "deviance"))
 
 Euph_AF_AIC <- as.data.frame(Euph_AF_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Euphausiid %O", Predator = "Arrowtooth flounder")
+  mutate(Response = "Euphausiid  ", Predator = "Arrowtooth flounder")
 
 
 write.csv(Euph_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
@@ -367,13 +373,6 @@ vis.gam(Euph_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
-#Combining AIC Tables
-Euph_AIC <- rbind(Euph_AF_AIC, Euph_PC_AIC, Euph_WP_AIC) %>% 
-  mutate(deviance = deviance/100)
-
-Euph_AIC <- Euph_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
-
-
 #------------------------------
 ################################################
 #-------------------------------
@@ -394,6 +393,11 @@ WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
                  family = binomial(link = logit),
                  method = "GCV.Cp")
 
+WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                 data = test,
+                 family = binomial(link = logit), #logistic scale
+                 method = "GCV.Cp")
+
 summary(WP_AF_M)
 
 anova(WP_AF_M)
@@ -403,8 +407,7 @@ WP_AF_fit <- dredge(WP_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = 
                     extra = c("adjR^2", "deviance"))
 
 WP_AF_AIC <- as.data.frame(WP_AF_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Walleye pollock %O", Predator = "Arrowtooth flounder")
+  mutate(Response = "Walleye pollock", Predator = "Arrowtooth flounder")
 
 write.csv(WP_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
 
@@ -461,8 +464,7 @@ WP_PC_fit <- dredge(WP_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = 
                     extra = c("adjR^2", "deviance"))
 
 WP_PC_AIC <- as.data.frame(WP_PC_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Walleye pollock %O", Predator = "Pacific cod")
+  mutate(Response = "Walleye pollock", Predator = "Pacific cod")
 
 write.csv(WP_PC_fit, here("output/Models/Cod_eat_WP_AIC.csv"), row.names = F)
 
@@ -518,8 +520,7 @@ WP_PH_fit <- dredge(WP_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = 
                     extra = c("adjR^2", "deviance"))
 
 WP_PH_AIC <- as.data.frame(WP_PH_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Walleye pollock %O", Predator = "Pacific halibut")
+  mutate(Response = "Walleye pollock", Predator = "Pacific halibut")
 
 write.csv(WP_PH_fit, here("output/Models/Halibut_eat_WP_AIC.csv"), row.names = F)
 
@@ -557,11 +558,6 @@ vis.gam(WP_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
-#Combining AIC Tables
-WP_AIC <- rbind(WP_AF_AIC, WP_PH_AIC, WP_PC_AIC) %>% 
-  mutate(deviance = deviance/100)
-
-WP_AIC <- WP_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 
 ###################################
 #-----------------------------------
@@ -581,11 +577,21 @@ AF <- AF %>%
   mutate(forage = sum(Osmerid, Clupeoidei),
          forage = ifelse(forage > 0, 1, 0))
 
+test <- test %>% 
+  mutate(forage = sum(Osmerid, Clupeoidei),
+         forage = ifelse(forage > 0, 1, 0))
+
 #Full Model
 For_AF_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
                data = AF,
                family = binomial(link = logit),
                method = "GCV.Cp")
+
+For_AF_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+               data = test,
+               family = binomial(link = logit), #logistic scale
+               method = "GCV.Cp")
+
 
 summary(For_AF_M)
 
@@ -596,8 +602,7 @@ For_AF_fit <- dredge(For_AF_M, beta = "none", evaluate = T, rank = "AIC", trace 
                     extra = c("adjR^2", "deviance"))
 
 For_AF_AIC <- as.data.frame(For_AF_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Forage Fish %O", Predator = "Arrowtooth flounder")
+  mutate(Response = "Forage Fish", Predator = "Arrowtooth flounder")
 
 write.csv(SL_AF_fit, here("output/Models/AFlounder_eat_SandL_AIC.csv"), row.names = F)
 
@@ -611,15 +616,15 @@ For_AF_Plot1 <- visreg(For_AF_M, "Year",type = "conditional", scale = "response"
   theme_classic() +
   theme(axis.text.x = element_text(angle = -45))
 
-For_AF_Plot2 <- visreg(SL_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+For_AF_Plot2 <- visreg(For_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
   theme_classic() 
 
-For_AF_Plot3 <- visreg(SL_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+For_AF_Plot3 <- visreg(For_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
   theme_classic() 
 
-For_AF_Plot4 <- visreg(SL_AF_M, "Len_bin",type = "conditional", scale = "response",
+For_AF_Plot4 <- visreg(For_AF_M, "Len_bin",type = "conditional", scale = "response",
                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
   theme_classic() 
 
@@ -659,8 +664,7 @@ For_PH_fit <- dredge(For_PH_M, beta = "none", evaluate = T, rank = "AIC", trace 
                     extra = c("adjR^2", "deviance"))
 
 For_PH_AIC <- as.data.frame(For_PH_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Forage Fish %O", Predator = "Pacific halibut")
+  mutate(Response = "Forage Fish", Predator = "Pacific halibut")
 
 write.csv(For_PH_fit, here("output/Models/Halibut_eat_For_AIC.csv"), row.names = F)
 
@@ -699,13 +703,6 @@ vis.gam(For_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
 
-#Combining AIC Tables
-For_AIC <- rbind(For_AF_AIC, For_PH_AIC) %>% 
-  mutate(deviance = deviance/100)
-
-For_AIC <- For_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
-
-
 ###################################
 #-----------------------------------
 ###################################
@@ -726,6 +723,15 @@ Pan_AF_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
                 family = binomial(link = logit),
                 method = "GCV.Cp")
 
+Pan <- test %>% 
+  filter(Pred_common != "Pacific halibut")
+
+Pan_AF_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                data = Pan,
+                family = binomial(link = logit), #logistic scale
+                method = "GCV.Cp")
+
+
 summary(Pan_AF_M)
 
 anova(Pan_AF_M)
@@ -735,8 +741,7 @@ Pan_AF_fit <- dredge(Pan_AF_M, beta = "none", evaluate = T, rank = "AIC", trace 
                      extra = c("adjR^2", "deviance"))
 
 Pan_AF_AIC <- as.data.frame(Pan_AF_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Pandalidae %O", Predator = "Arrowtooth flounder")
+  mutate(Response = "Pandalidae", Predator = "Arrowtooth flounder")
 
 write.csv(Pan_AF_fit, here("output/Models/AFlounder_eat_Pan_AIC.csv"), row.names = F)
 
@@ -795,8 +800,7 @@ Pan_PC_fit <- dredge(Pan_PC_M, beta = "none", evaluate = T, rank = "AIC", trace 
                      extra = c("adjR^2", "deviance"))
 
 Pan_PC_AIC <- as.data.frame(Pan_PC_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Pandalidae %O", Predator = "Pacific Cod")
+  mutate(Response = "Pandalidae", Predator = "Pacific Cod")
 
 write.csv(Pan_PC_fit, here("output/Models/Cod_eat_Pan_AIC.csv"), row.names = F)
 
@@ -847,7 +851,7 @@ Pan_WP_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
                 method = "GCV.Cp")
 
 summary(Pan_WP_M)
-
+sum(WP$Pandalidae)
 anova(Pan_WP_M)
 
 #Comparing Delta AIC of alternative Models
@@ -855,8 +859,7 @@ Pan_WP_fit <- dredge(Pan_WP_M, beta = "none", evaluate = T, rank = "AIC", trace 
                      extra = c("adjR^2", "deviance"))
 
 Pan_WP_AIC <- as.data.frame(Pan_WP_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Pandalidae %O", Predator = "Walleye Pollock")
+  mutate(Response = "Pandalidae", Predator = "Walleye Pollock")
 
 write.csv(Pan_WP_fit, here("output/Models/WP_eat_Pan_AIC.csv"), row.names = F)
 
@@ -895,12 +898,6 @@ vis.gam(Pan_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
         xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
-#Combining AIC Tables
-Pan_AIC <- rbind(Pan_AF_AIC, Pan_PC_AIC, Pan_WP_AIC) %>% 
-  mutate(deviance = deviance/100)
-
-Pan_AIC <- Pan_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
-
 
 ###################################
 #-----------------------------------
@@ -915,11 +912,19 @@ Pan_AIC <- Pan_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 #PREY: Tanner Crab
 #Pred: Pacific Halibut
 
+TC <- test %>% 
+  filter(Pred_common == "Pacific cod" | Pred_common == "Pacific halibut")
+
 #Full Model
 TC_PH_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
                data = PH,
                family = binomial(link = logit),
                method = "GCV.Cp")
+
+TC_PH_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                data = TC,
+                family = binomial(link = logit), #logistic scale
+                method = "GCV.Cp")
 
 summary(TC_PH_M)
 
@@ -930,8 +935,7 @@ TC_PH_fit <- dredge(TC_PH_M, beta = "none", evaluate = T, rank = "AIC", trace = 
                     extra = c("adjR^2", "deviance"))
 
 TC_PH_AIC <- as.data.frame(TC_PH_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Tanner Crab %O", Predator = "Pacific Halibut")
+  mutate(Response = "Tanner Crab", Predator = "Pacific Halibut")
 
 write.csv(TC_PH_fit, here("output/Models/Halibut_eat_TC_AIC.csv"), row.names = F)
 
@@ -978,7 +982,7 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #Pred: Pacific Cod
 
 #Full Model
-TC_PC_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
+TC_PC_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ GEAR_TEMP + Len_bin,
                 data = PC,
                 family = binomial(link = logit),
                 method = "GCV.Cp")
@@ -992,8 +996,7 @@ TC_PC_fit <- dredge(TC_PC_M, beta = "none", evaluate = T, rank = "AIC", trace = 
                      extra = c("adjR^2", "deviance"))
 
 TC_PC_AIC <- as.data.frame(TC_PC_fit) %>% 
-  filter(delta <=2) %>% 
-  mutate(Response = "Tanner Crab %O", Predator = "Pacific Cod")
+  mutate(Response = "Tanner Crab", Predator = "Pacific Cod")
 
 write.csv(TC_PC_fit, here("output/Models/Cod_eat_TC_AIC.csv"), row.names = F)
 
@@ -1033,6 +1036,8 @@ vis.gam(TC_PC_M, c("RLONG", "RLAT"), plot.type = "contour", type="response",
 maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
 
 
+
+
 #Combining AIC Tables
 TC_AIC <- rbind(TC_PH_AIC, TC_PC_AIC) %>% 
   mutate(deviance = deviance/100)
@@ -1044,15 +1049,69 @@ TC_AIC <- TC_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
 #---------------------------
 #############################
 
+#Combining AIC Tables
+
+Euph_AIC <- rbind(Euph_AF_AIC, Euph_PC_AIC, Euph_WP_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+Euph_AIC <- Euph_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
+
+WP_AIC <- rbind(WP_AF_AIC, WP_PH_AIC, WP_PC_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+WP_AIC <- WP_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
+
+For_AIC <- rbind(For_AF_AIC, For_PH_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+For_AIC <- For_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
+
+Pan_AIC <- rbind(Pan_AF_AIC, Pan_PC_AIC, Pan_WP_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+Pan_AIC <- Pan_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
+
+TC_AIC <- rbind(TC_PH_AIC, TC_PC_AIC) %>% 
+  mutate(deviance = deviance/100)
+
+TC_AIC <- TC_AIC[,c(15, 14, 4, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13)]
+
+
 #Combining all of the AIC tables into one
 
 global_AIC <- rbind(Euph_AIC, WP_AIC, For_AIC, Pan_AIC, TC_AIC) 
 
-write.csv(global_AIC, here("output/Models/Global_AIC.csv"), row.names = F)
+#Calculating Parameter weights
+AIC <- global_AIC %>% 
+  group_by(Predator, Response, `s(GEAR_TEMP, k = 4)`) %>% 
+  mutate(Gear_Temp = sum(weight)) %>% 
+  ungroup() %>% 
+  group_by(Predator, Response, Len_bin) %>% 
+  mutate(Length_Bin = sum(weight)) %>% 
+  ungroup() %>% 
+  group_by(Predator, Response, `s(GEAR_DEPTH)`) %>% 
+  mutate(Gear_Depth = sum(weight)) %>% 
+  ungroup() %>% 
+  group_by(Predator, Response, `s(RLONG, RLAT)`) %>% 
+  mutate(Lat_Long = sum(weight)) %>% 
+  ungroup() %>% 
+  mutate(Year = ifelse(Year != 0, '+', 0)) %>% 
+  group_by(Predator, Response, Year) %>% 
+  mutate(Year_ = sum(weight)) %>% 
+  ungroup() %>% 
+  filter(delta <=2) 
+
+
+
+parameter_weights <- AIC %>% 
+  drop_na() %>% 
+  distinct(Predator, Response, Gear_Temp, Length_Bin, Gear_Depth, Lat_Long, Year_)
+
+write.csv(AIC, here("output/Models/Global_AIC.csv"), row.names = F)
+write.csv(parameter_weights, here("output/Models/parameter_weights.csv"), row.names = F)
 
 
 #Calculating parameter weights
 AIC_list <- list(Euph_AF_AIC, Euph_AF_AIC)
-
 
 

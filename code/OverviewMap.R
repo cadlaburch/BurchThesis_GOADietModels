@@ -24,12 +24,12 @@ box <- c(xmin = -172,
 
 ggplot() + 
   geom_sf(data = land, fill = "grey") +
-  geom_sf(data = mapdata, size = 0.01, aes(color = Year)) +
-  scale_color_binned()
+  geom_sf(data = mapdata, size = 0.01, color = "red") +
   theme_void() + 
   coord_sf(xlim = c(box$xmin, box$xmax),
            ylim = c(box$ymin, box$ymax),
-           expand = TRUE) 
+           expand = TRUE) +
+  theme(panel.background = element_rect(fill = "#fef2ea"))
 
 
        
