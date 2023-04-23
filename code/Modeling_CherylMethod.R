@@ -68,6 +68,8 @@ haul_wide_fun <- function(data) {
     pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% #create wide dataframe with a column for each prey type
     rename(Walleyepollock = 'Walleye pollock', TannerCrab = 'Tanner Crab',
            Crangonidae = 'Crangonidae (shrimp)', Pandalidae = `Pandalidae (shrimp)`) %>% #rename (this was an issue for running the walleyepollock prey model below)
+    mutate(forage = sum(Osmerid, Clupeoidei),
+           forage = ifelse(forage > 0, 1, 0)) %>% 
     na.omit() #remove missing environmental data
 }
 
@@ -87,28 +89,30 @@ WP <- data %>%
   filter(Pred_common == "Walleye pollock") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>%
   haul_wide_fun() 
-levels(WP$Len_bin) = c("<25", "25-39", "40-54", ">54")
+levels(WP$Len_bin) = c("1", "2", "3", "4")
 
 PH <- data %>% 
   filter(Pred_common == "Pacific halibut") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
-  haul_wide_fun() 
-levels(PH$Len_bin) = c("<31", "31-50", "51-70", ">70")
+  haul_wide_fun()  
+levels(PH$Len_bin) = c("1", "2", "3", "4")
 
 #Note: I couldn't find the sampling bins for PC so I made it the same as WP
 PC <- data %>% 
   filter(Pred_common == "Pacific cod") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 24, 39, 54, 1000))) %>% 
-  haul_wide_fun()
-levels(PC$Len_bin) = c("<25", "25-39", "40-54", ">54")
+  haul_wide_fun() 
+levels(PC$Len_bin) = c("1", "2", "3", "4")
 
 AF <- data %>% 
   filter(Pred_common == "Arrowtooth flounder") %>% 
   mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
-  haul_wide_fun() 
-levels(AF$Len_bin) = c("<31", "31-50", "51-70", ">70")
+  haul_wide_fun()  
+levels(AF$Len_bin) = c("1", "2", "3", "4")
 
 
+#creating dataframe with all predators
+all_pred <- rbind(WP, PH, PC, AF)
 #-----
 # #Sample sizes
 
@@ -128,7 +132,7 @@ for(i in 1:length(pred_list)) {
     samplesize[i, 2] <- nrow(pred_list[[i]]) #total stomachs
     samplesize[i, 3] <- sum(pred_list[[i]]$Euphausiacea)
     samplesize[i, 4]<- sum(pred_list[[i]]$Walleyepollock)
-    samplesize[i, 5]<- sum(pred_list[[i]]$Forage)
+    samplesize[i, 5]<- sum(pred_list[[i]]$forage)
     samplesize[i, 6]<- sum(pred_list[[i]]$Pandalidae)
     samplesize[i, 7]<- sum(pred_list[[i]]$TannerCrab)
   }
@@ -147,6 +151,72 @@ write.csv(samplesize, here("output/summary_tables/samplesizemodels.csv"), row.na
 #                                                  #
 #                                                 #
 ################################################### 
+#Model with predators included as a predictor
+#Full Model
+
+Euph <- all_pred %>% 
+  filter(Pred_common != "Pacific halibut") 
+
+Euph_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                 data = Euph,
+                 family = binomial(link = logit), #logistic scale
+                 method = "GCV.Cp")
+
+summary(Euph_M)
+
+anova(Euph_M)
+
+#Comparing Delta AIC of alternative Models
+Euph_fit <- dredge(Euph_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                      extra = c("adjR^2", "deviance"))
+
+Euph_AIC <- as.data.frame(Euph_fit) %>% 
+  mutate(Response = "Euphausiid ", Predator = "Walleye pollock")
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(Euph_WP_M)
+concurvity(Euph_WP_M, full = T)
+concurvity(Euph_WP_M, full = F)
+sum(residuals(Euph_M, type = "pearson")^2) / df.residual(Euph_M)
+
+#Plotting partial effects
+Euph_Plot1 <- visreg(Euph_M, "Year",type = "conditional", scale = "response", #scale creates plot based on probability not log odds
+                        gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Euphausiacea P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Euph_Plot2 <- visreg(Euph_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+Euph_Plot3 <- visreg(Euph_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Euph_WP_Plot4 <- visreg(Euph_M, "Len_bin",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+Euph_Plot5 <- visreg(Euph_M, "Pred_common",type = "conditional", scale = "response",
+                    gg = TRUE, line=list(col="black"), xlab = "Pred_common", ylab = "") +
+  theme_classic() 
+
+
+Euph_WP_MainP <- (Euph_WP_Plot1 + Euph_WP_Plot2) / (Euph_WP_Plot3 + Euph_WP_Plot4) + 
+  plot_annotation(title = "Predator: Walleye Pollock") + 
+  ylab("label")
+
+ggsave("pollock_eat_euph.jpg", plot = Euph_WP_MainP, device = "jpg", path = here("output/Models"))
+
+
+Euph_WP_Map <- vis.gam(Euph_WP_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+                       contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+                       main="Walleye pollock", too.far=0.025, n.grid=250, 
+                       xlim=c(lonmin, lonmax), ylim=c(latmin, latmax)) 
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T, col="lightgrey")
+
+
 
 #PREY:  EUPHAUSIACEA
 #PRED: Walleye Pollock
@@ -157,16 +227,6 @@ Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TE
     family = binomial(link = logit), #logistic scale
     method = "GCV.Cp")
 
-test<- data %>% 
-  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 31, 50, 70, 1000))) %>% 
-  haul_wide_fun() 
-levels(test$Len_bin) = c("<31", "31-50", "51-70", ">70")
-
-Euph_WP_M <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
-                 data = test,
-                 family = binomial(link = logit), #logistic scale
-                 method = "GCV.Cp")
-data$PRED_LEN
 summary(Euph_WP_M)
 
 anova(Euph_WP_M)
@@ -199,6 +259,10 @@ Euph_WP_Plot2 <- visreg(Euph_WP_M, "GEAR_DEPTH",type = "conditional", scale = "r
 
 Euph_WP_Plot3 <- visreg(Euph_WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
        gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Euph_WP_Plot <- visreg(Euph_WP_M, "Pred_common",type = "conditional", scale = "response",
+                        gg = TRUE, line=list(col="black"), xlab = "Pred_common", ylab = "") +
   theme_classic() 
 
 Euph_WP_Plot4 <- visreg(Euph_WP_M, "Len_bin",type = "conditional", scale = "response",
@@ -384,53 +448,51 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #                                                 #
 ################################################### 
 
-#PREY: Walleyepollock
-#PRED: Arrowtooth flounder
+#ALL PRED MODEL
+WPrey <- all_pred %>% 
+  filter(Pred_common != "Walleye pollock") 
 
 #Full Model
-WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
-                 data = AF,
-                 family = binomial(link = logit),
-                 method = "GCV.Cp")
-
-WP_AF_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
-                 data = test,
+WP_M <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                 data = WPrey,
                  family = binomial(link = logit), #logistic scale
                  method = "GCV.Cp")
 
-summary(WP_AF_M)
+summary(WP_M)
 
-anova(WP_AF_M)
+anova(WP_M)
 
 #Comparing Delta AIC of alternative Models
-WP_AF_fit <- dredge(WP_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+WP_fit <- dredge(WP_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
                     extra = c("adjR^2", "deviance"))
 
-WP_AF_AIC <- as.data.frame(WP_AF_fit) %>% 
+WP_AIC <- as.data.frame(WP_fit) %>% 
   mutate(Response = "Walleye pollock", Predator = "Arrowtooth flounder")
-
-write.csv(WP_AF_fit, here("output/Models/AFlounder_eat_Euph_AIC.csv"), row.names = F)
 
 # Residudal diagnostics
 par(mfrow=c(2,2))
-gam.check(WP_AF_M)
+gam.check(WP_M)
 
 #Plotting partial effects
-WP_AF_Plot1 <- visreg(WP_AF_M, "Year",type = "conditional", scale = "response",
+WP_Plot1 <- visreg(WP_M, "Year",type = "conditional", scale = "response",
                         gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Pollock P/A") +
   theme_classic() +
   theme(axis.text.x = element_text(angle = -45))
 
-WP_AF_Plot2 <- visreg(WP_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+WP_Plot2 <- visreg(WP_M, "GEAR_DEPTH",type = "conditional", scale = "response",
                         gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
   theme_classic() 
 
-WP_AF_Plot3 <- visreg(WP_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
+WP_Plot3 <- visreg(WP_M, "GEAR_TEMP",type = "conditional", scale = "response",
                         gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
   theme_classic() 
 
-WP_AF_Plot4 <- visreg(WP_AF_M, "Len_bin",type = "conditional", scale = "response",
+WP_Plot4 <- visreg(WP_M, "Len_bin",type = "conditional", scale = "response",
                         gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+WP_Plot5 <- visreg(WP_M, "Pred_common",type = "conditional", scale = "response",
+                      gg = TRUE, line=list(col="black"), xlab = "Pred_common", ylab = "") +
   theme_classic() 
 
 
@@ -568,30 +630,77 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #                                                  #
 #                                                 #
 ################################################### 
+#All preds
+
+For <- all_pred %>% 
+  filter(Pred_common == "Arrowtooth flounder" | Pred_common == "Pacific halibut")
+
+For_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                data = For,
+                family = binomial(link = logit),
+                method = "GCV.Cp")
+
+summary(For_M)
+
+anova(For_M)
+
+#Comparing Delta AIC of alternative Models
+For_fit <- dredge(For_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+For_AIC <- as.data.frame(For_fit) %>% 
+  mutate(Response = "Forage Fish", Predator = "Arrowtooth flounder")
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(For_M)
+
+#Plotting partial effects
+For_Plot1 <- visreg(For_M, "Year",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Forage Fish P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+For_Plot2 <- visreg(For_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+For_Plot3 <- visreg(For_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+For_Plot4 <- visreg(For_M, "Len_bin",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+For_Plot5 <- visreg(For_M, "Pred_common",type = "conditional", scale = "response",
+                    gg = TRUE, line=list(col="black"), xlab = "Pred_common", ylab = "") +
+  theme_classic() 
 
 
-#PREY: Forage fish(Osmerid/Clupeoidei)
-#Pred: Arrowtooth Flounder
+For_MainP <- (For_AF_Plot1 + For_AF_Plot2) / (For_AF_Plot3 + For_AF_Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
 
-AF <- AF %>% 
-  mutate(forage = sum(Osmerid, Clupeoidei),
-         forage = ifelse(forage > 0, 1, 0))
+ggsave("AFlounder_eat_For.jpg", plot = For_AF_MainP, device = "jpg", path = here("output/Models"))
 
-test <- test %>% 
-  mutate(forage = sum(Osmerid, Clupeoidei),
-         forage = ifelse(forage > 0, 1, 0))
+
+vis.gam(For_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Forage Fish Prescence in AFlounder Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
+
+
+
+#-------------------
+#PREDATOR: Arrowtooth flounder
+#PREY: Forage Fish
 
 #Full Model
 For_AF_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
-               data = AF,
-               family = binomial(link = logit),
-               method = "GCV.Cp")
-
-For_AF_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
-               data = test,
-               family = binomial(link = logit), #logistic scale
-               method = "GCV.Cp")
-
+                data = AF,
+                family = binomial(link = logit),
+                method = "GCV.Cp")
 
 summary(For_AF_M)
 
@@ -599,7 +708,7 @@ anova(For_AF_M)
 
 #Comparing Delta AIC of alternative Models
 For_AF_fit <- dredge(For_AF_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
-                    extra = c("adjR^2", "deviance"))
+                     extra = c("adjR^2", "deviance"))
 
 For_AF_AIC <- as.data.frame(For_AF_fit) %>% 
   mutate(Response = "Forage Fish", Predator = "Arrowtooth flounder")
@@ -612,20 +721,20 @@ gam.check(For_AF_M)
 
 #Plotting partial effects
 For_AF_Plot1 <- visreg(For_AF_M, "Year",type = "conditional", scale = "response",
-                      gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Forage Fish P/A") +
+                       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Forage Fish P/A") +
   theme_classic() +
   theme(axis.text.x = element_text(angle = -45))
 
 For_AF_Plot2 <- visreg(For_AF_M, "GEAR_DEPTH",type = "conditional", scale = "response",
-                      gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
   theme_classic() 
 
 For_AF_Plot3 <- visreg(For_AF_M, "GEAR_TEMP",type = "conditional", scale = "response",
-                      gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
   theme_classic() 
 
 For_AF_Plot4 <- visreg(For_AF_M, "Len_bin",type = "conditional", scale = "response",
-                      gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
   theme_classic() 
 
 
@@ -646,10 +755,6 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #-----------------
 #PRED: Pacific halibut
 #Full Model
-PH <- PH %>% 
-  mutate(forage = sum(Osmerid, Clupeoidei),
-         forage = ifelse(forage > 0, 1, 0))
-
 For_PH_M <- gam(forage ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
                data = PH,
                family = binomial(link = logit),
@@ -713,7 +818,77 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #                                                 #
 ################################################### 
 
+#All Predators
+Pan <- all_pred %>% 
+  filter(Pred_common != "Pacific halibut")
 
+
+Pan_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
+                data = Pan,
+                family = binomial(link = logit),
+                method = "GCV.Cp")
+
+Pan <- test %>% 
+  filter(Pred_common != "Pacific halibut")
+
+Pan_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+                data = Pan,
+                family = binomial(link = logit), #logistic scale
+                method = "GCV.Cp")
+
+
+summary(Pan_M)
+
+anova(Pan_M)
+
+#Comparing Delta AIC of alternative Models
+Pan_fit <- dredge(Pan_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                     extra = c("adjR^2", "deviance"))
+
+Pan_AIC <- as.data.frame(Pan_fit) %>% 
+  mutate(Response = "Pandalidae", Predator = "Arrowtooth flounder")
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(Pan_M)
+
+#Plotting partial effects
+Pan_Plot1 <- visreg(Pan_M, "Year",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "Partial Effect on Pandalidae P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Pan_Plot2 <- visreg(Pan_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+Pan_Plot3 <- visreg(Pan_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+Pan_Plot4 <- visreg(Pan_M, "Len_bin",type = "conditional", scale = "response",
+                       gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+Pan_Plot4 <- visreg(Pan_M, "Pred_common",type = "conditional", scale = "response",
+                    gg = TRUE, line=list(col="black"), xlab = "Pred_common", ylab = "") +
+  theme_classic() 
+
+
+Pan_AF_MainP <- (Pan_AF_Plot1 + Pan_AF_Plot2) / (Pan_AF_Plot3 + Pan_AF_Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+ggsave("AFlounder_eat_Pan.jpg", plot = Pan_AF_MainP, device = "jpg", path = here("output/Models"))
+
+
+vis.gam(Pan_AF_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Pandalidae Prescence in AFlounder Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
+
+
+#-----------------
 #PREY: Pandalidae
 #Pred: Arrowtooth Flounder
 
@@ -722,15 +897,6 @@ Pan_AF_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP,
                 data = AF,
                 family = binomial(link = logit),
                 method = "GCV.Cp")
-
-Pan <- test %>% 
-  filter(Pred_common != "Pacific halibut")
-
-Pan_AF_M <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
-                data = Pan,
-                family = binomial(link = logit), #logistic scale
-                method = "GCV.Cp")
-
 
 summary(Pan_AF_M)
 
@@ -908,23 +1074,73 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #                                                  #
 #                                                 #
 ################################################### 
+#ALL PREDS
+TC <- all_pred %>% 
+  filter(Pred_common == "Pacific cod" | Pred_common == "Pacific halibut")
+
+#Full Model
+TC_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
+               data = TC,
+               family = binomial(link = logit), #logistic scale
+               method = "GCV.Cp")
+
+summary(TC_M)
+
+anova(TC_M)
+
+#Comparing Delta AIC of alternative Models
+TC_fit <- dredge(TC_M, beta = "none", evaluate = T, rank = "AIC", trace = F, 
+                    extra = c("adjR^2", "deviance"))
+
+TC_AIC <- as.data.frame(TC_fit) %>% 
+  mutate(Response = "Tanner Crab", Predator = "Pacific Halibut")
+
+write.csv(TC_fit, here("output/Models/Halibut_eat_TC_AIC.csv"), row.names = F)
+
+# Residudal diagnostics
+par(mfrow=c(2,2))
+gam.check(TC_M)
+
+#Plotting partial effects
+TC_Plot1 <- visreg(TC_M, "Year",type = "conditional", scale = "response",
+                      gg = TRUE, line=list(col="red"), xlab = "Year", ylab = "Partial Effect on Tanner Crab P/A") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45)) +
+  TC_PC_Plot1
+
+TC_Plot2 <- visreg(TC_M, "GEAR_DEPTH",type = "conditional", scale = "response",
+                      gg = TRUE, line=list(col="black"), xlab = "Gear_Depth", ylab = "") +
+  theme_classic() 
+
+TC_Plot3 <- visreg(TC_M, "GEAR_TEMP",type = "conditional", scale = "response",
+                      gg = TRUE, line=list(col="black"), xlab = "Gear_temp", ylab = "") +
+  theme_classic() 
+
+TC_Plot4 <- visreg(TC_M, "Len_bin",type = "conditional", scale = "response",
+                      gg = TRUE, line=list(col="black"), xlab = "Len_bin", ylab = "") +
+  theme_classic() 
+
+
+TC_MainP <- (TC_Plot1 + TC_Plot2) / (TC_Plot3 + TC_Plot4) + 
+  plot_annotation(title = "Predator: P Cod") 
+
+
+vis.gam(TC_PH_M, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="Tanner Crab Prescence in Halibut Stom", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax))
+maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add=T, col="lightgrey")
+
+
 #----------------------------------
 #PREY: Tanner Crab
 #Pred: Pacific Halibut
-
-TC <- test %>% 
-  filter(Pred_common == "Pacific cod" | Pred_common == "Pacific halibut")
 
 #Full Model
 TC_PH_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
                data = PH,
                family = binomial(link = logit),
                method = "GCV.Cp")
-
-TC_PH_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin + Pred_common,
-                data = TC,
-                family = binomial(link = logit), #logistic scale
-                method = "GCV.Cp")
 
 summary(TC_PH_M)
 
@@ -982,7 +1198,7 @@ maps::map('worldHires', fill=T, xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), 
 #Pred: Pacific Cod
 
 #Full Model
-TC_PC_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ GEAR_TEMP + Len_bin,
+TC_PC_M <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH)+ s(GEAR_TEMP, k = 4) + Len_bin,
                 data = PC,
                 family = binomial(link = logit),
                 method = "GCV.Cp")
