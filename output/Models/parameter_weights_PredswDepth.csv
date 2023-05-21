@@ -1,0 +1,6 @@
+"Predators","Response","Gear_Temp","Gear_Depth","Lat_Long","Year","Length_Bin","Preds"
+"Arrowtooth flounder, Pacific cod, Walleye pollock","Euphausiid ",0.999264691891631,1,1,1,0.99601118116334,1
+"Arrowtooth flounder, Pacific halibut, Pacific cod","Walleye pollock",0.998023476502651,0.999999975365865,1,1,1,1
+"Arrowtooth flounder, Pacific halibut","Forage Fish",0.594973386197125,0.999995175781753,1,1,0.999999978630058,1
+"Arrowtooth flounder, Pacific cod, Walleye pollock","Pandalidae",0.870449610808179,1,1,1,1,1
+"Pacific halibut, Pacific cod","Tanner Crab",0.276659586399314,1,1,1,1,0.999999996429858

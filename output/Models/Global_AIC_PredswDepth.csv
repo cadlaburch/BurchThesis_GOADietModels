@@ -1,0 +1,8 @@
+Predators,Response,"s(GEAR_TEMP, k = 4)",Len_bin,Pred_common,s(GEAR_DEPTH),"s(RLONG, RLAT)",Year,adjR^2,deviance,df,logLik,AIC,delta,weight,Gear_Temp,Length_Bin,Gear_Depth,Preds,Lat_Long,YearP
+"Arrowtooth flounder, Pacific cod, Walleye pollock",Euphausiid ,+,+,+,+,+,+,0.32,110.55,55.00,-5527.35,11165.98,0.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+"Arrowtooth flounder, Pacific halibut, Pacific cod",Walleye pollock,+,+,+,+,+,+,0.30,71.20,54.00,-3559.79,7229.30,0.00,1.00,1.00,1.00,1.00,1.00,1.00,1.00
+"Arrowtooth flounder, Pacific halibut",Forage Fish,+,+,+,+,+,+,0.24,47.98,45.00,-2399.05,4888.54,0.00,0.59,0.59,1.00,1.00,1.00,1.00,1.00
+"Arrowtooth flounder, Pacific halibut",Forage Fish,NA,+,+,+,+,+,0.24,48.02,43.00,-2400.83,4889.31,0.77,0.41,0.41,1.00,1.00,1.00,1.00,1.00
+"Arrowtooth flounder, Pacific cod, Walleye pollock",Pandalidae,+,+,+,+,+,+,0.28,93.00,54.00,-4650.16,9409.20,0.00,0.87,0.87,1.00,1.00,1.00,1.00,1.00
+"Pacific halibut, Pacific cod",Tanner Crab,NA,+,+,+,+,+,0.28,56.07,50.00,-2803.72,5708.00,0.00,0.72,0.72,1.00,1.00,1.00,1.00,1.00
+"Pacific halibut, Pacific cod",Tanner Crab,+,+,+,+,+,+,0.28,56.07,51.00,-2803.60,5709.93,1.92,0.28,0.28,1.00,1.00,1.00,1.00,1.00
