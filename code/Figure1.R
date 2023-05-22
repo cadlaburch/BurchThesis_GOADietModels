@@ -58,7 +58,8 @@ Figure1 <- ggplot() +
   annotate("text", x = -156.8, y = 53.5, label = "Chirikof") +
   annotate("text", x = -151.5, y = 55.2, label = "Kodiak") +
   annotate("text", x = -144, y = 57.5, label = "Yakutat") +
-  annotate("text", x = -137, y = 55, label = "SE") 
+  annotate("text", x = -137, y = 55, label = "SE") +
+  theme(text = element_text(family = "Times New Roman"))
 
 #Export figure
 ggsave(plot = Figure1, device = png, path = here("output/Figures"), filename = "Figure1.png", dpi = 300)
