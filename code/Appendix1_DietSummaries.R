@@ -11,6 +11,8 @@ library(tidyverse)
 focal <- read_csv(here("data/data.csv"))
 allpred <- read_csv(here("data/all_pred_data.csv"))
 
+length(unique(allpred$uniqueID))
+class(allpred$uniqueID)
 #-------------- Appendix 1 -------------
 #Calculate Percent weight by species and year
 APX1 <- focal %>% 
@@ -410,7 +412,7 @@ APX3Plot5 <- APX3 %>%
 
 ggsave(plot = APX3Plot5, device = png, path = here("output/Appendix"), filename = "APX3Plot5.png", dpi = 300,
        height = 8, width = 14)
-
+class(POP$uniqueID)
 #Plot 6: Paguridae
 APX3Plot6 <- APX3 %>% 
   filter(Prey_Name == "Paguridae") %>% 
@@ -464,6 +466,189 @@ APX3Plot8 <- APX3 %>%
 
 ggsave(plot = APX3Plot8, device = png, path = here("output/Appendix"), filename = "APX3Plot8.png", dpi = 300,
        height = 8, width = 14)
+
+
+
+#------------ Appendix 4 ------------
+#This section creates general diet summaries for the other predators sampled by the bottom trawl
+
+#SABLEFISH
+#calculate percent weight and sample size based on sablefish specific prey groups
+sable <- allpred %>% 
+  filter(Pred_common == "Sablefish") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 40, 50, 60, 70, 280))) %>% 
+  group_by(Len_bin) %>% 
+  mutate(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin, sable_group) %>% 
+  mutate(PreyWt = sum(PREY_TWT), PW = (PreyWt/TotalWt)*100) %>% 
+  distinct(Pred_common, Len_bin, sable_group, PW, n)
+levels(sable$Len_bin) <- c("<40", "40-50", "51-60", "61-70", ">70")
+
+#colors for plot
+colorlistS <-c('#8A0000', '#fc8d59', '#fdcc8a', '#fef0d9', 
+                        '#c51b8a', '#fa9fb5', '#fde0dd',
+                      'white', 
+                      '#f1eef6','#a6bddb', '#0570b0', '#034e7b', 'black')
+
+#Ordering the prey items
+sable$sable_group <- factor(sable$sable_group, 
+                               levels = c("Arthropoda", "benthic invertebrate", "euphausiids", "zooplankton", 
+                                          "squid", "jellyfish","octopus",
+                                          "other",
+                                          "cod", "walleye pollock", "forage fish", "other fish", "offal"))
+
+#Plot diet figure
+APX4Plot1 <- sable %>% 
+  ggplot( aes(x = Len_bin, y = PW, fill = sable_group)) +
+  geom_bar(stat = "identity", show.legend = T) +  
+  geom_text(aes(x = Len_bin, y = 103, label = n), color = '#b30000') +
+  scale_fill_manual(values = colorlistS, name = "Prey Groupings") +
+  labs(x = "Predator length (cm)", y = "Percent weight", title = "Sablefish Diet") +
+  scale_x_discrete(guide = guide_axis(angle = 30)) +
+  scale_y_continuous(expand = c(0,2)) +
+  theme_minimal() +
+  theme(text = element_text(family = "Times New Roman"),
+        strip.text = element_text(size = 12, face = "bold"))
+
+#save figure
+ggsave(plot = APX4Plot1, device = png, path = here("output/Appendix"), filename = "APX4Plot1.png", dpi = 300,
+       height = 4, width = 5)
+
+unique(allpred$Pred_common)
+
+
+#-------
+#Atka mackerel
+#calculate percent weight and sample size based on sablefish specific prey groups
+atka <- allpred %>% 
+  filter(Pred_common == "Atka mackerel") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 40, 280))) %>% 
+  group_by(Len_bin) %>% 
+  mutate(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin, atka_group) %>% 
+  mutate(PreyWt = sum(PREY_TWT), PW = (PreyWt/TotalWt)*100) %>% 
+  distinct(Pred_common, Len_bin, atka_group, PW, n)
+levels(atka$Len_bin) <- c("<40", ">40")
+
+#colors for plot
+colorlistA <-c('#e34a33', '#fdcc8a', '#fef0d9',
+                        'white')
+                        
+#Ordering the prey items
+atka$atka_group <- factor(atka$atka_group, 
+                            levels = c("copepod", "euphausiids", "zooplankton", 
+                                       "other"))
+
+#Plot diet figure
+APX4Plot2 <- atka %>% 
+  ggplot( aes(x = Len_bin, y = PW, fill = atka_group)) +
+  geom_bar(stat = "identity", show.legend = T) +  
+  geom_text(aes(x = Len_bin, y = 103, label = n), color = '#b30000') +
+  scale_fill_manual(values = colorlistA, name = "Prey Groupings") +
+  labs(x = "Predator length (cm)", y = "Percent weight", title = "Atka Mackerel Diet") +
+  scale_x_discrete(guide = guide_axis(angle = 30)) +
+  scale_y_continuous(expand = c(0,2)) +
+  theme_minimal() +
+  theme(text = element_text(family = "Times New Roman"),
+        strip.text = element_text(size = 12, face = "bold"))
+
+#save figure
+ggsave(plot = APX4Plot2, device = png, path = here("output/Appendix"), filename = "APX4Plot2.png", dpi = 300,
+       height = 4, width = 5)
+
+
+
+#-------
+#Pacific Ocean Perch
+#calculate percent weight and sample size based on sablefish specific prey groups
+POP <- allpred %>% 
+  filter(Pred_common == "Pacific ocean perch") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 280))) %>% 
+  group_by(Len_bin) %>% 
+  mutate(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin, POP_grouping) %>% 
+  mutate(PreyWt = sum(PREY_TWT), PW = (PreyWt/TotalWt)*100) %>% 
+  distinct(Pred_common, Len_bin, POP_grouping, PW, n)
+levels(POP$Len_bin) <- c("<20","20-30", "31-40", ">40")
+
+#Colors for plot
+colorlistP<-c('#8A0000', '#e34a33', '#fc8d59', '#fdcc8a', '#fef0d9', 'white', 
+                       '#a6bddb',  '#034e7b')
+                      
+#Ordering the prey items
+POP$POP_grouping <- factor(POP$POP_grouping, 
+                               levels = c("Arthropoda", "copepod", "benthic invertebrate", "euphausiids","zooplankton",
+                                          "other",
+                                          "walleye pollock","salmon","rockfish", "forage fish", "other fish"))
+
+#Plot diet figure
+POP %>% 
+  ggplot( aes(x = Len_bin, y = PW, fill = POP_grouping)) +
+  geom_bar(stat = "identity", show.legend = T) +  
+  geom_text(aes(x = Len_bin, y = 103, label = n), color = '#b30000') +
+  scale_fill_manual(values = colorlistP, name = "Prey Groupings") +
+  labs(x = "Predator length (cm)", y = "Percent weight", title = "Pacific Ocean Perch Diet") +
+  scale_x_discrete(guide = guide_axis(angle = 30)) +
+  scale_y_continuous(expand = c(0,2)) +
+  theme_minimal() +
+  theme(text = element_text(family = "Times New Roman"),
+        strip.text = element_text(size = 12, face = "bold"))
+
+
+
+#What other predators have been surveyed
+test <- allpred %>% 
+  group_by(Pred_common) %>% 
+  mutate(n = length(unique(uniqueID))) %>% 
+  distinct(Pred_common, n)
+
+#--------
+#Flathead Sole
+#calculate percent weight and sample size based on sablefish specific prey groups
+Flathead <- allpred %>% 
+  filter(Pred_common == "Flathead sole") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 280))) %>% 
+  group_by(Len_bin) %>% 
+  mutate(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin, flathead_groupings) %>% 
+  mutate(PreyWt = sum(PREY_TWT), PW = (PreyWt/TotalWt)*100) %>% 
+  distinct(Pred_common, Len_bin, flathead_groupings, PW, n)
+levels(POP$Len_bin) <- c("<20","20-30", "31-40", ">40")
+
+#Colors for plot
+colorlistF<-c('#8A0000', "#C80000", '#fc8d59', '#fdcc8a', '#fef0d9', 
+                       "#7a0177", "#c51b8a", "#f768a1", "#fa9fb5", "#fcc5c0", 
+                       'white', 
+                       '#034e7b')
+                       
+#Ordering the prey items
+Flathead$flathead_groupings <- factor(Flathead$flathead_groupings, 
+                           levels = c("Arthropoda","commercial crab", "benthic invertebrate", "euphausiids","zooplankton",
+                                      "Bivalvia", "brittle star", "Crangonidae", "Paguridae", "Pandalidae",
+                                      "other",
+                                      "other fish"))
+
+#Plot diet figure
+Flathead %>% 
+  ggplot( aes(x = Len_bin, y = PW, fill = flathead_groupings)) +
+  geom_bar(stat = "identity", show.legend = T) +  
+  geom_text(aes(x = Len_bin, y = 103, label = n), color = '#b30000') +
+  scale_fill_manual(values = colorlistF, name = "Prey Groupings") +
+  labs(x = "Predator length (cm)", y = "Percent weight", title = "Pacific Ocean Perch Diet") +
+  scale_x_discrete(guide = guide_axis(angle = 30)) +
+  scale_y_continuous(expand = c(0,2)) +
+  theme_minimal() 
+
+
+
+
+
+
+
 
 
 

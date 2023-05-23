@@ -16,7 +16,7 @@ f2data <- f2data %>%
   mutate(n = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   group_by(Pred_common, Len_bin_SB, stock_groupings) %>% 
-  summarise(TotalWt = sum(PREY_TWT), n = unique(n))  %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = length(n))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
 #ordering the length bins
@@ -69,7 +69,7 @@ f2data <- f2data %>%
   mutate(n = length(unique(uniqueID))) %>% 
   ungroup() %>% 
   group_by(Pred_common, Len_bin_SB, gam_grouping) %>% 
-  summarise(TotalWt = sum(PREY_TWT), n = unique(n))  %>% 
+  summarise(TotalWt = sum(PREY_TWT), n = length(n))  %>% 
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
 colorlist<-c("#C80000", '#fc8d59','#fdcc8a', '#fef0d9', 'white',

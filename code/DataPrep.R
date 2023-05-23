@@ -25,8 +25,10 @@ data <- data %>%
 #remove empty stomachs and create unique stomach ID
 data <- data %>% 
   filter(Prey_Name != "Empty") %>% 
-  mutate(uniqueID = paste(Haul_Join, PRED_NODC, PRED_SPECN, sep = ""))
+  mutate(uniqueID = paste("ID", Haul_Join, PRED_NODC, PRED_SPECN, sep = ""))
 
+class(data$uniqueID)
+length(unique(data$uniqueID))
 #change year to factor
 data$Year <- factor(data$Year)
 
