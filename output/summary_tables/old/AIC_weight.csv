@@ -1,0 +1,18 @@
+Prey,Predator,Lat_Long,Gear_Depth,Gear_Temp,Predator_Length,YearP
+Euphausiacea,Walleye pollock,1,1,1,1,1
+Euphausiacea,Pacific Cod,1,1,1,1,1
+Euphausiacea,Arrowtooth Flounder,1,1,0.92,1,1
+Walleye pollock,Pacific halibut,1,1,1,1,1
+Walleye pollock,Pacific cod,1,0.99,0.67,1,1
+Walleye pollock,Arrowtooth flounder,1,1,0.96,1,1
+Pandalidae,Walleye pollock,1,1,0.90,1,1
+Pandalidae,Pacific cod,1,1,1,1,1
+Pandalidae,Arrowtooth flounder,1,1,0.50,1,1
+Clupeidei,Pacific halibut,1,0.92,0.30,1,1
+Clupeidei,Arrowtooth flounder,1,0.40,0.43,1,1
+Osmerid,Pacific halibut,1,1,0.84,1,1
+Osmerid,Arrowtooth flounder,1,1,0.99,1,1
+Tanner crab,Pacific halibut,1,1,0.79,1,1
+Tanner crab,Pacific cod,1,1,1,1,1
+Paguridae,Pacific halibut,1,1,1,1,1
+Paguridae,Pacific cod,1,1,1,1,1

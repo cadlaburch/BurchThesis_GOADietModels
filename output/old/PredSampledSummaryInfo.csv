@@ -1,0 +1,249 @@
+,Pred_name,Com_name,F,E,T,% Empty,min,max,Mean,+/-SD,year
+1,Anoplopoma fimbria,sablefish,59,80,139,57.55395683,29,67,53.37288136,4.280970629,1999
+2,Atheresthes stomias,arrowtooth flounder,499,536,1035,51.78743961,9,80,39.60521042,6.863018089,1999
+3,Gadus chalcogrammus,walleye pollock,497,43,540,7.962962963,10,69,38.65794769,7.982082099,1999
+4,Gadus macrocephalus,Pacific cod,453,1,454,0.220264317,14,104,53.98454746,7.188782276,1999
+5,Hemitripterus bolini,bigmouth sculpin,1,0,1,0,64,64,64,NA,1999
+6,Hippoglossoides elassodon,flathead sole,10,6,16,37.5,17,36,26.9,3.095247253,1999
+7,Hippoglossus stenolepis,Pacific halibut,134,35,169,20.71005917,17,114,52.67164179,9.71661938,1999
+8,Lepidopsetta bilineata,rock sole,63,43,106,40.56603774,15,50,34,3.729784219,1999
+9,Lepidopsetta polyxystra,northern rock sole,36,21,57,36.84210526,17,41,28.69444444,3.093355655,1999
+10,Limanda aspera,yellowfin sole,44,16,60,26.66666667,15,42,27.63636364,3.82630265,1999
+11,Pleurogrammus monopterygius,Atka mackerel,13,18,31,58.06451613,37,51,47.15384615,1.800996875,1999
+12,Sebastes borealis,shortraker rockfish,1,40,41,97.56097561,42,42,42,NA,1999
+13,Sebastes zacentrus,sharpchin rockfish,6,0,6,0,19,27,23.66666667,1.538397435,1999
+14,Albatrossia pectoralis,giant grenadier,17,8,25,32,27,35,31.41176471,1.076145081,2001
+15,Anoplopoma fimbria,sablefish,284,64,348,18.3908046,23,90,59.61619718,4.872324444,2001
+16,Atheresthes stomias,arrowtooth flounder,1359,424,1783,23.78014582,13,81,35.99926416,7.259154487,2001
+17,Bathymaster signatus,searcher,11,0,11,0,23,29,26.09090909,1.082925331,2001
+18,Bathyraja interrupta,sandpaper skate,3,0,3,0,42,70,51.66666667,7.942501705,2001
+19,Bathyraja parmifera,Alaska skate,1,1,2,50,59,59,59,NA,2001
+20,Dasycottus setiger,spinyhead sculpin,13,1,14,7.142857143,12,25,17.23076923,2.631174058,2001
+21,Embassichthys bathybius,0,3,0,3,0,40,43,41.33333333,0.763762616,2001
+22,Gadus chalcogrammus,walleye pollock,766,49,815,6.012269939,7,75,36.91775457,8.478419713,2001
+23,Gadus macrocephalus,Pacific cod,803,35,838,4.176610979,9,92,49.46699875,8.350449752,2001
+24,Glyptocephalus zachirus,Rex sole,41,1,42,2.380952381,24,50,34.53658537,3.294118928,2001
+25,Hemilepidotus jordani,yellow Irish lord,2,0,2,0,30,38,34,2.828427125,2001
+26,Hemitripterus bolini,bigmouth sculpin,2,1,3,33.33333333,20,75,47.5,19.44543648,2001
+27,Hippoglossoides elassodon,flathead sole,16,15,31,48.38709677,30,51,37.75,3.013856887,2001
+28,Hippoglossus stenolepis,Pacific halibut,808,81,889,9.11136108,13,126,56.59405941,11.13309215,2001
+29,Isopsetta isolepis,butter sole,2,8,10,80,46,51,48.5,1.767766953,2001
+30,Lepidopsetta bilineata,rock sole,29,4,33,12.12121212,19,43,31.31034483,3.657437257,2001
+31,Lepidopsetta polyxystra,northern rock sole,29,2,31,6.451612903,17,40,29.13793103,3.353367545,2001
+32,Leptocottus armatus,Pacific staghorn sculpin,1,0,1,0,28,28,28,NA,2001
+33,Limanda aspera,yellowfin sole,2,0,2,0,38,42,40,1.414213562,2001
+34,Liparis gibbus,variegated snailfish,1,0,1,0,53,53,53,NA,2001
+35,Lumpenella longirostris,longsnout prickleback,5,1,6,16.66666667,28,33,30.4,1.151086443,2001
+36,Lycodes beringi,Bering eelpout,1,0,1,0,24,24,24,NA,2001
+37,Lycodes brevipes,shortfin eelpout,17,1,18,5.555555556,19,29,23.82352941,1.523106346,2001
+38,Lycodes palearis,wattled eelpout,2,1,3,33.33333333,37,40,38.5,1.060660172,2001
+39,Malacocottus zonurus,darkfin sculpin,16,1,17,5.882352941,7,12,8.5625,0.729583214,2001
+40,Microstomus pacificus,Dover sole,35,3,38,7.894736842,34,60,43.4,2.491751097,2001
+41,Myoxocephalus polyacanthocephalus,0,6,0,6,0,38,58,46.16666667,3.30781902,2001
+42,Pleurogrammus monopterygius,Atka mackerel,28,2,30,6.666666667,28,51,39.89285714,3.235621429,2001
+43,Protomyctophum thompsoni,bigeye lanternfish,3,0,3,0,10,11,10.66666667,0.288675135,2001
+44,Raja binoculata,big skate,2,0,2,0,81,97,89,5.656854249,2001
+45,Raja rhina,longnose skate,3,0,3,0,112,133,121.6666667,5.299371032,2001
+46,Ronquilus jordani,0,1,0,1,0,16,16,16,NA,2001
+47,Sebastes aleutianus,rougheye rockfish,25,11,36,30.55555556,16,78,34.84,6.741785125,2001
+48,Sebastes alutus,Pacific ocean perch,39,11,50,22,10,40,29.61538462,4.934592428,2001
+49,Sebastes babcocki,redbanded rockfish,3,1,4,25,20,22,21,0.5,2001
+50,Sebastes borealis,shortraker rockfish,22,24,46,52.17391304,43,61,54,2.121320344,2001
+51,Sebastes variabilis,0,1,0,1,0,39,39,39,NA,2001
+52,Sebastes zacentrus,sharpchin rockfish,7,11,18,61.11111111,25,32,29,1.08012345,2001
+53,Sebastolobus alascanus,0,27,14,41,34.14634146,15,39,23.59259259,2.477821854,2001
+54,Squalus acanthias,spiny dogfish,1,0,1,0,72,72,72,NA,2001
+55,Thaleichthys pacificus,eulachon,19,20,39,51.28205128,16,21,19.05263158,0.67646311,2001
+56,Trichodon trichodon,0,2,0,2,0,15,16,15.5,0.353553391,2001
+57,Coryphaenoides acrolepis,0,0,1,1,100,NA,NA,NA,NA,NA
+58,Mallotus villosus,0,0,1,1,100,NA,NA,NA,NA,NA
+59,Oncorhynchus keta,0,0,2,2,100,NA,NA,NA,NA,NA
+60,Pleuronectes quadrituberculatus,0,0,3,3,100,NA,NA,NA,NA,NA
+61,Podothecus acipenserinus,0,0,1,1,100,NA,NA,NA,NA,NA
+62,Sebastes polyspinis,0,0,1,1,100,NA,NA,NA,NA,NA
+63,Albatrossia pectoralis,giant grenadier,30,0,30,0,24,34,29.43333333,1.208328379,2003
+64,Anoplopoma fimbria,sablefish,135,18,153,11.76470588,31,93,57.74814815,4.303208851,2003
+65,Atheresthes stomias,arrowtooth flounder,463,156,619,25.20193861,12,83,38.08207343,6.863577927,2003
+66,Bathyraja aleutica,Aleutian skate,16,2,18,11.11111111,58,88,76.5,4.179314138,2003
+67,Bathyraja interrupta,sandpaper skate,6,0,6,0,31,56,40.83333333,5.517396729,2003
+68,Bathyraja parmifera,Alaska skate,1,2,3,66.66666667,58,58,58,NA,2003
+69,Gadus chalcogrammus,walleye pollock,631,11,642,1.713395639,14,70,44.43898574,6.177898425,2003
+70,Gadus macrocephalus,Pacific cod,300,11,311,3.536977492,16,98,50.83333333,7.798661378,2003
+71,Hippoglossus stenolepis,Pacific halibut,185,70,255,27.45098039,18,125,55.81621622,9.543646258,2003
+72,Pleurogrammus monopterygius,Atka mackerel,47,10,57,17.54385965,28,47,36.78723404,1.693774311,2003
+73,Raja binoculata,big skate,27,3,30,10,43,135,90.96296296,11.02748444,2003
+74,Raja rhina,longnose skate,8,1,9,11.11111111,48,94,75.5,8.668497975,2003
+75,Sebastolobus alascanus,0,6,4,10,40,8,46,25.5,6.904708538,2003
+76,Albatrossia pectoralis,giant grenadier,102,23,125,18.4,17,40,26.6372549,2.389943054,2005
+77,Anoplopoma fimbria,sablefish,111,21,132,15.90909091,31,93,61.33333333,6.330780985,2005
+78,Atheresthes evermanni,Kamchatka flounder,1,0,1,0,55,55,55,NA,2005
+79,Atheresthes stomias,arrowtooth flounder,233,95,328,28.96341463,10,81,41.87553648,7.587662297,2005
+80,Bathyraja aleutica,Aleutian skate,16,1,17,5.882352941,39,84,62.375,6.647994685,2005
+81,Bathyraja interrupta,sandpaper skate,12,2,14,14.28571429,23,53,40.41666667,4.058987409,2005
+82,Gadus chalcogrammus,walleye pollock,285,29,314,9.23566879,12,66,38.75789474,7.799100184,2005
+83,Gadus macrocephalus,Pacific cod,255,6,261,2.298850575,14,99,49.00784314,8.130456031,2005
+84,Hippoglossus stenolepis,Pacific halibut,110,48,158,30.37974684,26,163,64.36363636,11.60724372,2005
+85,Merluccius productus,North Pacific hake,1,1,2,50,51,51,51,NA,2005
+86,Pleurogrammus monopterygius,Atka mackerel,7,4,11,36.36363636,42,46,43.71428571,0.801783726,2005
+87,Raja binoculata,big skate,9,0,9,0,82,126,99,8.170067319,2005
+88,Raja rhina,longnose skate,24,9,33,27.27272727,46,115,76.41666667,9.291085801,2005
+89,Sebastes aleutianus,rougheye rockfish,52,30,82,36.58536585,17,54,31.53846154,5.1473023,2005
+90,Sebastes alutus,Pacific ocean perch,98,39,137,28.46715328,13,43,29.59183673,3.531038175,2005
+91,Sebastes borealis,shortraker rockfish,9,5,14,35.71428571,41,64,52.55555556,4.562832941,2005
+92,Sebastolobus alascanus,0,71,32,103,31.06796117,17,53,28.49295775,3.914143985,2005
+93,Anoplopoma fimbria,sablefish,232,87,319,27.27272727,27,90,59.35344828,5.514739914,2007
+94,Atheresthes stomias,arrowtooth flounder,468,349,817,42.71725826,12,79,39.92094017,7.847518832,2007
+95,Bathyraja aleutica,Aleutian skate,12,1,13,7.692307692,60,93,75,5.431390246,2007
+96,Bathyraja interrupta,sandpaper skate,12,1,13,7.692307692,44,78,57.83333333,7.01567509,2007
+97,Bathyraja parmifera,Alaska skate,7,1,8,12.5,24,88,59,11.92686044,2007
+98,Bathyraja trachura,roughtail skate,1,0,1,0,46,46,46,NA,2007
+99,Coryphaenoides acrolepis,Pacific grenadier,13,2,15,13.33333333,4,20,12.84615385,2.243937702,2007
+100,Gadus chalcogrammus,walleye pollock,781,51,832,6.129807692,11,74,41.18950064,7.807580839,2007
+101,Gadus macrocephalus,Pacific cod,637,11,648,1.697530864,15,95,49.94191523,7.838053514,2007
+102,Glyptocephalus zachirus,Rex sole,159,3,162,1.851851852,15,50,31.10062893,3.963917545,2007
+103,Hemilepidotus jordani,yellow Irish lord,20,0,20,0,33,46,38.5,2.197486603,2007
+104,Hexagrammos decagrammus,kelp greenling,5,0,5,0,37,45,41.8,1.673320053,2007
+105,Hippoglossoides elassodon,flathead sole,73,27,100,27,11,49,30.04109589,4.501881055,2007
+106,Hippoglossus stenolepis,Pacific halibut,538,138,676,20.41420118,16,167,60.78810409,9.796102003,2007
+107,Isopsetta isolepis,butter sole,19,9,28,32.14285714,16,42,28.94736842,3.025234996,2007
+108,Lepidopsetta bilineata,rock sole,67,10,77,12.98701299,15,58,32.49253731,5.044028223,2007
+109,Lepidopsetta polyxystra,northern rock sole,29,4,33,12.12121212,14,45,30.96551724,4.698941292,2007
+110,Limanda aspera,yellowfin sole,25,5,30,16.66666667,17,45,29.36,3.902136167,2007
+111,Merluccius productus,North Pacific hake,2,0,2,0,51,65,58,4.949747468,2007
+112,Microstomus pacificus,Dover sole,116,8,124,6.451612903,25,64,42.4137931,3.480422866,2007
+113,Oncorhynchus tshawytscha,Chinook salmon,1,0,1,0,62,62,62,NA,2007
+114,Ophiodon elongatus,0,19,3,22,13.63636364,54,125,91.05263158,8.049281687,2007
+115,Parophrys vetulus,English sole,9,0,9,0,23,51,33.44444444,4.610525398,2007
+116,Platichthys stellatus,starry flounder,5,5,10,50,40,61,48.4,4.396020928,2007
+117,Pleurogrammus monopterygius,Atka mackerel,34,8,42,19.04761905,29,49,42.38235294,2.782561241,2007
+118,Pleuronectes quadrituberculatus,Alaska plaice,25,0,25,0,32,58,45.2,3.889087297,2007
+119,Raja binoculata,big skate,21,1,22,4.545454545,53,127,88.42857143,10.87378893,2007
+120,Raja rhina,longnose skate,9,2,11,18.18181818,46,104,74.88888889,10.16564202,2007
+121,Sebastes alutus,Pacific ocean perch,8,0,8,0,12,24,17.75,2.489262656,2007
+122,Sebastes babcocki,redbanded rockfish,22,0,22,0,21,47,34,3.2769033,2007
+123,Sebastes brevispinis,silvergray rockfish,10,3,13,23.07692308,44,64,51.1,2.813163502,2007
+124,Sebastes ciliatus,dusky rockfish,2,0,2,0,37,37,37,0,2007
+125,Sebastes proriger,redstripe rockfish,10,6,16,37.5,29,48,39.1,3.624377341,2007
+126,Sebastes ruberrimus,yelloweye rockfish,1,2,3,66.66666667,54,54,54,NA,2007
+127,Sebastes variabilis,0,39,3,42,7.142857143,34,48,43.41025641,1.485535296,2007
+128,Sebastes variegatus,harlequin rockfish,15,0,15,0,15,37,31.66666667,2.8073034,2007
+129,Sebastes zacentrus,sharpchin rockfish,27,8,35,22.85714286,21,37,28.96296296,2.562606401,2007
+130,Squalus acanthias,spiny dogfish,9,0,9,0,71,102,83.88888889,5.294126725,2007
+131,Trichodon trichodon,0,5,2,7,28.57142857,14,23,18.4,1.753567792,2007
+132,Albatrossia pectoralis,giant grenadier,4,1,5,20,24,27,25.5,0.645497224,2009
+133,Anoplopoma fimbria,sablefish,334,155,489,31.69734151,24,100,55.62275449,6.94900273,2009
+134,Atheresthes stomias,arrowtooth flounder,757,565,1322,42.73827534,8,76,37.94583884,7.120160553,2009
+135,Bathyraja abyssicola,deepsea skate,1,0,1,0,77,77,77,NA,2009
+136,Bathyraja aleutica,Aleutian skate,10,1,11,9.090909091,89,136,113.1,8.13241115,2009
+137,Bathyraja interrupta,sandpaper skate,9,1,10,10,53,80,68.33333333,4.815340071,2009
+138,Bathyraja parmifera,Alaska skate,4,0,4,0,55,116,92.5,13.09261879,2009
+139,Coryphaenoides acrolepis,Pacific grenadier,28,9,37,24.32432432,3,22,9.857142857,3.011442025,2009
+140,Coryphaenoides cinereus,popeye grenadier,2,3,5,60,9,11,10,0.707106781,2009
+141,Embassichthys bathybius,0,4,3,7,42.85714286,30,43,37.75,2.780137886,2009
+142,Gadus chalcogrammus,walleye pollock,1023,74,1097,6.745670009,9,73,43.42424242,8.458715771,2009
+143,Gadus macrocephalus,Pacific cod,868,20,888,2.252252252,13,103,48.05760369,7.83150706,2009
+144,Glyptocephalus zachirus,Rex sole,382,15,397,3.778337531,14,59,34.81937173,3.473799255,2009
+145,Hemilepidotus jordani,yellow Irish lord,65,0,65,0,15,43,35.47692308,2.574070968,2009
+146,Hexagrammos decagrammus,kelp greenling,21,0,21,0,26,43,36.71428571,2.445111742,2009
+147,Hippoglossoides elassodon,flathead sole,191,117,308,37.98701299,6,49,29.45549738,5.265000091,2009
+148,Hippoglossus stenolepis,Pacific halibut,465,189,654,28.89908257,17,144,58.9827957,9.443395976,2009
+149,Isopsetta isolepis,butter sole,28,13,41,31.70731707,21,45,32.14285714,3.199288942,2009
+150,Lepidopsetta bilineata,rock sole,155,62,217,28.57142857,17,52,34.63870968,3.973076546,2009
+151,Lepidopsetta polyxystra,northern rock sole,93,33,126,26.19047619,16,56,32.83870968,4.479597664,2009
+152,Limanda aspera,yellowfin sole,33,7,40,17.5,16,42,32.42424242,3.727076399,2009
+153,Lyopsetta exilis,slender sole,12,2,14,14.28571429,18,36,28.41666667,2.666785035,2009
+154,Merluccius productus,North Pacific hake,39,7,46,15.2173913,24,76,52.84615385,5.210741009,2009
+155,Microstomus pacificus,Dover sole,184,44,228,19.29824561,19,60,42.02173913,3.049212261,2009
+156,Oncorhynchus keta,chum salmon,4,0,4,0,51,54,53,0.707106781,2009
+157,Ophiodon elongatus,0,26,5,31,16.12903226,59,128,80.80769231,7.364807168,2009
+158,Parophrys vetulus,English sole,62,8,70,11.42857143,25,56,35.87096774,3.451637614,2009
+159,Platichthys stellatus,starry flounder,14,13,27,48.14814815,47,65,53.57142857,2.423556555,2009
+160,Pleurogrammus monopterygius,Atka mackerel,32,19,51,37.25490196,26,52,45.8125,2.339828709,2009
+161,Pleuronectes quadrituberculatus,Alaska plaice,24,3,27,11.11111111,36,62,48.83333333,3.752293984,2009
+162,Psettichthys melanostictus,Pacific sand sole,6,3,9,33.33333333,31,48,41.66666667,2.875181154,2009
+163,Raja binoculata,big skate,31,3,34,8.823529412,53,177,118.9677419,14.84446242,2009
+164,Raja rhina,longnose skate,24,5,29,17.24137931,77,138,116.0416667,9.417235779,2009
+165,Sebastes aleutianus,rougheye rockfish,30,10,40,25,22,48,33.3,3.662837604,2009
+166,Sebastes alutus,Pacific ocean perch,66,20,86,23.25581395,19,47,35,3.49835126,2009
+167,Sebastes babcocki,redbanded rockfish,18,5,23,21.73913043,21,48,36.83333333,3.326586309,2009
+168,Sebastes borealis,shortraker rockfish,4,3,7,42.85714286,41,64,53.25,4.71478172,2009
+169,Sebastes brevispinis,silvergray rockfish,1,0,1,0,37,37,37,NA,2009
+170,Sebastes ciliatus,dusky rockfish,1,1,2,50,45,45,45,NA,2009
+171,Sebastes helvomaculatus,rosethorn rockfish,3,0,3,0,24,29,27,1.322875656,2009
+172,Sebastes polyspinis,northern rockfish,8,3,11,27.27272727,33,43,40.375,1.556954445,2009
+173,Sebastes ruberrimus,yelloweye rockfish,3,1,4,25,46,58,52.33333333,3.013856887,2009
+174,Sebastes variabilis,0,23,6,29,20.68965517,19,48,40.56521739,3.786417373,2009
+175,Sebastes variegatus,harlequin rockfish,5,0,5,0,20,27,24,1.457737974,2009
+176,Sebastes zacentrus,sharpchin rockfish,10,1,11,9.090909091,22,35,28.8,1.95505044,2009
+177,Sebastolobus alascanus,0,22,15,37,40.54054054,25,45,31.5,2.653613888,2009
+178,species,0,10,10,20,50,25,46,35.5,3.466105724,2009
+179,Squalus acanthias,spiny dogfish,22,2,24,8.333333333,63,83,72.22727273,2.698905502,2009
+180,Trichodon trichodon,0,2,0,2,0,17,18,17.5,0.353553391,2009
+181,Albatrossia pectoralis,giant grenadier,74,10,84,NA,15,33,27.32432432,1.581372969,2011
+182,Anoplopoma fimbria,sablefish,230,88,318,NA,35,91,56.52608696,4.732511298,2011
+183,Atheresthes stomias,arrowtooth flounder,706,581,1287,NA,12,80,38.86827195,7.04803049,2011
+184,Clupea pallasii,Pacific herring,1,0,1,NA,20,20,20,NA,2011
+185,Coryphaenoides acrolepis,Pacific grenadier,2,0,2,NA,11,13,12,0.707106781,2011
+186,Elassodiscus caudatus,blackbelly snailfish,1,0,1,NA,10,10,10,NA,2011
+187,Eopsetta jordani,Petrale sole,8,0,8,NA,32,48,42.625,2.534582242,2011
+188,Gadus chalcogrammus,walleye pollock,1041,59,1100,NA,7,73,42.67243036,7.759815415,2011
+189,Gadus macrocephalus,Pacific cod,1002,16,1018,NA,12,95,50.76347305,6.888815573,2011
+190,Hemilepidotus jordani,yellow Irish lord,114,2,116,NA,19,48,36.83333333,2.781828413,2011
+191,Hemitripterus bolini,bigmouth sculpin,12,12,24,NA,17,74,47.83333333,9.331845119,2011
+192,Hippoglossus stenolepis,Pacific halibut,518,151,669,NA,19,147,60.65250965,9.832874531,2011
+193,Lepidopsetta bilineata,rock sole,170,29,199,NA,18,54,37.65294118,3.380794069,2011
+194,Merluccius productus,North Pacific hake,27,5,32,NA,20,68,46.25925926,7.085457198,2011
+195,Myoxocephalus jaok,plain sculpin,20,7,27,NA,29,55,41.9,3.440853627,2011
+196,Myoxocephalus polyacanthocephalus,0,48,12,60,NA,26,74,51,5.720437418,2011
+197,Oncorhynchus gorbuscha,pink salmon,8,0,8,NA,44,68,55.875,4.45964044,2011
+198,Oncorhynchus keta,chum salmon,23,3,26,NA,16,71,58.95652174,6.27491083,2011
+199,Oncorhynchus kisutch,coho salmon,5,0,5,NA,18,63,37.4,11.49238879,2011
+200,Oncorhynchus nerka,sockeye salmon,1,0,1,NA,58,58,58,NA,2011
+201,Oncorhynchus tshawytscha,Chinook salmon,24,0,24,NA,21,80,55.70833333,7.286794438,2011
+202,Ophiodon elongatus,0,61,28,89,NA,60,105,78.01639344,5.174852497,2011
+203,Sebastes aleutianus,rougheye rockfish,88,44,132,NA,12,63,36.57954545,5.792742978,2011
+204,Sebastes alutus,Pacific ocean perch,473,145,618,NA,7,48,30.31712474,3.857253739,2011
+205,Sebastes babcocki,redbanded rockfish,5,0,5,NA,19,35,27.8,3.110466203,2011
+206,Sebastes borealis,shortraker rockfish,30,30,60,NA,39,82,55.9,4.832272971,2011
+207,Sebastes brevispinis,silvergray rockfish,53,39,92,NA,28,61,49.66037736,3.569291295,2011
+208,Sebastes flavidus,yellowtain rockfish,9,2,11,NA,43,59,50.55555556,2.599412327,2011
+209,Sebastes polyspinis,northern rockfish,99,57,156,NA,33,48,39.65656566,1.62279932,2011
+210,Sebastes ruberrimus,yelloweye rockfish,8,4,12,NA,35,67,55.75,6.484872507,2011
+211,Sebastolobus alascanus,0,87,54,141,NA,15,82,31.67816092,5.130559522,2011
+212,species,0,45,47,92,NA,16,52,37.04444444,4.491096692,2011
+213,Squalus acanthias,spiny dogfish,64,22,86,NA,56,104,79.5,4.939314264,2011
+214,Sebastes crameri,0,0,1,1,NA,NA,NA,NA,NA,NA
+215,Albatrossia pectoralis,giant grenadier,47,11,58,18.96551724,18,32,25.70212766,1.930630933,2013
+216,Atheresthes stomias,arrowtooth flounder,818,973,1791,54.32719151,11,81,41.6198044,6.534457186,2013
+217,Gadus chalcogrammus,walleye pollock,1065,59,1124,5.24911032,11,73,43.35586854,8.187765461,2013
+218,Gadus macrocephalus,Pacific cod,969,11,980,1.12244898,13,105,50.30134159,8.05959864,2013
+219,Hemilepidotus jordani,yellow Irish lord,4,0,4,0,34,45,39.25,2.286737122,2013
+220,Hippoglossus stenolepis,Pacific halibut,1111,257,1368,18.78654971,8,163,60.40684068,9.189228271,2013
+221,Sebastes alutus,Pacific ocean perch,589,223,812,27.46305419,8,50,32.8098472,3.746012783,2013
+222,Sebastes babcocki,redbanded rockfish,1,0,1,0,29,29,29,NA,2013
+223,Sebastes polyspinis,northern rockfish,10,12,22,54.54545455,36,46,40.6,1.567021236,2013
+224,Sebastes variabilis,0,5,2,7,28.57142857,33,47,43.2,2.924038303,2013
+225,Atheresthes evermanni,Kamchatka flounder,1,2,3,66.66666667,38,38,38,NA,2015
+226,Atheresthes stomias,arrowtooth flounder,806,766,1572,48.72773537,13,77,40.74441687,6.323262531,2015
+227,Gadus chalcogrammus,walleye pollock,1040,69,1109,6.221821461,6,69,42.73653846,7.028263639,2015
+228,Gadus macrocephalus,Pacific cod,926,29,955,3.036649215,16,98,49.78833693,6.713610903,2015
+229,Hippoglossus stenolepis,Pacific halibut,747,195,942,20.70063694,15,123,60.44042838,9.609013639,2015
+230,Salvelinus malma,Dolly Varden,4,0,4,0,31,47,39.5,3.662876829,2015
+231,Sebastes alutus,Pacific ocean perch,411,191,602,31.72757475,12,48,35.73479319,2.869105034,2015
+232,Sebastes babcocki,redbanded rockfish,1,0,1,0,46,46,46,NA,2015
+233,Sebastes variabilis,0,1,6,7,85.71428571,43,43,43,NA,2015
+234,Squalus acanthias,spiny dogfish,76,19,95,20,62,105,77.89473684,3.641958216,2015
+235,Sebastes borealis,0,0,2,2,100,NA,NA,NA,NA,NA
+236,Albatrossia pectoralis,giant grenadier,4,6,10,60,24,34,28.5,2.62995564,2017
+237,Atheresthes stomias,arrowtooth flounder,634,883,1517,58.20698748,14,77,41.4384858,6.39170637,2017
+238,Gadus chalcogrammus,walleye pollock,856,90,946,9.513742072,13,74,39.18691589,6.502633148,2017
+239,Gadus macrocephalus,Pacific cod,565,17,582,2.920962199,18,97,53.21946903,7.326261475,2017
+240,Hippoglossus stenolepis,Pacific halibut,655,134,789,16.98352345,16,126,60.32671756,9.16682129,2017
+241,Ophiodon elongatus,0,1,0,1,0,89,89,89,NA,2017
+242,Sebastes alutus,Pacific ocean perch,490,233,723,32.22683264,19,48,36.4122449,2.91921973,2017
+243,Trichodon trichodon,0,7,2,9,22.22222222,13,18,15.57142857,0.859124693,2017
+244,Atheresthes stomias,arrowtooth flounder,644,547,1191,NA,14,77,41.4363354,6.720259918,2019
+245,Gadus chalcogrammus,walleye pollock,901,34,935,NA,7,69,41.69256382,6.450577928,2019
+246,Gadus macrocephalus,Pacific cod,762,12,774,NA,15,98,52.15091864,8.281029021,2019
+247,Hippoglossus stenolepis,Pacific halibut,565,136,701,NA,19,123,61.33274336,9.488034744,2019
+248,Sebastes alutus,Pacific ocean perch,345,109,454,NA,15,50,35.15362319,3.548548054,2019

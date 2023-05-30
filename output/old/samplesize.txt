@@ -1,0 +1,17 @@
+x
+[38;5;246m# A tibble: 321 × 10[39m
+[38;5;246m# Groups:   Year, Pred_common, INPFC_AREA [321][39m
+    Year Pred_common     INPFC_AREA total_stomachs empty_stomachs full_stomachs length_avg length_min length_max length_sd
+   [3m[38;5;246m<dbl>[39m[23m [3m[38;5;246m<chr>[39m[23m                [3m[38;5;246m<dbl>[39m[23m          [3m[38;5;246m<int>[39m[23m          [3m[38;5;246m<int>[39m[23m         [3m[38;5;246m<int>[39m[23m      [3m[38;5;246m<dbl>[39m[23m      [3m[38;5;246m<dbl>[39m[23m      [3m[38;5;246m<dbl>[39m[23m     [3m[38;5;246m<dbl>[39m[23m
+[38;5;250m 1[39m  [4m1[24m990 Pacific cod            610             60              1            59       54.6         34         85     10.1 
+[38;5;250m 2[39m  [4m1[24m990 Pacific cod            620            371              9           362       56.7         32         90      8.83
+[38;5;250m 3[39m  [4m2[24m009 Pacific cod            620            234              3           231       49.4         15         80     15.7 
+[38;5;250m 4[39m  [4m2[24m009 Walleye pollock        620            263             15           248       42.6         11         71     16.5 
+[38;5;250m 5[39m  [4m2[24m009 Pacific cod            630            235              6           229       49.7         15         80     14.6 
+[38;5;250m 6[39m  [4m1[24m981 Pacific cod            610            153              3           150       51.4         23         88     11.8 
+[38;5;250m 7[39m  [4m1[24m987 Pacific cod            620             24              0            24       59.2         47         72      7.54
+[38;5;250m 8[39m  [4m1[24m993 Pacific cod            610            282             11           271       55.7         32        100     11.3 
+[38;5;250m 9[39m  [4m1[24m993 Pacific cod            620            351             16           335       59.0         32         84     10.1 
+[38;5;250m10[39m  [4m1[24m990 Pacific cod            640             46              8            38       60.1         25         90     16.8 
+[38;5;246m# … with 311 more rows[39m
+[38;5;246m# ℹ Use `print(n = ...)` to see more rows[39m

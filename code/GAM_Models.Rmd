@@ -1,0 +1,849 @@
+---
+title: "GAM Models"
+author: "Catalina Burch"
+date: "2023-05-24"
+output: pdf_document
+---
+
+This document runs all of the GAMs included in my thesis.
+
+```{r setup, include=FALSE}
+library(here) #for finding working directory
+library(readr) #for loading CSV
+library(writexl) #for exporting 
+library(tidyverse)
+library(mgcv) #for running gams
+library(MuMIn) #for the dredge summary table
+library(patchwork) #for combining plots
+library(gridExtra) #for laying out plots
+library(visreg) #for visualizing partial effects
+library(mapdata) #for partial effects map
+options(na.action = "na.fail") 
+
+#load data
+Mdata <- read_csv(here("data/data.csv")) #this data includes empty stomachs
+
+#change year to factor
+Mdata$Year <- factor(Mdata$Year)
+
+#Change to binary wide format data
+Mdata <- Mdata %>% 
+  mutate(pres_absent = 1) %>% #create binary presence for each prey item
+    distinct(Year, uniqueID, Haul_Join, RLAT, RLONG, GEAR_DEPTH,
+             GEAR_TEMP, PRED_LEN, Pred_common, Prey_Name, pres_absent) %>% #remove redundancies, i.e. the same prey species listed twice for the same stomach with different life history stages
+    pivot_wider(names_from = Prey_Name, values_from = pres_absent, values_fill = list(pres_absent = 0)) %>% #create wide dataframe with a column for each prey type
+    rename(Walleyepollock = 'Walleye pollock', TannerCrab = 'Tanner Crab',
+           Crangonidae = 'Crangonidae (shrimp)', Pandalidae = `Pandalidae (shrimp)`) %>%  #rename (this was an issue for running the prey models below because the model doesn't like a space in the column name)
+  group_by(uniqueID) %>% 
+  mutate(forage = sum(Osmerid, Clupeoidei),
+         forage = ifelse(forage > 0, 1, 0))
+
+#create separate dataframes for each predator
+WP <- Mdata %>% 
+  filter(Pred_common == "Walleye pollock") 
+
+PH <- Mdata %>% 
+  filter(Pred_common == "Pacific halibut") 
+
+PC <- Mdata %>% 
+  filter(Pred_common == "Pacific cod") 
+
+AF <- Mdata %>% 
+  filter(Pred_common == "Arrowtooth flounder") 
+
+# Set coordinate boundaries for plotting:
+lonmin = -172
+lonmax = -130
+latmin = 52
+latmax = 62
+
+```
+
+## Model 1: Euphausiacea Prey
+```{r EuphWP, echo=FALSE, results=FALSE}
+#Walleye Pollock
+Model <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = WP,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Walleye Pollock") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+## Model 1: Euphausiacea Prey
+```{r EuphPC, echo=FALSE, results=FALSE}
+#Pacific Cod
+Model <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PC,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+## Model 1: Euphausiacea Prey
+```{r EuphAF, echo=FALSE, results=FALSE}
+#Arrowtooth Flounder
+Model <- gam(Euphausiacea ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = AF,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Euphausiacea Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+## Model 2: Walleye Pollock Prey
+```{r PollPH, echo=FALSE, results=FALSE}
+#Pacific Halibut
+Model <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PH,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+## Model 2: Walleye Pollock Prey
+```{r PollPC, echo=FALSE, results=FALSE}
+#Pacific Cod
+Model <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PC,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+## Model 2: Walleye Pollock Prey
+```{r PollAF, echo=FALSE, results=FALSE}
+#Pacific Halibut
+Model <- gam(Walleyepollock ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = AF,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Walleye Pollock Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+
+
+
+
+
+## Model 3: Pandalidae Prey
+```{r PanWP, echo=FALSE, results=FALSE}
+#Walleye Pollock
+Model <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = WP,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Walleye Pollock") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+## Model 3: Pandalidae Prey
+```{r PanPC, echo=FALSE, results=FALSE}
+#Pacific Cod
+Model <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PC,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+## Model 3: Pandalidae Prey
+```{r PanAF, echo=FALSE, results=FALSE}
+#Arrowtooth Flounder
+Model <- gam(Pandalidae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = AF,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth flounder") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Pandalidae Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+
+
+## Model 4: Clupeoid Prey
+```{r CluPH, echo=FALSE, results=FALSE}
+#Pacific Halibut
+Model <- gam(Clupeoidei ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PH,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Clupeoid Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+## Model 4: Clupeoid Prey
+```{r CluAF, echo=FALSE, results=FALSE}
+#Arrowtooth Flounder
+AF$Clupeoidei
+Model <- gam(Clupeoidei ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = AF,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Clupeoid Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+
+
+
+
+
+
+## Model 5: Osmerid Prey
+```{r OsmPH, echo=FALSE, results=FALSE}
+#Pacific Halibut
+Model <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PH,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Osmerid Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+## Model 5: Osmerid Prey
+```{r OsmAF, echo=FALSE, results=FALSE}
+#Arrowtooth Flounder
+AF$Clupeoidei
+Model <- gam(Osmerid ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = AF,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Arrowtooth Flounder") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Osmerid Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+
+
+
+## Model 6: Tanner Crab Prey Occurrence
+```{r TanPH, echo=FALSE, results=FALSE}
+#Pacific Halibut
+Model <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PH,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+## Model 6: Tanner Crab Prey Occurrence
+```{r TanPC, echo=FALSE, results=FALSE}
+#Pacific Cod
+Model <- gam(TannerCrab ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PC,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Tanner Crab Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+
+
+## Model 7: Paguridae Prey Occurrence
+```{r PagPH, echo=FALSE, results=FALSE}
+#Pacific Halibut
+PH$Paguridae
+Model <- gam(Paguridae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PH,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Halibut") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Paguridae Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```
+
+
+## Model 7: Paguridae Prey Occurrence
+```{r PagPC, echo=FALSE, results=FALSE}
+#Pacific Cod
+Model <- gam(Paguridae ~ Year + s(RLONG, RLAT) + s(GEAR_DEPTH, k = 4)+ s(GEAR_TEMP, k = 4) + s(PRED_LEN, k = 4),
+    data = PC,
+    family = binomial(link = logit), #logistic scale
+    method = "GCV.Cp")
+
+summary(Model)
+
+#Plotting partial effects
+Plot1 <- visreg(Model, "Year",type = "conditional", scale = "response", 
+       gg = TRUE, line=list(col="black"), xlab = "Year", ylab = "") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = -45))
+
+Plot2 <- visreg(Model, "GEAR_DEPTH",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear Depth", ylab = "") +
+  theme_classic() 
+
+Plot3 <- visreg(Model, "GEAR_TEMP",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Gear temperature", ylab = "") +
+  theme_classic() 
+
+Plot4 <- visreg(Model, "PRED_LEN",type = "conditional", scale = "response",
+       gg = TRUE, line=list(col="black"), xlab = "Predator Length", ylab = "") +
+  theme_classic() 
+
+
+MainP <- (Plot1 + Plot2) / (Plot3 + Plot4) + 
+  plot_annotation(title = "Predator: Pacific Cod") 
+
+grid.arrange(patchworkGrob(MainP), left = "Partial Effect on Paguridae Occurrence")
+
+plot.new()
+map('worldHires', fill=T, xlim=c(-172, -130), ylim=c(52, 62), col="lightgrey") #I need to use this map twice to fix the aspect ratio.
+vis.gam(Model, c("RLONG", "RLAT"), plot.type = "contour", type="response", 
+        contour.col="black", color="heat", xlab="Longitude", ylab="Latitude", 
+        main="", too.far=0.025, n.grid=250, 
+        xlim=c(lonmin, lonmax), ylim=c(latmin, latmax), add = T)
+map('worldHires', fill=T, xlim=c(-170, -130), ylim=c(52, 62), col="lightgrey", add = T)
+```

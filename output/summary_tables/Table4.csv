@@ -1,0 +1,18 @@
+"Year","Prey","Predator","Lat_Long","Gear_Depth","Gear_Temp","Predator_Length","YearP"
+"+","Euphausiacea","Walleye pollock",1,1,0.999999961429585,1,1
+"+","Euphausiacea","Pacific Cod",1,0.999999996021901,0.999998931330213,1,1
+"+","Euphausiacea","Arrowtooth Flounder",1,1,0.915380622944744,1,1
+"+","Walleye pollock","Pacific halibut",1,0.999991374097218,0.999582634437216,1,0.999999999999999
+"+","Walleye pollock","Pacific cod",1,0.98976182321035,0.666507158461028,1,1
+"+","Walleye pollock","Arrowtooth flounder",1,0.999999999997315,0.957133943164139,1,1
+"+","Pandalidae","Walleye pollock",1,1,0.901865705820495,1,1
+"+","Pandalidae","Pacific cod",1,1,0.999999998958495,1,0.999999722925741
+"+","Pandalidae","Arrowtooth flounder",1,1,0.503130659240906,1,0.999999996609469
+"+","Clupeidei","Pacific halibut",1,0.923010255677839,0.302036411590349,1,0.999314671700506
+"+","Clupeidei","Arrowtooth flounder",1,0.398904844831537,0.43273656144761,1,1
+"+","Osmerid","Pacific halibut",1,0.99999999999964,0.836435272837537,1,1
+"+","Osmerid","Arrowtooth flounder",1,0.999994454849673,0.992769153666856,1,1
+"+","Tanner crab","Pacific halibut",1,1,0.791238977972185,1,1
+"+","Tanner crab","Pacific cod",1,1,0.999999991809896,1,1
+"+","Paguridae","Pacific halibut",1,0.998659918002398,0.999682305303859,1,0.999999999445053
+"+","Paguridae","Pacific cod",1,0.999999982827032,0.999999996232261,1,0.999999999999999

@@ -73,7 +73,7 @@ f2data <- f2data %>%
   mutate(PW = (TotalWt/(sum(TotalWt))*100))
 
 colorlist<-c("#C80000", '#fc8d59','#fdcc8a', '#fef0d9', 'white',
-                      '#a6bddb', '#0570b0')
+                      '#a6bddb', '#0570b0', '#034e7b')
                       
 #ordering the length bins
 f2data$Len_bin_SB <- factor(f2data$Len_bin_SB, 
@@ -82,7 +82,7 @@ f2data$Len_bin_SB <- factor(f2data$Len_bin_SB,
 #Ordering the prey items
 f2data$gam_grouping <- factor(f2data$gam_grouping, 
                                  levels = c("Tanner crab","Pandalidae", "Euphausiacea", "Paguridae", "Crangonidae",
-                                            "other", "Walleye pollock", "Forage fish"))
+                                            "other", "Walleye pollock", "Osmeridae", "Clupeidei"))
 
 
 Figure2Alternative <- f2data %>% 

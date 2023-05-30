@@ -1,0 +1,995 @@
+Pred_common,Prey_Name_Clean,Len_bin,NStomachs,Percent_Occur,Percent_Weight
+Arrowtooth flounder,Gadus chalcogrammus,"(60,80]",267,43.77,79.73
+Arrowtooth flounder,Gadus chalcogrammus,"(80,280]",4,57.14,76.62
+Pacific cod,Gadus chalcogrammus,"(80,280]",91,48.4,61.07
+Pacific halibut,Gadus chalcogrammus,"(80,280]",478,42.87,55.01
+Arrowtooth flounder,Gadus chalcogrammus,"(40,60]",936,19.5,52.11
+Walleye pollock,Euphausiacea,"(40,60]",4913,69.99,46.1
+Walleye pollock,Euphausiacea,"(20,40]",1511,62.52,45.85
+Walleye pollock,Euphausiacea,"(0,20]",855,47.9,42.31
+Pacific halibut,Paguridae,"(20,40]",813,68.9,41.74
+Walleye pollock,Euphausiacea,"(60,80]",574,71.39,39.23
+Arrowtooth flounder,Gadus chalcogrammus,"(20,40]",312,6.84,34.39
+Pacific halibut,Gadus chalcogrammus,"(60,80]",463,18.11,33.76
+Arrowtooth flounder,Euphausiacea,"(0,20]",479,58.99,32.58
+Pacific halibut,Paguridae,"(0,20]",41,46.59,31.01
+Walleye pollock,Copepoda,"(0,20]",926,51.88,30.09
+Pacific cod,Gadus chalcogrammus,"(60,80]",387,12.63,29.44
+Pacific halibut,Crangonidae,"(0,20]",24,27.27,27.23
+Arrowtooth flounder,Osmeridae,"(0,20]",73,8.99,27.1
+Arrowtooth flounder,Osmeridae,"(20,40]",564,12.37,23.24
+Pacific halibut,Paguridae,"(40,60]",1260,52.04,21.36
+Arrowtooth flounder,Atheresthes stomias,"(80,280]",1,14.29,20.6
+Pacific halibut,Brachyura,"(0,20]",16,18.18,15.32
+Pacific cod,Pandalidae,"(60,80]",1036,33.8,7.79
+Pacific cod,Gammaridea,"(0,20]",179,48.12,13.09
+Pacific cod,Paguridae,"(0,20]",42,11.29,12.63
+Pacific cod,Pandalidae,"(40,60]",1589,29.66,12.57
+Pacific cod,Osmeridae,"(0,20]",6,1.61,12.03
+Walleye pollock,Pandalidae,"(60,80]",170,21.14,13.44
+Pacific cod,Chionoecetes bairdi,"(40,60]",1084,20.23,11.74
+Pacific cod,Crangonidae,"(20,40]",542,29.88,11.7
+Pacific halibut,Majidae,"(40,60]",566,23.38,11.68
+Arrowtooth flounder,Clupeoidei,"(40,60]",188,3.92,11.25
+Pacific cod,Euphausiacea,"(0,20]",81,21.77,11.18
+Pacific halibut,Gadus chalcogrammus,"(40,60]",151,6.24,11.14
+Pacific cod,Paguridae,"(20,40]",298,16.43,10.93
+Arrowtooth flounder,Teleostei unid,"(0,20]",127,15.64,10.68
+Walleye pollock,Osmeridae,"(20,40]",63,2.61,10.2
+Pacific cod,Chionoecetes bairdi,"(60,80]",658,21.47,9.9
+Walleye pollock,Copepoda,"(20,40]",914,37.82,9.89
+Arrowtooth flounder,Osmeridae,"(40,60]",604,12.58,9.78
+Arrowtooth flounder,Euphausiacea,"(20,40]",1877,41.16,9.68
+Arrowtooth flounder,Teleostei unid,"(20,40]",755,16.56,8.85
+Arrowtooth flounder,Pandalidae,"(20,40]",639,14.01,6.49
+Pacific halibut,Chionoecetes bairdi,"(60,80]",442,17.29,8.54
+Pacific halibut,Majidae,"(60,80]",561,21.94,8.52
+Walleye pollock,Gadus chalcogrammus,"(60,80]",27,3.36,8.47
+Pacific cod,Pleurogrammus monopterygius,"(80,280]",10,5.32,8.47
+Pacific cod,Polychaeta,"(20,40]",667,36.77,8.34
+Pacific halibut,Ammodytidae,"(20,40]",87,7.37,8.11
+Walleye pollock,Osmeridae,"(60,80]",31,3.86,7.9
+Walleye pollock,Pandalidae,"(40,60]",967,13.77,11.77
+Pacific cod,Euphausiacea,"(20,40]",322,17.75,7.71
+Pacific halibut,Ammodytidae,"(40,60]",181,7.48,7.3
+Pacific halibut,Chionoecetes bairdi,"(40,60]",372,15.37,7.21
+Pacific halibut,Brachyura,"(20,40]",245,20.76,7.15
+Walleye pollock,Osmeridae,"(40,60]",223,3.18,6.54
+Pacific cod,Brachyura,"(0,20]",47,12.63,6.51
+Arrowtooth flounder,Pandalidae,"(40,60]",507,10.56,1.78
+Pacific cod,Ammodytidae,"(20,40]",71,3.91,6.45
+Pacific halibut,Majidae,"(20,40]",160,13.56,6.42
+Walleye pollock,Appendicularia,"(60,80]",137,17.04,6.4
+Pacific halibut,Brachyura,"(40,60]",444,18.34,6.4
+Pacific cod,Euphausiacea,"(40,60]",1332,24.86,6.26
+Pacific cod,Gadus chalcogrammus,"(40,60]",133,2.48,6.21
+Pacific cod,Crangonidae,"(0,20]",35,9.41,6.17
+Pacific cod,Paguridae,"(40,60]",915,17.08,6.16
+Pacific cod,Anomura,"(40,60]",481,8.98,6.11
+Walleye pollock,Copepoda,"(40,60]",2099,29.9,5.93
+Walleye pollock,Appendicularia,"(40,60]",836,11.91,5.9
+Pacific cod,Offal,"(80,280]",10,5.32,5.79
+Pacific cod,Pandalidae,"(20,40]",181,9.98,5.73
+Pacific cod,Brachyura,"(20,40]",386,21.28,5.68
+Arrowtooth flounder,Stichaeidae,"(0,20]",24,2.96,5.62
+Pacific halibut,Teleostei unid,"(20,40]",208,17.63,5.48
+Pacific halibut,Osmeridae,"(40,60]",142,5.87,5.32
+Pacific cod,Crangonidae,"(40,60]",1811,33.8,5.31
+Arrowtooth flounder,Gadus chalcogrammus,"(0,20]",21,2.59,5.3
+Pacific cod,Copepoda,"(0,20]",40,10.75,5.25
+Pacific halibut,Sebastes sp.,"(80,280]",46,4.13,5.11
+Pacific halibut,Octopoda,"(80,280]",107,9.6,5.1
+Pacific cod,Polychaeta,"(40,60]",2003,37.38,4.99
+Pacific cod,Polychaeta,"(0,20]",78,20.97,4.96
+Pacific cod,Caridea,"(0,20]",50,13.44,4.76
+Pacific cod,Pandalidae,"(80,280]",14,7.45,0.47
+Pacific halibut,Offal,"(80,280]",52,4.66,4.57
+Pacific halibut,Paguridae,"(60,80]",581,22.72,4.55
+Pacific halibut,Octopoda,"(60,80]",142,5.55,4.5
+Pacific halibut,Cottidae,"(0,20]",5,5.68,4.49
+Arrowtooth flounder,Euphausiacea,"(40,60]",1511,31.47,4.46
+Pacific cod,Chionoecetes bairdi,"(20,40]",154,8.49,4.38
+Pacific halibut,Salmonidae,"(80,280]",16,1.43,4.34
+Pacific halibut,Osmeridae,"(60,80]",215,8.41,4.31
+Pacific halibut,Teleostei unid,"(0,20]",16,18.18,4.24
+Pacific cod,Teleostei unid,"(40,60]",1132,21.13,4.21
+Arrowtooth flounder,Clupeoidei,"(20,40]",38,0.83,4.2
+Pacific halibut,Teleostei unid,"(40,60]",420,17.35,4.17
+Pacific cod,Pleuronectiformes,"(80,280]",17,9.04,4.13
+Pacific cod,Offal,"(60,80]",59,1.92,4
+Pacific cod,Gammaridea,"(20,40]",613,33.79,4
+Arrowtooth flounder,Ammodytidae,"(0,20]",20,2.46,3.99
+Walleye pollock,Caridea,"(20,40]",237,9.81,3.98
+Pacific halibut,Crangonidae,"(20,40]",165,13.98,3.96
+Pacific cod,Ammodytidae,"(60,80]",141,4.6,3.96
+Pacific halibut,Osmeridae,"(20,40]",30,2.54,3.95
+Pacific cod,Teleostei unid,"(20,40]",262,14.44,3.94
+Pacific halibut,Brachyura,"(60,80]",357,13.96,3.94
+Arrowtooth flounder,Ammodytidae,"(40,60]",156,3.25,3.87
+Pacific cod,Teleostei unid,"(60,80]",705,23,3.85
+Arrowtooth flounder,Teleostei unid,"(40,60]",829,17.27,3.81
+Pacific halibut,Clupeoidei,"(60,80]",108,4.22,3.74
+Walleye pollock,Caridea,"(40,60]",922,13.13,3.72
+Walleye pollock,Osmeridae,"(0,20]",14,0.78,3.71
+Pacific halibut,Offal,"(60,80]",86,3.36,3.68
+Pacific halibut,Chionoecetes bairdi,"(80,280]",130,11.66,3.63
+Pacific cod,Ammodytidae,"(40,60]",199,3.71,3.61
+Arrowtooth flounder,Ammodytidae,"(20,40]",116,2.54,3.55
+Pacific cod,Ammodytidae,"(0,20]",5,1.34,3.46
+Pacific halibut,Atheresthes stomias,"(80,280]",30,2.69,3.42
+Pacific halibut,Gammaridea,"(0,20]",21,23.86,3.33
+Pacific cod,Cottidae,"(20,40]",109,6.01,3.32
+Pacific halibut,Clupeoidei,"(40,60]",43,1.78,3.28
+Pacific halibut,Majidae,"(0,20]",6,6.82,3.24
+Pacific cod,Osmeridae,"(20,40]",29,1.6,3.19
+Pacific cod,Osmeridae,"(40,60]",111,2.07,3.15
+Pacific cod,Anomura,"(20,40]",83,4.58,3.14
+Pacific halibut,Anomura,"(40,60]",106,4.38,3.11
+Walleye pollock,Teleostei unid,"(40,60]",628,8.95,3.05
+Walleye pollock,Teleostei unid,"(20,40]",158,6.54,3.01
+Walleye pollock,Copepoda,"(60,80]",140,17.41,3.01
+Pacific cod,Majidae,"(40,60]",427,7.97,3
+Pacific cod,Hippolytidae,"(0,20]",17,4.57,2.98
+Walleye pollock,Crangonidae,"(60,80]",83,10.32,2.89
+Pacific cod,Polychaeta,"(60,80]",893,29.14,2.84
+Walleye pollock,Appendicularia,"(0,20]",132,7.39,2.84
+Pacific cod,Caridea,"(40,60]",970,18.1,2.79
+Walleye pollock,Hyperiidea,"(20,40]",520,21.51,2.77
+Pacific cod,Paguridae,"(60,80]",514,16.77,2.76
+Arrowtooth flounder,Pleurogrammus monopterygius,"(80,280]",1,14.29,2.75
+Pacific halibut,Teleostei unid,"(60,80]",457,17.87,2.72
+Walleye pollock,Gadus chalcogrammus,"(40,60]",113,1.61,2.67
+Pacific cod,Brachyura,"(40,60]",740,13.81,2.64
+Arrowtooth flounder,Pleuronectiformes,"(60,80]",31,5.08,2.64
+Pacific cod,Pleurogrammus monopterygius,"(60,80]",14,0.46,2.63
+Arrowtooth flounder,Gadidae,"(40,60]",193,4.02,2.63
+Pacific cod,Cyclopteridae,"(80,280]",3,1.6,2.63
+Pacific cod,Hippolytidae,"(20,40]",186,10.25,2.62
+Pacific cod,Stichaeidae,"(20,40]",50,2.76,2.61
+Pacific halibut,Pleuronectiformes,"(80,280]",66,5.92,2.58
+Walleye pollock,Appendicularia,"(20,40]",204,8.44,2.58
+Pacific halibut,Ammodytidae,"(60,80]",148,5.79,2.54
+Pacific cod,Gadidae,"(80,280]",5,2.66,2.51
+Pacific cod,Caridea,"(20,40]",250,13.78,2.51
+Arrowtooth flounder,Gadidae,"(20,40]",91,2,2.46
+Pacific cod,Pleuronectiformes,"(60,80]",184,6,2.43
+Walleye pollock,Cumacea,"(40,60]",155,2.21,2.42
+Walleye pollock,Pandalidae,"(20,40]",174,7.2,8.81
+Walleye pollock,Gammaridea,"(0,20]",106,5.94,2.4
+Walleye pollock,Teleostei unid,"(0,20]",53,2.97,2.3
+Arrowtooth flounder,Gadus macrocephalus,"(60,80]",10,1.64,2.28
+Pacific halibut,Gadus macrocephalus,"(80,280]",18,1.61,2.26
+Arrowtooth flounder,Gadidae,"(60,80]",34,5.57,2.25
+Pacific halibut,Euphausiacea,"(20,40]",57,4.83,2.23
+Walleye pollock,Mysidacea,"(60,80]",82,10.2,2.23
+Walleye pollock,Cumacea,"(60,80]",19,2.36,2.21
+Pacific halibut,Chionoecetes bairdi,"(20,40]",80,6.78,2.19
+Pacific halibut,Cottidae,"(20,40]",66,5.59,2.18
+Arrowtooth flounder,Crangonidae,"(0,20]",41,5.05,2.15
+Pacific halibut,Gadus chalcogrammus,"(20,40]",13,1.1,2.11
+Pacific cod,Osmeridae,"(60,80]",79,2.58,2.08
+Pacific cod,Euphausiacea,"(60,80]",687,22.41,2.07
+Pacific cod,Offal,"(40,60]",34,0.63,2.07
+Pacific cod,Cottidae,"(40,60]",399,7.45,2.04
+Pacific halibut,Gadidae,"(60,80]",77,3.01,2.04
+Pacific cod,Teuthida,"(80,280]",4,2.13,2.01
+Walleye pollock,Caridea,"(0,20]",105,5.88,2
+Walleye pollock,Caridea,"(60,80]",105,13.06,1.99
+Pacific halibut,Sebastes sp.,"(60,80]",27,1.06,1.99
+Pacific halibut,Pleuronectiformes,"(60,80]",81,3.17,1.95
+Pacific cod,Chionoecetes bairdi,"(80,280]",16,8.51,1.92
+Walleye pollock,Teleostei unid,"(60,80]",85,10.57,1.91
+Pacific cod,Cottidae,"(60,80]",196,6.39,1.86
+Pacific cod,Salmonidae,"(80,280]",2,1.06,1.85
+Walleye pollock,Mysidacea,"(0,20]",83,4.65,1.85
+Pacific cod,Atheresthes stomias,"(60,80]",23,0.75,1.83
+Pacific cod,Majidae,"(60,80]",235,7.67,1.83
+Pacific cod,Anomura,"(60,80]",182,5.94,1.82
+Arrowtooth flounder,Pandalidae,"(60,80]",40,6.56,0.22
+Arrowtooth flounder,Teleostei unid,"(60,80]",115,18.85,1.73
+Pacific halibut,Anomura,"(60,80]",90,3.52,1.72
+Pacific cod,Stichaeidae,"(40,60]",244,4.55,1.71
+Walleye pollock,Hyperiidea,"(0,20]",159,8.91,1.71
+Pacific halibut,Cottidae,"(40,60]",120,4.96,1.7
+Pacific halibut,Caridea,"(0,20]",12,13.64,1.69
+Pacific cod,Octopoda,"(60,80]",331,10.8,1.68
+Pacific halibut,Majidae,"(80,280]",122,10.94,1.68
+Pacific cod,Cumacea,"(0,20]",37,9.95,1.68
+Pacific halibut,Offal,"(40,60]",23,0.95,1.67
+Pacific cod,Crangonidae,"(60,80]",791,25.81,1.65
+Pacific cod,Hippolytidae,"(40,60]",876,16.35,1.62
+Pacific cod,Octopoda,"(40,60]",402,7.5,1.6
+Pacific cod,Appendicularia,"(0,20]",7,1.88,1.6
+Walleye pollock,Gadus chalcogrammus,"(0,20]",9,0.5,1.58
+Arrowtooth flounder,Atheresthes stomias,"(40,60]",29,0.6,1.56
+Pacific cod,Gadus chalcogrammus,"(0,20]",2,0.54,1.55
+Pacific cod,Annelida,"(20,40]",76,4.19,1.55
+Pacific halibut,Octopoda,"(40,60]",57,2.35,1.55
+Walleye pollock,Gadus chalcogrammus,"(20,40]",17,0.7,1.53
+Walleye pollock,Brachyura,"(0,20]",83,4.65,1.53
+Pacific halibut,Pleuronectiformes,"(20,40]",37,3.14,1.5
+Pacific cod,Crustacea,"(0,20]",21,5.65,1.5
+Pacific cod,Sebastes sp.,"(60,80]",36,1.17,1.5
+Pacific halibut,Gadidae,"(80,280]",44,3.95,1.49
+Pacific cod,Majidae,"(20,40]",91,5.02,1.49
+Walleye pollock,Hyperiidea,"(40,60]",1794,25.56,1.48
+Walleye pollock,Crangonidae,"(40,60]",377,5.37,1.46
+Arrowtooth flounder,Lepidopsetta polyxystra,"(60,80]",5,0.82,1.46
+Arrowtooth flounder,Offal,"(40,60]",25,0.52,1.45
+Pacific cod,Teleostei unid,"(0,20]",15,4.03,1.45
+Arrowtooth flounder,Pleurogrammus monopterygius,"(60,80]",7,1.15,1.45
+Pacific halibut,Mysidacea,"(0,20]",4,4.55,1.45
+Pacific cod,Cumacea,"(20,40]",65,3.58,1.44
+Pacific halibut,Euphausiacea,"(0,20]",4,4.55,1.44
+Pacific halibut,Bivalvia,"(0,20]",2,2.27,1.43
+Pacific cod,Anoplopoma fimbria,"(80,280]",1,0.53,1.42
+Pacific cod,Atheresthes stomias,"(80,280]",3,1.6,1.42
+Walleye pollock,Crangonidae,"(20,40]",67,2.77,1.4
+Walleye pollock,Anomura,"(20,40]",33,1.37,1.4
+Arrowtooth flounder,Caridea,"(0,20]",40,4.93,1.4
+Walleye pollock,Gammaridea,"(20,40]",195,8.07,1.38
+Arrowtooth flounder,Stichaeidae,"(20,40]",90,1.97,1.36
+Pacific halibut,Gadidae,"(40,60]",45,1.86,1.36
+Pacific cod,Gammaridea,"(40,60]",1480,27.62,1.33
+Walleye pollock,Mysidacea,"(20,40]",130,5.38,1.32
+Pacific cod,Zoarcidae,"(40,60]",150,2.8,1.3
+Arrowtooth flounder,Clupeoidei,"(60,80]",8,1.31,1.26
+Pacific halibut,Polychaeta,"(0,20]",3,3.41,1.23
+Pacific halibut,Pleuronectiformes,"(40,60]",75,3.1,1.23
+Pacific cod,Anomura,"(0,20]",2,0.54,1.18
+Pacific halibut,Hippolytidae,"(20,40]",59,5,1.17
+Walleye pollock,Mysidacea,"(40,60]",554,7.89,1.16
+Pacific cod,Gadidae,"(60,80]",52,1.7,1.16
+Pacific halibut,Pleurogrammus monopterygius,"(80,280]",8,0.72,1.15
+Walleye pollock,Chaetognatha,"(0,20]",88,4.93,1.13
+Pacific cod,Gadus chalcogrammus,"(20,40]",14,0.77,1.13
+Pacific cod,Annelida,"(40,60]",284,5.3,1.12
+Pacific halibut,Gadus macrocephalus,"(60,80]",20,0.78,1.12
+Pacific halibut,Teleostei unid,"(80,280]",145,13,1.09
+Pacific halibut,Atheresthes stomias,"(60,80]",24,0.94,1.08
+Pacific cod,Pleuronectiformes,"(40,60]",233,4.35,1.08
+Arrowtooth flounder,Lepidopsetta sp.,"(60,80]",5,0.82,1.08
+Pacific cod,Brachyura,"(60,80]",293,9.56,1.07
+Arrowtooth flounder,Caridea,"(20,40]",308,6.75,1.07
+Arrowtooth flounder,Hippoglossoides elassodon,"(60,80]",6,0.98,1.06
+Walleye pollock,Ctenophora sp.,"(60,80]",16,1.99,1.05
+Pacific cod,Stichaeidae,"(60,80]",141,4.6,1.04
+Pacific cod,Pleuronectiformes,"(20,40]",46,2.54,1.03
+Pacific cod,Teleostei unid,"(80,280]",33,17.55,1.03
+Arrowtooth flounder,Gadidae,"(0,20]",8,0.99,1.02
+Arrowtooth flounder,Cottidae,"(0,20]",5,0.62,1.02
+Walleye pollock,Ammodytidae,"(60,80]",9,1.12,1.01
+Walleye pollock,Myctophidae,"(60,80]",4,0.5,1.01
+Pacific halibut,Brachyura,"(80,280]",59,5.29,1.01
+Pacific cod,Caridea,"(60,80]",423,13.8,1
+Arrowtooth flounder,Pandalidae,"(0,20]",40,4.93,4.59
+Pacific halibut,Pandalidae,"(0,20]",3,3.41,0.96
+Arrowtooth flounder,Atheresthes stomias,"(60,80]",4,0.66,0.97
+Pacific halibut,Clupeoidei,"(80,280]",25,2.24,0.97
+Arrowtooth flounder,Zoarcidae,"(40,60]",65,1.35,0.96
+Pacific halibut,Pandalidae,"(40,60]",76,3.14,0.94
+Pacific halibut,Pandalidae,"(20,40]",36,3.05,0.99
+Walleye pollock,Crustacea,"(0,20]",83,4.65,0.93
+Arrowtooth flounder,Zoarcidae,"(0,20]",4,0.49,0.93
+Arrowtooth flounder,Teuthida,"(40,60]",63,1.31,0.92
+Walleye pollock,Hippolytidae,"(20,40]",47,1.94,0.92
+Pacific halibut,Osmeridae,"(80,280]",48,4.3,0.91
+Pacific halibut,Euphausiacea,"(40,60]",86,3.55,0.91
+Pacific halibut,Cyclopteridae,"(0,20]",1,1.14,0.9
+Pacific halibut,Annelida,"(20,40]",21,1.78,0.9
+Pacific cod,Chionoecetes sp.,"(20,40]",23,1.27,0.89
+Pacific cod,Clupeoidei,"(60,80]",25,0.82,0.89
+Arrowtooth flounder,Pleuronectiformes,"(40,60]",76,1.58,0.88
+Pacific cod,Majidae,"(0,20]",5,1.34,0.87
+Pacific cod,Zoarcidae,"(60,80]",108,3.52,0.86
+Walleye pollock,Thecosomata,"(40,60]",316,4.5,0.86
+Pacific halibut,Stichaeidae,"(20,40]",22,1.86,0.85
+Pacific cod,Hippoglossoides elassodon,"(80,280]",1,0.53,0.85
+Arrowtooth flounder,Salmonidae,"(40,60]",7,0.15,0.84
+Pacific cod,Hippoglossoides elassodon,"(60,80]",32,1.04,0.84
+Arrowtooth flounder,Zoarcidae,"(20,40]",29,0.64,0.84
+Pacific halibut,Teuthida,"(60,80]",34,1.33,0.83
+Pacific halibut,Bivalvia,"(20,40]",33,2.8,0.83
+Pacific cod,Zoarcidae,"(20,40]",21,1.16,0.82
+Walleye pollock,Cumacea,"(0,20]",44,2.46,0.81
+Pacific halibut,Ammodytidae,"(0,20]",1,1.14,0.81
+Arrowtooth flounder,Crangonidae,"(20,40]",241,5.29,0.81
+Pacific cod,Octopoda,"(80,280]",6,3.19,0.8
+Walleye pollock,Ammodytidae,"(40,60]",61,0.87,0.78
+Pacific halibut,Chionoecetes sp.,"(40,60]",49,2.02,0.77
+Walleye pollock,Clupeoidei,"(60,80]",1,0.12,0.76
+Arrowtooth flounder,Atheresthes stomias,"(0,20]",4,0.49,0.75
+Pacific cod,Chionoecetes bairdi,"(0,20]",4,1.08,0.75
+Pacific halibut,Mollusca,"(20,40]",18,1.53,0.75
+Pacific halibut,Chionoecetes sp.,"(60,80]",56,2.19,0.74
+Walleye pollock,Crangonidae,"(0,20]",16,0.9,0.72
+Walleye pollock,Thecosomata,"(0,20]",34,1.9,0.72
+Pacific cod,Cottidae,"(0,20]",5,1.34,0.71
+Arrowtooth flounder,Gadus macrocephalus,"(40,60]",10,0.21,0.71
+Pacific cod,Mysidacea,"(0,20]",27,7.26,0.71
+Pacific cod,Clupeoidei,"(40,60]",12,0.22,0.7
+Pacific halibut,Salmonidae,"(60,80]",4,0.16,0.7
+Pacific cod,Caprellidae,"(0,20]",14,3.76,0.7
+Pacific cod,Gastropod,"(20,40]",49,2.7,0.69
+Pacific halibut,Unid,"(60,80]",40,1.56,0.69
+Pacific halibut,Offal,"(20,40]",4,0.34,0.69
+Arrowtooth flounder,Sebastolobus sp.,"(60,80]",2,0.33,0.68
+Walleye pollock,Teuthida,"(60,80]",14,1.74,0.67
+Pacific halibut,Anomura,"(20,40]",8,0.68,0.66
+Pacific cod,Chionoecetes sp.,"(60,80]",53,1.73,0.65
+Walleye pollock,Gammaridea,"(40,60]",612,8.72,0.65
+Walleye pollock,Hippolytidae,"(40,60]",159,2.26,0.64
+Pacific cod,Chionoecetes sp.,"(40,60]",94,1.75,0.64
+Pacific halibut,Polychaeta,"(20,40]",63,5.34,0.64
+Arrowtooth flounder,Ammodytidae,"(60,80]",21,3.44,0.63
+Pacific cod,Trichodon trichodon,"(60,80]",7,0.23,0.63
+Arrowtooth flounder,Osmeridae,"(60,80]",26,4.26,0.62
+Walleye pollock,Trichodon trichodon,"(60,80]",1,0.12,0.6
+Pacific halibut,Crangonidae,"(40,60]",117,4.83,0.59
+Pacific cod,Ammodytidae,"(80,280]",5,2.66,0.59
+Pacific halibut,Zoarcidae,"(20,40]",4,0.34,0.59
+Arrowtooth flounder,Euphausiacea,"(60,80]",52,8.52,0.59
+Pacific cod,Gadus macrocephalus,"(60,80]",5,0.16,0.58
+Pacific halibut,Pandalidae,"(60,80]",61,2.39,0.58
+Pacific halibut,Pholidae,"(20,40]",10,0.85,0.56
+Pacific cod,Hippolytidae,"(60,80]",333,10.86,0.56
+Pacific halibut,Chionoecetes sp.,"(20,40]",21,1.78,0.56
+Walleye pollock,Polychaeta,"(60,80]",51,6.34,0.55
+Pacific halibut,Atheresthes stomias,"(40,60]",14,0.58,0.55
+Pacific halibut,Polychaeta,"(40,60]",104,4.3,0.55
+Walleye pollock,Unid,"(0,20]",34,1.9,0.55
+Pacific halibut,Cottidae,"(80,280]",18,1.61,0.55
+Walleye pollock,Cumacea,"(20,40]",52,2.15,0.54
+Pacific halibut,Caridea,"(20,40]",41,3.47,0.53
+Pacific halibut,Gadus macrocephalus,"(40,60]",8,0.33,0.53
+Pacific halibut,Stichaeidae,"(40,60]",42,1.73,0.52
+Pacific cod,Teuthida,"(60,80]",103,3.36,0.52
+Pacific halibut,Anoplopoma fimbria,"(40,60]",2,0.08,0.51
+Pacific halibut,Atheresthes stomias,"(0,20]",1,1.14,0.51
+Pacific halibut,Teuthida,"(80,280]",21,1.88,0.5
+Pacific halibut,Hippolytidae,"(40,60]",57,2.35,0.5
+Walleye pollock,Clupeoidei,"(40,60]",6,0.09,0.5
+Pacific halibut,Sebastes sp.,"(40,60]",8,0.33,0.5
+Pacific halibut,Polychaeta,"(60,80]",68,2.66,0.5
+Arrowtooth flounder,Pleuronectiformes,"(20,40]",45,0.99,0.49
+Walleye pollock,Teuthida,"(40,60]",124,1.77,0.49
+Pacific halibut,Zoarcidae,"(40,60]",21,0.87,0.49
+Pacific halibut,Annelida,"(40,60]",62,2.56,0.48
+Arrowtooth flounder,Mysidacea,"(0,20]",11,1.35,0.48
+Pacific halibut,Hippoglossoides elassodon,"(80,280]",7,0.63,0.48
+Pacific halibut,Cephalopoda,"(60,80]",34,1.33,0.48
+Pacific cod,Polychaeta,"(80,280]",13,6.91,0.47
+Pacific cod,Pandalidae,"(0,20]",8,2.15,2.4
+Arrowtooth flounder,Stichaeidae,"(40,60]",39,0.81,0.47
+Pacific cod,Bivalvia,"(40,60]",312,5.82,0.47
+Arrowtooth flounder,Hippoglossoides elassodon,"(0,20]",1,0.12,0.46
+Pacific cod,Unid,"(40,60]",143,2.67,0.46
+Pacific cod,Annelida,"(60,80]",162,5.29,0.46
+Arrowtooth flounder,Sebastes sp.,"(60,80]",4,0.66,0.45
+Pacific cod,Lithodidae,"(60,80]",18,0.59,0.45
+Pacific cod,Sebastes sp.,"(80,280]",1,0.53,0.44
+Pacific halibut,Sebastolobus sp.,"(60,80]",4,0.16,0.44
+Pacific halibut,Cnidaria,"(40,60]",29,1.2,0.44
+Pacific halibut,Lepidopsetta sp.,"(80,280]",5,0.45,0.44
+Pacific cod,Paguridae,"(80,280]",14,7.45,0.44
+Walleye pollock,Paguridae,"(20,40]",50,2.07,0.44
+Pacific cod,Copepoda,"(20,40]",55,3.03,0.43
+Pacific cod,Gastropod,"(40,60]",342,6.38,0.43
+Walleye pollock,Cottidae,"(60,80]",11,1.37,0.43
+Walleye pollock,Gammaridea,"(60,80]",75,9.33,0.43
+Pacific cod,Atheresthes stomias,"(40,60]",32,0.6,0.42
+Pacific cod,Gammaridea,"(60,80]",587,19.15,0.42
+Pacific halibut,Cottidae,"(60,80]",41,1.6,0.41
+Pacific cod,Hippoglossoides elassodon,"(40,60]",40,0.75,0.41
+Walleye pollock,Zoarcidae,"(60,80]",6,0.75,0.41
+Walleye pollock,Hippolytidae,"(0,20]",15,0.84,0.4
+Pacific halibut,Liminda aspera,"(80,280]",6,0.54,0.4
+Pacific halibut,Gadidae,"(20,40]",6,0.51,0.4
+Walleye pollock,Hippolytidae,"(60,80]",26,3.23,0.39
+Walleye pollock,Unid,"(40,60]",209,2.98,0.39
+Pacific cod,Gadidae,"(40,60]",40,0.75,0.39
+Pacific cod,Myctophidae,"(20,40]",5,0.28,0.39
+Pacific cod,Annelida,"(0,20]",4,1.08,0.39
+Pacific cod,Cyclopteridae,"(60,80]",8,0.26,0.38
+Arrowtooth flounder,Cottidae,"(20,40]",23,0.5,0.38
+Arrowtooth flounder,Pleuronectiformes,"(0,20]",5,0.62,0.38
+Walleye pollock,Ctenophora sp.,"(40,60]",27,0.38,0.38
+Walleye pollock,Ammodytidae,"(20,40]",7,0.29,0.37
+Arrowtooth flounder,Sebastes sp.,"(40,60]",8,0.17,0.37
+Pacific halibut,Bivalvia,"(40,60]",107,4.42,0.37
+Pacific halibut,Cnidaria,"(60,80]",33,1.29,0.36
+Pacific cod,Sebastes sp.,"(40,60]",19,0.35,0.36
+Walleye pollock,Polychaeta,"(40,60]",209,2.98,0.35
+Walleye pollock,Thecosomata,"(60,80]",29,3.61,0.35
+Pacific halibut,Cephalopoda,"(40,60]",20,0.83,0.34
+Walleye pollock,Chaetognatha,"(20,40]",91,3.76,0.34
+Pacific halibut,Agonidae,"(20,40]",17,1.44,0.34
+Pacific halibut,Pleurogrammus monopterygius,"(60,80]",5,0.2,0.34
+Arrowtooth flounder,Bathylagidae,"(40,60]",10,0.21,0.33
+Walleye pollock,Stichaeidae,"(20,40]",12,0.5,0.33
+Pacific halibut,Ammodytidae,"(80,280]",37,3.32,0.33
+Walleye pollock,Brachyura,"(20,40]",71,2.94,0.33
+Pacific halibut,Paguridae,"(80,280]",73,6.55,0.32
+Pacific cod,Mollusca,"(20,40]",19,1.05,0.32
+Pacific cod,Teuthida,"(40,60]",136,2.54,0.31
+Pacific cod,Agonidae,"(40,60]",115,2.15,0.31
+Arrowtooth flounder,Hippolytidae,"(0,20]",6,0.74,0.31
+Pacific cod,Gadus macrocephalus,"(40,60]",4,0.07,0.31
+Pacific cod,Bivalvia,"(60,80]",276,9,0.31
+Pacific cod,Isopoda,"(20,40]",41,2.26,0.3
+Walleye pollock,Sebastolobus sp.,"(60,80]",1,0.12,0.3
+Arrowtooth flounder,Cottidae,"(60,80]",2,0.33,0.3
+Walleye pollock,Polychaeta,"(20,40]",40,1.65,0.29
+Walleye pollock,Stichaeidae,"(60,80]",7,0.87,0.29
+Pacific halibut,Unid,"(80,280]",12,1.08,0.28
+Walleye pollock,Ctenophora sp.,"(20,40]",2,0.08,0.28
+Pacific halibut,Stichaeidae,"(60,80]",27,1.06,0.28
+Pacific cod,Thecosomata,"(0,20]",4,1.08,0.28
+Arrowtooth flounder,Cottidae,"(40,60]",14,0.29,0.27
+Pacific cod,Bivalvia,"(20,40]",62,3.42,0.27
+Arrowtooth flounder,Teuthida,"(20,40]",14,0.31,0.27
+Arrowtooth flounder,Macrouridae,"(40,60]",2,0.04,0.27
+Walleye pollock,Unid,"(60,80]",15,1.87,0.27
+Pacific halibut,Gastropod,"(40,60]",71,2.93,0.26
+Pacific cod,Invertebrate,"(60,80]",44,1.44,0.26
+Pacific cod,Stichaeidae,"(0,20]",1,0.27,0.26
+Walleye pollock,Crustacea,"(20,40]",68,2.81,0.26
+Arrowtooth flounder,Caridea,"(40,60]",202,4.21,0.26
+Pacific cod,Gastropod,"(0,20]",3,0.81,0.26
+Pacific halibut,Cyclopteridae,"(80,280]",5,0.45,0.25
+Pacific cod,Mysidacea,"(20,40]",69,3.8,0.25
+Walleye pollock,Unid,"(20,40]",52,2.15,0.25
+Pacific halibut,Lithodidae,"(60,80]",13,0.51,0.25
+Pacific halibut,Rajidae,"(80,280]",3,0.27,0.25
+Walleye pollock,Atheresthes stomias,"(60,80]",4,0.5,0.25
+Pacific cod,Atheresthes stomias,"(20,40]",6,0.33,0.24
+Pacific halibut,Clupeoidei,"(20,40]",1,0.08,0.24
+Pacific halibut,Euphausiacea,"(60,80]",58,2.27,0.24
+Arrowtooth flounder,Gadus macrocephalus,"(20,40]",1,0.02,0.24
+Walleye pollock,Gadidae,"(60,80]",4,0.5,0.23
+Walleye pollock,Hyperiidea,"(60,80]",125,15.55,0.23
+Pacific cod,Unid,"(60,80]",92,3,0.23
+Pacific halibut,Cyclopteridae,"(60,80]",3,0.12,0.23
+Walleye pollock,Zoarcidae,"(40,60]",25,0.36,0.23
+Pacific cod,Cumacea,"(40,60]",44,0.82,0.23
+Walleye pollock,Anomura,"(40,60]",40,0.57,0.23
+Pacific halibut,Mysidacea,"(20,40]",16,1.36,0.23
+Pacific halibut,Pandalidae,"(80,280]",22,1.97,0.04
+Pacific halibut,Hippolytidae,"(0,20]",3,3.41,0.22
+Arrowtooth flounder,Hippoglossoides elassodon,"(20,40]",5,0.11,0.22
+Pacific halibut,Cephalopoda,"(20,40]",1,0.08,0.22
+Pacific halibut,Lithodidae,"(20,40]",2,0.17,0.22
+Pacific halibut,Gammaridea,"(20,40]",65,5.51,0.22
+Walleye pollock,Thecosomata,"(20,40]",77,3.19,0.22
+Pacific halibut,Anoplopoma fimbria,"(60,80]",6,0.23,0.22
+Pacific cod,Unid,"(20,40]",27,1.49,0.22
+Pacific halibut,Atheresthes evermanni,"(80,280]",1,0.09,0.21
+Pacific halibut,Trichodon trichodon,"(60,80]",6,0.23,0.21
+Pacific halibut,Bivalvia,"(60,80]",129,5.04,0.21
+Pacific halibut,Chionoecetes sp.,"(80,280]",18,1.61,0.21
+Pacific cod,Cephalopoda,"(20,40]",7,0.39,0.2
+Walleye pollock,Anomura,"(0,20]",2,0.11,0.2
+Pacific cod,Holothuroidea,"(20,40]",6,0.33,0.2
+Pacific cod,Invertebrate,"(20,40]",14,0.77,0.2
+Walleye pollock,Gadidae,"(40,60]",28,0.4,0.2
+Pacific halibut,Annelida,"(60,80]",38,1.49,0.2
+Pacific halibut,Cephalopoda,"(80,280]",17,1.52,0.2
+Walleye pollock,Paguridae,"(0,20]",41,2.3,0.19
+Arrowtooth flounder,Pleurogrammus monopterygius,"(40,60]",2,0.04,0.19
+Pacific halibut,Lepidopsetta bilineata,"(80,280]",2,0.18,0.19
+Pacific cod,Gastropod,"(60,80]",187,6.1,0.19
+Walleye pollock,Clupeoidei,"(0,20]",1,0.06,0.19
+Pacific cod,Crustacea,"(80,280]",2,1.06,0.19
+Pacific cod,Amphipoda,"(0,20]",1,0.27,0.19
+Pacific cod,Rajidae,"(60,80]",5,0.16,0.19
+Walleye pollock,Ammodytidae,"(0,20]",1,0.06,0.19
+Arrowtooth flounder,Trichodon trichodon,"(60,80]",1,0.16,0.19
+Pacific halibut,Hexagrammidae,"(40,60]",1,0.04,0.19
+Walleye pollock,Brachyura,"(40,60]",175,2.49,0.19
+Pacific halibut,Cyclopteridae,"(40,60]",8,0.33,0.19
+Pacific halibut,Hippoglossus stenolepis,"(40,60]",4,0.17,0.19
+Pacific cod,Brachyura,"(80,280]",8,4.26,0.18
+Pacific cod,Cottidae,"(80,280]",4,2.13,0.18
+Pacific cod,Cnidaria,"(40,60]",27,0.5,0.18
+Walleye pollock,Gadidae,"(20,40]",3,0.12,0.18
+Pacific cod,Isopoda,"(40,60]",182,3.4,0.18
+Walleye pollock,Teuthida,"(20,40]",24,0.99,0.17
+Walleye pollock,Annelida,"(20,40]",10,0.41,0.17
+Walleye pollock,Chionoecetes bairdi,"(40,60]",35,0.5,0.17
+Walleye pollock,Amphipoda,"(20,40]",27,1.12,0.17
+Pacific halibut,Isopoda,"(20,40]",19,1.61,0.17
+Pacific halibut,Agonidae,"(40,60]",25,1.03,0.17
+Walleye pollock,Echinodermata,"(60,80]",2,0.25,0.17
+Pacific halibut,Teuthida,"(20,40]",3,0.25,0.17
+Arrowtooth flounder,Offal,"(60,80]",5,0.82,0.16
+Walleye pollock,Tunicata,"(40,60]",37,0.53,0.16
+Pacific cod,Cephalopoda,"(40,60]",91,1.7,0.16
+Pacific halibut,Zoarcidae,"(60,80]",15,0.59,0.16
+Pacific cod,Lepidopsetta bilineata,"(20,40]",1,0.06,0.16
+Pacific cod,Osmeridae,"(80,280]",3,1.6,0.15
+Pacific cod,Lepidopsetta sp.,"(60,80]",9,0.29,0.15
+Arrowtooth flounder,Sebastes sp.,"(20,40]",7,0.15,0.15
+Pacific cod,Crustacea,"(40,60]",75,1.4,0.15
+Walleye pollock,Stichaeidae,"(40,60]",18,0.26,0.14
+Arrowtooth flounder,Crangonidae,"(40,60]",121,2.52,0.14
+Pacific cod,Majidae,"(80,280]",4,2.13,0.14
+Pacific halibut,Pholidae,"(40,60]",13,0.54,0.14
+Arrowtooth flounder,Chaetognatha,"(0,20]",4,0.49,0.14
+Arrowtooth flounder,Teuthida,"(0,20]",1,0.12,0.14
+Arrowtooth flounder,Trichodon trichodon,"(40,60]",3,0.06,0.14
+Walleye pollock,Myctophidae,"(20,40]",1,0.04,0.14
+Pacific halibut,Chionoecetes bairdi,"(0,20]",1,1.14,0.14
+Pacific cod,Octopoda,"(20,40]",16,0.88,0.14
+Pacific halibut,Euphausiacea,"(80,280]",15,1.35,0.13
+Pacific cod,Chionoecetes sp.,"(80,280]",1,0.53,0.13
+Arrowtooth flounder,Pleurogrammus monopterygius,"(20,40]",1,0.02,0.13
+Walleye pollock,Decapoda,"(40,60]",32,0.46,0.13
+Pacific cod,Gadidae,"(20,40]",1,0.06,0.13
+Pacific halibut,Agonidae,"(0,20]",1,1.14,0.13
+Pacific cod,Unid Eggs,"(20,40]",2,0.11,0.13
+Pacific halibut,Polychaeta,"(80,280]",14,1.26,0.13
+Pacific halibut,Unid Eggs,"(40,60]",4,0.17,0.13
+Pacific halibut,Zoarcidae,"(80,280]",5,0.45,0.13
+Arrowtooth flounder,Agonidae,"(0,20]",1,0.12,0.13
+Pacific cod,Clupeoidei,"(20,40]",2,0.11,0.13
+Pacific halibut,Hippoglossoides elassodon,"(20,40]",2,0.17,0.13
+Arrowtooth flounder,Atheresthes stomias,"(20,40]",10,0.22,0.13
+Pacific cod,Bivalvia,"(0,20]",2,0.54,0.13
+Walleye pollock,Tunicata,"(60,80]",4,0.5,0.13
+Pacific cod,Crustacea,"(20,40]",38,2.09,0.13
+Walleye pollock,Paguridae,"(40,60]",278,3.96,0.12
+Pacific halibut,Lithodidae,"(40,60]",8,0.33,0.12
+Pacific halibut,Hippoglossoides elassodon,"(60,80]",4,0.16,0.12
+Walleye pollock,Atheresthes stomias,"(40,60]",8,0.11,0.12
+Walleye pollock,Annelida,"(60,80]",3,0.37,0.12
+Pacific cod,Invertebrate,"(40,60]",47,0.88,0.12
+Pacific halibut,Octopoda,"(20,40]",7,0.59,0.12
+Arrowtooth flounder,Mysidacea,"(20,40]",60,1.32,0.12
+Pacific cod,Ophiurida,"(40,60]",40,0.75,0.12
+Pacific cod,Unid,"(0,20]",3,0.81,0.12
+Arrowtooth flounder,Hippolytidae,"(20,40]",36,0.79,0.12
+Pacific halibut,Hexagrammidae,"(80,280]",1,0.09,0.12
+Walleye pollock,Amphipoda,"(0,20]",14,0.78,0.12
+Walleye pollock,Cottidae,"(40,60]",28,0.4,0.12
+Pacific cod,Cnidaria,"(60,80]",20,0.65,0.12
+Arrowtooth flounder,Lepidopsetta sp.,"(0,20]",2,0.25,0.12
+Walleye pollock,Pleuronectiformes,"(40,60]",37,0.53,0.12
+Pacific halibut,Cyclopteridae,"(20,40]",4,0.34,0.12
+Pacific cod,Agonidae,"(60,80]",45,1.47,0.12
+Pacific halibut,Lepidopsetta polyxystra,"(60,80]",3,0.12,0.12
+Arrowtooth flounder,Hippoglossoides elassodon,"(40,60]",5,0.1,0.12
+Pacific halibut,Cumacea,"(20,40]",12,1.02,0.12
+Pacific halibut,Lithodidae,"(80,280]",11,0.99,0.12
+Pacific cod,Stichaeidae,"(80,280]",3,1.6,0.11
+Pacific cod,Zoarcidae,"(80,280]",2,1.06,0.11
+Pacific cod,Cephalopoda,"(60,80]",52,1.7,0.11
+Pacific halibut,Caprellidae,"(0,20]",2,2.27,0.11
+Arrowtooth flounder,Appendicularia,"(0,20]",4,0.49,0.11
+Pacific cod,Lepidopsetta bilineata,"(60,80]",1,0.03,0.11
+Pacific cod,Appendicularia,"(20,40]",11,0.61,0.11
+Arrowtooth flounder,Anomura,"(20,40]",16,0.35,0.11
+Pacific halibut,Mollusca,"(40,60]",23,0.95,0.1
+Pacific cod,Hyperiidea,"(0,20]",5,1.34,0.1
+Pacific cod,Agonidae,"(20,40]",7,0.39,0.1
+Arrowtooth flounder,Polychaeta,"(20,40]",59,1.29,0.1
+Pacific cod,Echinodermata,"(20,40]",2,0.11,0.1
+Walleye pollock,Brachyura,"(60,80]",10,1.24,0.1
+Pacific cod,Lithodidae,"(80,280]",1,0.53,0.1
+Walleye pollock,Gadidae,"(0,20]",1,0.06,0.1
+Pacific cod,Thecosomata,"(40,60]",13,0.24,0.1
+Pacific cod,Hippoglossoides elassodon,"(20,40]",3,0.17,0.1
+Walleye pollock,Chaetognatha,"(40,60]",198,2.82,0.1
+Pacific cod,Mollusca,"(0,20]",1,0.27,0.1
+Walleye pollock,Cephalopoda,"(0,20]",1,0.06,0.1
+Arrowtooth flounder,Gammaridea,"(0,20]",10,1.23,0.09
+Pacific halibut,Agonidae,"(60,80]",12,0.47,0.09
+Pacific cod,Mollusca,"(40,60]",47,0.88,0.09
+Walleye pollock,Pleuronectiformes,"(60,80]",8,1,0.09
+Arrowtooth flounder,Hippoglossus stenolepis,"(0,20]",1,0.12,0.09
+Pacific halibut,Trichodon trichodon,"(80,280]",1,0.09,0.09
+Pacific halibut,Gastropod,"(20,40]",10,0.85,0.09
+Pacific halibut,Isopoda,"(40,60]",27,1.12,0.09
+Pacific halibut,Ophiurida,"(40,60]",36,1.49,0.09
+Pacific halibut,Gastropod,"(60,80]",52,2.03,0.09
+Walleye pollock,Myctophidae,"(40,60]",11,0.16,0.09
+Walleye pollock,Crustacea,"(40,60]",91,1.3,0.08
+Pacific cod,Euphausiacea,"(80,280]",15,7.98,0.08
+Pacific halibut,Unid,"(40,60]",33,1.36,0.08
+Pacific halibut,Caridea,"(40,60]",45,1.86,0.08
+Walleye pollock,Sebastes sp.,"(20,40]",3,0.12,0.08
+Arrowtooth flounder,Myctophidae,"(40,60]",10,0.21,0.08
+Pacific halibut,Unid,"(0,20]",2,2.27,0.08
+Pacific cod,Echinodermata,"(60,80]",26,0.85,0.08
+Pacific halibut,Unid Eggs,"(20,40]",1,0.08,0.08
+Walleye pollock,Octopoda,"(40,60]",13,0.19,0.08
+Pacific halibut,Lepidopsetta sp.,"(60,80]",2,0.08,0.08
+Pacific cod,Sebastolobus sp.,"(60,80]",3,0.1,0.08
+Pacific halibut,Hexagrammidae,"(60,80]",2,0.08,0.08
+Pacific halibut,Bivalvia,"(80,280]",22,1.97,0.08
+Pacific cod,Isopoda,"(60,80]",88,2.87,0.08
+Arrowtooth flounder,Polychaeta,"(0,20]",7,0.86,0.08
+Pacific cod,Rajidae,"(40,60]",3,0.06,0.07
+Pacific halibut,Chionoecetes opilio,"(60,80]",4,0.16,0.07
+Pacific cod,Lithodidae,"(40,60]",3,0.06,0.07
+Pacific halibut,Holothuroidea,"(40,60]",4,0.17,0.07
+Pacific cod,Unid,"(80,280]",6,3.19,0.07
+Pacific cod,Mollusca,"(60,80]",25,0.82,0.07
+Walleye pollock,Decapoda,"(0,20]",6,0.34,0.07
+Arrowtooth flounder,Chionoecetes bairdi,"(0,20]",1,0.12,0.07
+Arrowtooth flounder,Lepidopsetta sp.,"(20,40]",6,0.13,0.07
+Walleye pollock,Polychaeta,"(0,20]",10,0.56,0.07
+Walleye pollock,Annelida,"(40,60]",12,0.17,0.07
+Pacific halibut,Mollusca,"(60,80]",10,0.39,0.07
+Pacific halibut,Teuthida,"(40,60]",9,0.37,0.07
+Pacific halibut,Salmonidae,"(40,60]",1,0.04,0.07
+Pacific halibut,Unid,"(20,40]",12,1.02,0.07
+Pacific cod,Ophiurida,"(60,80]",34,1.11,0.07
+Pacific halibut,Invertebrate,"(40,60]",20,0.83,0.07
+Walleye pollock,Chionoecetes sp.,"(60,80]",1,0.12,0.07
+Pacific halibut,Crangonidae,"(60,80]",43,1.68,0.06
+Walleye pollock,Pleuronectiformes,"(0,20]",2,0.11,0.06
+Pacific cod,Fish Eggs,"(60,80]",5,0.16,0.06
+Walleye pollock,Salmonidae,"(40,60]",1,0.01,0.06
+Walleye pollock,Anomura,"(60,80]",1,0.12,0.06
+Arrowtooth flounder,Copepoda,"(0,20]",5,0.62,0.06
+Pacific halibut,Gammaridea,"(40,60]",59,2.44,0.06
+Pacific cod,Holothuroidea,"(40,60]",14,0.26,0.06
+Arrowtooth flounder,Unid,"(40,60]",62,1.29,0.06
+Walleye pollock,Cyclopteridae,"(40,60]",17,0.24,0.06
+Arrowtooth flounder,Bathylagidae,"(20,40]",1,0.02,0.06
+Pacific cod,Mysidacea,"(40,60]",134,2.5,0.06
+Pacific halibut,Hippolytidae,"(60,80]",23,0.9,0.06
+Walleye pollock,Decapoda,"(20,40]",12,0.5,0.05
+Walleye pollock,Zoarcidae,"(20,40]",2,0.08,0.05
+Pacific halibut,Hippoglossoides elassodon,"(40,60]",5,0.21,0.05
+Pacific halibut,Rajidae,"(60,80]",5,0.2,0.05
+Walleye pollock,Cnidaria,"(20,40]",2,0.08,0.05
+Pacific cod,Ctenophora sp.,"(40,60]",2,0.04,0.05
+Arrowtooth flounder,Offal,"(20,40]",4,0.09,0.05
+Pacific cod,Liminda aspera,"(60,80]",1,0.03,0.05
+Pacific cod,Hyperiidea,"(20,40]",18,0.99,0.05
+Pacific halibut,Isopoda,"(60,80]",10,0.39,0.05
+Pacific halibut,Cnidaria,"(20,40]",2,0.17,0.05
+Pacific halibut,Lepidopsetta sp.,"(40,60]",3,0.12,0.05
+Arrowtooth flounder,Stichaeidae,"(60,80]",1,0.16,0.05
+Arrowtooth flounder,Rajidae,"(40,60]",1,0.02,0.05
+Walleye pollock,Pleuronectiformes,"(20,40]",6,0.25,0.05
+Pacific halibut,Liminda aspera,"(20,40]",1,0.08,0.04
+Pacific cod,Cyclopteridae,"(20,40]",1,0.06,0.04
+Pacific cod,Holothuroidea,"(60,80]",7,0.23,0.04
+Pacific halibut,Invertebrate,"(60,80]",22,0.86,0.04
+Pacific cod,Copepoda,"(40,60]",53,0.99,0.04
+Pacific halibut,Caprellidae,"(20,40]",8,0.68,0.04
+Arrowtooth flounder,Crustacea,"(0,20]",6,0.74,0.04
+Pacific halibut,Tunicata,"(60,80]",3,0.12,0.04
+Pacific cod,Thecosomata,"(20,40]",13,0.72,0.04
+Walleye pollock,Amphipoda,"(60,80]",3,0.37,0.04
+Pacific halibut,Crustacea,"(40,60]",9,0.37,0.04
+Arrowtooth flounder,Cephalopoda,"(20,40]",5,0.11,0.04
+Pacific cod,Pholidae,"(40,60]",5,0.09,0.04
+Walleye pollock,Cephalopoda,"(60,80]",7,0.87,0.04
+Pacific halibut,Ophiurida,"(60,80]",43,1.68,0.04
+Pacific cod,Bivalvia,"(80,280]",5,2.66,0.04
+Walleye pollock,Tunicata,"(20,40]",3,0.12,0.04
+Arrowtooth flounder,Bathylagidae,"(60,80]",2,0.33,0.04
+Pacific halibut,Echinodea,"(60,80]",3,0.12,0.04
+Pacific halibut,Caridea,"(60,80]",21,0.82,0.04
+Walleye pollock,Ctenophora sp.,"(0,20]",2,0.11,0.04
+Pacific halibut,Atheresthes stomias,"(20,40]",2,0.17,0.04
+Arrowtooth flounder,Chaetognatha,"(20,40]",24,0.53,0.04
+Pacific cod,Crangonidae,"(80,280]",9,4.79,0.04
+Pacific halibut,Rajidae,"(40,60]",3,0.12,0.04
+Walleye pollock,Paguridae,"(60,80]",14,1.74,0.04
+Walleye pollock,Pandalidae,"(0,20]",15,0.84,0.99
+Arrowtooth flounder,Hyperiidea,"(0,20]",6,0.74,0.04
+Pacific cod,Hippoglossus stenolepis,"(20,40]",1,0.06,0.04
+Walleye pollock,Isopoda,"(60,80]",3,0.37,0.04
+Arrowtooth flounder,Salmonidae,"(20,40]",2,0.04,0.04
+Pacific halibut,Chionoecetes opilio,"(40,60]",7,0.29,0.04
+Pacific cod,Lepidopsetta polyxystra,"(40,60]",2,0.04,0.04
+Pacific cod,Crustacea,"(60,80]",31,1.01,0.04
+Walleye pollock,Cnidaria,"(40,60]",13,0.19,0.04
+Pacific cod,Atheresthes evermanni,"(40,60]",1,0.02,0.03
+Walleye pollock,Cnidaria,"(60,80]",2,0.25,0.03
+Arrowtooth flounder,Teuthida,"(60,80]",9,1.48,0.03
+Arrowtooth flounder,Agonidae,"(20,40]",6,0.13,0.03
+Arrowtooth flounder,Gammaridea,"(20,40]",58,1.27,0.03
+Arrowtooth flounder,Zoarcidae,"(60,80]",1,0.16,0.03
+Arrowtooth flounder,Teleostei unid,"(80,280]",1,14.29,0.03
+Walleye pollock,Amphipoda,"(40,60]",57,0.81,0.03
+Pacific cod,Caprellidae,"(20,40]",20,1.1,0.03
+Pacific cod,Cnidaria,"(20,40]",4,0.22,0.03
+Pacific cod,Trichodon trichodon,"(40,60]",2,0.04,0.03
+Arrowtooth flounder,Unid,"(20,40]",21,0.46,0.03
+Walleye pollock,Chaetognatha,"(60,80]",9,1.12,0.03
+Pacific cod,Teuthida,"(20,40]",12,0.66,0.03
+Walleye pollock,Cyclopteridae,"(60,80]",4,0.5,0.03
+Pacific cod,Lepidopsetta sp.,"(40,60]",4,0.07,0.03
+Pacific cod,Caprellidae,"(40,60]",23,0.43,0.03
+Pacific halibut,Fish Eggs,"(40,60]",2,0.08,0.03
+Pacific halibut,Octopoda,"(0,20]",1,1.14,0.03
+Pacific halibut,Cnidaria,"(80,280]",5,0.45,0.03
+Pacific cod,Appendicularia,"(40,60]",14,0.26,0.03
+Walleye pollock,Teuthida,"(0,20]",3,0.17,0.03
+Arrowtooth flounder,Unid,"(0,20]",4,0.49,0.03
+Pacific cod,Amphipoda,"(20,40]",12,0.66,0.03
+Arrowtooth flounder,Brachyura,"(20,40]",19,0.42,0.03
+Pacific halibut,Lepidopsetta polyxystra,"(80,280]",1,0.09,0.03
+Walleye pollock,Isopoda,"(40,60]",20,0.28,0.03
+Pacific cod,Echinodea,"(60,80]",5,0.16,0.03
+Pacific cod,Isopoda,"(0,20]",2,0.54,0.03
+Arrowtooth flounder,Anomura,"(0,20]",1,0.12,0.03
+Walleye pollock,Hippoglossoides elassodon,"(40,60]",5,0.07,0.03
+Arrowtooth flounder,Cephalopoda,"(40,60]",10,0.21,0.03
+Pacific halibut,Invertebrate,"(80,280]",8,0.72,0.03
+Pacific halibut,Pholidae,"(60,80]",7,0.27,0.03
+Pacific cod,Pholidae,"(20,40]",2,0.11,0.03
+Arrowtooth flounder,Holothuroidea,"(40,60]",1,0.02,0.03
+Pacific cod,Lepidopsetta bilineata,"(40,60]",2,0.04,0.03
+Pacific halibut,Lepidopsetta sp.,"(20,40]",2,0.17,0.03
+Pacific halibut,Cumacea,"(40,60]",5,0.21,0.03
+Arrowtooth flounder,Myctophidae,"(20,40]",1,0.02,0.02
+Pacific cod,Chaetognatha,"(0,20]",3,0.81,0.02
+Arrowtooth flounder,Sebastolobus sp.,"(40,60]",1,0.02,0.02
+Pacific halibut,Echinodermata,"(80,280]",5,0.45,0.02
+Pacific cod,Cyclopteridae,"(40,60]",13,0.24,0.02
+Pacific cod,Decapoda,"(20,40]",8,0.44,0.02
+Pacific cod,Lepidopsetta polyxystra,"(20,40]",1,0.06,0.02
+Walleye pollock,Bivalvia,"(40,60]",53,0.75,0.02
+Pacific halibut,Stichaeidae,"(80,280]",3,0.27,0.02
+Arrowtooth flounder,Mollusca,"(20,40]",2,0.04,0.02
+Pacific cod,Aves,"(60,80]",3,0.1,0.02
+Pacific halibut,Chionoecetes opilio,"(20,40]",2,0.17,0.02
+Pacific cod,Chionoecetes opilio,"(60,80]",4,0.13,0.02
+Pacific halibut,Invertebrate,"(20,40]",8,0.68,0.02
+Walleye pollock,Isopoda,"(20,40]",6,0.25,0.02
+Pacific halibut,Crustacea,"(20,40]",5,0.42,0.02
+Pacific cod,Echinodea,"(40,60]",3,0.06,0.02
+Arrowtooth flounder,Caridea,"(60,80]",10,1.64,0.02
+Pacific cod,Fish Eggs,"(80,280]",1,0.53,0.02
+Pacific cod,Ctenophora sp.,"(80,280]",1,0.53,0.02
+Arrowtooth flounder,Crangonidae,"(60,80]",10,1.64,0.02
+Pacific halibut,Gammaridea,"(60,80]",35,1.37,0.02
+Pacific cod,Offal,"(20,40]",2,0.11,0.02
+Pacific cod,Echinodermata,"(80,280]",1,0.53,0.02
+Pacific cod,Decapoda,"(40,60]",10,0.19,0.02
+Pacific halibut,Mysidacea,"(40,60]",7,0.29,0.02
+Pacific cod,Hyperiidea,"(40,60]",56,1.05,0.02
+Walleye pollock,Cephalopoda,"(40,60]",38,0.54,0.02
+Pacific halibut,Tunicata,"(40,60]",3,0.12,0.02
+Arrowtooth flounder,Pleurogrammus monopterygius,"(0,20]",1,0.12,0.02
+Pacific cod,Echinodermata,"(40,60]",14,0.26,0.02
+Arrowtooth flounder,Crustacea,"(20,40]",37,0.81,0.02
+Walleye pollock,Clupeoidei,"(20,40]",1,0.04,0.02
+Walleye pollock,Bivalvia,"(60,80]",6,0.75,0.02
+Walleye pollock,Crustacea,"(60,80]",6,0.75,0.02
+Arrowtooth flounder,Copepoda,"(20,40]",25,0.55,0.02
+Pacific halibut,Gastropod,"(80,280]",13,1.17,0.02
+Arrowtooth flounder,Anoplopoma fimbria,"(40,60]",4,0.08,0.02
+Pacific cod,Hyperiidea,"(60,80]",30,0.98,0.02
+Pacific cod,Chionoecetes opilio,"(40,60]",5,0.09,0.02
+Arrowtooth flounder,Brachyura,"(0,20]",3,0.37,0.02
+Walleye pollock,Sebastes sp.,"(40,60]",5,0.07,0.02
+Pacific cod,Myctophidae,"(40,60]",5,0.09,0.02
+Pacific cod,Caridea,"(80,280]",7,3.72,0.02
+Walleye pollock,Atheresthes stomias,"(0,20]",1,0.06,0.02
+Arrowtooth flounder,Hippolytidae,"(40,60]",26,0.54,0.02
+Walleye pollock,Echinodermata,"(40,60]",2,0.03,0.02
+Walleye pollock,Cephalopoda,"(20,40]",7,0.29,0.02
+Pacific halibut,Echinodea,"(80,280]",2,0.18,0.02
+Pacific cod,Annelida,"(80,280]",2,1.06,0.02
+Arrowtooth flounder,Mollusca,"(0,20]",1,0.12,0.02
+Arrowtooth flounder,Chionoecetes bairdi,"(20,40]",3,0.07,0.02
+Pacific cod,Decapoda,"(0,20]",1,0.27,0.02
+Arrowtooth flounder,Appendicularia,"(20,40]",3,0.07,0.02
+Arrowtooth flounder,Cyclopteridae,"(40,60]",2,0.04,0.01
+Walleye pollock,Gastropod,"(40,60]",29,0.41,0.01
+Pacific cod,Chaetognatha,"(20,40]",4,0.22,0.01
+Pacific cod,Hippolytidae,"(80,280]",5,2.66,0.01
+Pacific halibut,Fish Eggs,"(20,40]",1,0.08,0.01
+Walleye pollock,Invertebrate,"(60,80]",3,0.37,0.01
+Walleye pollock,Majidae,"(40,60]",22,0.31,0.01
+Pacific cod,Tunicata,"(60,80]",6,0.2,0.01
+Pacific halibut,Hippoglossus stenolepis,"(20,40]",3,0.25,0.01
+Walleye pollock,Bivalvia,"(20,40]",5,0.21,0.01
+Arrowtooth flounder,Mysidacea,"(40,60]",18,0.37,0.01
+Pacific cod,Unid Eggs,"(60,80]",6,0.2,0.01
+Pacific halibut,Tunicata,"(20,40]",1,0.08,0.01
+Walleye pollock,Tunicata,"(0,20]",1,0.06,0.01
+Walleye pollock,Hippoglossoides elassodon,"(60,80]",2,0.25,0.01
+Walleye pollock,Gastropod,"(20,40]",3,0.12,0.01
+Pacific halibut,Unid Eggs,"(80,280]",1,0.09,0.01
+Pacific cod,Chionoecetes opilio,"(20,40]",1,0.06,0.01
+Walleye pollock,Atheresthes stomias,"(20,40]",3,0.12,0.01
+Walleye pollock,Majidae,"(0,20]",6,0.34,0.01
+Pacific cod,Mysidacea,"(60,80]",45,1.47,0.01
+Pacific halibut,Lepidopsetta bilineata,"(40,60]",1,0.04,0.01
+Pacific cod,Ophiurida,"(20,40]",7,0.39,0.01
+Arrowtooth flounder,Paguridae,"(60,80]",2,0.33,0.01
+Arrowtooth flounder,Polychaeta,"(40,60]",24,0.5,0.01
+Arrowtooth flounder,Unid Eggs,"(60,80]",1,0.16,0.01
+Arrowtooth flounder,Copepoda,"(60,80]",2,0.33,0.01
+Pacific cod,Tunicata,"(40,60]",5,0.09,0.01
+Pacific cod,Unid Eggs,"(40,60]",10,0.19,0.01
+Walleye pollock,Octopoda,"(60,80]",1,0.12,0.01
+Arrowtooth flounder,Myctophidae,"(60,80]",1,0.16,0.01
+Pacific cod,Pholidae,"(60,80]",3,0.1,0.01
+Walleye pollock,Cottidae,"(0,20]",1,0.06,0.01
+Arrowtooth flounder,Gammaridea,"(40,60]",23,0.48,0.01
+Pacific cod,Gastropod,"(80,280]",3,1.6,0.01
+Arrowtooth flounder,Thecosomata,"(0,20]",3,0.37,0.01
+Pacific halibut,Aves,"(60,80]",2,0.08,0.01
+Pacific halibut,Sebastes sp.,"(20,40]",2,0.17,0.01
+Pacific halibut,Caridea,"(80,280]",9,0.81,0.01
+Walleye pollock,Mollusca,"(20,40]",3,0.12,0.01
+Pacific cod,Copepoda,"(60,80]",17,0.55,0.01
+Arrowtooth flounder,Unid,"(60,80]",5,0.82,0.01
+Pacific halibut,Clypeasteroida,"(60,80]",3,0.12,0.01
+Pacific halibut,Paralithodes camtschaticus,"(80,280]",1,0.09,0.01
+Pacific halibut,Cumacea,"(0,20]",1,1.14,0.01
+Arrowtooth flounder,Amphipoda,"(20,40]",3,0.07,0.01
+Walleye pollock,Agonidae,"(60,80]",1,0.12,0.01
+Arrowtooth flounder,Ophiurida,"(40,60]",5,0.1,0.01
+Pacific halibut,Ophiurida,"(80,280]",10,0.9,0.01
+Walleye pollock,Gadus macrocephalus,"(40,60]",2,0.03,0.01
+Arrowtooth flounder,Liminda aspera,"(20,40]",1,0.02,0.01
+Pacific halibut,Hyperiidea,"(20,40]",2,0.17,0.01
+Pacific cod,Gammaridea,"(80,280]",7,3.72,0.01
+Pacific halibut,Anomura,"(80,280]",9,0.81,0.01
+Arrowtooth flounder,Octopoda,"(40,60]",3,0.06,0.01
+Pacific halibut,Annelida,"(80,280]",6,0.54,0.01
+Pacific halibut,Myctophidae,"(60,80]",1,0.04,0.01
+Arrowtooth flounder,Cyclopteridae,"(20,40]",2,0.04,0.01
+Arrowtooth flounder,Annelida,"(20,40]",1,0.02,0.01
+Arrowtooth flounder,Hyperiidea,"(20,40]",30,0.66,0.01
+Pacific cod,Lithodidae,"(20,40]",1,0.06,0.01
+Pacific cod,Lepidopsetta sp.,"(20,40]",1,0.06,0.01
+Pacific cod,Fish Eggs,"(40,60]",6,0.11,0.01
+Pacific halibut,Echinodermata,"(60,80]",6,0.23,0.01
+Arrowtooth flounder,Chionoecetes sp.,"(20,40]",1,0.02,0.01
+Arrowtooth flounder,Agonidae,"(40,60]",3,0.06,0.01
+Pacific cod,Amphipoda,"(40,60]",20,0.37,0.01
+Pacific cod,Ctenophora sp.,"(60,80]",1,0.03,0.01
+Arrowtooth flounder,Anomura,"(40,60]",6,0.12,0.01
+Pacific cod,Non-teleost fish,"(60,80]",1,0.03,0.01
+Pacific halibut,Crangonidae,"(80,280]",8,0.72,0.01
+Walleye pollock,Mollusca,"(40,60]",10,0.14,0.01
+Arrowtooth flounder,Hippoglossus stenolepis,"(20,40]",2,0.04,0.01
+Arrowtooth flounder,Bivalvia,"(20,40]",5,0.11,0.01
+Walleye pollock,Agonidae,"(40,60]",4,0.06,0.01
+Pacific cod,Echinodea,"(80,280]",1,0.53,0.01
+Walleye pollock,Pleurogrammus monopterygius,"(40,60]",1,0.01,0.01
+Walleye pollock,Chionoecetes bairdi,"(20,40]",7,0.29,0.01
+Walleye pollock,Unid Eggs,"(20,40]",1,0.04,0.01
+Arrowtooth flounder,Gastropod,"(20,40]",1,0.02,0.01
+Pacific halibut,Mollusca,"(80,280]",5,0.45,0.01
+Arrowtooth flounder,Brachyura,"(40,60]",10,0.21,0.01
+Pacific halibut,Trichodon trichodon,"(40,60]",1,0.04,0.01
+Pacific cod,Myctophidae,"(60,80]",1,0.03,0.01
+Arrowtooth flounder,Cephalopoda,"(0,20]",1,0.12,0.01
+Arrowtooth flounder,Bivalvia,"(40,60]",11,0.23,0.01
+Pacific halibut,Decapoda,"(0,20]",1,1.14,0.01
+Pacific halibut,Lepidopsetta polyxystra,"(40,60]",1,0.04,0.01
+Arrowtooth flounder,Bivalvia,"(60,80]",5,0.82,0
+Arrowtooth flounder,Lepidopsetta bilineata,"(0,20]",1,0.12,0
+Pacific halibut,Echinodea,"(40,60]",3,0.12,0
+Walleye pollock,Non-teleost fish,"(40,60]",1,0.01,0
+Pacific halibut,Crustacea,"(80,280]",4,0.36,0
+Arrowtooth flounder,Majidae,"(40,60]",1,0.02,0
+Pacific halibut,Fish Eggs,"(60,80]",2,0.08,0
+Pacific halibut,Hippolytidae,"(80,280]",6,0.54,0
+Pacific halibut,Chionoecetes opilio,"(80,280]",1,0.09,0
+Arrowtooth flounder,Non-teleost fish,"(40,60]",2,0.04,0
+Arrowtooth flounder,Isopoda,"(40,60]",5,0.1,0
+Pacific cod,Aves,"(40,60]",3,0.06,0
+Pacific cod,Liminda aspera,"(40,60]",1,0.02,0
+Pacific cod,Ctenophora sp.,"(20,40]",1,0.06,0
+Arrowtooth flounder,Copepoda,"(40,60]",16,0.33,0
+Pacific cod,Clypeasteroida,"(60,80]",2,0.07,0
+Walleye pollock,Ophiurida,"(20,40]",2,0.08,0
+Pacific halibut,Echinodermata,"(40,60]",2,0.08,0
+Pacific halibut,Crustacea,"(60,80]",3,0.12,0
+Pacific halibut,Anoplopoma fimbria,"(80,280]",1,0.09,0
+Pacific halibut,Holothuroidea,"(60,80]",1,0.04,0
+Walleye pollock,Caprellidae,"(20,40]",3,0.12,0
+Pacific cod,Sebastolobus sp.,"(40,60]",1,0.02,0
+Walleye pollock,Unid Eggs,"(40,60]",7,0.1,0
+Pacific halibut,Myctophidae,"(80,280]",1,0.09,0
+Arrowtooth flounder,Cumacea,"(60,80]",1,0.16,0
+Arrowtooth flounder,Invertebrate,"(20,40]",3,0.07,0
+Arrowtooth flounder,Paguridae,"(20,40]",2,0.04,0
+Arrowtooth flounder,Crustacea,"(40,60]",18,0.37,0
+Arrowtooth flounder,Hippolytidae,"(60,80]",1,0.16,0
+Walleye pollock,Gadus macrocephalus,"(60,80]",2,0.25,0
+Pacific halibut,Holothuroidea,"(80,280]",1,0.09,0
+Arrowtooth flounder,Invertebrate,"(40,60]",5,0.1,0
+Pacific cod,Hippoglossus stenolepis,"(60,80]",3,0.1,0
+Walleye pollock,Caprellidae,"(40,60]",4,0.06,0
+Pacific halibut,Tunicata,"(80,280]",1,0.09,0
+Pacific halibut,Unid Eggs,"(60,80]",3,0.12,0
+Arrowtooth flounder,Echinodermata,"(40,60]",2,0.04,0
+Arrowtooth flounder,Thecosomata,"(20,40]",7,0.15,0
+Pacific halibut,Caprellidae,"(40,60]",2,0.08,0
+Pacific halibut,Hyperiidea,"(40,60]",2,0.08,0
+Walleye pollock,Octopoda,"(20,40]",1,0.04,0
+Pacific cod,Appendicularia,"(60,80]",2,0.07,0
+Arrowtooth flounder,Cnidaria,"(20,40]",1,0.02,0
+Walleye pollock,Chionoecetes bairdi,"(0,20]",2,0.11,0
+Arrowtooth flounder,Unid Eggs,"(20,40]",3,0.07,0
+Walleye pollock,Invertebrate,"(40,60]",7,0.1,0
+Pacific cod,Cumacea,"(60,80]",3,0.1,0
+Arrowtooth flounder,Polychaeta,"(60,80]",3,0.49,0
+Pacific halibut,Gammaridea,"(80,280]",6,0.54,0
+Walleye pollock,Clypeasteroida,"(40,60]",1,0.01,0
+Pacific cod,Hippoglossus stenolepis,"(40,60]",3,0.06,0
+Pacific cod,Thecosomata,"(60,80]",5,0.16,0
+Arrowtooth flounder,Hyperiidea,"(40,60]",21,0.44,0
+Pacific cod,Lepidopsetta polyxystra,"(60,80]",1,0.03,0
+Pacific halibut,Copepoda,"(20,40]",2,0.17,0
+Walleye pollock,Hippoglossus stenolepis,"(40,60]",1,0.01,0
+Pacific cod,Salmonidae,"(60,80]",1,0.03,0
+Arrowtooth flounder,Cumacea,"(20,40]",5,0.11,0
+Walleye pollock,Reinhardtius hippoglossoides,"(60,80]",1,0.12,0
+Walleye pollock,Chionoecetes sp.,"(40,60]",3,0.04,0
+Walleye pollock,Mollusca,"(0,20]",1,0.06,0
+Arrowtooth flounder,Gastropod,"(60,80]",2,0.33,0
+Pacific cod,Macrouridae,"(60,80]",1,0.03,0
+Pacific cod,Chionoecetes sp.,"(0,20]",1,0.27,0
+Walleye pollock,Gastropod,"(0,20]",1,0.06,0
+Arrowtooth flounder,Chionoecetes sp.,"(40,60]",1,0.02,0
+Arrowtooth flounder,Gammaridea,"(60,80]",2,0.33,0
+Walleye pollock,Lithodidae,"(0,20]",2,0.11,0
+Walleye pollock,Invertebrate,"(0,20]",1,0.06,0
+Walleye pollock,Caprellidae,"(0,20]",1,0.06,0
+Arrowtooth flounder,Isopoda,"(20,40]",1,0.02,0
+Pacific halibut,Isopoda,"(80,280]",3,0.27,0
+Arrowtooth flounder,Cumacea,"(0,20]",1,0.12,0
+Walleye pollock,Majidae,"(20,40]",2,0.08,0
+Arrowtooth flounder,Chaetognatha,"(40,60]",6,0.12,0
+Pacific halibut,Clypeasteroida,"(40,60]",1,0.04,0
+Pacific halibut,Agonidae,"(80,280]",1,0.09,0
+Walleye pollock,Chionoecetes bairdi,"(60,80]",2,0.25,0
+Walleye pollock,Bathylagidae,"(40,60]",2,0.03,0
+Arrowtooth flounder,Paguridae,"(40,60]",4,0.08,0
+Walleye pollock,Majidae,"(60,80]",2,0.25,0
+Walleye pollock,Non-teleost fish,"(20,40]",1,0.04,0
+Pacific cod,Hexagrammidae,"(40,60]",1,0.02,0
+Pacific cod,Chaetognatha,"(60,80]",1,0.03,0
+Arrowtooth flounder,Appendicularia,"(40,60]",2,0.04,0
+Pacific cod,Decapoda,"(60,80]",3,0.1,0
+Pacific cod,Caprellidae,"(60,80]",4,0.13,0
+Arrowtooth flounder,Cnidaria,"(40,60]",1,0.02,0
+Pacific cod,Amphipoda,"(60,80]",2,0.07,0
+Walleye pollock,Lepidopsetta bilineata,"(40,60]",1,0.01,0
+Pacific halibut,Appendicularia,"(40,60]",1,0.04,0
+Pacific cod,Non-teleost fish,"(40,60]",1,0.02,0
+Pacific halibut,Ophiurida,"(20,40]",1,0.08,0
+Arrowtooth flounder,Brachyura,"(60,80]",1,0.16,0
+Walleye pollock,Aves,"(40,60]",1,0.01,0
+Pacific cod,Isopoda,"(80,280]",1,0.53,0
+Arrowtooth flounder,Invertebrate,"(60,80]",2,0.33,0
+Walleye pollock,Echinodermata,"(20,40]",1,0.04,0
+Pacific cod,Clypeasteroida,"(40,60]",1,0.02,0
+Pacific halibut,Hyperiidea,"(80,280]",1,0.09,0
+Walleye pollock,Echinodea,"(40,60]",2,0.03,0
+Walleye pollock,Bivalvia,"(0,20]",1,0.06,0
+Arrowtooth flounder,Annelida,"(40,60]",1,0.02,0
+Walleye pollock,Non-teleost fish,"(60,80]",1,0.12,0
+Pacific cod,Chaetognatha,"(40,60]",2,0.04,0
+Pacific halibut,Mysidacea,"(60,80]",2,0.08,0
+Walleye pollock,Fish Eggs,"(20,40]",2,0.08,0
+Walleye pollock,Fish Eggs,"(40,60]",6,0.09,0
+Arrowtooth flounder,Crustacea,"(60,80]",1,0.16,0
+Pacific halibut,Amphipoda,"(40,60]",1,0.04,0
+Walleye pollock,Decapoda,"(60,80]",1,0.12,0
+Walleye pollock,Lithodidae,"(40,60]",2,0.03,0
+Pacific cod,Mollusca,"(80,280]",1,0.53,0
+Arrowtooth flounder,Cumacea,"(40,60]",2,0.04,0
+Arrowtooth flounder,Caprellidae,"(40,60]",1,0.02,0
+Pacific halibut,Appendicularia,"(60,80]",1,0.04,0
+Arrowtooth flounder,Thecosomata,"(40,60]",1,0.02,0
+Walleye pollock,Ophiurida,"(60,80]",1,0.12,0
+Pacific halibut,Copepoda,"(40,60]",1,0.04,0
+Pacific cod,Ophiurida,"(80,280]",1,0.53,0
+Pacific halibut,Mysidacea,"(80,280]",1,0.09,0
+Walleye pollock,Ophiurida,"(40,60]",1,0.01,0

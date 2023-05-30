@@ -1,0 +1,63 @@
+Pred_common,Prey_Name_Clean,NStomachs,Percent_Occur,Percent_Weight
+Arrowtooth flounder,Gadus chalcogrammus,1540,14.27,60.26
+Arrowtooth flounder,Osmeridae,1267,11.74,7.92
+Arrowtooth flounder,Clupeoidei,234,2.17,6.64
+Arrowtooth flounder,Euphausiacea,3919,36.32,3.72
+Arrowtooth flounder,Teleostei unid,1827,16.93,3.61
+Arrowtooth flounder,Ammodytidae,313,2.9,2.61
+Arrowtooth flounder,Gadidae,326,3.02,2.44
+Arrowtooth flounder,Pandalidae,1226,11.36,1.73
+Arrowtooth flounder,Pleuronectiformes,157,1.46,1.48
+Arrowtooth flounder,Atheresthes stomias,48,0.44,1.31
+Arrowtooth flounder,Gadus macrocephalus,21,0.19,1.23
+Pacific cod,Gadus chalcogrammus,627,5.81,26.82
+Pacific cod,Chionoecetes bairdi,1916,17.75,9.07
+Pacific cod,Pandalidae,2828,26.19,8
+Pacific cod,Offal,105,0.97,3.61
+Pacific cod,Paguridae,1783,16.51,3.6
+Pacific cod,Teleostei unid,2147,19.89,3.52
+Pacific cod,Ammodytidae,421,3.9,3.4
+Pacific cod,Polychaeta,3654,33.84,3.24
+Pacific cod,Euphausiacea,2437,22.57,3.14
+Pacific cod,Anomura,748,6.93,2.82
+Pacific cod,Crangonidae,3188,29.53,2.72
+Pacific cod,Pleurogrammus monopterygius,24,0.22,2.7
+Pacific cod,Pleuronectiformes,480,4.45,2.26
+Pacific cod,Osmeridae,228,2.11,2.13
+Pacific cod,Majidae,762,7.06,1.9
+Pacific cod,Cottidae,713,6.6,1.69
+Pacific cod,Brachyura,1474,13.65,1.51
+Pacific cod,Octopoda,755,6.99,1.48
+Pacific cod,Caridea,1700,15.75,1.41
+Pacific cod,Atheresthes stomias,64,0.59,1.32
+Pacific cod,Stichaeidae,439,4.07,1.13
+Pacific cod,Gadidae,98,0.91,1.12
+Pacific halibut,Gadus chalcogrammus,1105,15.01,42.81
+Pacific halibut,Chionoecetes bairdi,1025,13.92,5.66
+Pacific halibut,Majidae,1415,19.22,5.06
+Pacific halibut,Octopoda,314,4.27,4.49
+Pacific halibut,Paguridae,2768,37.6,4.29
+Pacific halibut,Offal,165,2.24,3.94
+Pacific halibut,Sebastes sp.,83,1.13,3.52
+Pacific halibut,Brachyura,1121,15.23,2.61
+Pacific halibut,Salmonidae,21,0.29,2.61
+Pacific halibut,Osmeridae,435,5.91,2.55
+Pacific halibut,Atheresthes stomias,71,0.96,2.29
+Pacific halibut,Pleuronectiformes,259,3.52,2.22
+Pacific halibut,Clupeoidei,177,2.4,2.14
+Pacific halibut,Teleostei unid,1246,16.93,2
+Pacific halibut,Ammodytidae,454,6.17,1.85
+Pacific halibut,Gadus macrocephalus,46,0.62,1.67
+Pacific halibut,Gadidae, ,2.34,1.66
+Walleye pollock,Euphausiacea,7853,65.3,44.69
+Walleye pollock,Pandalidae,1326,11.03,11.66
+Walleye pollock,Osmeridae,331,2.75,7.09
+Walleye pollock,Copepoda,4079,33.92,6.11
+Walleye pollock,Appendicularia,1309,10.88,5.65
+Walleye pollock,Gadus chalcogrammus,166,1.38,3.67
+Walleye pollock,Caridea,1369,11.38,3.38
+Walleye pollock,Teleostei unid,924,7.68,2.82
+Walleye pollock,Cumacea,270,2.25,2.18
+Walleye pollock,Crangonidae,543,4.52,1.72
+Walleye pollock,Mysidacea,849,7.06,1.39
+Walleye pollock,Hyperiidea,2598,21.6,1.36

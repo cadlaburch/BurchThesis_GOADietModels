@@ -637,3 +637,47 @@ APX4Plot4
 ```
 
 Plot description
+
+```{r A3Plot5, echo=FALSE, results=FALSE, fig.width= 9, fig.height=5, dpi = 300}
+#Southern Rock Sole
+#calculate percent weight and sample size based on specific prey groups
+SRS <- allpred %>% 
+  filter(Pred_common == "Southern rock sole") %>% 
+  mutate(Len_bin = cut(PRED_LEN, breaks = c(0, 20, 30, 40, 280))) %>% 
+  group_by(Len_bin) %>% 
+  mutate(TotalWt = sum(PREY_TWT), n = length(unique(uniqueID))) %>% 
+  ungroup() %>% 
+  group_by(Len_bin, srs_groupings) %>% 
+  mutate(PreyWt = sum(PREY_TWT), PW = (PreyWt/TotalWt)*100) %>% 
+  distinct(Pred_common, Len_bin, srs_groupings, PW, n)
+levels(Flathead$Len_bin) <- c("<20","20-30", "31-40", ">40")
+
+#Colors for plot
+colorlistS<-c('#8A0000', '#fc8d59', '#fef0d9',
+                      "#7a0177", "#c51b8a", "#fcc5c0", 
+                      'white', 
+                      '#d0d1e6', '#0570b0', '#034e7b')
+                      
+#Ordering the prey items
+SRS$srs_groupings <- factor(SRS$srs_groupings, 
+                                 levels = c("Arthropoda", "benthic invertebrate", "zooplankton",
+                                            "Bivalvia", "brittle star", "Polychaeta",
+                                            "other",
+                                            "flatfish", "forage fish", "other fish"))
+
+#Plot diet figure
+APX4Plot5 <- SRS %>% 
+  ggplot( aes(x = Len_bin, y = PW, fill = srs_groupings)) +
+  geom_bar(stat = "identity", show.legend = T) +  
+  geom_text(aes(x = Len_bin, y = 103, label = n), color = '#b30000') +
+  scale_fill_manual(values = colorlistS, name = "Prey Groupings") +
+  labs(x = "Predator length (cm)", y = "Percent weight", title = "Southern Rock Sole Diet") +
+  scale_x_discrete(guide = guide_axis(angle = 30)) +
+  scale_y_continuous(expand = c(0,2)) +
+  theme_minimal() 
+
+APX4Plot5
+
+```
+
+Plot description

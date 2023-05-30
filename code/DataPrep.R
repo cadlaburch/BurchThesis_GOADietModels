@@ -22,23 +22,24 @@ data$Haul_Join <- paste(data$VESSEL, data$CRUISE, data$HAUL, sep = "")
 data <- data %>% 
   filter(Year >= 1990)
 
-#remove empty stomachs and create unique stomach ID
+#create unique stomach ID
 data <- data %>% 
-  filter(Prey_Name != "Empty") %>% 
   mutate(uniqueID = paste("ID", Haul_Join, PRED_NODC, PRED_SPECN, sep = ""))
 
-class(data$uniqueID)
-length(unique(data$uniqueID))
 #change year to factor
 data$Year <- factor(data$Year)
 
 #Remove deep hauls and data entry error
-data <- data %>% 
-  filter(GEAR_DEPTH <= 300 & GEAR_DEPTH > 0)
+#data <- data %>% 
+#  filter(GEAR_DEPTH <= 300 & GEAR_DEPTH > 0)
 
 #remove hauls with missing data
 data <- data %>% 
   drop_na(GEAR_DEPTH, GEAR_TEMP)
+
+#remove empty stomachs
+data <- data %>% 
+  filter(Prey_Name != "Empty")
 
 #Save filtered data for all predators
 write.csv(data, here("data/all_pred_data.csv"), row.names = F)
@@ -83,8 +84,12 @@ levels(AF$Len_bin_sample) = c("<29", "29-49", ">49")
 levels(AF$Len_bin_SB) = c("<20", "21-30", "31-40", "41-50", "51-60", "61-70", ">70")
 
 
-#creating dataframe for just focal predators
+#creating dataframe for just focal predators with distinct length bins
 data <- rbind(WP, PH, PC, AF)
 
+length(unique(data$uniqueID))
+length(unique(data$Haul_Join))
+
 #save data
-write.csv(data, here("data/data.csv"), row.names = F)
+write.csv(data, here("data/data.csv"), row.names = F) #85676
+

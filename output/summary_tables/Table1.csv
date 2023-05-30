@@ -1,0 +1,17 @@
+Pred_common,Metric,Euphausiacea,other,Paguridae,Pandalidae,Osmeridae,Walleye pollock,Tanner crab,Clupeidei
+Walleye pollock,N Pred,10880,10880,10880,10880,10880,10880,10880,10880
+Walleye pollock,N Prey,6977,8113,270,1184,310,139,8,5
+Walleye pollock,%O,64,75,2,11,3,1,0,0
+Walleye pollock,%W,45,32,0,12,7,4,0,0
+Pacific halibut,N Pred,6859,6859,6859,6859,6859,6859,6859,6859
+Pacific halibut,N Prey,201,4882,2588,185,383,1011,936,174
+Pacific halibut,%O,3,71,38,3,6,15,14,3
+Pacific halibut,%W,0,42,4,0,3,43,6,2
+Pacific cod,N Pred,9840,9840,9840,9840,9840,9840,9840,9840
+Pacific cod,N Prey,2147,8878,1618,2572,192,572,1656,39
+Pacific cod,%O,22,90,16,26,2,6,17,0
+Pacific cod,%W,3,46,4,8,2,27,9,1
+Arrowtooth flounder,N Pred,9751,9751,9751,9751,9751,9751,9751,9751
+Arrowtooth flounder,N Prey,3558,4097,6,1093,1148,1337,4,215
+Arrowtooth flounder,%O,36,42,0,11,12,14,0,2
+Arrowtooth flounder,%W,4,20,0,2,8,58,0,7
