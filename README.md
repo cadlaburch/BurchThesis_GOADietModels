@@ -4,49 +4,43 @@ Eventually this read me will be used to help locate files within the Repo edit
 ###DATA BIOGRAPHY
 Your Name: Catalina Burch
 
-##1. RESOURCE OVERVIEW (what, why, who)
-#1.1. Title of the dataset. Descriptive title that usually includes data type, time period, location, and name of author, program, or institution. 
+##1. RESOURCE OVERVIEW 
+#1.1. Title of the dataset.
 Gulf of Alaska Diets Data Network Analysis
 Data Collection by the NOAA, Alaska Fisheries Science Center, Resource Ecology Ecosystem Modeling Program
 Data Processing by Catalina Burch at University of Washington, School of Marine and Environmental Affairs
 
-#1.2. Abstract. One paragraph summary of the dataset in plain language. Include one sentence of broader context, followed by the dataset’s origin/purpose, and briefly expand on the elements of the title. A length of 200-250 words is a good target. 
-The Resource Ecology and Ecosystem Modeling Program (REEM) at the Alaska Fisheries Science Center maintains a North Pacific groundfish diet data time series that dates back to the early 1980s for many species. Diet data are from samples collected during NMFS assessment surveys and include diet composition by predator species, year, and region. Once a species is selected a list of available diet data by region and year is available, with each year linking to the diet table for that species, region, and year combination. The general diet of each species for each year and region was calculated to show mean percent frequency of occurrence, mean percent of total weight, and mean percent number of each prey item in the diet. These values were calculated as the average of the diet composition at each haul where the predator was collected. For the diet calculations, prey items were grouped into 92 common categories. REEM maintains a customized prey dictionary based on former NODC codes. The categories and codes can be found in the data folder.
-?This is writing straight from the REEM website.
+#1.2. Abstract. 
+Recently, the North Pacific Ocean has experienced unprecedented and extreme marine heat waves (MHWs), which have caused cascading ecological effects within marine food webs. Examining past responses of groundfish feeding ecology to temperature shifts will help illuminate how they may respond in the future. In this study, we investigated the role of temperature in explaining spatiotemporal patterns in the diets of four groundfish predators in the Gulf of Alaska (GOA). The objectives of this research were to 1) characterize spatiotemporal patterns of groundfish predation on forage fish and crustacean prey species; and 2) evaluate effects of temperature on patterns of prey occurrence in predator diets. Prey species were identified for analysis based on hypothesized relationships with temperature, relevance to management, and empirical measures of relative importance in groundfish diets. We used 15 years (1990 - 2022) of groundfish stomach contents data to model prey occurrence as a function of temperature, year, location, depth, predator species, and predator length. Our model results showed seven relationships between temperature and prey occurrence in diets, including a negative effect for euphausiids and pandalids, and a positive effect for pagurids and tanner crab. Euphausiids in particular showed consistent negative trends in response to temperature in the diets of Pacific cod, walleye pollock, and arrowtooth flounder. Euphausiids are a high lipid, energy-rich food source for GOA predators including groundfish, whales, and seabirds. The complex and unprecedented effects of the GOA MHW demonstrate the need to better understand the predator-prey interactions in this system across multiple species and trophic levels. This work can help to inform development of prey abundance and biomass surveys and to supplement data-limited species or years.
 
-1.3. Purpose. Brief description of why the data were collected, including the goals and intended outcomes (this may or may not include application to decision-making). 
-It was recognized early on that regular collection of trophic data would be needed to support ecosystem and fishery management models and assessments. Sensitivity analysis of mass balance and multispecies Beverton-Holt models showed how influential the diet composition, growth rate, and food coefficients were in determining model estimates (Livingston 1985; Livingston 1986). This recognition, coupled with the lack of groundfish food habits information in the region (Livingston and Goiney 1983; Livingston and Goiney 1984), led to the development of a program for the systematic, standardized collection of groundfish food habits data. As a result, systematic collections of groundfish stomach samples have been made annually as part of the Alaska Fisheries Science Center (AFSC)’s bottom-trawl survey (BTS) program since 1985 (e.g., Boldt et al. 2012).
-?This is directly from livingston
+1.3. Purpose. 
+This Github page contains the data and code for a thesis submitted in partial fulfillment of the requirements for the degree of Master of Marine Affairs at the University of Washington. 
 
-#1.4. Contacts. Provide contact info for the people who managed the project, collected the data, generated the dataset, and/or managed the data. Contact information should include name, organization, role in the project, email and/or phone.
+#1.4. Contacts. 
 Catalina Burch: masters student at UW School of Marine and Environmental Affairs, data processing and analysis 
-(407)-242-7613, catburch@uw.edu
+catalinaburch@gmail.com
 
-#1.5. Sponsors. Who or what organization sponsored collection of the data (e.g., NOAA as a part of a mandated monitoring program)? Who funded collection of the data (if applicable)?
-NOAA AFSC
+#1.5. Sponsors. 
+NOAA, Alaska Fisheries Science Center; North Pacific Research Board; University of Washington, School of Marine and Environmental Affairs
 
-#1.6. Citation for the dataset. Use the citation format below and include a link to the data source. 
-Author, A.A. (YEAR). Name of data set. [Data set]. doi:XXXXX Available from: URL
+#1.6. Citation for the dataset.
 Alaska Fisheries Science Center (2022). REEM Diets Data. Available from: https://apps-afsc.fisheries.noaa.gov/refm/reem/webdietdata/dietdataintro.php
 
-#1.7. Keywords. Include 3-5 keywords for the dataset. Think of these as search terms that someone might use to find the data. 
+#1.7. Keywords.
 Ecosystem based fishery management, food webs, groundfish, marine heat wave, network analysis
 
-##2. TEMPORAL AND SPATIAL EXTENTS (when, where)
-#2.1. Temporal extent. The entire time range (specific years) for observations included in the dataset.
+##2. TEMPORAL AND SPATIAL EXTENTS 
+#2.1. Temporal extent. 
 Gulf of Alaska 
 Data collection years: 1981 1987 1990 1993 1996 1999 2001 2003 2005 2007 2009 2011 2013 2015 2017 2019 
 
-#2.2. Temporal resolution. The frequency at which data are collected or acquired. Be as specific as possible. Note whether measurements were taken at regular intervals or irregularly. 
+#2.2. Temporal resolution.  
 The AFSC conducts bottom trawl surveys biannually/triannually in the GOA. See above for specific sampling years. Surveys were completed in the summer, and the start and end dates vary.
 
-#2.3. Spatial extent. Boundaries of the data set. If possible, include both the (a) geographic description, and (b) coordinates describing north, south, east, and west boundaries of the area included in the data. You do not need to include granular geospatial data (e.g., survey tracks, buoy locations). 
+#2.3. Spatial extent. 
 The survey reach includes 320,000 km^2 conducted by a stratefied random sampling method. 
 Latitude Range: 52.46, 60.30
 Longitude Range: -169.98, -132.68
-
-2.4. Spatial resolution. Specificity with which spatial data are recorded. For example, are locations of measurements recorded using GPS? Locality (place) names? Were measurements collected on a uniform grid and if so, at what spatial scale? 
-?It looks like the diets data just has one GPS point for each specimen. I'm not sure if this is the beginning, end, middle of the trawl.
 
 3. RESOURCE CONTENT (what)
 #3.1. Digital context. Names of data file(s), names of tables within data file(s), file format(s), and date the data were last modified. If you have multiple data files, describe any relationships among them (e.g., queried database tables saved as separate files and linked through an identifier?). For each data file and table within a data file, include a brief (1 sentence) narrative description of the contents. 
@@ -60,7 +54,7 @@ PreyCodes.pdf Is a metadata file that catalogues prey identifier codes.
 ?I think this is something that I can finish later
 
 ##4. METHODS (how) 
-#4.1. Lineage statement. Provide a summary of the methods used to collect the data. Ideally, this is a brief narrative description that includes citations to standard operating procedures, field manuals, or other references. 
+#4.1. Lineage statement. 
 A subsample of the bottom trawl catch is selected for stomach content analysis. The protocol for species selection varied over the years with the goal of rotating through a variety of commercially and ecologically important species. 
 
 At each station, individual fish are chosen for stomach content analysis based on species-specific length stratification; for example, walleye pollock length categories are 1–24 cm, 25–39 cm, 40–54 cm, and 55+ cm. At a given station, no more than five specimens are selected per length category, and samples within a length category are selected to provide as wide a length-range as possible given the available fish. Not all length categories or target species are collected at all stations. 
