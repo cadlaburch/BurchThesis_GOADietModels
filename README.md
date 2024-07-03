@@ -1,12 +1,10 @@
 ### Alaska_Foodwebs
-Eventually this read me will be used to help locate files within the Repo edit
 
 ###DATA BIOGRAPHY
 Your Name: Catalina Burch
 
 ##1. RESOURCE OVERVIEW 
-#1.1. Title of the dataset.
-Gulf of Alaska Diets Data Network Analysis
+#1.1.Gulf of Alaska Diets Data Analysis
 Data Collection by the NOAA, Alaska Fisheries Science Center, Resource Ecology Ecosystem Modeling Program
 Data Processing by Catalina Burch at University of Washington, School of Marine and Environmental Affairs
 
